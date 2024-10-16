@@ -24,6 +24,7 @@
 
         {{-- Styles --}}
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <link href="{{ url('public/css/custom.css') }}" rel="stylesheet">
 
         {{-- Custom fonts --}}
 		{!! settings('appearance')->font_link !!}
@@ -69,31 +70,8 @@
         {{-- Container --}}
         <div class="min-h-screen flex grow bg-slate-50 dark:bg-zinc-700">
             
-            <div class="hidden w-full place-items-center lg:grid">
-                <div class="w-full px-2 py-40 sm:py-48 sm:px-12 flex flex-col justify-center relative bg-no-repeat bg-center bg-cover h-full" @if(settings('auth')->wallpaper) style="background-image: url({{ src(settings('auth')->wallpaper) }})" @endif>
-                    <span style="background: url(https://i.imgur.com/MvqeeGS.jpeg);" class="absolute bg-gradient-to-b from-primary-500 to-primary-400 inset-0 z-0"></span>
-
-                    {{-- Logo --}}
-                    <div class="fixed top-0 ltr:left-0 rtl:right-0 hidden p-6 lg:block lg:px-12">
-                        @if (settings('general')->logo_dark)
-                            <a href="{{ url('/') }}" class="flex items-center">
-                                <img style="filter: brightness(0) invert(1); width: 230px;" src="{{ src(settings('general')->logo_dark) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;">
-                            </a>
-                        @else
-                            <a href="{{ url('/') }}" class="flex items-center">
-                                <img style="filter: brightness(0) invert(1); width: 230px;" src="{{ src(settings('general')->logo) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;">
-                            </a>
-                        @endif
-                    </div>
-
-                    {{-- Copyrights --}}
-                    <div class="fixed bottom-0 ltr:left-0 rtl:right-0 hidden p-6 lg:block lg:px-12 text-white font-normal text-[13px]">
-                        {!! settings('footer')->copyrights !!}
-                    </div>
-
-                </div>
-            </div>
-            <main class="flex w-full flex-col items-center bg-white dark:bg-navy-700 lg:max-w-md">
+        
+            <main class="flex w-full flex-col items-center bg-white dark:bg-navy-700 lg:max-w-md login-form">
                 @yield('content')
             </main>
         </div>

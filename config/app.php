@@ -54,9 +54,9 @@ return [
     |
     */
 
-    'url'       => 'http://localhost/freeluncer2',
+    'url'       => 'http://localhost/freeluncer',
 
-    'asset_url' => 'http://localhost/freeluncer2',
+    'asset_url' => 'http://localhost/freeluncer',
 
     /*
     |--------------------------------------------------------------------------
@@ -226,6 +226,6 @@ return [
     /**
      * Mix base url
      */
-    'mix_url' => 'http://localhost/freeluncer2/public'
+    'mix_url' => 'http://localhost/freeluncer/public'
 
 ];

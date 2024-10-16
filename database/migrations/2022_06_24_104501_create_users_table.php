@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('username', 60)->unique();
             $table->string('email', 60)->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('phone')->nullable();
             $table->string('password', 60)->nullable();
             $table->enum('account_type', ['seller', 'buyer'])->default('buyer');
             $table->unsignedBigInteger('avatar_id')->nullable();

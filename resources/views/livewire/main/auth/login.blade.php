@@ -3,12 +3,13 @@
 	{{-- Welcome back message --}}
 	<div class="text-center">
 		<div class="mt-4">
-			<h2 class="text-xl font-bold text-zinc-700 dark:text-navy-100">
-				@lang('messages.t_welcome_back')
-			</h2>
-			<p class="text-zinc-400 dark:text-gray-300">
+			<h1 class="text-xl font-bold text-zinc-700 dark:text-navy-100">
+				<!-- @lang('messages.t_welcome_back') -->
+				Log in to Sukoonzz	
+			</h1>
+			<!-- <p class="text-zinc-400 dark:text-gray-300">
 				@lang('messages.t_pls_login_to_continue')
-			</p>
+			</p> -->
 			<a href="{{ url('/') }}" class="block lg:hidden mt-3 text-sm tracking-wider font-semibold text-blue-600 hover:underline">
 				@lang('messages.t_back_to_homepage')
 			</a>
@@ -103,7 +104,7 @@
 					</div>
 
 					{{-- Remember me --}}
-					<div class="col-span-12 flex items-center">
+					<!-- <div class="col-span-12 flex items-center">
 						<div class="relative flex items-start">
 							<div class="flex items-center h-5">
 								<input id="remember_me" wire:model.defer="remember_me" type="checkbox" class="focus:ring-primary-600 h-5 w-5 text-primary-600 border-2 dark:bg-zinc-700 border-gray-200 dark:border-zinc-700 rounded-sm cursor-pointer">
@@ -112,7 +113,7 @@
 								<label for="remember_me" class="font-normal text-zinc-600 dark:text-gray-400 cursor-pointer">{{ __('messages.t_remember_me') }}</label>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					{{-- reCaptcha --}}
 					@if (settings('security')->is_recaptcha)
@@ -123,7 +124,7 @@
 
 					{{-- Login --}}
 					<div class="col-span-12">
-						<button type="submit" wire:loading.attr="disabled" wire:target="login" :disabled="!form.email || !form.password" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500">
+						<button type="submit" wire:loading.attr="disabled" wire:target="login" :disabled="!form.email || !form.password" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500 login-btn-color">
 							
 							{{-- Loading indicator --}}
 							<div wire:loading wire:target="login">
@@ -210,44 +211,47 @@
 
 			{{-- Action links --}}
 			<div class="mt-6">
-				<ul class="list-disc list-inside text-slate-500 text-[13px] space-y-2">
+				<div class="list-disc list-inside text-slate-500 text-[13px] space-y-2">
+
+
+				{{-- Forgot password --}}
+					<!-- <li> -->
+						<a class="hover:text-slate-600 hover:underline link-color" href="{{ url('auth/password/reset') }}">
+							@lang('messages.t_forgot_password')	<br><br>
+						</a>
+					<!-- </li> -->
 
 					{{-- Create new account --}}
-					<li>
-						<a class="hover:text-slate-600 hover:underline" href="{{ url('auth/register') }}">
-							@lang('messages.t_create_account')	
-						</a>
-					</li>
+					<!-- <li> -->
+					<p class="nmy">Not a member Yet?<a class="hover:text-slate-600 hover:underline link-color" href="{{ url('auth/register') }}">
+							<!-- @lang('messages.t_create_account')	 -->Sign up here
+						</a></p>
+					<!-- </li> -->
 
-					{{-- Forgot password --}}
-					<li>
-						<a class="hover:text-slate-600 hover:underline" href="{{ url('auth/password/reset') }}">
-							@lang('messages.t_forgot_password')	
-						</a>
-					</li>
+			
 
 					{{-- Resend activation url --}}
-					<li>
+					<!-- <li>
 						<a class="hover:text-slate-600 hover:underline" href="{{ url('auth/request') }}">
 							@lang('messages.t_resend_verification_email')	
 						</a>
-					</li>
+					</li> -->
 
 					{{-- Privacy policy & Terms of services --}}
 					@if (settings('footer')->privacy && settings('footer')->terms)
 
 						{{-- Privacy --}}
-						<li>
+						<!-- <li> -->
 							<a class="hover:text-slate-600 hover:underline" href="{{ url('page', settings('footer')->privacy->slug) }}">{{ settings('footer')->privacy->title }}</a>
-						</li>
+						<!-- </li> -->
 
 						{{-- Terms --}}
-						<li>
+						<!-- <li> -->
 							<a class="hover:text-slate-600 hover:underline" href="{{ url('page', settings('footer')->terms->slug) }}">{{ settings('footer')->terms->title }}</a>
-						</li>
+						<!-- </li> -->
 					@endif
 
-				</ul>
+</div>
 			</div>
 			
 		</div>
