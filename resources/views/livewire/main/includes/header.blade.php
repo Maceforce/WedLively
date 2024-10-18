@@ -1,4 +1,5 @@
-<header class="bg-white dark:bg-[#0f0f0f] shadow-sm w-full z-40 transition-all duration-200">
+<header class="bg-white dark:bg-[#0f0f0f] shadow-sm w-full z-40 transition-all duration-200 border-b-2 border-black dark:border-white">
+
     <div x-data="window.TTRjRvxLbHzaKxW">
 
         {{-- Admin navbar --}}
@@ -54,63 +55,61 @@
                 </a>
                 @endif
 
-            </div>
 
-            {{-- Search --}}
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden md:block">
 
-{{-- Parent categories --}}
-<ul class="relative flex items-center justify-center gap-10 overflow-y-auto transition-colors duration-300 rtl:space-x-reverse scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-zinc-600 scrollbar-track-gray-50 dark:scrollbar-track-zinc-400" style="gap:100px">
-    @foreach ($categories as $category)
-    <li class="inline-block flex-shrink-0 border-b-2 border-transparent hover:border-primary-600 focus:outline-none focus:ring-0 relative">
+                {{-- Parent categories --}}
+                <ul class="relative flex items-center justify-center overflow-y-auto transition-colors duration-300 rtl:space-x-reverse scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-zinc-600 scrollbar-track-gray-50 dark:scrollbar-track-zinc-400" style="gap:30px">
+                    @foreach ($categories as $category)
+                    <li class="inline-block flex-shrink-0 border-b-2 border-transparent hover:border-primary-600 focus:outline-none focus:ring-0 relative">
 
-        {{-- Check if category has subcategories --}}
-        @if (count($category->subcategories))
-        <button data-popover-target="popover-subcategories-{{ $category->uid }}" data-popover-trigger="hover" class="block text-[13px] font-medium text-gray-700 dark:text-gray-300 dark:group-hover:text-white group-hover:text-primary-600 py-2 focus:outline-none focus:ring-0">
-            {{ $category->name }}
-        </button>
-        @else
-        <a href="{{ url('categories', $category->slug) }}" class="block text-[13px] font-medium text-gray-700 dark:text-gray-300 dark:group-hover:text-white group-hover:text-primary-600 py-2 focus:outline-none focus:ring-0">
-            {{ $category->name }}
-        </a>
-        @endif
+                        {{-- Check if category has subcategories --}}
+                        @if (count($category->subcategories))
+                        <button data-popover-target="popover-subcategories-{{ $category->uid }}" data-popover-trigger="hover" class="block text-[13px] font-medium text-black dark:text-white dark:group-hover:text-white group-hover:text-primary-600 py-2 focus:outline-none focus:ring-0">
+                            {{ $category->name }}
+                        </button>
+                        @else
+                        <a href="{{ url('categories', $category->slug) }}" class="block text-[13px] font-medium text-black dark:text-white dark:group-hover:text-white group-hover:text-primary-600 py-2 focus:outline-none focus:ring-0">
+                            {{ $category->name }}
+                        </a>
+                        @endif
 
-    </li>
-    @endforeach
-</ul>
+                    </li>
+                    @endforeach
+                </ul>
 
-{{-- Subcategories --}}
-@foreach ($categories as $category)
-@if (count($category->subcategories))
-<div data-popover id="popover-subcategories-{{ $category->uid }}" data-popover-placement="bottom" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm font-light text-gray-500 transition-opacity duration-300 bg-white rounded-md shadow-xl opacity-0 dark:text-zinc-400 dark:bg-zinc-800">
-    <ul class="max-h-96 !overflow-y-auto scrollbar-thin scrollbar-thumb-primary-600 scrollbar-track-white dark:scrollbar-track-zinc-800">
 
-        @foreach ($category->subcategories as $sub)
-        <li class="first:rounded-t-md">
-            <a href="{{ url('categories/' . $category->slug . '/' . $sub->slug) }}" class="flex items-center py-2 px-3 hover:bg-gray-50 dark:hover:bg-zinc-700" style="border-radius: inherit">
-                <!-- <div class="flex-shrink-0 ltr:mr-2 rtl:ml-2">
+                {{-- Subcategories --}}
+                @foreach ($categories as $category)
+                @if (count($category->subcategories))
+                <div data-popover id="popover-subcategories-{{ $category->uid }}" data-popover-placement="bottom" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm font-light text-gray-500 transition-opacity duration-300 bg-white rounded-md shadow-xl opacity-0 dark:text-zinc-400 dark:bg-zinc-800">
+                    <ul class="max-h-96 !overflow-y-auto scrollbar-thin scrollbar-thumb-primary-600 scrollbar-track-white dark:scrollbar-track-zinc-800">
+
+                        @foreach ($category->subcategories as $sub)
+                        <li class="first:rounded-t-md">
+                            <a href="{{ url('categories/' . $category->slug . '/' . $sub->slug) }}" class="flex items-center py-2 px-3 hover:bg-gray-50 dark:hover:bg-zinc-700" style="border-radius: inherit">
+                                <!-- <div class="flex-shrink-0 ltr:mr-2 rtl:ml-2">
                                 <img class="w-7 h-7 lazy" src="{{ placeholder_img() }}" data-src="{{ src($sub->icon) }}" alt="{{ $sub->name }}">
                             </div> -->
-                <div class="flex-1 min-w-0">
-                    <p class="text-[13px] font-semibold text-gray-700 truncate dark:text-zinc-200 group-hover:text-primary-600">
-                        {{ $sub->name }}
-                    </p>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-[13px] font-semibold text-gray-700 truncate dark:text-zinc-200 group-hover:text-primary-600">
+                                        {{ $sub->name }}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        @endforeach
+
+                    </ul>
+                    <div class="bg-gray-50 dark:bg-zinc-700 rounded-b-md text-center">
+                        <a href="{{ url('categories', $category->slug) }}" class="block px-1 py-4 text-gray-500 dark:text-zinc-300 hover:text-primary-600 hover:underline text-xs tracking-wide font-semibold">
+                            {{ __('messages.t_browse_parent_category', ['category' => $category->name]) }}
+                        </a>
+                    </div>
                 </div>
-            </a>
-        </li>
-        @endforeach
+                @endif
+                @endforeach
 
-    </ul>
-    <div class="bg-gray-50 dark:bg-zinc-700 rounded-b-md text-center">
-        <a href="{{ url('categories', $category->slug) }}" class="block px-1 py-4 text-gray-500 dark:text-zinc-300 hover:text-primary-600 hover:underline text-xs tracking-wide font-semibold">
-            {{ __('messages.t_browse_parent_category', ['category' => $category->name]) }}
-        </a>
-    </div>
-</div>
-@endif
-@endforeach
-
-</div>
+            </div>
             <!-- <div class="w-full hidden lg:block">   
                 <div class="relative max-w-md" x-data="{ open: false }">
                     
@@ -255,19 +254,19 @@
                     </div>
 
                 </div> -->
-               
-    {{-- Change language --}}
-                @if (settings('general')->is_language_switcher)
-                {{--    @livewire('main.partials.languages') --}}
-                @endif
-               
 
-                <!-- {{-- Become a seller --}}
+                {{-- Change language --}}
+                @if (settings('general')->is_language_switcher)
+                {{-- @livewire('main.partials.languages') --}}
+                @endif
+
+
+                {{-- Become a seller --}}
                 @guest
                 <a href="{{ url('start_selling') }}" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 px-4 hidden md:block dark:text-gray-100 dark:hover:text-white">
                     @lang('messages.t_become_a_seller')
                 </a>
-                @endguest -->
+                @endguest
 
                 {{-- Switch buying/selling --}}
                 @auth
@@ -293,23 +292,32 @@
 
                 {{-- Sign in --}}
                 @guest
-                <a href="{{ url('auth/login') }}" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 px-4 hidden md:block dark:text-gray-100 dark:hover:text-white">
-                    @lang('messages.t_sign_in')
+                <a href="{{ url('auth/login') }}" class="text-white bg-black transition-colors duration-300 py-2 px-4 hidden md:block dark:text-white dark:bg-black hover:bg-gray-800">
+                    LOGIN
+                    <!-- @lang('messages.t_sign_in') -->
                 </a>
                 @endguest
 
                 {{-- Join --}}
                 @guest
-                <a href="{{ url('auth/register') }}" class="py-2 px-4 text-primary-600 hover:text-primary-800 transition-colors duration-300 rounded-full hidden md:inline-block dark:text-gray-100 dark:hover:text-white">
-                    @lang('messages.t_join')
+                <!-- <a href="{{ url('auth/register') }}" class="py-2 px-4 text-primary-600 hover:text-primary-800 transition-colors duration-300 rounded-full hidden md:inline-block dark:text-gray-100 dark:hover:text-white">
+                 
+                @lang('messages.t_join')
+                </a> -->
+                <a href="{{ url('auth/register') }}" class="py-2 px-4 ml-4 text-white transition-colors duration-300 hidden md:inline-block dark:text-white dark:hover:text-white"
+                    style="background-color: #FF8080;">
+                    SIGN UP
                 </a>
+
+
+
                 @endguest
 
                 {{-- Mobile search --}}
-                @livewire('main.partials.search')
+                {{-- @livewire('main.partials.search')  --}}
 
                 {{-- Cart --}}
-                @livewire('main.partials.cart')
+                {{-- @livewire('main.partials.cart') --}}
 
                 {{-- Received orders --}}
                 @auth

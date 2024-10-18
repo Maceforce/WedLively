@@ -1,4 +1,5 @@
-<header class="bg-white dark:bg-[#0f0f0f] shadow-sm w-full z-40 transition-all duration-200">
+<header class="bg-white dark:bg-[#0f0f0f] shadow-sm w-full z-40 transition-all duration-200 border-b-2 border-black dark:border-white">
+
     <div x-data="window.TTRjRvxLbHzaKxW">
 
         
@@ -54,67 +55,65 @@
                 </a>
                 <?php endif; ?>
 
-            </div>
-
-            
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden md:block">
 
 
-<ul class="relative flex items-center justify-center gap-10 overflow-y-auto transition-colors duration-300 rtl:space-x-reverse scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-zinc-600 scrollbar-track-gray-50 dark:scrollbar-track-zinc-400" style="gap:100px">
-    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <li class="inline-block flex-shrink-0 border-b-2 border-transparent hover:border-primary-600 focus:outline-none focus:ring-0 relative">
+                
+                <ul class="relative flex items-center justify-center overflow-y-auto transition-colors duration-300 rtl:space-x-reverse scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-zinc-600 scrollbar-track-gray-50 dark:scrollbar-track-zinc-400" style="gap:30px">
+                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <li class="inline-block flex-shrink-0 border-b-2 border-transparent hover:border-primary-600 focus:outline-none focus:ring-0 relative">
 
-        
-        <?php if(count($category->subcategories)): ?>
-        <button data-popover-target="popover-subcategories-<?php echo e($category->uid); ?>" data-popover-trigger="hover" class="block text-[13px] font-medium text-gray-700 dark:text-gray-300 dark:group-hover:text-white group-hover:text-primary-600 py-2 focus:outline-none focus:ring-0">
-            <?php echo e($category->name); ?>
+                        
+                        <?php if(count($category->subcategories)): ?>
+                        <button data-popover-target="popover-subcategories-<?php echo e($category->uid); ?>" data-popover-trigger="hover" class="block text-[13px] font-medium text-black dark:text-white dark:group-hover:text-white group-hover:text-primary-600 py-2 focus:outline-none focus:ring-0">
+                            <?php echo e($category->name); ?>
 
-        </button>
-        <?php else: ?>
-        <a href="<?php echo e(url('categories', $category->slug)); ?>" class="block text-[13px] font-medium text-gray-700 dark:text-gray-300 dark:group-hover:text-white group-hover:text-primary-600 py-2 focus:outline-none focus:ring-0">
-            <?php echo e($category->name); ?>
+                        </button>
+                        <?php else: ?>
+                        <a href="<?php echo e(url('categories', $category->slug)); ?>" class="block text-[13px] font-medium text-black dark:text-white dark:group-hover:text-white group-hover:text-primary-600 py-2 focus:outline-none focus:ring-0">
+                            <?php echo e($category->name); ?>
 
-        </a>
-        <?php endif; ?>
+                        </a>
+                        <?php endif; ?>
 
-    </li>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-</ul>
+                    </li>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </ul>
 
 
-<?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-<?php if(count($category->subcategories)): ?>
-<div data-popover id="popover-subcategories-<?php echo e($category->uid); ?>" data-popover-placement="bottom" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm font-light text-gray-500 transition-opacity duration-300 bg-white rounded-md shadow-xl opacity-0 dark:text-zinc-400 dark:bg-zinc-800">
-    <ul class="max-h-96 !overflow-y-auto scrollbar-thin scrollbar-thumb-primary-600 scrollbar-track-white dark:scrollbar-track-zinc-800">
+                
+                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if(count($category->subcategories)): ?>
+                <div data-popover id="popover-subcategories-<?php echo e($category->uid); ?>" data-popover-placement="bottom" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm font-light text-gray-500 transition-opacity duration-300 bg-white rounded-md shadow-xl opacity-0 dark:text-zinc-400 dark:bg-zinc-800">
+                    <ul class="max-h-96 !overflow-y-auto scrollbar-thin scrollbar-thumb-primary-600 scrollbar-track-white dark:scrollbar-track-zinc-800">
 
-        <?php $__currentLoopData = $category->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <li class="first:rounded-t-md">
-            <a href="<?php echo e(url('categories/' . $category->slug . '/' . $sub->slug)); ?>" class="flex items-center py-2 px-3 hover:bg-gray-50 dark:hover:bg-zinc-700" style="border-radius: inherit">
-                <!-- <div class="flex-shrink-0 ltr:mr-2 rtl:ml-2">
+                        <?php $__currentLoopData = $category->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <li class="first:rounded-t-md">
+                            <a href="<?php echo e(url('categories/' . $category->slug . '/' . $sub->slug)); ?>" class="flex items-center py-2 px-3 hover:bg-gray-50 dark:hover:bg-zinc-700" style="border-radius: inherit">
+                                <!-- <div class="flex-shrink-0 ltr:mr-2 rtl:ml-2">
                                 <img class="w-7 h-7 lazy" src="<?php echo e(placeholder_img()); ?>" data-src="<?php echo e(src($sub->icon)); ?>" alt="<?php echo e($sub->name); ?>">
                             </div> -->
-                <div class="flex-1 min-w-0">
-                    <p class="text-[13px] font-semibold text-gray-700 truncate dark:text-zinc-200 group-hover:text-primary-600">
-                        <?php echo e($sub->name); ?>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-[13px] font-semibold text-gray-700 truncate dark:text-zinc-200 group-hover:text-primary-600">
+                                        <?php echo e($sub->name); ?>
 
-                    </p>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                    </ul>
+                    <div class="bg-gray-50 dark:bg-zinc-700 rounded-b-md text-center">
+                        <a href="<?php echo e(url('categories', $category->slug)); ?>" class="block px-1 py-4 text-gray-500 dark:text-zinc-300 hover:text-primary-600 hover:underline text-xs tracking-wide font-semibold">
+                            <?php echo e(__('messages.t_browse_parent_category', ['category' => $category->name])); ?>
+
+                        </a>
+                    </div>
                 </div>
-            </a>
-        </li>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-    </ul>
-    <div class="bg-gray-50 dark:bg-zinc-700 rounded-b-md text-center">
-        <a href="<?php echo e(url('categories', $category->slug)); ?>" class="block px-1 py-4 text-gray-500 dark:text-zinc-300 hover:text-primary-600 hover:underline text-xs tracking-wide font-semibold">
-            <?php echo e(__('messages.t_browse_parent_category', ['category' => $category->name])); ?>
-
-        </a>
-    </div>
-</div>
-<?php endif; ?>
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-</div>
+            </div>
             <!-- <div class="w-full hidden lg:block">   
                 <div class="relative max-w-md" x-data="{ open: false }">
                     
@@ -260,19 +259,19 @@
                     </div>
 
                 </div> -->
-               
-    
+
+                
                 <?php if(settings('general')->is_language_switcher): ?>
                 
                 <?php endif; ?>
-               
 
-                <!-- 
+
+                
                 <?php if(auth()->guard()->guest()): ?>
                 <a href="<?php echo e(url('start_selling')); ?>" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 px-4 hidden md:block dark:text-gray-100 dark:hover:text-white">
                     <?php echo app('translator')->get('messages.t_become_a_seller'); ?>
                 </a>
-                <?php endif; ?> -->
+                <?php endif; ?>
 
                 
                 <?php if(auth()->guard()->check()): ?>
@@ -298,51 +297,32 @@
 
                 
                 <?php if(auth()->guard()->guest()): ?>
-                <a href="<?php echo e(url('auth/login')); ?>" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 px-4 hidden md:block dark:text-gray-100 dark:hover:text-white">
-                    <?php echo app('translator')->get('messages.t_sign_in'); ?>
+                <a href="<?php echo e(url('auth/login')); ?>" class="text-white bg-black transition-colors duration-300 py-2 px-4 hidden md:block dark:text-white dark:bg-black hover:bg-gray-800">
+                    LOGIN
+                    <!-- <?php echo app('translator')->get('messages.t_sign_in'); ?> -->
                 </a>
                 <?php endif; ?>
 
                 
                 <?php if(auth()->guard()->guest()): ?>
-                <a href="<?php echo e(url('auth/register')); ?>" class="py-2 px-4 text-primary-600 hover:text-primary-800 transition-colors duration-300 rounded-full hidden md:inline-block dark:text-gray-100 dark:hover:text-white">
-                    <?php echo app('translator')->get('messages.t_join'); ?>
+                <!-- <a href="<?php echo e(url('auth/register')); ?>" class="py-2 px-4 text-primary-600 hover:text-primary-800 transition-colors duration-300 rounded-full hidden md:inline-block dark:text-gray-100 dark:hover:text-white">
+                 
+                <?php echo app('translator')->get('messages.t_join'); ?>
+                </a> -->
+                <a href="<?php echo e(url('auth/register')); ?>" class="py-2 px-4 ml-4 text-white transition-colors duration-300 hidden md:inline-block dark:text-white dark:hover:text-white"
+                    style="background-color: #FF8080;">
+                    SIGN UP
                 </a>
+
+
+
                 <?php endif; ?>
 
                 
-                <?php
-if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('main.partials.search')->html();
-} elseif ($_instance->childHasBeenRendered('l4223683930-0')) {
-    $componentId = $_instance->getRenderedChildComponentId('l4223683930-0');
-    $componentTag = $_instance->getRenderedChildComponentTagName('l4223683930-0');
-    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('l4223683930-0');
-} else {
-    $response = \Livewire\Livewire::mount('main.partials.search');
-    $html = $response->html();
-    $_instance->logRenderedChild('l4223683930-0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
-}
-echo $html;
-?>
+                
 
                 
-                <?php
-if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('main.partials.cart')->html();
-} elseif ($_instance->childHasBeenRendered('l4223683930-1')) {
-    $componentId = $_instance->getRenderedChildComponentId('l4223683930-1');
-    $componentTag = $_instance->getRenderedChildComponentTagName('l4223683930-1');
-    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('l4223683930-1');
-} else {
-    $response = \Livewire\Livewire::mount('main.partials.cart');
-    $html = $response->html();
-    $_instance->logRenderedChild('l4223683930-1', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
-}
-echo $html;
-?>
+                
 
                 
                 <?php if(auth()->guard()->check()): ?>
