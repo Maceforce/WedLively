@@ -205,9 +205,15 @@
 
                 {{-- Become a seller --}}
                 @guest
+<<<<<<< Updated upstream
                     <a href="{{ url('start_selling') }}" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 px-4 hidden md:block dark:text-gray-100 dark:hover:text-white">
                         @lang('messages.t_become_a_seller')
                     </a>
+=======
+                <a href="{{ url('start_selling') }}" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 px-4 hidden md:block dark:text-gray-100 dark:hover:text-white">
+                    @lang('messages.t_become_a_seller') 
+                </a>
+>>>>>>> Stashed changes
                 @endguest
 
                 {{-- Switch buying/selling --}}

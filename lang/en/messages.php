@@ -19,7 +19,7 @@
         "t_logout"                                                 => "Logout",
         "t_verification_center"                                    => "Verification center",
         "t_seller_dashboard"                                       => "Seller dashboard",
-        "t_become_a_seller"                                        => "Become a seller",
+        "t_become_a_seller"                                        => "ARE YOU A VENDOR?",
         "t_login"                                                  => "Login",
         "t_choose_document_type"                                   => "Choose document type",
         "t_government_issued_id"                                   => "Government-issued ID",

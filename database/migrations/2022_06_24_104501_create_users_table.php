@@ -35,6 +35,8 @@ return new class extends Migration
             $table->string('balance_purchases', 20)->default(0);
             $table->string('balance_pending', 20)->default(0);
             $table->string('balance_available', 20)->default(0);
+            $table->enum('subscription_type', ['standard', 'premium'])->default('standard');
+            $table->timestamp('subscription_expires_at')->nullable(); // Optional: Track subscription expiration
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamp('last_activity')->nullable();
@@ -43,7 +45,6 @@ return new class extends Migration
             $table->foreign('avatar_id')->references('id')->on('file_manager');
             $table->foreign('level_id')->references('id')->on('levels');
             $table->foreign('country_id')->references('id')->on('countries');
-
         });
     }
 

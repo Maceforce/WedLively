@@ -1,23 +1,33 @@
-<div class="flex w-full max-w-sm grow flex-col justify-center p-5">
-
+<div class="flex w-full max-w-sm grow flex-col justify-center p-5 signup-form" style="max-height:fit-content;">
 	{{-- Welcome back message --}}
-	<div class="text-center">
+	<div class="text-left">
 		<div class="mt-4">
+<<<<<<< Updated upstream
 			<h2 class="text-xl font-bold text-zinc-700 dark:text-navy-100">
 				@lang('messages.t_welcome_to_app_name', ['name' => config('app.name')])
+=======
+			<img src="{{url('public/img/home/logo.png')}} " width='50px' height="50px" style="width: 15%;float: left;margin-right:10px"> 			
+		</div>
+		<h2 class="text-xl font-bold text-zinc-700 dark:text-navy-100">			 
+			<span style="color: #FF8080;vertical-align: sub;">Sign Up to SUKOONZZ</span>
+				 <!-- @lang('messages.t_welcome_to_app_name', ['name' => config('app.name')])  -->
+>>>>>>> Stashed changes
 			</h2>
 			<p class="text-zinc-400 dark:text-gray-300">
 				@lang('messages.t_pls_signup_to_continue')
+<<<<<<< Updated upstream
 			</p>
+=======
+			</p> 
+>>>>>>> Stashed changes
 			<a href="{{ url('/') }}" class="block lg:hidden mt-3 text-sm tracking-wider font-semibold text-blue-600 hover:underline">
 				@lang('messages.t_back_to_homepage')
-			</a>
-		</div>
+			</a> -->
 	</div>
 
 	{{-- Form --}}
-	<div class="mt-8">
-		
+	<div class="mt-8" style="margin-top: 0rem;">
+
 		{{-- Session success message --}}
 		@if (session()->has('success'))
 			<div class="mb-6 sm:max-w-md sm:w-full sm:mx-auto sm:overflow-hidden">
@@ -35,7 +45,7 @@
 		@endif
 	
 		<div class="w-full relative">
-			
+		
 			{{-- Register form --}}
 			<div class="mt-6">
 				<form x-data="window.UcZWcDFfVKBjfgP" x-on:submit.prevent="register" class="grid grid-cols-12 md:gap-x-6 gap-y-6">
@@ -132,6 +142,53 @@
 
 					</div>
 
+					{{-- Getting Married In --}}
+					<div class="col-span-12">
+						<div class="relative w-full shadow-sm rounded-md">
+
+							{{-- Input --}}
+							<input type="text" id="location-search"  x-model="form.gettingmarried" class="{{ $errors->first('gettingmarried') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Getting Married In">
+							<div id="location-results"></div>
+							<div class="col-span-12">
+							{{-- Icon --}}
+							<div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
+								<svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+							</div>
+
+						</div>
+
+						{{-- Error --}}
+						@error('gettingmarried')
+							<p class="mt-1.5 text-[13px] tracking-wide text-red-600 font-medium ltr:pl-1 rtl:pr-1">
+								{{ $errors->first('gettingmarried') }}
+							</p>
+						@enderror
+
+					</div>
+					
+					{{-- Wedding Date --}}
+					<div class="col-span-12">
+						<div class="relative w-full shadow-sm rounded-md">
+
+							{{-- Input --}}
+							<input type="date" x-model="form.weddingdate" class="{{ $errors->first('weddingdate') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Wedding Date">
+
+							{{-- Icon --}}
+							<div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
+								<svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+							</div>
+
+						</div>
+
+						{{-- Error --}}
+						@error('weddingdate')
+							<p class="mt-1.5 text-[13px] tracking-wide text-red-600 font-medium ltr:pl-1 rtl:pr-1">
+								{{ $errors->first('weddingdate') }}
+							</p>
+						@enderror
+
+					</div>
+
                     {{-- Accept terms --}}
                     <div class="col-span-12">
                         <div class="flex items-center space-x-2 rtl:space-x-reverse">
@@ -149,7 +206,11 @@
 
 					{{-- Register --}}
 					<div class="col-span-12">
+<<<<<<< Updated upstream
 						<button type="submit" wire:loading.attr="disabled" wire:target="register" :disabled="!form.email || !form.password || !form.fullname || !form.username" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500">
+=======
+						<button type="submit" wire:loading.attr="disabled" wire:target="register" :disabled="!form.email || !form.password || !form.fullname || !form.username || !form.phone || !form.gettingmarried  || !form.weddingdate" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500 signup-btn-color">
+>>>>>>> Stashed changes
 							
 							{{-- Loading indicator --}}
 							<div wire:loading wire:target="register">
@@ -297,7 +358,14 @@
 					email   : null,
 					password: null,
 					fullname: null,
+<<<<<<< Updated upstream
 					username: null
+=======
+					username: null,
+					phone:null,
+					gettingmarried:null,
+					weddingdate:null,
+>>>>>>> Stashed changes
 				},
 
 				// Register
@@ -332,7 +400,11 @@
 					}
 
 					// Validate form
+<<<<<<< Updated upstream
 					if (!_this.form.email || !_this.form.password || !_this.form.fullname || !_this.form.username) {
+=======
+					if (!_this.form.email || !_this.form.password || !_this.form.fullname || !_this.form.username || !_this.form.phone || !_this.form.gettingmarried ||  !_this.form.weddingdate) {
+>>>>>>> Stashed changes
                         
 						// Error
 						window.$wireui.notify({
@@ -350,6 +422,12 @@
 						'email'          : _this.form.email,
 						'password'       : _this.form.password,
 						'username'       : _this.form.username,
+<<<<<<< Updated upstream
+=======
+						'phone':this.form.phone,
+						'gettingmarried':this.form.gettingmarried,
+						'weddingdate':this.form.weddingdate,
+>>>>>>> Stashed changes
 						'fullname'       : _this.form.fullname,
 						'recaptcha_token': recaptcha_token
 					});
@@ -360,4 +438,115 @@
 		}
 		window.UcZWcDFfVKBjfgP = UcZWcDFfVKBjfgP();
 	</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+        /* Include the CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #location-search {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+        }
+
+        #location-search:focus {
+            border-color: #007bff; /* Change the border color on focus */
+            outline: none; /* Remove the default outline */
+        }
+
+        #location-results {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        #location-results ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #location-results li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #location-results li:hover {
+            background-color: #f1f1f1; /* Change background on hover */
+        }
+
+        #location-results li:last-child {
+            border-bottom: none; /* Remove border from the last item */
+        }
+    </style>
+<script>
+        $(document).ready(function() {
+            $('#location-search').on('keyup', function() {
+                let query = $(this).val();
+
+                if (query.length > 1) {
+                    $.ajax({
+                        url: '{{ route("search.locations") }}', // Update with your route
+                        method: 'GET',
+                        data: { query: query },
+                        success: function(response) {
+                            const uniqueCities = new Set();
+                            let output = '<ul>';
+
+                            if (response.length > 0) {
+                                $.each(response, function(index, location) {
+                                    // Add the city to the Set to avoid duplicates
+                                    if (!uniqueCities.has(location.city_name)) {
+                                        uniqueCities.add(location.city_name);
+                                        output += `<li data-city="${location.city_name}">${location.city_name}</li>`;
+                                    }
+                                });
+                            } else {
+                                output += '<li>No results found</li>';
+                            }
+
+                            output += '</ul>';
+                            $('#location-results').html(output);
+                        }
+                    });
+                } else {
+                    $('#location-results').html('');
+                }
+            });
+
+            // Handle click on location result
+            $(document).on('click', '#location-results li', function() {
+                const cityName = $(this).data('city');
+                $('#location-search').val(cityName);
+                $('#location-results').html(''); // Clear results
+            });
+        });
+    </script>
 @endpush

@@ -204,6 +204,7 @@
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('main.includes.header')->html();
+<<<<<<< Updated upstream:storage/framework/views/3d34ce6a0dcbc4c9cafbd570065c647168afae14.php
 } elseif ($_instance->childHasBeenRendered('TVyTMTe')) {
     $componentId = $_instance->getRenderedChildComponentId('TVyTMTe');
     $componentTag = $_instance->getRenderedChildComponentTagName('TVyTMTe');
@@ -213,6 +214,17 @@ if (! isset($_instance)) {
     $response = \Livewire\Livewire::mount('main.includes.header');
     $html = $response->html();
     $_instance->logRenderedChild('TVyTMTe', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+=======
+} elseif ($_instance->childHasBeenRendered('Z8XBPdN')) {
+    $componentId = $_instance->getRenderedChildComponentId('Z8XBPdN');
+    $componentTag = $_instance->getRenderedChildComponentTagName('Z8XBPdN');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('Z8XBPdN');
+} else {
+    $response = \Livewire\Livewire::mount('main.includes.header');
+    $html = $response->html();
+    $_instance->logRenderedChild('Z8XBPdN', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+>>>>>>> Stashed changes:storage/framework/views/c0106ee0b075959fadc8d68202e0c9db5f121691.php
 }
 echo $html;
 ?>
@@ -306,7 +318,11 @@ echo $html;
 
         
         <script >window.Wireui = {hook(hook, callback) {window.addEventListener(`wireui:${hook}`, () => callback())},dispatchHook(hook) {window.dispatchEvent(new Event(`wireui:${hook}`))}}</script>
+<<<<<<< Updated upstream:storage/framework/views/3d34ce6a0dcbc4c9cafbd570065c647168afae14.php
 <script src="http://localhost/freeluncer3/wireui/assets/scripts?id=be97ebae74d62aa4c86689a6528b707f" defer ></script>
+=======
+<script src="http://localhost/freeluncer/wireui/assets/scripts?id=be97ebae74d62aa4c86689a6528b707f" defer ></script>
+>>>>>>> Stashed changes:storage/framework/views/c0106ee0b075959fadc8d68202e0c9db5f121691.php
 
         
         <script defer src="<?php echo e(mix('js/app.js')); ?>"></script>

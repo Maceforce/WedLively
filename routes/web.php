@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\UserWeddingPlanningController;
 
 // Tasks
 Route::prefix('tasks')->group(function() {
@@ -414,7 +419,9 @@ Route::namespace('App\Http\Livewire\Main')->group(function() {
     });
 
     // Seller dashboard
-    Route::namespace('Seller')->prefix('seller')->middleware('seller')->group(function() {
+
+    Route::namespace('Seller')->prefix('seller')->middleware(['seller'])->group(function() {
+
 
         // Home
         Route::namespace('Home')->prefix('home')->group(function() {
@@ -603,7 +610,7 @@ Route::namespace('App\Http\Livewire\Main')->group(function() {
     Route::namespace('Profile')->prefix('profile')->group(function() {
 
         // Username
-        Route::get('{username}', ProfileComponent::class);
+        Route::get('{username}', ProfileComponent::class)->name('userProfile');
 
         // Portfolio list
         Route::get('{username}/portfolio', PortfolioComponent::class);
@@ -810,3 +817,24 @@ Route::post('checkout/callback/cashfree/token', 'App\Http\Controllers\Main\Check
 // Mollie checkout callback
 Route::get('checkout/callback/mollie/redirect', 'App\Http\Controllers\Main\Checkout\MollieController@redirect');
 Route::get('checkout/callback/mollie/webhook', 'App\Http\Controllers\Main\Checkout\MollieController@webhook');
+
+
+// Route to show available subscription plans
+Route::get('/subscriptions', [SubscriptionController::class, 'showPlans'])->name('subscriptions.plans');
+
+// Route to handle upgrading to a premium subscription
+Route::post('/subscribe/premium', [SubscriptionController::class, 'subscribeToPremium'])->name('subscribe.premium');
+
+// Route for redirecting non-premium users to upgrade
+Route::get('/subscription/upgrade', [SubscriptionController::class, 'showUpgradePage'])->name('subscription.upgrade');
+
+
+Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
+Route::post('/payment-intent', [PaymentController::class, 'createPaymentIntent'])->name('payment.process');
+
+
+
+
+Route::get('/search-locations', [LocationController::class, 'search'])->name('search.locations');
+Route::post('/wedding-planning', [UserWeddingPlanningController::class, 'store'])->name('wedding_planning.store');
+

@@ -1,0 +1,48 @@
+.login-form
+{
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 500px;
+    background-color:white;
+}
+.signup-form
+{
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 700px;
+    background-color:white;
+
+}
+.login-btn-color
+{
+    background-color: #000 !important;
+}
+.signup-btn-color
+{
+    background-color: #000 !important;
+}
+.link-color{
+    color:blue;
+    text-decoration-line: underline;
+    font-size: 15px;
+
+}
+.nmy
+{
+    color:#000;
+    font-size: 15px;
+}
+
+.logo-text a h1 {
+    font-weight: bold !important;
+    font-size: 35px !important;
+    color: #000 !important;
+}
+
+.auth-left-imag img{
+        margin-top: 20px;
+	 
+}
+.min-h-screen.flex.grow.bg-slate-50.dark\:bg-zinc-700 {
+    margin: 0 auto;
+}

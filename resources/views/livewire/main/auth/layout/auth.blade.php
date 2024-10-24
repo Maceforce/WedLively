@@ -69,6 +69,7 @@
         {{-- Container --}}
         <div class="min-h-screen flex grow bg-slate-50 dark:bg-zinc-700">
             
+<<<<<<< Updated upstream
             <div class="hidden w-full place-items-center lg:grid">
                 <div class="w-full px-2 py-40 sm:py-48 sm:px-12 flex flex-col justify-center relative bg-no-repeat bg-center bg-cover h-full" @if(settings('auth')->wallpaper) style="background-image: url({{ src(settings('auth')->wallpaper) }})" @endif>
                     <span style="background: url(https://i.imgur.com/MvqeeGS.jpeg);" class="absolute bg-gradient-to-b from-primary-500 to-primary-400 inset-0 z-0"></span>
@@ -94,8 +95,16 @@
                 </div>
             </div>
             <main class="flex w-full flex-col items-center bg-white dark:bg-navy-700 lg:max-w-md">
+=======
+            
+            <div class="auth-left-imag">
+                 <img src="{{url('public/img/home/authimage.jpg')}}">  
+            </div>
+            <main class="flex flex-col items-center dark:bg-navy-700 lg:max-w-md">            
+>>>>>>> Stashed changes
                 @yield('content')
             </main>
+            
         </div>
 
         {{-- Livewire scripts --}}

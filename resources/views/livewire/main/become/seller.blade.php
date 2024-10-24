@@ -361,7 +361,7 @@
 				@lang('messages.t_signup_and_create_ur_first_gig') <span class="text-primary-600">@lang('messages.t_today')</span>!
 			</h2>
 			<h3 class="text-lg md:text-xl md:leading-relaxed font-medium text-gray-600 dark:text-gray-400 lg:w-2/3 mx-auto">
-				@lang('messages.t_become_a_seller_subtitle')
+				@lang('messages.t_become_a_seller_subtitle') 
 			</h3>
 		</div>
 	

@@ -22,6 +22,8 @@ class RegisterComponent extends Component
     public $username;
     public $password;
     public $fullname;
+    public $gettingmarried;
+    public $weddingdate;
     public $recaptcha_token;
 
     public $social_grid;
@@ -127,6 +129,12 @@ class RegisterComponent extends Component
             $this->password        = $form['password'];
             $this->fullname        = $form['fullname'];
             $this->username        = $form['username'];
+<<<<<<< Updated upstream
+=======
+            $this->phone           = $form['phone'];
+            $this->gettingmarried = $form['gettingmarried'];
+            $this->weddingdate =$form['weddingdate'];
+>>>>>>> Stashed changes
             $this->recaptcha_token = $form['recaptcha_token'];
 
             // Verify recapctah first
@@ -185,6 +193,12 @@ class RegisterComponent extends Component
             $user->fullname = clean($this->fullname);
             $user->email    = clean($this->email);
             $user->username = clean($this->username);
+<<<<<<< Updated upstream
+=======
+            $user->phone = clean($this->phone); 
+            $user->gettingmarried = clean($this->gettingmarried);
+            $user->weddingdate = clean($this->weddingdate); 
+>>>>>>> Stashed changes
             $user->password = Hash::make($this->password);
             $user->status   = $settings->verification_required ? 'pending' : 'active';
             $user->level_id = 1;
@@ -231,7 +245,7 @@ class RegisterComponent extends Component
             auth()->login($user, true);
 
             // Redirect to home
-            return redirect('/');
+            return redirect('/account/profile');
 
         } catch (\Throwable $th) {
             throw $th;

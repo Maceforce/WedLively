@@ -1,12 +1,24 @@
-<div class="flex w-full max-w-sm grow flex-col justify-center p-5">
+<div class="flex w-full max-w-sm grow flex-col justify-center p-5 login-form" style="max-height:fit-content;max-height:min-content;">
 
 	{{-- Welcome back message --}}
-	<div class="text-center">
+	<div class="text-left">		
 		<div class="mt-4">
+<<<<<<< Updated upstream
 			<h2 class="text-xl font-bold text-zinc-700 dark:text-navy-100">
 				@lang('messages.t_welcome_back')
 			</h2>
 			<p class="text-zinc-400 dark:text-gray-300">
+=======
+			<div class="mt-4">
+				<img src="{{url('public/img/home/logo.png')}} " width='50px' height="50px" style="width: 15%;float: left;margin-right:10px"> 			
+			</div>
+			<h1 class="text-xl font-bold text-zinc-700 dark:text-navy-100">
+				<!-- @lang('messages.t_welcome_back') -->
+				<span style="color: #FF8080;vertical-align: sub;"><b>Log in to Sukoonzz</b</span>
+										
+			</h1>
+			<!-- <p class="text-zinc-400 dark:text-gray-300">
+>>>>>>> Stashed changes
 				@lang('messages.t_pls_login_to_continue')
 			</p>
 			<a href="{{ url('/') }}" class="block lg:hidden mt-3 text-sm tracking-wider font-semibold text-blue-600 hover:underline">

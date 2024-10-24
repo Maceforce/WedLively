@@ -43,22 +43,22 @@ return [
         'client_secret' => '',
         'redirect'      => 'http://localhost/freeluncer2/auth/github/callback',
     ],
-    'linkedin' => [    
+    'linkedin' => [
         'client_id'     => '',
         'client_secret' => '',
         'redirect'      => 'http://localhost/freeluncer2/auth/linkedin/callback'
     ],
-    'google' => [    
+    'google' => [
         'client_id'     => '',
         'client_secret' => '',
         'redirect'      => 'http://localhost/freeluncer2/auth/google/callback'
     ],
-    'facebook' => [    
+    'facebook' => [
         'client_id'     => '',
         'client_secret' => '',
         'redirect'      => 'http://localhost/freeluncer2/auth/facebook/callback'
     ],
-    'twitter' => [    
+    'twitter' => [
         'client_id'     => '',
         'client_secret' => '',
         'redirect'      => 'http://localhost/freeluncer2/auth/twitter/callback'
@@ -68,6 +68,12 @@ return [
     'mailjet' => [
         'key'    => "",
         'secret' => "",
-    ]
+    ],
+  'stripe' => [
+    'key' => env('STRIPE_KEY'),
+    'secret' => env('STRIPE_SECRET'),
+],
+
+
 
 ];
