@@ -47,6 +47,7 @@
         {{-- Styles --}}
         <link rel="preload" href="{{ mix('css/app.css') }}" as="style">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="{{ url('public/css/custom.css') }}">
 
         {{-- Preload Livewire --}}
         <link rel="preload" href="{{ livewire_asset_path() }}" as="script">
@@ -170,72 +171,17 @@
         @livewire('main.includes.header')
 
         {{-- Hero section --}}
-        @if (request()->is('/'))
-
-            {{-- Hero section content --}}
-            <div class="home-hero-section">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-                    <div class="w-full md:max-w-lg">
-                        
-                        {{-- Hero section title --}}
-                        <h1 class="text-center sm:ltr:text-left sm:rtl:text-right mt-4 text-xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-3xl lg:mt-6 xl:text-4xl">
-                            Find & Hire Expert Freelancers.<br>Grow you business
-                        </h1>
-                        <p style="color: #FFF">Work with the best freelance talent from around the world on our secure, flexible and cost-effective platform.</p>
-                        <div class="mt-10 sm:mt-12">
-    
-                            {{-- Search form --}}
-                            <form class="flex items-center mb-4" action="{{ url('search') }}" accept="GET">   
-    
-                                {{-- Input --}}
-                                <div class="relative w-full">
-                                    <div class="absolute inset-y-0 ltr:left-0 rtl:right-0 flex items-center ltr:pl-3 rtl:pr-3 pointer-events-none">
-                                        <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
-                                    </div>
-                                    <input type="search" name="q" class="bg-white border-none text-gray-900 text-sm font-medium rounded-md block w-full ltr:pl-10 rtl:pr-10 px-2.5 py-4 focus:outline-none focus:ring-0" placeholder="{{ __('messages.t_what_service_are_u_looking_for_today') }}" required>
-                                </div>
-    
-                                {{-- Button --}}
-                                <button type="submit" class="px-5 py-4 ltr:ml-2 rtl:mr-2 text-sm font-medium text-white bg-primary-600 rounded-md border-none hover:bg-primary-800 focus:ring-0 focus:outline-none" style="background: #D27607">
-                                    @lang('messages.t_search')
-                                </button>
-    
-                            </form>
-    
-                            {{-- Popular tags --}}
-                            @php
-                                $popular_tags = App\Models\Category::whereHas('gigs')->withCount('gigs')->take(5)->orderBy('gigs_count')->get();
-                            @endphp
-                            <div class="hidden sm:flex items-center text-white font-semibold text-sm whitespace-nowrap">
-                                @lang('messages.t_popular_colon') 
-                                <ul class="flex ltr:ml-3 rtl:mr-3">
-                                    @foreach ($popular_tags as $tag)
-                                        <li class="flex ltr:mr-3 rtl:ml-3 whitespace-nowrap">
-                                            <a href="{{ url('categories', $tag->slug) }}" class="border-2 border-white rounded-[40px] hover:bg-white hover:text-gray-700 transition-all duration-200 px-3 py-0.5 text-xs">
-                                                {{ $tag->name }}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-
-        @endif
+   
 
         {{-- Content --}}
         <main class="flex-grow"> 
-            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-16 pb-24 space-y-8 min-h-screen">
+            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 min-h-screen">
                 @yield('content')
             </div>
         </main>
 
         {{-- Footer --}}
-        @livewire('main.includes.footer')
+{{--     @livewire('main.includes.footer') --}}   
 
         {{-- Livewire scripts --}}
         @livewireScripts

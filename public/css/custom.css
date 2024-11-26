@@ -1,6 +1,7 @@
 .login-form
 {
     margin: 0 auto;
+<<<<<<< HEAD
     margin-top: 20px;
     height: 500px;
     background-color:white;
@@ -12,6 +13,10 @@
     height: 700px;
     background-color:white;
 
+=======
+    margin-top: 100px;
+    height: 520px;
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
 }
 .login-btn-color
 {
@@ -37,6 +42,7 @@
     font-weight: bold !important;
     font-size: 35px !important;
     color: #000 !important;
+<<<<<<< HEAD
 }
 
 .auth-left-imag img{
@@ -46,3 +52,6 @@
 .min-h-screen.flex.grow.bg-slate-50.dark\:bg-zinc-700 {
     margin: 0 auto;
 }
+=======
+}
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3

@@ -4,6 +4,7 @@
 		<div class="mt-4">
 <<<<<<< Updated upstream
 			<h2 class="text-xl font-bold text-zinc-700 dark:text-navy-100">
+<<<<<<< HEAD
 				@lang('messages.t_welcome_to_app_name', ['name' => config('app.name')])
 =======
 			<img src="{{url('public/img/home/logo.png')}} " width='50px' height="50px" style="width: 15%;float: left;margin-right:10px"> 			
@@ -12,14 +13,22 @@
 			<span style="color: #FF8080;vertical-align: sub;">Sign Up to SUKOONZZ</span>
 				 <!-- @lang('messages.t_welcome_to_app_name', ['name' => config('app.name')])  -->
 >>>>>>> Stashed changes
+=======
+			SIgn Up for Sukoonzz
+				<!-- @lang('messages.t_welcome_to_app_name', ['name' => config('app.name')]) -->
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
 			</h2>
-			<p class="text-zinc-400 dark:text-gray-300">
+			<!-- <p class="text-zinc-400 dark:text-gray-300">
 				@lang('messages.t_pls_signup_to_continue')
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 			</p>
 =======
 			</p> 
 >>>>>>> Stashed changes
+=======
+			</p> -->
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
 			<a href="{{ url('/') }}" class="block lg:hidden mt-3 text-sm tracking-wider font-semibold text-blue-600 hover:underline">
 				@lang('messages.t_back_to_homepage')
 			</a> -->
@@ -72,6 +81,31 @@
 						@enderror
 
 					</div>
+
+
+					{{-- Phone --}}
+                    <div class="col-span-12">
+						<div class="relative w-full shadow-sm rounded-md">
+
+							{{-- Input --}}
+							<input type="text" x-model="form.phone" class="{{ $errors->first('phone') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Enter phone number">
+
+							{{-- Icon --}}
+							<div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
+                                <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg>
+							</div>
+
+						</div>
+
+						{{-- Error --}}
+						@error('phone')
+							<p class="mt-1.5 text-[13px] tracking-wide text-red-600 font-medium ltr:pl-1 rtl:pr-1">
+								{{ $errors->first('phone') }}
+							</p>
+						@enderror
+
+					</div>
+
 
                     {{-- E-mail address --}}
 					<div class="col-span-12">
@@ -206,11 +240,15 @@
 
 					{{-- Register --}}
 					<div class="col-span-12">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 						<button type="submit" wire:loading.attr="disabled" wire:target="register" :disabled="!form.email || !form.password || !form.fullname || !form.username" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500">
 =======
 						<button type="submit" wire:loading.attr="disabled" wire:target="register" :disabled="!form.email || !form.password || !form.fullname || !form.username || !form.phone || !form.gettingmarried  || !form.weddingdate" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500 signup-btn-color">
 >>>>>>> Stashed changes
+=======
+						<button type="submit" wire:loading.attr="disabled" wire:target="register" :disabled="!form.email || !form.password || !form.fullname || !form.username || !form.phone" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500 signup-btn-color">
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
 							
 							{{-- Loading indicator --}}
 							<div wire:loading wire:target="register">
@@ -297,21 +335,22 @@
 
 			{{-- Action links --}}
 			<div class="mt-6">
-				<ul class="list-disc list-inside text-slate-500 text-[13px] space-y-2">
+				<div class="list-disc list-inside text-slate-500 text-[13px] space-y-2">
 
 					{{-- Login --}}
-					<li>
-						<a class="hover:text-slate-600 hover:underline" href="{{ url('auth/login') }}">
-							@lang('messages.t_already_have_account') @lang('messages.t_login')
-						</a>
-					</li>
+					<!-- <li> -->
+					<p class="nmy">Already a member? <a class="hover:text-slate-600 hover:underline link-color" href="{{ url('auth/login') }}">
+					Log in here
+							<!-- @lang('messages.t_already_have_account') @lang('messages.t_login') -->
+						</a></p>
+					<!-- </li> -->
 
 					{{-- Resend activation url --}}
-					<li>
+					<!-- <li>
 						<a class="hover:text-slate-600 hover:underline" href="{{ url('auth/request') }}">
 							@lang('messages.t_resend_verification_email')	
 						</a>
-					</li>
+					</li> -->
 
 					{{-- Privacy policy & Terms of services --}}
 					@if (settings('footer')->privacy && settings('footer')->terms)
@@ -327,7 +366,7 @@
 						</li>
 					@endif
 
-				</ul>
+</div>
 			</div>
 			
 		</div>
@@ -358,6 +397,7 @@
 					email   : null,
 					password: null,
 					fullname: null,
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 					username: null
 =======
@@ -366,6 +406,10 @@
 					gettingmarried:null,
 					weddingdate:null,
 >>>>>>> Stashed changes
+=======
+					username: null,
+					phone:null
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
 				},
 
 				// Register
@@ -400,11 +444,15 @@
 					}
 
 					// Validate form
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 					if (!_this.form.email || !_this.form.password || !_this.form.fullname || !_this.form.username) {
 =======
 					if (!_this.form.email || !_this.form.password || !_this.form.fullname || !_this.form.username || !_this.form.phone || !_this.form.gettingmarried ||  !_this.form.weddingdate) {
 >>>>>>> Stashed changes
+=======
+					if (!_this.form.email || !_this.form.password || !_this.form.fullname || !_this.form.username || !_this.form.phone) {
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
                         
 						// Error
 						window.$wireui.notify({
@@ -422,12 +470,16 @@
 						'email'          : _this.form.email,
 						'password'       : _this.form.password,
 						'username'       : _this.form.username,
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 						'phone':this.form.phone,
 						'gettingmarried':this.form.gettingmarried,
 						'weddingdate':this.form.weddingdate,
 >>>>>>> Stashed changes
+=======
+						'phone':this.form.phone,
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
 						'fullname'       : _this.form.fullname,
 						'recaptcha_token': recaptcha_token
 					});

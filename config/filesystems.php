@@ -39,7 +39,7 @@ return [
         'public' => [
             'driver'     => 'local',
             'root'       => storage_path('app/public'),
-            'url'        => 'http://localhost/freeluncer2/storage',
+            'url'        => 'http://localhost/freeluncer/storage',
             'visibility' => 'public',
             'throw'      => false,
         ],
@@ -47,7 +47,7 @@ return [
         'custom' => [
             'driver'     => 'local',
             'root'       => public_path('storage'),
-            'url'        => 'http://localhost/freeluncer2/public/storage',
+            'url'        => 'http://localhost/freeluncer/public/storage',
             'visibility' => 'public',
             'throw'      => false,
         ],
@@ -55,7 +55,7 @@ return [
         'chat' => [
             'driver'     => 'local',
             'root'       => public_path('storage/chat'),
-            'url'        => 'http://localhost/freeluncer2/public/storage/chat',
+            'url'        => 'http://localhost/freeluncer/public/storage/chat',
             'visibility' => 'public',
             'throw'      => false,
         ],

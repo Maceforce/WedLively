@@ -20,6 +20,7 @@ class RegisterComponent extends Component
     
     public $email;
     public $username;
+    public $phone;
     public $password;
     public $fullname;
     public $gettingmarried;
@@ -120,7 +121,7 @@ class RegisterComponent extends Component
         try {
             
             // Verify form first
-            if (!is_array($form) || !isset($form['email']) || !isset($form['password']) || !isset($form['fullname']) || !isset($form['username'])) {
+            if (!is_array($form) || !isset($form['email']) || !isset($form['password']) || !isset($form['fullname']) || !isset($form['username'])  || !isset($form['phone']) ) {
                 return;
             }
 
@@ -129,12 +130,16 @@ class RegisterComponent extends Component
             $this->password        = $form['password'];
             $this->fullname        = $form['fullname'];
             $this->username        = $form['username'];
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
             $this->phone           = $form['phone'];
             $this->gettingmarried = $form['gettingmarried'];
             $this->weddingdate =$form['weddingdate'];
 >>>>>>> Stashed changes
+=======
+            $this->phone           = $form['phone'];
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
             $this->recaptcha_token = $form['recaptcha_token'];
 
             // Verify recapctah first
@@ -193,12 +198,16 @@ class RegisterComponent extends Component
             $user->fullname = clean($this->fullname);
             $user->email    = clean($this->email);
             $user->username = clean($this->username);
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
             $user->phone = clean($this->phone); 
             $user->gettingmarried = clean($this->gettingmarried);
             $user->weddingdate = clean($this->weddingdate); 
 >>>>>>> Stashed changes
+=======
+            $user->phone = clean($this->phone);            
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
             $user->password = Hash::make($this->password);
             $user->status   = $settings->verification_required ? 'pending' : 'active';
             $user->level_id = 1;

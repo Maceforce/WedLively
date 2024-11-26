@@ -41,27 +41,27 @@ return [
     'github' => [
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer2/auth/github/callback',
+        'redirect'      => 'http://localhost/freeluncer/auth/github/callback',
     ],
     'linkedin' => [
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer2/auth/linkedin/callback'
+        'redirect'      => 'http://localhost/freeluncer/auth/linkedin/callback'
     ],
     'google' => [
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer2/auth/google/callback'
+        'redirect'      => 'http://localhost/freeluncer/auth/google/callback'
     ],
     'facebook' => [
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer2/auth/facebook/callback'
+        'redirect'      => 'http://localhost/freeluncer/auth/facebook/callback'
     ],
     'twitter' => [
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer2/auth/twitter/callback'
+        'redirect'      => 'http://localhost/freeluncer/auth/twitter/callback'
     ],
 
     // Email marketing

@@ -24,6 +24,7 @@
 
         {{-- Styles --}}
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <link href="{{ url('public/css/custom.css') }}" rel="stylesheet">
 
         {{-- Custom fonts --}}
 		{!! settings('appearance')->font_link !!}
@@ -69,6 +70,7 @@
         {{-- Container --}}
         <div class="min-h-screen flex grow bg-slate-50 dark:bg-zinc-700">
             
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             <div class="hidden w-full place-items-center lg:grid">
                 <div class="w-full px-2 py-40 sm:py-48 sm:px-12 flex flex-col justify-center relative bg-no-repeat bg-center bg-cover h-full" @if(settings('auth')->wallpaper) style="background-image: url({{ src(settings('auth')->wallpaper) }})" @endif>
@@ -102,6 +104,10 @@
             </div>
             <main class="flex flex-col items-center dark:bg-navy-700 lg:max-w-md">            
 >>>>>>> Stashed changes
+=======
+        
+            <main class="flex w-full flex-col items-center bg-white dark:bg-navy-700 lg:max-w-md login-form">
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
                 @yield('content')
             </main>
             

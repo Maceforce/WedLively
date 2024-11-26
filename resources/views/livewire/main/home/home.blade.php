@@ -1,35 +1,26 @@
 
 <div class="w-full">
-        
-    
-    <div class="grid grid-cols-12 gap-6">
-        
 
 
 
-<style>
-._sda9893 {
-    width: 625px;
-    height: 350px;
-    border-radius: 17px;
-    box-shadow: 0 8px 20px 0 rgb(20 20 43 / 31%) !important;
-}
-@media only screen and (max-width: 600px) {
-    ._sda9893 {
-        width: 95%;
-        height: 185px;
-        border-radius: 17px;
-        box-shadow: 0 8px 20px 0 rgb(20 20 43 / 31%) !important;
-    }
-}
-</style>
+    <style>
+        ._sda9893 {
+            width: 625px;
+            height: 350px;
+            border-radius: 17px;
+            box-shadow: 0 8px 20px 0 rgb(20 20 43 / 31%) !important;
+        }
 
-        {{-- Fatured categories --}}
-        @if (settings('appearance')->is_featured_categories && $categories && $categories->count())
-            <div class="col-span-12 mt-6 xl:mt-6 mb-16">
-                <span class="font-semibold text-gray-400 dark:text-gray-200 uppercase tracking-wider text-center block">{{ __('messages.t_featured_categories') }}</span>
-                <div class="flex-wrap justify-center items-center mt-8 -mx-5 hidden" id="featured-categories-slick" wire:ignore>
+        @media only screen and (max-width: 600px) {
+            ._sda9893 {
+                width: 95%;
+                height: 185px;
+                border-radius: 17px;
+                box-shadow: 0 8px 20px 0 rgb(20 20 43 / 31%) !important;
+            }
+        }
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                     @foreach ($categories as $category)
                     <a href="{{ url('categories', $category->slug) }}" class="relative !h-44 rounded-lg !p-6 !flex !flex-col overflow-hidden group mx-5">
@@ -42,6 +33,8 @@
                     @endforeach
                             
 =======
+=======
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
         .vendor-row {
             display: flex;
             justify-content: space-between;
@@ -214,13 +207,21 @@
             <div class="vendor-row-col-7">
                 <div class="flex justify-between rounded-lg !p-6 overflow-hidden group">
                     <div class="flex-1 mr-2">
+<<<<<<< HEAD
                         <h2 class="text-xl font-bold text-white"><a href="categories/wedding-venues">Venues</a></h2>
+=======
+                        <h2 class="text-xl font-bold text-white">Venues</h2>
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
                         <p class="text-white mt-2">
                             Find the perfect venue for all sorts of events- including Mosques, Banquet Halls, and Reception Locations
                         </p>
                     </div>
                     <div class="flex-1 ml-2">
+<<<<<<< HEAD
                         <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/caterers"> Catering </a></h2>
+=======
+                        <h2 class="text-xl font-bold text-white">Catering</h2>
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
                         <p class="text-white mt-2">
                             Choose from the tastiest cuisines
                         </p>
@@ -228,13 +229,21 @@
                 </div>
                 <div class="flex justify-between rounded-lg !p-6 overflow-hidden group">
                     <div class="flex-1 mr-2">
+<<<<<<< HEAD
                         <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/wedding-photographers">Photographers</a></h2>
+=======
+                        <h2 class="text-xl font-bold text-white">Photographers</h2>
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
                         <p class="text-white mt-2">
                             Remember your special day forever!
                         </p>
                     </div>
                     <div class="flex-1 ml-2">
+<<<<<<< HEAD
                         <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/wedding-videography">Videographers</a></h2>
+=======
+                        <h2 class="text-xl font-bold text-white">Videographers</h2>
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
                         <p class="text-white mt-2">
                             Get everything recorded. Live out your wedding day as many times as you like!
                         </p>
@@ -242,13 +251,21 @@
                 </div>
                 <div class="flex justify-between  rounded-lg !p-6 overflow-hidden group">
                     <div class="flex-1 mr-2">
+<<<<<<< HEAD
                         <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/wedding-dj">DJ’s</a></h2>
+=======
+                        <h2 class="text-xl font-bold text-white">DJ’s</h2>
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
                         <p class="text-white mt-2">
                             Good music = Good Wedding
                         </p>
                     </div>
                     <div class="flex-1 ml-2">
+<<<<<<< HEAD
                         <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/wedding-decorators">Decorators</a></h2>
+=======
+                        <h2 class="text-xl font-bold text-white">Decorators</h2>
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
                         <p class="text-white mt-2">
                             Beautify your venue!
                         </p>
@@ -256,176 +273,101 @@
                 </div>
                 <div class="flex justify-between  rounded-lg !p-6 overflow-hidden group">
                     <div class="flex-1 mr-2">
+<<<<<<< HEAD
                         <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/imams">Imams</a>
+=======
+                        <h2 class="text-xl font-bold text-white">Imams
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
                         </h2>
                         <p class="text-white mt-2">
                             Find Imams to perform your nikkah!
                         </p>
                     </div>
                     <div class="flex-1 ml-2">
+<<<<<<< HEAD
                         <h2 class="text-xl font-bold text-white"><a href="categories/brides/bridal-makeup-artists">Henna Artists</a></h2>
+=======
+                        <h2 class="text-xl font-bold text-white">Makeup/Henna Artists</h2>
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
                         <p class="text-white mt-2">
                             You gotta look good for your wedding day!
                         </p>
                     </div>
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
                 </div>
             </div>
-        @endif
+            <div class="vendor-row-col-5">
+                <h2 class="text-2xl font-bold text-black mb-4 ml-4 mt-4">Vendor Spotlight</h2> <!-- Added margin-left -->
 
-        {{-- Bestsellers --}}
-        @if (settings('appearance')->is_best_sellers && $sellers && $sellers->count())
-            
-        @endif
-
-        {{-- Random gigs --}}
-        @if ($gigs && !$gigs->isEmpty())
-            <div class="col-span-12 mb-16">
-
-                {{-- Section title --}}
-                <div class="block mb-6">
-                    <div class="flex justify-between items-center bg-transparent py-2">
-
-                        <div>
-                            <span class="font-extrabold text-xl text-gray-800 dark:text-gray-100 pb-1 block">
-                                @lang('messages.t_selected_gigs_for_u')    
-                            </span>
-                        </div>
-
-                        <div>
-                            <a href="{{ url('search') }}" class="hidden text-sm font-semibold text-primary-600 hover:text-primary-700 sm:block">
-                                {{ __('messages.t_view_more') }}
-                                
-                                {{-- LTR arrow --}}
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden ltr:inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-
-                                {{-- RTL arrow --}}
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden rtl:inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg>
-                            </a>
-                        </div>
-
+                <div class="relative !h-44 rounded-lg !p-6 !flex overflow-hidden group">
+                    <div class="flex-shrink-0 w-1/2">
+                        <img src="https://via.placeholder.com/300x200" alt="Category Image" class="h-full w-full object-cover rounded-lg">
+                    </div>
+                    <div class="flex-1 ml-4 flex flex-col justify-center">
+                        <span class="text-xl font-bold text-black">Article Title</span>
+                        <p class="text-black mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        </p>
+                        <a href="#" class="mt-4 inline-block text-black py-2">Read More</a>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-12 sm:gap-x-9 gap-y-6">
-                    @foreach ($gigs as $gig)
-                        <div class="col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-3 xl:col-span-3">
-                            @livewire('main.cards.gig', ['gig' => $gig], key('gig-item-' . $gig->uid))
-                        </div>
-                    @endforeach
+                <div class="relative !h-44 rounded-lg !p-6 !flex overflow-hidden group mt-4"> <!-- Added margin-top for spacing -->
+                    <div class="flex-shrink-0 w-1/2">
+                        <img src="https://via.placeholder.com/300x200" alt="Category Image" class="h-full w-full object-cover rounded-lg">
+                    </div>
+                    <div class="flex-1 ml-4 flex flex-col justify-center">
+                        <span class="text-xl font-bold text-black">Article Title</span>
+                        <p class="text-black mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        </p>
+                        <a href="#" class="mt-4 inline-block text-black py-2">Read More</a>
+                    </div>
+                </div>
+
+                <!-- See all articles link -->
+                <div class="mt-4 ml-5">
+                    <a href="#" class="text-black hover:underline">See all articles ></a> <!-- Changed text color to black -->
                 </div>
             </div>
-        @endif
+        </div>
 
-        {{-- List of categories in home --}}
-        @foreach ($categories as $category)
-            @if ($category->gigs()->active()->count())
-                
-                {{-- Section title --}}
-                <div class="col-span-12">
-                    <div class="flex justify-between items-center bg-transparent py-2">
-
-                        <div>
-                            <span class="font-extrabold text-xl text-gray-800 dark:text-gray-100 pb-1 block tracking-wider">{{ $category->name }}</span>
-                        </div>
-
-                        <div>
-                            <a href="{{ url('categories', $category->slug) }}" class="hidden text-sm font-semibold text-primary-600 hover:text-primary-700 sm:block">
-                                {{ __('messages.t_view_more') }}
-                                
-                                {{-- LTR arrow --}}
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden ltr:inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-
-                                {{-- RTL arrow --}}
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden rtl:inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-
-                {{-- List of gigs --}}
-                <div class="col-span-12 mb-16">
-                    <div class="grid grid-cols-12 sm:gap-x-9 gap-y-6">
-                        @foreach ($category->gigs()->active()->inRandomOrder()->take(4)->get() as $gig)
-                            <div class="col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-4 xl:col-span-3">
-                                @livewire('main.cards.gig', ['gig' => $gig], key('gig-item-' . $category->id . '-' . $gig->uid))
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-
-            @endif
-        @endforeach
-
-        {{-- Latest projects --}}
-        @if (settings('projects')->is_enabled && !is_null($projects) && !$projects->isEmpty())
-            <div class="col-span-12 mb-16">
-            
-                {{-- Section title --}}
-                <div class="block mb-6">
-                    <div class="flex justify-between items-center bg-transparent py-2">
-
-                        <div>
-                            <span class="font-extrabold text-xl text-gray-800 dark:text-gray-100 pb-1 block tracking-wider">
-                                @lang('messages.t_latest_projects')    
-                            </span>
-                        </div>
-
-                        <div>
-                            <a href="{{ url('explore/projects') }}" class="hidden text-sm font-semibold text-primary-600 hover:text-primary-700 sm:block">
-                                {{ __('messages.t_view_more') }}
-                                
-                                {{-- LTR arrow --}}
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden ltr:inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-
-                                {{-- RTL arrow --}}
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden rtl:inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-
-                {{-- Projects --}}
-                <div class="space-y-6">
-                    @foreach ($projects as $project)
-
-                        @livewire('main.cards.project', [ 'id' => $project->uid ], key('project-card-id-' . $project->uid))
-                        
-                    @endforeach
-                </div>
-
-            </div>
-        @endif
 
         {{-- Newsletter --}}
         @if (settings('newsletter')->is_enabled)
-            <div class="col-span-12">
-                <div class="bg-gray-100 dark:bg-zinc-800 rounded-md p-6 flex items-center sm:p-10">
-                    <div class="max-w-lg mx-auto">
-                        <h3 class="font-semibold text-gray-900 dark:text-gray-100">{{ __('messages.t_sign_up_for_newsletter') }}</h3>
-                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">{{__('messages.t_sign_up_for_newsletter_subtitle')}}</p>
-                        <div class="mt-4 sm:mt-6 sm:flex">
-                            <label for="email-address" class="sr-only">Email address</label>
-                            <input wire:model.defer="email" id="email-address" type="text" autocomplete="email" required="" placeholder="{{ __('messages.t_enter_email_address') }}" class="h-14 appearance-none min-w-0 w-full bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-700 rounded-md shadow-sm py-2 px-4 text-sm text-gray-900 dark:text-gray-300 placeholder-gray-500 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600" readonly onfocus="this.removeAttribute('readonly');">
-                            <div class="mt-3 sm:flex-shrink-0 sm:mt-0 ltr:sm:ml-4 rtl:sm:mr-4">
-                                <button wire:click="newsletter" wire:loading.attr="disabled" wire:target="newsletter" type="button" class="dark:disabled:bg-zinc-500 dark:disabled:text-zinc-400 disabled:cursor-not-allowed disabled:!bg-gray-400 disabled:text-gray-500 h-14 w-full bg-primary-600 border border-transparent rounded-md shadow-sm py-2 px-4 flex items-center justify-center text-sm font-bold tracking-wider text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-primary-600">
-                                    {{ __('messages.t_signup') }}
-                                </button>
-                            </div>
+        <!-- <div class="col-span-12">
+            <div class="bg-gray-100 dark:bg-zinc-800 rounded-md p-6 flex items-center sm:p-10">
+                <div class="max-w-lg mx-auto">
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100">{{ __('messages.t_sign_up_for_newsletter') }}</h3>
+                    <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">{{__('messages.t_sign_up_for_newsletter_subtitle')}}</p>
+                    <div class="mt-4 sm:mt-6 sm:flex">
+                        <label for="email-address" class="sr-only">Email address</label>
+                        <input wire:model.defer="email" id="email-address" type="text" autocomplete="email" required="" placeholder="{{ __('messages.t_enter_email_address') }}" class="h-14 appearance-none min-w-0 w-full bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-700 rounded-md shadow-sm py-2 px-4 text-sm text-gray-900 dark:text-gray-300 placeholder-gray-500 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600" readonly onfocus="this.removeAttribute('readonly');">
+                        <div class="mt-3 sm:flex-shrink-0 sm:mt-0 ltr:sm:ml-4 rtl:sm:mr-4">
+                            <button wire:click="newsletter" wire:loading.attr="disabled" wire:target="newsletter" type="button" class="dark:disabled:bg-zinc-500 dark:disabled:text-zinc-400 disabled:cursor-not-allowed disabled:!bg-gray-400 disabled:text-gray-500 h-14 w-full bg-primary-600 border border-transparent rounded-md shadow-sm py-2 px-4 flex items-center justify-center text-sm font-bold tracking-wider text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-primary-600">
+                                {{ __('messages.t_signup') }}
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div> -->
         @endif
 
-    </div>
-</div>
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 @push('scripts')
 =======
+=======
+    </div>
+    <div class="text-center custom-width enire-plan">
+        <h1 class="text-black italic">
+            Plan your entire wedding in <span style="color: #FF8080;">one week</span>, stress free!
+        </h1>
+
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
         <p class="text-black mt-4">
             Everyone always says planning a wedding is stressful.
             It isn’t with us! Plan your Nikkah, Valima, or any other Muslim wedding event today,
@@ -433,7 +375,11 @@
         </p>
 
         <button class="mt-5 px-6 py-3 text-white" style="background-color: #FF8080; border: none; border-radius: 5px; font-size: 18px;">
+<<<<<<< HEAD
             <a href="auth/register">Start Planning</a>
+=======
+            Start Planning
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
         </button>
     </div>
 
@@ -445,7 +391,11 @@
                 How do we plan your wedding completely stress-free?
             </h2>
             <button class="mt-4 px-6 py-3 text-black bg-white border-none rounded mr-4">
+<<<<<<< HEAD
             <a href="auth/register">Start Planning<a>
+=======
+                Start Planning
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
             </button>
         </div>
         <div class="vertical-line"></div>
@@ -527,115 +477,117 @@
 
 
     @push('scripts')
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
 
     {{-- Slick Plugin --}}
     @if (settings('appearance')->is_featured_categories && $categories && $categories->count())
-        <script defer type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function(){
-                // Init featured categories slick
-                $('#featured-categories-slick').slick({
-                    dots          : false,
-                    autoplay      : true,
-                    infinite      : true,
-                    speed         : 300,
-                    slidesToShow  : 6,
-                    slidesToScroll: 1,
-                    arrows        : false,
-                    responsive    : [
-                        {
+    <script defer type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Init featured categories slick
+            $('#featured-categories-slick').slick({
+                dots: false,
+                autoplay: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                arrows: false,
+                responsive: [{
                         breakpoint: 1024,
-                            settings: {
-                                slidesToShow  : 4,
-                                slidesToScroll: 1
-                            }
-                        },
-                        {
-                        breakpoint: 800,
-                            settings: {
-                                slidesToShow  : 3,
-                                slidesToScroll: 1
-                            }
-                        },
-                        {
-                        breakpoint: 600,
-                            settings: {
-                                slidesToShow  : 2,
-                                slidesToScroll: 1
-                            }
-                        },
-                        {
-                        breakpoint: 480,
-                            settings: {
-                                slidesToShow  : 1,
-                                slidesToScroll: 1
-                            }
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 1
                         }
-                    ]
-                });
-                $('#featured-categories-slick').removeClass('hidden');
+                    },
+                    {
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
             });
-        </script>
+            $('#featured-categories-slick').removeClass('hidden');
+        });
+    </script>
     @endif
 
     {{-- Bestsellers --}}
     @if (settings('appearance')->is_best_sellers && $sellers && $sellers->count())
-        <script>
-            document.addEventListener("DOMContentLoaded", function(){
-                // Init featured categories slick
-                $('#top-sellers-slick').slick({
-                    dots          : false,
-                    autoplay      : true,
-                    infinite      : true,
-                    speed         : 300,
-                    slidesToShow  : 5,
-                    slidesToScroll: 1,
-                    arrows        : false,
-                    responsive    : [
-                        {
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Init featured categories slick
+            $('#top-sellers-slick').slick({
+                dots: false,
+                autoplay: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                arrows: false,
+                responsive: [{
                         breakpoint: 1024,
-                            settings: {
-                                slidesToShow  : 3,
-                                slidesToScroll: 1
-                            }
-                        },
-                        {
-                        breakpoint: 800,
-                            settings: {
-                                slidesToShow  : 3,
-                                slidesToScroll: 1
-                            }
-                        },
-                        {
-                        breakpoint: 600,
-                            settings: {
-                                slidesToShow  : 2,
-                                slidesToScroll: 1
-                            }
-                        },
-                        {
-                        breakpoint: 480,
-                            settings: {
-                                slidesToShow  : 1,
-                                slidesToScroll: 1
-                            }
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1
                         }
-                    ]
-                });
-                $('#top-sellers-slick').removeClass('hidden');
+                    },
+                    {
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
             });
-        </script>
+            $('#top-sellers-slick').removeClass('hidden');
+        });
+    </script>
     @endif
-    
-@endpush
 
-@push('styles')
+    @endpush
+
+    @push('styles')
 
     {{-- Slick Plugin --}}
     @if (settings('appearance')->is_featured_categories)
-        <link rel="preload" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" type="text/css" as="style" onload="this.onload=null;this.rel='stylesheet';"/>
+    <link rel="preload" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" type="text/css" as="style" onload="this.onload=null;this.rel='stylesheet';" />
     @endif
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         
 @endpush
@@ -646,3 +598,7 @@ apps-fileview.texmex_20241003.01_p4
 home.blade.php
 Displaying home.blade.php.
 >>>>>>> Stashed changes
+=======
+
+    @endpush
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3

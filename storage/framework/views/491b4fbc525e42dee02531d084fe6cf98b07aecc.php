@@ -269,7 +269,11 @@
                 
                 <?php if(auth()->guard()->guest()): ?>
                 <a href="<?php echo e(url('start_selling')); ?>" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 px-4 hidden md:block dark:text-gray-100 dark:hover:text-white">
+<<<<<<< HEAD
                     <?php echo app('translator')->get('messages.t_become_a_seller'); ?> 
+=======
+                    <?php echo app('translator')->get('messages.t_become_a_seller'); ?>
+>>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
                 </a>
                 <?php endif; ?>
 
