@@ -314,6 +314,7 @@
                 @endguest
 
                 {{-- Mobile search --}}
+                
                 {{-- @livewire('main.partials.search')  --}}
 
                 {{-- Cart --}}
