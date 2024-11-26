@@ -314,10 +314,11 @@
                 @endguest
 
                 {{-- Mobile search --}}
+                
                 {{-- @livewire('main.partials.search')  --}}
 
                 {{-- Cart --}}
-                {{-- @livewire('main.partials.cart') --}}
+                 @livewire('main.partials.cart') 
 
                 {{-- Received orders --}}
                 @auth

@@ -174,8 +174,8 @@
    
 
         {{-- Content --}}
-        <main class="flex-grow"> 
-            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 min-h-screen">
+        <main class="flex-grow">            
+            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 min-h-screen">    
                 @yield('content')
             </div>
         </main>

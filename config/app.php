@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => 'Freelancer Work',
+    'name' => 'SUKOONZZ',
 
     /*
     |--------------------------------------------------------------------------
@@ -226,6 +226,6 @@ return [
     /**
      * Mix base url
      */
-    'mix_url' => 'http://localhost/freeluncer/public'
+    'mix_url' => 'http://localhost/sukoonzz/public'
 
 ];

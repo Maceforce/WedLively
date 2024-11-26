@@ -281,6 +281,13 @@
       'LivewireUrls' => 'RalphJSmit\\Livewire\\Urls\\Facades\\Url',
     ),
   ),
+  'recca0120/cometchat' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Recca0120\\CometChat\\CometChatServiceProvider',
+    ),
+  ),
   'rtconner/laravel-tagging' => 
   array (
     'providers' => 

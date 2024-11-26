@@ -70,10 +70,14 @@
         {{-- Container --}}
         <div class="min-h-screen flex grow bg-slate-50 dark:bg-zinc-700">
             
-        
-            <main class="flex w-full flex-col items-center bg-white dark:bg-navy-700 lg:max-w-md login-form">
+            
+            <div class="auth-left-imag">
+                 <img src="{{url('public/img/home/authimage.jpg')}}">  
+            </div>
+            <main class="flex flex-col items-center dark:bg-navy-700 lg:max-w-md">            
                 @yield('content')
             </main>
+            
         </div>
 
         {{-- Livewire scripts --}}

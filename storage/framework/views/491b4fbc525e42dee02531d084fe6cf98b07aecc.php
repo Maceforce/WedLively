@@ -322,7 +322,21 @@
                 
 
                 
-                
+                 <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('main.partials.cart')->html();
+} elseif ($_instance->childHasBeenRendered('l4223683930-0')) {
+    $componentId = $_instance->getRenderedChildComponentId('l4223683930-0');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l4223683930-0');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('l4223683930-0');
+} else {
+    $response = \Livewire\Livewire::mount('main.partials.cart');
+    $html = $response->html();
+    $_instance->logRenderedChild('l4223683930-0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?> 
 
                 
                 <?php if(auth()->guard()->check()): ?>

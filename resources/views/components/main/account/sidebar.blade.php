@@ -46,6 +46,8 @@
 
     <div class="border-b border-gray-100 dark:border-zinc-600">
 
+ 
+
         {{-- Account settings --}}
         <a href="{{ url('account/settings') }}"
             class="{{ Request::is('account/settings') ? $link_active_class : $link_basic_class }} group ltr:border-l-4 rtl:border-r-4 px-5 py-3 flex items-center text-sm font-medium">

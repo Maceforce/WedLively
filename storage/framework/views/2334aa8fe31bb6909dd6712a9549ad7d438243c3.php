@@ -94,7 +94,7 @@
 
         
         <script >window.Wireui = {hook(hook, callback) {window.addEventListener(`wireui:${hook}`, () => callback())},dispatchHook(hook) {window.dispatchEvent(new Event(`wireui:${hook}`))}}</script>
-<script src="http://localhost/freeluncer/wireui/assets/scripts?id=3c15fb3b36f54e2baae1e97b6eb0015e" defer ></script>
+<script src="http://localhost/freeluncer/wireui/assets/scripts?id=be97ebae74d62aa4c86689a6528b707f" defer ></script>
 
         
         <script defer src="<?php echo e(mix('js/app.js')); ?>"></script>

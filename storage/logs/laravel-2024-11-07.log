@@ -1,0 +1,4 @@
+[2024-11-07 11:30:29] local.ERROR: Out of memory (allocated 41943040 bytes) (tried to allocate 32768 bytes) {"userId":36,"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Out of memory (allocated 41943040 bytes) (tried to allocate 32768 bytes) at C:\\xampp\\htdocs\\freeluncer\\app\\Models\\SettingsHero.php:1)
+[stacktrace]
+#0 {main}
+"} 

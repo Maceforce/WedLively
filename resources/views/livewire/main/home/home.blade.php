@@ -191,13 +191,13 @@
             <div class="vendor-row-col-7">
                 <div class="flex justify-between rounded-lg !p-6 overflow-hidden group">
                     <div class="flex-1 mr-2">
-                        <h2 class="text-xl font-bold text-white">Venues</h2>
+                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-venues">Venues</a></h2>
                         <p class="text-white mt-2">
                             Find the perfect venue for all sorts of events- including Mosques, Banquet Halls, and Reception Locations
                         </p>
                     </div>
                     <div class="flex-1 ml-2">
-                        <h2 class="text-xl font-bold text-white">Catering</h2>
+                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/caterers"> Catering </a></h2>
                         <p class="text-white mt-2">
                             Choose from the tastiest cuisines
                         </p>
@@ -205,13 +205,13 @@
                 </div>
                 <div class="flex justify-between rounded-lg !p-6 overflow-hidden group">
                     <div class="flex-1 mr-2">
-                        <h2 class="text-xl font-bold text-white">Photographers</h2>
+                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/wedding-photographers">Photographers</a></h2>
                         <p class="text-white mt-2">
                             Remember your special day forever!
                         </p>
                     </div>
                     <div class="flex-1 ml-2">
-                        <h2 class="text-xl font-bold text-white">Videographers</h2>
+                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/wedding-videography">Videographers</a></h2>
                         <p class="text-white mt-2">
                             Get everything recorded. Live out your wedding day as many times as you like!
                         </p>
@@ -219,13 +219,13 @@
                 </div>
                 <div class="flex justify-between  rounded-lg !p-6 overflow-hidden group">
                     <div class="flex-1 mr-2">
-                        <h2 class="text-xl font-bold text-white">DJ’s</h2>
+                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/wedding-dj">DJ’s</a></h2>
                         <p class="text-white mt-2">
                             Good music = Good Wedding
                         </p>
                     </div>
                     <div class="flex-1 ml-2">
-                        <h2 class="text-xl font-bold text-white">Decorators</h2>
+                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/wedding-decorators">Decorators</a></h2>
                         <p class="text-white mt-2">
                             Beautify your venue!
                         </p>
@@ -233,14 +233,14 @@
                 </div>
                 <div class="flex justify-between  rounded-lg !p-6 overflow-hidden group">
                     <div class="flex-1 mr-2">
-                        <h2 class="text-xl font-bold text-white">Imams
+                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/imams">Imams</a>
                         </h2>
                         <p class="text-white mt-2">
                             Find Imams to perform your nikkah!
                         </p>
                     </div>
                     <div class="flex-1 ml-2">
-                        <h2 class="text-xl font-bold text-white">Makeup/Henna Artists</h2>
+                        <h2 class="text-xl font-bold text-white"><a href="categories/brides/bridal-makeup-artists">Henna Artists</a></h2>
                         <p class="text-white mt-2">
                             You gotta look good for your wedding day!
                         </p>
@@ -317,7 +317,7 @@
         </p>
 
         <button class="mt-5 px-6 py-3 text-white" style="background-color: #FF8080; border: none; border-radius: 5px; font-size: 18px;">
-            Start Planning
+            <a href="auth/register">Start Planning</a>
         </button>
     </div>
 
@@ -329,7 +329,7 @@
                 How do we plan your wedding completely stress-free?
             </h2>
             <button class="mt-4 px-6 py-3 text-black bg-white border-none rounded mr-4">
-                Start Planning
+            <a href="auth/register">Start Planning<a>
             </button>
         </div>
         <div class="vertical-line"></div>

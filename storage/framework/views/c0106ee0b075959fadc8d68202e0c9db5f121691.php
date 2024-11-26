@@ -205,15 +205,15 @@
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('main.includes.header')->html();
-} elseif ($_instance->childHasBeenRendered('ENg5rDw')) {
-    $componentId = $_instance->getRenderedChildComponentId('ENg5rDw');
-    $componentTag = $_instance->getRenderedChildComponentTagName('ENg5rDw');
+} elseif ($_instance->childHasBeenRendered('kp8zhVa')) {
+    $componentId = $_instance->getRenderedChildComponentId('kp8zhVa');
+    $componentTag = $_instance->getRenderedChildComponentTagName('kp8zhVa');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('ENg5rDw');
+    $_instance->preserveRenderedChild('kp8zhVa');
 } else {
     $response = \Livewire\Livewire::mount('main.includes.header');
     $html = $response->html();
-    $_instance->logRenderedChild('ENg5rDw', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('kp8zhVa', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -222,8 +222,8 @@ echo $html;
    
 
         
-        <main class="flex-grow"> 
-            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 min-h-screen">
+        <main class="flex-grow">            
+            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 min-h-screen">    
                 <?php echo $__env->yieldContent('content'); ?>
             </div>
         </main>
@@ -237,7 +237,7 @@ echo $html;
 
         
         <script >window.Wireui = {hook(hook, callback) {window.addEventListener(`wireui:${hook}`, () => callback())},dispatchHook(hook) {window.dispatchEvent(new Event(`wireui:${hook}`))}}</script>
-<script src="http://localhost/freeluncer/wireui/assets/scripts?id=3c15fb3b36f54e2baae1e97b6eb0015e" defer ></script>
+<script src="http://localhost/freeluncer/wireui/assets/scripts?id=be97ebae74d62aa4c86689a6528b707f" defer ></script>
 
         
         <script defer src="<?php echo e(mix('js/app.js')); ?>"></script>

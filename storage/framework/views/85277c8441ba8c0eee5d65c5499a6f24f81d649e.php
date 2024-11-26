@@ -88,10 +88,14 @@
         
         <div class="min-h-screen flex grow bg-slate-50 dark:bg-zinc-700">
             
-        
-            <main class="flex w-full flex-col items-center bg-white dark:bg-navy-700 lg:max-w-md login-form">
+            
+            <div class="auth-left-imag">
+                 <img src="<?php echo e(url('public/img/home/authimage.jpg')); ?>">  
+            </div>
+            <main class="flex flex-col items-center dark:bg-navy-700 lg:max-w-md">            
                 <?php echo $__env->yieldContent('content'); ?>
             </main>
+            
         </div>
 
         
@@ -100,7 +104,7 @@
 
         
         <script >window.Wireui = {hook(hook, callback) {window.addEventListener(`wireui:${hook}`, () => callback())},dispatchHook(hook) {window.dispatchEvent(new Event(`wireui:${hook}`))}}</script>
-<script src="http://localhost/freeluncer/wireui/assets/scripts?id=3c15fb3b36f54e2baae1e97b6eb0015e" defer ></script>
+<script src="http://localhost/freeluncer/wireui/assets/scripts?id=be97ebae74d62aa4c86689a6528b707f" defer ></script>
 
         
         <script defer src="<?php echo e(mix('js/app.js')); ?>"></script>
