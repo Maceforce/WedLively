@@ -54,7 +54,7 @@ class EditController extends Controller
         $categories      = $this->categories();
 
         // Get projects plans
-        $plans           = $this->plans();
+         $plans           = $this->plans();
 
         // Get settings
         $settings        = $this->settings();

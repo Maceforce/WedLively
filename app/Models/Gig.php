@@ -30,6 +30,7 @@ class Gig extends Model implements Sitemapable
         'title',
         'slug',
         'description',
+        'location',
         'price',
         'delivery_time',
         'category_id',

@@ -1,9 +1,15 @@
 <?php
 
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\UserWeddingPlanningController;
 
-//use App\Http\Livewire\Main\Account\Checklist\ChecklistComponent;
-//use App\Http\Livewire\Main\Account\Budget\BudgetComponent;
+use App\Http\Livewire\Main\Seller\Inquiries\InquiriesComponent;
+use App\Http\Livewire\Main\Seller\SalesReport\SalesReportComponent;
+
 
 // Tasks
 Route::prefix('tasks')->group(function () {
@@ -91,6 +97,10 @@ Route::namespace('App\Http\Livewire\Main')->group(function () {
 
         // Register
         Route::get('register', RegisterComponent::class);
+
+
+        // Vendor Register
+        Route::get('vendor/register', vendorRegisterComponent::class);
 
         // Login
         Route::get('login', LoginComponent::class)->name('login');
@@ -232,23 +242,14 @@ Route::namespace('App\Http\Livewire\Main')->group(function () {
         });
     });
 
-    
-    
-
     // Account
     Route::namespace('Account')->prefix('account')->middleware('auth')->group(function () {
 
-        Route::namespace('Guest')->group(function () {
-            Route::get('guest', GuestComponent::class);
-           // Route::get('list', GuestListComponent::class)->name('guest.list');
-            // Route::get('/add', AddGuestComponent::class)->name('guest.add');
-            // Route::get('/rsvp', RsvpComponent::class)->name('guest.rsvp');
-            // Route::get('/seating-chart', SeatingComponent::class)->name('guest.seating');
-            // Route::get('/meal-tracking', MealTrackingComponent::class)->name('guest.mealTracking');
-            // Route::get('/message', MessageComponent::class)->name('guest.message');
-            // Route::get('/events', EventComponent::class)->name('guest.events');
-        });
-
+		 // Inbox
+        Route::namespace('Inbox')->group(function () {
+            Route::get('inbox', InboxComponent::class);
+        }); 
+	
         // Budget
         Route::namespace('Budget')->group(function () {
 
@@ -256,35 +257,21 @@ Route::namespace('App\Http\Livewire\Main')->group(function () {
             Route::get('budget', BudgetComponent::class);
         });
 
-        // Budget
-        Route::namespace('Checklist')->group(function () {
+
+        Route::namespace('Guest')->group(function () {
+            Route::get('guest', GuestComponent::class);
+        });
+
+           // Budget
+           Route::namespace('Checklist')->group(function () {
 
 
             // Route for the checklist page
             Route::get('/checklist', ChecklistComponent::class)->name('checklist');
 
             // Route for adding a task (optional, since Livewire handles it)
-            Route::post('/checklist/add-task', [ChecklistComponent::class, 'addTask'])->name('checklist.addTask');  
-
-
-
-
-            /*Route::get('/checklist', [ChecklistComponent::class, 'index'])->name('checklist.index');
-            Route::get('/checklist/create', [ChecklistComponent::class, 'create'])->name('checklist.create');
-            Route::post('/checklist', [ChecklistComponent::class, 'store'])->name('checklist.store');
-            Route::get('/checklist/{checklist}/edit', [ChecklistComponent::class, 'edit'])->name('checklist.edit');
-            Route::put('/checklist/{checklist}', [ChecklistComponent::class, 'update'])->name('checklist.update');
-            Route::patch('/checklist/{checklist}/toggle', [ChecklistComponent::class, 'toggleComplete'])->name('checklist.toggleComplete');
-            Route::delete('/checklist/{checklist}', [ChecklistComponent::class, 'destroy'])->name('checklist.destroy');*/
-        });
-
-        // Budget
-        Route::namespace('Guest')->group(function () {
-
-            // Index
-            Route::get('guest', GuestComponent::class);
-        });
-
+            Route::post('/checklist/add-task', [ChecklistComponent::class, 'addTask'])->name('checklist.addTask');
+           });
 
 
         // Settings
@@ -426,7 +413,20 @@ Route::namespace('App\Http\Livewire\Main')->group(function () {
     });
 
     // Seller dashboard
-    Route::namespace('Seller')->prefix('seller')->middleware('seller')->group(function () {
+
+
+
+
+/*Route::namespace('Seller')->prefix('seller')->middleware(['seller'])->group(function () {
+    Route::get('/inquiries', InquiriesComponent::class)->name('seller.inquiries');
+});*/
+
+    Route::namespace('Seller')->prefix('seller')->middleware(['seller'])->group(function () {
+
+		// Inquiries
+		Route::namespace('Inquiries')->prefix('inquiries')->group(function () {
+			Route::get('/', InquiriesComponent::class);
+		});
 
         // Home
         Route::namespace('Home')->prefix('home')->group(function () {
@@ -567,7 +567,42 @@ Route::namespace('App\Http\Livewire\Main')->group(function () {
                 });
             });
         });
+		
+		//PremiumVendors
+        Route::namespace('PremiumVendors')->prefix('premium-vendors')->group(function () {
+            // Premium Vendor Subscription Page
+            Route::get('/', PremiumVendorComponent::class)->name('seller.premium-vendors');
+
+            Route::post('/stripe/webhook', [PremiumVendorComponent::class, 'handleWebhook']);
+
+            //Route::get('/stripe/webhook', [PremiumVendorComponent::class, 'handleWebhooktest']);
+            
+        }); 
+
+		//SalesReport
+        //Route::namespace('sales-report')->prefix('sales-report')->group(function () {
+            // Premium Vendor Subscription Page
+           // Route::get('/', SalesReport::class)->name('seller.sales-report');
+
+            //Route::post('/stripe/webhook', [PremiumVendorComponent::class, 'handleWebhook']);
+
+            //Route::get('/stripe/webhook', [PremiumVendorComponent::class, 'handleWebhooktest']);
+            
+        //});  
+
+		// Inquiries
+		//Route::prefix('Inquiries')->group(function () {
+		//	Route::get('/', InquiriesComponent::class)->name('seller.inquiries');
+		//});
+
+		// SalesReport
+		Route::namespace('SalesReport')->prefix('salesreport')->group(function () {
+			Route::get('/', SalesReportComponent::class);
+		});
+
     });
+
+
 
     // Help
     Route::namespace('Help')->prefix('help')->group(function () {
@@ -594,7 +629,7 @@ Route::namespace('App\Http\Livewire\Main')->group(function () {
     Route::namespace('Profile')->prefix('profile')->group(function () {
 
         // Username
-        Route::get('{username}', ProfileComponent::class);
+        Route::get('{username}', ProfileComponent::class)->name('userProfile');
 
         // Portfolio list
         Route::get('{username}/portfolio', PortfolioComponent::class);
@@ -781,3 +816,25 @@ Route::post('checkout/callback/cashfree/token', 'App\Http\Controllers\Main\Check
 // Mollie checkout callback
 Route::get('checkout/callback/mollie/redirect', 'App\Http\Controllers\Main\Checkout\MollieController@redirect');
 Route::get('checkout/callback/mollie/webhook', 'App\Http\Controllers\Main\Checkout\MollieController@webhook');
+
+
+// Route to show available subscription plans
+Route::get('/subscriptions', [SubscriptionController::class, 'showPlans'])->name('subscriptions.plans');
+
+// Route to handle upgrading to a premium subscription
+Route::post('/subscribe/premium', [SubscriptionController::class, 'subscribeToPremium'])->name('subscribe.premium');
+
+// Route for redirecting non-premium users to upgrade
+Route::get('/subscription/upgrade', [SubscriptionController::class, 'showUpgradePage'])->name('subscription.upgrade');
+
+
+Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
+Route::post('/payment-intent', [PaymentController::class, 'createPaymentIntent'])->name('payment.process');
+
+
+
+
+Route::get('/search-locations', [LocationController::class, 'search'])->name('search.locations');
+Route::post('/wedding-planning', [UserWeddingPlanningController::class, 'store'])->name('wedding_planning.store');
+
+Route::get('/guest/confirm/{guest}', [GuestController::class, 'confirm'])->name('guest.confirm');

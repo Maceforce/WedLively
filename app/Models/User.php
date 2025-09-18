@@ -235,4 +235,14 @@ class User extends Authenticatable
     {
         return $this->chat_contacts_to->merge($this->chat_contacts_from);
     }
+
+    public function subscription()
+    {
+        return $this->hasOne(Subscription::class);
+    }
+
+    public function isPremium()
+    {
+        return $this->subscription_type === 'premium';
+    }
 }

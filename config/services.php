@@ -41,41 +41,33 @@ return [
     'github' => [
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer/auth/github/callback',
+        'redirect'      => 'https://compassionate-williamson.70-35-202-80.plesk.page/auth/github/callback',
     ],
     'linkedin' => [    
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer/auth/linkedin/callback'
+        'redirect'      => 'https://compassionate-williamson.70-35-202-80.plesk.page/auth/linkedin/callback'
     ],
     'google' => [    
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer/auth/google/callback'
+        'redirect'      => 'https://compassionate-williamson.70-35-202-80.plesk.page/auth/google/callback'
     ],
     'facebook' => [    
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer/auth/facebook/callback'
+        'redirect'      => 'https://compassionate-williamson.70-35-202-80.plesk.page/auth/facebook/callback'
     ],
     'twitter' => [    
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer/auth/twitter/callback'
+        'redirect'      => 'https://compassionate-williamson.70-35-202-80.plesk.page/auth/twitter/callback'
     ],
 
     // Email marketing
     'mailjet' => [
         'key'    => "",
         'secret' => "",
-    ],
-
-    'cometchat' => [
-        'api_key' => env('COMETCHAT_API_KEY'),
-        'app_id' => env('COMETCHAT_APP_ID'),
-        'region' => env('COMETCHAT_REGION'),
-        'auth_key' => env('COMETCHAT_AUTH_KEY'),
     ]
-
 
 ];

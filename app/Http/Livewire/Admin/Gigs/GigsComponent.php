@@ -29,7 +29,7 @@ class GigsComponent extends Component
         ])->extends('livewire.admin.layout.app')->section('content');
     }
 
-
+    
     /**
      * Get list of gigs
      *
