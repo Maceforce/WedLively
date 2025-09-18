@@ -1,6 +1,6 @@
-<main class="w-full" x-data>
-    <div class="px-4 sm:px-6 lg:px-8">
-        <div class="bg-white dark:bg-zinc-800 rounded-lg shadow overflow-hidden">
+<main class="w-full my-4" x-data>
+<div class="p-5 bg-white shadow-sm border border-gray-100 dark:border-zinc-700">
+        <div class="bg-white dark:bg-zinc-800 shadow overflow-hidden">
             <div class="divide-y divide-gray-200 dark:divide-zinc-700 lg:grid lg:grid-cols-12 lg:divide-y-0 lg:divide-x rtl:divide-x-reverse">
 
                 {{-- Sidebar --}}
@@ -10,6 +10,8 @@
 
                 {{-- Section content --}}
                 <div class="divide-y divide-gray-200 dark:divide-zinc-700 lg:col-span-9">
+
+					<x-main.account.plannerbar />
 
                     {{-- Form --}}
                     <div class="py-6 px-4 sm:p-6 lg:pb-8 h-[calc(100%-80px)]">
@@ -41,8 +43,8 @@
                             @forelse ($orders as $order)
 
                                 {{-- List of orders --}}
-                                <div class="bg-white dark:bg-zinc-700 border border-gray-200 dark:border-zinc-600 rounded-md mb-10" wire:key="orders-{{ $order->uid }}">
-                                    <div class="bg-gray-50 dark:bg-zinc-600 border-b sm:rounded-t-md flex items-center p-4 sm:p-6 sm:grid sm:grid-cols-4 sm:gap-x-6 dark:border-zinc-600">
+                                <div class="bg-white dark:bg-zinc-700 border border-gray-200 dark:border-zinc-600  mb-10" wire:key="orders-{{ $order->uid }}">
+                                    <div class="bg-gray-50 dark:bg-zinc-600 border-b flex items-center p-4 sm:p-6 sm:grid sm:grid-cols-4 sm:gap-x-6 dark:border-zinc-600">
 
                                         {{-- Order quick stats --}}
                                         <dl class="flex-1 grid grid-cols-2 gap-x-6 text-sm sm:col-span-3 sm:grid-cols-2 lg:col-span-2">
@@ -71,7 +73,7 @@
                                                 <div class="flex items-center sm:items-start">
 
                                                     {{-- Gig thumbnail --}}
-                                                    <div class="flex-shrink-0 w-24 h-24 bg-gray-200 dark:bg-zinc-600 rounded-lg overflow-hidden hidden md:block">
+                                                    <div class="flex-shrink-0 w-24 h-24 bg-gray-200 dark:bg-zinc-600 overflow-hidden hidden md:block">
                                                         <img src="{{ placeholder_img() }}" data-src="{{ src($item->gig->thumbnail) }}" alt="{{ $item->gig->title }}" class="lazy w-full h-full object-center object-cover">
                                                     </div>
 
@@ -133,7 +135,7 @@
                                                                                     {{ __('messages.t_dispute_opened') }}
                                                                                 </p>
                                                                             @elseif ($item->order->invoice && $item->order->invoice->status === 'pending')
-                                                                                <p class="mt-2 text-[11px] text-amber-500 font-medium">
+                                                                                <p class="mt-2 text-[11px] text-red-400 font-medium">
                                                                                     {{ __('messages.t_pending_payment') }}
                                                                                 </p>
                                                                             @else
@@ -142,7 +144,7 @@
 
                                                                                     {{-- Pending --}}
                                                                                     @case('pending')
-                                                                                        <p class="mt-2 text-[11px] text-amber-500 font-medium">
+                                                                                        <p class="mt-2 text-[11px] text-red-400 font-medium">
                                                                                             {{ __('messages.t_pending') }}
                                                                                         </p>
                                                                                         @break
@@ -152,7 +154,7 @@
                                                                                         <p data-tooltip-target="orders-{{ $order->uid }}-item-{{ $item->id }}-status-proceeded" class="mt-2 text-[11px] text-blue-500 font-medium cursor-pointer">
                                                                                             {{ __('messages.t_in_the_process') }}
                                                                                         </p>
-                                                                                        <div id="orders-{{ $order->uid }}-item-{{ $item->id }}-status-proceeded" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                                                                        <div id="orders-{{ $order->uid }}-item-{{ $item->id }}-status-proceeded" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-xs font-medium text-white bg-gray-900  shadow-sm opacity-0 tooltip dark:bg-gray-700">
                                                                                             {{ format_date($item->proceeded_at, 'F j, Y h:i A') }}
                                                                                         </div>
                                                                                         @break
@@ -162,7 +164,7 @@
                                                                                         <p data-tooltip-target="orders-{{ $order->uid }}-item-{{ $item->id }}-status-delivered" class="mt-2 text-[11px] text-green-500 font-medium cursor-pointer">
                                                                                             {{ __('messages.t_delivered') }}
                                                                                         </p>
-                                                                                        <div id="orders-{{ $order->uid }}-item-{{ $item->id }}-status-delivered" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                                                                        <div id="orders-{{ $order->uid }}-item-{{ $item->id }}-status-delivered" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-xs font-medium text-white bg-gray-900  shadow-sm opacity-0 tooltip dark:bg-gray-700">
                                                                                             {{ format_date($item->delivered_at, 'F j, Y h:i A') }}
                                                                                         </div>
                                                                                         @break
@@ -172,7 +174,7 @@
                                                                                         <p data-tooltip-target="orders-{{ $order->uid }}-item-{{ $item->id }}-status-canceled" class="mt-2 text-[11px] text-gray-500 font-medium cursor-pointer">
                                                                                             {{ __('messages.t_canceled') }}
                                                                                         </p>
-                                                                                        <div id="orders-{{ $order->uid }}-item-{{ $item->id }}-status-canceled" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                                                                        <div id="orders-{{ $order->uid }}-item-{{ $item->id }}-status-canceled" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-xs font-medium text-white bg-gray-900  shadow-sm opacity-0 tooltip dark:bg-gray-700">
                                                                                             {{ format_date($item->canceled_at, 'F j, Y h:i A') }}
                                                                                         </div>
                                                                                         @break
@@ -182,7 +184,7 @@
                                                                                         <p data-tooltip-target="orders-{{ $order->uid }}-item-{{ $item->id }}-status-refunded" class="mt-2 text-[11px] text-red-500 font-medium cursor-pointer">
                                                                                             {{ __('messages.t_refunded') }}
                                                                                         </p>
-                                                                                        <div id="orders-{{ $order->uid }}-item-{{ $item->id }}-status-refunded" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                                                                        <div id="orders-{{ $order->uid }}-item-{{ $item->id }}-status-refunded" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-xs font-medium text-white bg-gray-900  shadow-sm opacity-0 tooltip dark:bg-gray-700">
                                                                                             {{ format_date($item->refunded_at, 'F j, Y h:i A') }}
                                                                                         </div>
                                                                                         @break
@@ -206,12 +208,12 @@
                                                                 <button type="button" data-dropdown-toggle="orders-{{ $order->uid }}-item-{{ $item->id }}-actions-dropdown" data-dropdown-placement="left-start" class="inline-flex justify-center px-2 py-2 border border-gray-200 dark:border-zinc-700 shadow-sm text-xs font-medium rounded-full text-gray-700 dark:text-gray-300 bg-white dark:bg-zinc-800 hover:bg-gray-50 dark:hover:bg-zinc-900 focus:outline-none focus:ring-0">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"/></svg>
                                                                 </button>
-                                                                <div id="orders-{{ $order->uid }}-item-{{ $item->id }}-actions-dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-48 dark:bg-zinc-800">
+                                                                <div id="orders-{{ $order->uid }}-item-{{ $item->id }}-actions-dropdown" class="z-10 hidden bg-white divide-y divide-gray-100  shadow w-48 dark:bg-zinc-800">
                                                                     <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
 
                                                                         {{-- Contact seller --}}
                                                                         <li>
-                                                                            <a href="{{ url('messages/new', $item->owner?->username) }}" target="_blank" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-zinc-700 rounded-t">
+                                                                            <a href="{{ url('messages/new', $item->owner?->username) }}" target="_blank" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-zinc-700 -t">
                                                                                 <svg class="ltr:mr-3 rtl:ml-3 text-gray-500 w-5 h-5" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 7h10v2H7zm0 4h7v2H7z"></path><path d="M20 2H4c-1.103 0-2 .897-2 2v18l5.333-4H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14H6.667L4 18V4h16v12z"></path></svg>
                                                                                 <span class="text-xs font-medium text-gray-700 dark:text-gray-300">{{ __('messages.t_contact_seller') }}</span>
                                                                             </a>
@@ -322,7 +324,7 @@
                                                                         {{-- Send requirements --}}
                                                                         @if (($item->status === 'pending' || $item->status === 'proceeded') && $item->order->invoice && $item->order->invoice->status === 'paid')
                                                                             <li>
-                                                                                <a href="{{ url('account/orders/requirements?order=' . $order->uid . '&item=' . $item->uid) }}"  class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-zinc-700 rounded-b">
+                                                                                <a href="{{ url('account/orders/requirements?order=' . $order->uid . '&item=' . $item->uid) }}"  class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-zinc-700">
                                                                                     <svg class="ltr:mr-3 rtl:ml-3 text-gray-500 h-5 w-5" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.563 3.34a1.002 1.002 0 0 0-.989-.079l-17 8a1 1 0 0 0 .026 1.821L8 15.445v6.722l5.836-4.168 4.764 2.084a1 1 0 0 0 1.399-.85l1-15a1.005 1.005 0 0 0-.436-.893zm-2.466 14.34-5.269-2.306L16 9.167l-7.649 4.25-2.932-1.283 13.471-6.34-.793 11.886z"></path></svg>
                                                                                     <span class="text-xs font-medium text-gray-700 dark:text-gray-300">{{ __('messages.t_send_requirements') }}</span>
                                                                                 </a>
@@ -332,7 +334,7 @@
                                                                         {{-- Make review --}}
                                                                         @if ( $item->status === 'delivered' && $item->is_finished )
                                                                             <li>
-                                                                                <a href="{{ url('account/reviews/create/' . $item->uid) }}"  class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-zinc-700 rounded-b">
+                                                                                <a href="{{ url('account/reviews/create/' . $item->uid) }}"  class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-zinc-700">
                                                                                     <svg class="ltr:mr-3 rtl:ml-3 text-gray-500 w-5 h-5" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6.516 14.323-1.49 6.452a.998.998 0 0 0 1.529 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082a1 1 0 0 0-.59-1.74l-5.701-.454-2.467-5.461a.998.998 0 0 0-1.822 0L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.214 4.107zm2.853-4.326a.998.998 0 0 0 .832-.586L12 5.43l1.799 3.981a.998.998 0 0 0 .832.586l3.972.315-3.271 2.944c-.284.256-.397.65-.293 1.018l1.253 4.385-3.736-2.491a.995.995 0 0 0-1.109 0l-3.904 2.603 1.05-4.546a1 1 0 0 0-.276-.94l-3.038-2.962 4.09-.326z"></path></svg>
                                                                                     <span class="text-xs font-medium text-gray-700 dark:text-gray-300">{{ __('messages.t_make_a_review') }}</span>
                                                                                 </a>
@@ -353,7 +355,7 @@
                                                                     @foreach ($item->upgrades as $upgrade)
                                                                         <div class="relative flex items-start">
                                                                             <div class="flex items-center h-5">
-                                                                                <input type="checkbox" class="h-4 w-4 text-gray-300 dark:text-gray-400 border-gray-200 dark:border-zinc-600 dark:disabled:bg-zinc-600 border-2 rounded-sm cursor-not-allowed pointer-events-none" checked disabled>
+                                                                                <input type="checkbox" class="h-4 w-4 text-gray-300 dark:text-gray-400 border-gray-200 dark:border-zinc-600 dark:disabled:bg-zinc-600 border-2  cursor-not-allowed pointer-events-none" checked disabled>
                                                                             </div>
                                                                             <div class="ltr:ml-3 rtl:mr-3 text-sm mt-[-3px]">
                                                                                 <label class="font-medium text-gray-500 dark:text-gray-100 text-xs">
@@ -409,13 +411,13 @@
 
                                                         {{-- View gig --}}
                                                         <div class="flex-1 flex justify-center">
-                                                            <a href="{{ url('service', $item->gig->slug) }}" target="_blank" class="text-primary-600 whitespace-nowrap hover:text-primary-600">{{ __('messages.t_view_gig') }}</a>
+                                                            <a href="{{ url('service', $item->gig->slug) }}" target="_blank" class="text-red-400 whitespace-nowrap hover:text-gray-500">{{ __('messages.t_view_gig') }}</a>
                                                         </div>
 
                                                         {{-- Send requirements --}}
                                                         @if (($item->status === 'pending' || $item->status === 'proceeded') && $item->order->invoice && $item->order->invoice->status === 'paid')
                                                             <div class="flex-1 ltr:pl-4 rtl:pr-4 flex justify-center">
-                                                                <a href="{{ url('account/orders/requirements?order=' . $order->uid . '&item=' . $item->uid) }}" class="text-primary-600 whitespace-nowrap hover:text-primary-600">{{ __('messages.t_send_requirements') }}</a>
+                                                                <a href="{{ url('account/orders/requirements?order=' . $order->uid . '&item=' . $item->uid) }}" class="text-red-400 whitespace-nowrap hover:text-gray-500">{{ __('messages.t_send_requirements') }}</a>
                                                             </div>
                                                         @endif
                                                         
@@ -433,7 +435,7 @@
                             @empty
                                 
                                 {{-- No orders yet --}}
-                                <div class="rounded-md bg-blue-50 p-4">
+                                <div class=" bg-blue-50 p-4">
                                     <div class="flex">
                                         <div class="flex-shrink-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor"> <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
@@ -453,7 +455,7 @@
 
                             {{-- Pages --}}
                             @if ($orders->hasPages())
-                                <div class="bg-white border-t border-b border-gray-200 shadow-sm sm:rounded-lg sm:border px-4 py-5 sm:px-6 flex justify-center">
+                                <div class="bg-white border-t border-b border-gray-200 shadow-sm sm:border px-4 py-5 sm:px-6 flex justify-center">
                                     {!! $orders->links('pagination::tailwind') !!}
                                 </div>
                             @endif

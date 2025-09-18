@@ -1,5 +1,5 @@
-<div class="w-full" x-data="window.AxZSIHcEeIYErvQ" x-init="initialize()" @keydown.window.escape="open = false" x-cloak>
-    
+<div class="w-full my-4" x-data="window.AxZSIHcEeIYErvQ" x-init="initialize()" @keydown.window.escape="open = false" x-cloak>
+<div class="p-5 bg-white shadow-sm border border-gray-100 dark:border-zinc-700">
     {{-- Mobile filters --}}
     <div x-show="open" class="fixed inset-0 flex z-40 lg:hidden" x-ref="dialog" aria-modal="true">
     
@@ -20,11 +20,11 @@
             </div>
 
             {{-- Filter --}}
-            <div class="mt-4 border-t border-gray-200 dark:border-zinc-700">
+            <div class="border-t border-gray-200 dark:border-zinc-700">
 
                 {{-- Rating --}}
                 <div x-data="{ open: true }" class="py-3">
-                    <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-700 px-4">
+                    <h3 class="-my-4 flow-root bg-gray-50 dark:bg-zinc-700 px-4">
                         <button @click="open = !open" type="button" class="py-3 w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500 outline-none focus:outline-none">
                             <span class="font-medium text-gray-900">{{ __('messages.t_rating') }}</span>
                             <span class="ltr:ml-6 rtl:mr-6 flex items-center">
@@ -112,7 +112,7 @@
 
                 {{-- Price --}}
                 <div x-data="{ open: true }" class="py-3">
-                    <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-700 px-4">
+                    <h3 class="-my-4 flow-root bg-gray-50 dark:bg-zinc-700 px-4">
                         <button @click="open = !open" type="button" class="py-3 w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500 outline-none focus:outline-none">
                             <span class="font-medium text-gray-900">{{ __('messages.t_price') }}</span>
                             <span class="ltr:ml-6 rtl:mr-6 flex items-center">
@@ -139,7 +139,7 @@
 
                 {{-- Delivery time --}}
                 <div x-data="{ open: true }" class="py-3">
-                    <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-700 px-4">
+                    <h3 class="-my-4 flow-root bg-gray-50 dark:bg-zinc-700 px-4">
                         <button @click="open = !open" type="button" class="py-3 w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500 outline-none focus:outline-none">
                             <span class="font-medium text-gray-900">{{ __('messages.t_delivery_time') }}</span>
                             <span class="ltr:ml-6 rtl:mr-6 flex items-center">
@@ -187,11 +187,11 @@
     <main class="max-w-7xl mx-auto">
 
         {{-- Section title --}}
-        <div class="flex justify-between items-center mb-2 bg-transparent py-2 ltr:pr-6 rtl:pl-6 ltr:border-l-8 rtl:border-r-8 ltr:pl-4 rtl:pr-4 border-primary-600 rounded">
+        <div class="flex bg-white shadow-sm mt-4 justify-between items-center mb-2 bg-transparent py-2 ltr:pr-6 rtl:pl-6 ltr:border-l-8 rtl:border-r-8 ltr:pl-4 rtl:pr-4 border-red-400 ">
 
             {{-- Category name --}}
-            <div>
-                <span class="font-extrabold text-base text-gray-800 dark:text-gray-100 pb-1 block tracking-wider">{{ $category->name }}</span>
+            <div class="pe-3">
+                <h2 class="font-semibold text-xl text-red-400 dark:text-red-400 pb-1 block tracking-wider">{{ $category->name }}</h2>
                 <p class="text-sm text-gray-400">{{ $category->description }}</p>
             </div>
 
@@ -204,7 +204,7 @@
 
                         {{-- Sort by button --}}
                         <div>
-                            <button type="button" class="group inline-flex justify-center text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200" id="menu-button" x-ref="button" @click="onButtonClick()" @keyup.space.prevent="onButtonEnter()" @keydown.enter.prevent="onButtonEnter()" aria-expanded="false" aria-haspopup="true" x-bind:aria-expanded="open.toString()" @keydown.arrow-up.prevent="onArrowUp()" @keydown.arrow-down.prevent="onArrowDown()">
+                            <button type="button" class="group inline-flex justify-center text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200 whitespace-nowrap" id="menu-button" x-ref="button" @click="onButtonClick()" @keyup.space.prevent="onButtonEnter()" @keydown.enter.prevent="onButtonEnter()" aria-expanded="false" aria-haspopup="true" x-bind:aria-expanded="open.toString()" @keydown.arrow-up.prevent="onArrowUp()" @keydown.arrow-down.prevent="onArrowDown()">
                                 {{ __('messages.t_sort_by') }}
                                 <svg class="flex-shrink-0 ltr:-mr-1 rtl:-ml-1 ltr:ml-1 rtl:mr-1 h-5 w-5 text-gray-400 dark:text-gray-300 group-hover:text-gray-500 dark:group-hover:text-gray-200 dark:hover:text-gray-200" x-description="Heroicon name: solid/chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"> <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path> </svg>
                             </button>
@@ -260,18 +260,18 @@
         </div>
 
         {{-- Section content --}}
-        <section aria-labelledby="products-heading" class="pt-6 pb-24">
+        <section aria-labelledby="products-heading" class="pt-6">
             <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-10">
 
                 {{-- Filter --}}
                 <div>
 
                     {{-- Filters --}}
-                    <div class="hidden lg:block bg-white dark:bg-zinc-700 shadow-sm border rounded-md border-gray-100 dark:border-zinc-600 h-fit">
+                    <div class="hidden lg:block bg-white dark:bg-zinc-700 shadow-sm border border-gray-100 dark:border-zinc-600 h-fit">
                         
                         {{-- Rating --}}
                         <div x-data="{ open: true }" class="py-3">
-                            <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-600 px-4 rounded-t-md">
+                            <h3 class="-my-4 flow-root bg-gray-50 dark:bg-zinc-600 px-4 rounded-t-md">
                                 <button @click="open = !open" type="button" class="py-3 w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500 outline-none focus:outline-none">
                                     <span class="font-medium text-gray-900 dark:text-gray-300">{{ __('messages.t_rating') }}</span>
                                     <span class="ltr:ml-6 rtl:mr-6 flex items-center">
@@ -359,7 +359,7 @@
     
                         {{-- Price --}}
                         <div x-data="{ open: true }" class="py-3">
-                            <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-600 px-4">
+                            <h3 class="-my-4 flow-root bg-gray-50 dark:bg-zinc-600 px-4">
                                 <button @click="open = !open" type="button" class="py-3 w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500 outline-none focus:outline-none">
                                     <span class="font-medium text-gray-900 dark:text-gray-300">{{ __('messages.t_price') }}</span>
                                     <span class="ltr:ml-6 rtl:mr-6 flex items-center">
@@ -386,7 +386,7 @@
     
                         {{-- Delivery time --}}
                         <div x-data="{ open: true }" class="py-3">
-                            <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-600 px-4">
+                            <h3 class="-my-4 flow-root bg-gray-50 dark:bg-zinc-600 px-4">
                                 <button @click="open = !open" type="button" class="py-3 w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500 outline-none focus:outline-none">
                                     <span class="font-medium text-gray-900 dark:text-gray-300">{{ __('messages.t_delivery_time') }}</span>
                                     <span class="ltr:ml-6 rtl:mr-6 flex items-center">
@@ -467,6 +467,7 @@
         </section>
 
     </main>
+</div>
 </div>
 
 @push('scripts')

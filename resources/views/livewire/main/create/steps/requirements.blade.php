@@ -7,13 +7,13 @@
         <div class="bg-gray-50 dark:bg-zinc-700 px-8 py-4 rounded-t-md">
             <div class="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
                 <div class="ltr:ml-4 rtl:mr-4 mt-4">
-                <h3 class="text-sm leading-6 font-semibold tracking-wide text-gray-600 dark:text-gray-200">{{ __('messages.t_requirements') }}</h3>
+                <h3 class="text-sm leading-6 font-semibold tracking-wide text-red-400 dark:text-gray-200">{{ __('messages.t_requirements') }}</h3>
                 <p class="text-xs font-normal text-gray-400 dark:text-gray-300">{{ __('messages.t_create_gig_requirements_subtitle') }}</p>
                 </div>
                 <div class="ltr:ml-4 rtl:mr-4 flex-shrink-0 mt-4">
-                    <button id="modal-add-service-requirement-button" class="inline-flex items-center py-2 ltr:md:pl-3 rtl:md:pr-3 border border-transparent rounded-full bg-transparent hover:bg-transparent focus:outline-none focus:ring-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary-600 hover:text-primary-700 ltr:mr-2 rtl:ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
-                        <span class="text-xs font-medium text-primary-600 hover:text-primary-700"> 
+                    <button id="modal-add-service-requirement-button" class="group inline-flex items-center py-2 ltr:md:pl-3 rtl:md:pr-3 border border-transparent rounded-full bg-transparent hover:bg-transparent focus:outline-none focus:ring-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-400 group-hover:text-gray-500 ltr:mr-2 rtl:ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        <span class="text-xs font-medium text-red-400 group-hover:text-gray-500"> 
                             {{ __('messages.t_add_requirement') }}
                         </span>
                     </button>
@@ -190,7 +190,7 @@
 
                     {{-- Add option --}}
                     <div class="col-span-6">
-                        <button wire:click="addOption" type="button" class="text-primary-600 hover:text-white hover:bg-primary-600 border-2 border-primary-600 focus:ring-0 focus:outline-none font-medium rounded text-xs px-5 py-2 text-center inline-flex items-center">
+                        <button wire:click="addOption" type="button" class="inline-flex items-center rounded-sm border border-red-400 bg-red-400 px-4 py-2 text-[13px] font-medium text-white hover:text-red-500 focus:text-red-400 hover:bg-transparent transition-colors duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ltr:mr-2 rtl:ml-2 ltr:-ml-1 rtl:-mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
                             {{ __('messages.t_add_new_option') }}
                         </button>

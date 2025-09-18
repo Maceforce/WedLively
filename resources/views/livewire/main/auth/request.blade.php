@@ -1,4 +1,4 @@
-<div class="w-full relative md:pt-16">
+<div class="w-full ss relative md:pt-16">
 
     {{-- Session error message --}}
     @if (session()->has('error'))

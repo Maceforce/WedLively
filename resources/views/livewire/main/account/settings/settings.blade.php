@@ -1,6 +1,14 @@
-<main class="w-full">
-    <div class="px-4 sm:px-6 lg:px-8">
-        <div class="bg-white dark:bg-zinc-800 rounded-lg shadow overflow-hidden">
+<main class="w-full my-4">
+    <style>
+        .application .default-select2 .select2-container.select2-container--open .select2-selection--single {
+            border-color: #ff8080!important;
+        }
+        .application .default-select2 .select2-container .select2-selection--single {
+            border-radius: 0!important;
+        }
+    </style>
+<div class="p-5 bg-white shadow-sm border border-gray-100 dark:border-zinc-700">
+        <div class="bg-white dark:bg-zinc-800 shadow overflow-hidden">
             <div class="divide-y divide-gray-200 dark:divide-zinc-700 lg:grid lg:grid-cols-12 lg:divide-y-0 lg:divide-x rtl:divide-x-reverse">
 
                 {{-- Sidebar --}}
@@ -11,11 +19,13 @@
                 {{-- Section content --}}
                 <div class="divide-y divide-gray-200 dark:divide-zinc-700 lg:col-span-9">
 
+					<x-main.account.plannerbar />
+
                     {{-- Form --}}
                     <div class="py-6 px-4 sm:p-6 lg:pb-8 h-[calc(100%-80px)]">
 
                         {{-- Section header --}}
-                        <div class="mb-14">
+                        <div class="mb-5">
                             <h2 class="text-base leading-6 font-bold text-gray-900 dark:text-gray-100">{{ __('messages.t_account_settings') }}</h2>
                             <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">{{ __('messages.t_account_settings_subtitle') }}</p>
                         </div>

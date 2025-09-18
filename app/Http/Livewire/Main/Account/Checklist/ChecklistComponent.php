@@ -31,7 +31,7 @@ class ChecklistComponent extends Component
 
     public function render()
     {
-        return view('livewire.main.account.checklist.checklist', [
+        return view('livewire.main.account.Checklist.checklist', [
             'tasks' => $this->tasks
         ])->extends('livewire.main.layout.app')->section('content');
     }
@@ -77,7 +77,7 @@ class ChecklistComponent extends Component
         $task = Checklist::find($taskId);
         if ($task) {
             $task->delete(); 
-            $this->tasks = Checklist::all(); 
+            $this->tasks = Checklist::where('user_id', Auth::id())->get();
             $this->emit('taskDeleted'); 
         }
     }

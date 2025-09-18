@@ -1,5 +1,5 @@
 <style>
-.guest-overview {
+/*.guest-overview {
     margin: 20px auto;
 }
 
@@ -56,11 +56,11 @@ tr:hover {
 
 .action-button.delete:hover {
     background-color: #c82333;
-}
+}*/
 
 </style>
 
-
+{{-
 <div class="guest-overview">
     <h2>All Guests</h2>
     <table>
@@ -93,3 +93,4 @@ tr:hover {
         </tbody>
     </table>
 </div>
+--}}

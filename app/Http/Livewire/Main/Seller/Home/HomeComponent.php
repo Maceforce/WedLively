@@ -28,6 +28,10 @@ class HomeComponent extends Component
     public $latest_messages       = [];
     public $latest_orders;
     public $latest_awarded_projects;
+	
+	public $stripeCustomerId;
+    public $premiumSubscriptionId;
+    public $isPremium;
 
     /**
      * Initialize component
@@ -40,6 +44,11 @@ class HomeComponent extends Component
             
             // Get user id
             $user_id                           = auth()->id();
+			
+			$user = auth()->user();
+            $this->stripeCustomerId = $user->stripe_customer_id;
+            $this->premiumSubscriptionId = $user->premium_subscription_id;
+            $this->isPremium = $user->is_premium;
 
             // Calculate total earnings
             $earnings_from_gigs                = OrderItem::where('owner_id', $user_id)

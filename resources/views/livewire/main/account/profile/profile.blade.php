@@ -1,19 +1,17 @@
-<div class="container" x-data="window.TJPlQeqplTFcTQC" x-init="initialize()">
-    <div class="navbar">
-        <nav class="relative container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-between items-center h-20 flex">
-        <!-- <nav class="navbar"> -->
-            <ul class="nav-menu">
-                <li><a href="my-wedding">My Wedding</a></li>
-                <li><a href="checklist">Checklist</a></li>
-                <li><a href="vendor-manager">Vendor Manager</a></li>
-                <li><a href="guest">Guest List</a></li>
-                <li><a href="seating-chart">Seating Chart</a></li>
-                <li><a href="budget">Budget</a></li>
-                <li><a href="registry">Registry</a></li>
-                <li><a href="wedding-website">Wedding Website</a></li>
-            </ul>
-        </nav>
-    </div>
+<div class="container planner-fpop my-4 px-0" x-data="window.TJPlQeqplTFcTQC" x-init="initialize()">
+    <style>
+        #location-select,
+        #theDate {
+            border-top: 0px !important;
+            border-right: 0px !important;
+            border-left: 0px !important;
+            border-radius: 0px !important;
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            margin-bottom: 5px !important;
+        }
+    </style>
+<div class="p-5 bg-white shadow-sm border border-gray-100 dark:border-zinc-700">
     {{-- Loading indicator --}}
     <div class="fixed top-10 right-10 z-[99]" wire:loading>
         <div role="status"> <svg aria-hidden="true" class="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-primary-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,14 +20,13 @@
             </svg> <span class="sr-only">Loading...</span> </div>
     </div>
 
-    <div class="grid grid-cols-12 md:gap-x-6 gap-y-6">
-        
+    <div class="grid grid-cols-12 md:gap-x-6 gap-y-6 mb-4">
 
         {{-- Left side --}}
         <div class="col-span-12 lg:col-span-4">
 
             {{-- Profile header --}}
-            <div class="flex flex-col text-center bg-white dark:bg-zinc-800 rounded-md shadow-sm mb-6">
+            <div class="flex flex-col text-center bg-white dark:bg-zinc-800  shadow-sm mb-6">
 
                 {{-- Profile --}}
                 <div class="flex-1 flex flex-col p-8">
@@ -39,7 +36,7 @@
                         <img id="profile-avatar-preview" class="relative rounded-full w-28 h-28 object-cover lazy" src="{{ placeholder_img() }}" data-src="{{ src(auth()->user()->avatar) }}" alt="{{ auth()->user()->username }}">
                         <label for="profile-avatar-container" class="absolute inset-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center text-sm font-medium text-white opacity-0 hover:opacity-100">
                             <span>{{ __('messages.t_change') }}</span>
-                            <input type="file" id="profile-avatar-container" wire:model="avatar" @change="avatar" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md">
+                            <input type="file" id="profile-avatar-container" wire:model="avatar" @change="avatar" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer border-gray-300 ">
                         </label>
                     </div>
 
@@ -63,7 +60,7 @@
                     </div>
 
                     {{-- Divider --}}
-                    <div class="w-[20%] h-0.5 bg-gray-100 dark:bg-zinc-700 flex items-center justify-center mx-auto mt-4"></div>
+                    <div class="w-full h-0.5 bg-gray-100 dark:bg-zinc-700 flex items-center justify-center mx-auto mt-4"></div>
 
                     {{-- Headline --}}
                     <div class="my-4">
@@ -174,10 +171,10 @@
 
             {{-- Set availability --}}
             @if (auth()->user()->account_type === 'seller')
-            <div class="mb-6 bg-white dark:bg-zinc-800 shadow-sm rounded-md border {{ $availability ? 'border-b-0' : '' }} border-gray-200 dark:border-zinc-600">
+            <div class="mb-6 bg-white dark:bg-zinc-800 shadow-sm  border {{ $availability ? 'border-b-0' : '' }} border-gray-200 dark:border-zinc-600">
 
                 {{-- Section title --}}
-                <div class="bg-gray-50 dark:bg-zinc-700 px-5 py-4 {{ $availability ? 'rounded-t-md' : 'rounded-md' }}">
+                <div class="bg-gray-50 dark:bg-zinc-700 px-5 py-4 {{ $availability ? 'rounded-t-md' : '' }}">
                     <div class="ltr:-ml-4 rtl:-mr-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
                         <div class="ltr:ml-4 rtl:mr-4 mt-4">
                             <h3 class="text-sm leading-6 font-semibold tracking-wide text-gray-600 dark:text-gray-100">{{ __('messages.t_availability') }}</h3>
@@ -186,10 +183,10 @@
                         @if (!$availability)
                         <div class="ltr:ml-4 rtl:mr-4 flex-shrink-0 mt-4">
                             <button id="modal-set-availability-button" class="inline-flex items-center py-2 px-3 border border-transparent rounded-full bg-transparent hover:bg-transparent focus:outline-none focus:ring-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary-600 hover:text-primary-700 ltr:mr-2 rtl:ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-400 ltr:mr-2 rtl:ml-2" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                                 </svg>
-                                <span class="text-xs font-medium text-primary-600 hover:text-primary-700">
+                                <span class="text-xs font-medium text-red-400">
                                     {{ __('messages.t_set_availability') }}
                                 </span>
                             </button>
@@ -238,7 +235,7 @@
             @endif
 
             {{-- Description --}}
-            <div class="mb-6 bg-white dark:bg-zinc-800 shadow-sm rounded-md border border-b-0 border-gray-200 dark:border-zinc-700">
+            <div class="mb-6 bg-white dark:bg-zinc-800 shadow-sm  border border-b-0 border-gray-200 dark:border-zinc-700">
 
                 {{-- Section title --}}
                 <div class="bg-gray-50 dark:bg-zinc-700 px-5 py-4 rounded-t-md">
@@ -249,10 +246,10 @@
                         </div>
                         <div class="ltr:ml-4 rtl:mr-4 flex-shrink-0 mt-4">
                             <button @click="isDescriptionEditing = !isDescriptionEditing" class="inline-flex items-center py-2 px-3 border border-transparent rounded-full bg-transparent hover:bg-transparent focus:outline-none focus:ring-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary-600 hover:text-primary-700 ltr:mr-2 rtl:ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-400 ltr:mr-2 rtl:ml-2" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                                 </svg>
-                                <span class="text-xs font-medium text-primary-600 hover:text-primary-700">
+                                <span class="text-xs font-medium text-red-400">
                                     {{ __('messages.t_edit') }}
                                 </span>
                             </button>
@@ -291,7 +288,7 @@
             </div>
 
             {{-- Social media accounts --}}
-            <div class="mb-6 bg-white dark:bg-zinc-800 shadow-sm rounded-md border border-b-0 border-gray-200 dark:border-zinc-700">
+            <div class="mb-6 bg-white dark:bg-zinc-800 shadow-sm  border border-b-0 border-gray-200 dark:border-zinc-700">
 
                 {{-- Section title --}}
                 <div class="bg-gray-50 dark:bg-zinc-700 px-5 py-4 rounded-t-md">
@@ -304,7 +301,7 @@
                 </div>
 
                 {{-- Section content --}}
-                <div class="grid grid-cols-12 gap-4 py-6">
+                <div class="grid grid-cols-12 gap-3 py-5 sidebar-form">
 
                     {{-- Facebook --}}
                     <div class="col-span-12 px-5">
@@ -370,7 +367,7 @@
                     </div>
 
                     {{-- Update --}}
-                    <div class="col-span-12 px-5 mt-5">
+                    <div class="col-span-12 px-5">
                         <x-forms.button action="updateSocial" :text="__('messages.t_update')" :block="true" />
                     </div>
 
@@ -379,7 +376,7 @@
             </div>
 
             {{-- Skills --}}
-            <div class="mb-6 bg-white dark:bg-zinc-800 shadow-sm rounded-md border border-b-0 border-gray-200 dark:border-zinc-700">
+            <div class="mb-6 bg-white dark:bg-zinc-800 shadow-sm  border border-b-0 border-gray-200 dark:border-zinc-700">
 
                 {{-- Section title --}}
                 <div class="bg-gray-50 dark:bg-zinc-700 px-5 py-4 rounded-t-md">
@@ -459,7 +456,7 @@
                     {{-- List of skills --}}
                     @if (count($skills))
                     <div class="px-5" x-show="!isAddSkill" wire:key="list-of-skills">
-                        <ul role="list" class="border border-gray-200 dark:border-zinc-600 rounded-md divide-y divide-gray-200 dark:divide-zinc-600">
+                        <ul role="list" class="border border-gray-200 dark:border-zinc-600  divide-y divide-gray-200 dark:divide-zinc-600">
                             @foreach ($skills as $skill)
                             <li class="ltr:pl-3 rtl:pr-3 ltr:pr-4 rtl:pl-4 py-3 flex items-center justify-between text-sm" wire:key="skill-id-{{ $skill->id }}">
 
@@ -540,7 +537,7 @@
             </div>
 
             {{-- Languages --}}
-            <div class="mb-6 bg-white dark:bg-zinc-800 shadow-sm rounded-md border border-b-0 border-gray-200 dark:border-zinc-700">
+            <div class="bg-white dark:bg-zinc-800 shadow-sm  border border-b-0 border-gray-200 dark:border-zinc-700">
 
                 {{-- Section title --}}
                 <div class="bg-gray-50 dark:bg-zinc-700 px-5 py-4 rounded-t-md">
@@ -636,7 +633,7 @@
                     {{-- List of languages --}}
                     @if (count($languages))
                     <div class="px-5" x-show="!isAddLanguage" wire:key="list-of-languages">
-                        <ul role="list" class="border border-gray-200 dark:border-zinc-600 rounded-md divide-y divide-gray-200 dark:divide-zinc-600">
+                        <ul role="list" class="border border-gray-200 dark:border-zinc-600  divide-y divide-gray-200 dark:divide-zinc-600">
                             @foreach ($languages as $language)
                             <li class="ltr:pl-3 rtl:pr-3 ltr:pr-4 rtl:pl-4 py-3 flex items-center justify-between text-sm" wire:key="language-id-{{ $language->id }}">
 
@@ -720,8 +717,20 @@
         {{-- Right side --}}
         <div class="col-span-12 lg:col-span-8">
 
+         @if(Auth::check() && Auth::user()->account_type == 'buyer')
+        <div class="navbar mb-6">
+            <nav class="relative container mx-auto px-4 sm:px-6 lg:px-8 justify-center items-center h-20 flex">
+                <ul class="nav-menu gap-2 flex justify-center">
+                    <li><a class="whitespace-nowrap border border-white" href="{{url('account/checklist')}}">Checklist</a></li>
+                    <li><a class="whitespace-nowrap border border-white" href="{{url('account/guest')}}">Guest List</a></li>
+                    <li><a class="whitespace-nowrap border border-white" href="{{url('account/budget')}}">Budget</a></li>
+                </ul>
+            </nav>
+        </div>
+        @endif
+
             {{-- Empty states --}}
-            <div class="border-dashed border-2 dark:border-zinc-600 rounded-md mb-6">
+            <div class="border-dashed border-2 dark:border-zinc-600  mb-6">
                 <div class="py-14 px-6 text-center text-sm sm:px-14">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -733,10 +742,10 @@
 
             {{-- Actions --}}
             <div class="flex items-center justify-center">
-                <span class="relative z-0 inline-flex shadow-sm rounded-md">
+                <span class="relative z-0 inline-flex shadow-sm ">
 
                     {{-- Account settings --}}
-                    <a href="{{ url('account/settings') }}" class="relative inline-flex items-center px-4 py-1 ltr:rounded-l-md rtl:rounded-r-md border border-gray-300 dark:border-zinc-600 dark:hover:bg-zinc-700 dark:text-gray-200 bg-white dark:bg-zinc-800 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-primary-600 focus:border-primary-600">
+                    <a href="{{ url('account/settings') }}" class="relative inline-flex items-center px-4 py-1 border border-gray-300 dark:border-zinc-600 dark:hover:bg-zinc-700 dark:text-gray-200 bg-white dark:bg-zinc-800 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:border-red-500">
                         <svg class="ltr:-ml-1 ltr:mr-2 rtl:-mr-1 rtl:ml-2 w-5 h-5 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.122 21c.378.378.88.586 1.414.586S7.572 21.378 7.95 21l4.336-4.336a7.495 7.495 0 0 0 2.217.333 7.446 7.446 0 0 0 5.302-2.195 7.484 7.484 0 0 0 1.632-8.158l-.57-1.388-4.244 4.243-2.121-2.122 4.243-4.243-1.389-.571A7.478 7.478 0 0 0 14.499 2c-2.003 0-3.886.78-5.301 2.196a7.479 7.479 0 0 0-1.862 7.518L3 16.05a2.001 2.001 0 0 0 0 2.828L5.122 21zm4.548-8.791-.254-.616a5.486 5.486 0 0 1 1.196-5.983 5.46 5.46 0 0 1 4.413-1.585l-3.353 3.353 4.949 4.95 3.355-3.355a5.49 5.49 0 0 1-1.587 4.416c-1.55 1.55-3.964 2.027-5.984 1.196l-.615-.255-5.254 5.256h.001l-.001 1v-1l-2.122-2.122 5.256-5.255z"></path>
                         </svg>
@@ -744,7 +753,7 @@
                     </a>
 
                     {{-- Change password --}}
-                    <a href="{{ url('account/password') }}" class="ltr:-ml-px rtl:-mr-px relative inline-flex items-center px-4 py-1 border border-gray-300 dark:border-zinc-600 dark:hover:bg-zinc-700 dark:text-gray-200 bg-white dark:bg-zinc-800 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-primary-600 focus:border-primary-600">
+                    <a href="{{ url('account/password') }}" class="relative inline-flex items-center px-4 py-1 border border-gray-300 dark:border-zinc-600 dark:hover:bg-zinc-700 dark:text-gray-200 bg-white dark:bg-zinc-800 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:border-red-500">
                         <svg class="ltr:-ml-1 ltr:mr-2 rtl:-mr-1 rtl:ml-2 w-5 h-5 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2C9.243 2 7 4.243 7 7v3H6c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-8c0-1.103-.897-2-2-2h-1V7c0-2.757-2.243-5-5-5zm6 10 .002 8H6v-8h12zm-9-2V7c0-1.654 1.346-3 3-3s3 1.346 3 3v3H9z"></path>
                         </svg>
@@ -753,7 +762,7 @@
 
                     {{-- Get verified --}}
                     @if (auth()->user()->status !== 'verified')
-                    <a href="{{ url('account/verification') }}" class="ltr:-ml-px rtl:-mr-px relative inline-flex items-center px-4 py-1 border border-gray-300 dark:border-zinc-600 dark:hover:bg-zinc-700 dark:text-gray-200 bg-white dark:bg-zinc-800 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-primary-600 focus:border-primary-600">
+                    <a href="{{ url('account/verification') }}" class="relative inline-flex items-center px-4 py-1 border border-gray-300 dark:border-zinc-600 dark:hover:bg-zinc-700 dark:text-gray-200 bg-white dark:bg-zinc-800 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:border-red-500">
                         <svg class="ltr:-ml-1 ltr:mr-2 rtl:-mr-1 rtl:ml-2 w-5 h-5 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21.438 5.089a1.002 1.002 0 0 0-.959.015c-.684.389-1.355.577-2.053.577-2.035 0-3.952-1.629-5.722-3.39-.375-.373-1.063-.373-1.438 0C9.592 3.959 7.598 5.663 5.51 5.663c-.69 0-1.351-.184-2.018-.561-.298-.166-.658-.171-.96-.012s-.501.461-.528.801c-.011.129-.944 12.872 9.683 16.041a.99.99 0 0 0 .286.042H12c.097 0 .192-.014.285-.041 10.657-3.17 9.695-15.916 9.684-16.044a1 1 0 0 0-.531-.8zm-9.452 14.842c-6.979-2.255-7.934-9.412-8.014-12.477.505.14 1.019.209 1.537.209 2.492 0 4.65-1.567 6.476-3.283 1.893 1.788 3.983 3.301 6.442 3.301.53 0 1.057-.074 1.575-.22-.074 3.065-1.021 10.217-8.016 12.47z"></path>
                         </svg>
@@ -762,7 +771,7 @@
                     @endif
 
                     {{-- View profile --}}
-                    <a href="{{ url('profile', auth()->user()->username) }}" class="ltr:-ml-px rtl:-mr-px relative ltr:rounded-r-md rtl:rounded-l-md inline-flex items-center px-4 py-1 border border-gray-300 dark:border-zinc-600 dark:hover:bg-zinc-700 dark:text-gray-200 bg-white dark:bg-zinc-800 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-primary-600 focus:border-primary-600">
+                    <a href="{{ url('profile', auth()->user()->username) }}" class="relative inline-flex items-center px-4 py-1 border border-gray-300 dark:border-zinc-600 dark:hover:bg-zinc-700 dark:text-gray-200 bg-white dark:bg-zinc-800 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:border-red-500">
                         <svg class="ltr:-ml-1 ltr:mr-2 rtl:-mr-1 rtl:ml-2 w-5 h-5 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"></path>
                         </svg>
@@ -816,219 +825,191 @@
     @endif
 
 
-
-    <style>
-        /* Basic page styles */
-
-
-        /* Popup modal overlay */
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            /* Darker background for more focus */
-            backdrop-filter: blur(5px);
-            /* Adds a blur effect to the background */
-        }
-
-        /* Modal content box */
-        .modal-content {
-            background-color: #ffffff;
-            /* White background for content */
-            margin: 5% auto;
-            /* Align it vertically */
-            padding: 30px;
-            border: 1px solid #ccc;
-            width: 80%;
-            /* Adjust width */
-            max-width: 600px;
-            /* Optional max width */
-            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
-            /* Softer shadow for depth */
-            border-radius: 10px;
-            /* Rounded corners for a modern look */
-            animation: fadeIn 0.5s;
-            /* Fade-in animation for the modal */
-        }
-
-        /* Modal fade-in animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Close button */
-        .close {
-            color: #ff6b6b;
-            /* Red color for emphasis */
-            float: right;
-            font-size: 30px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #c0392b;
-            /* Darker red on hover for better interaction */
-            cursor: pointer;
-        }
-
-        /* Style the form fields */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            /* Add space between form elements */
-        }
-
-        form input,
-        form select,
-        form textarea {
-            padding: 12px;
-            font-size: 16px;
-            border: 1px solid #ced4da;
-            /* Lighter border */
-            border-radius: 5px;
-            transition: border-color 0.3s;
-            /* Smooth transition for focus */
-        }
-
-        form input:focus,
-        form select:focus,
-        form textarea:focus {
-            border-color: #80bdff;
-            /* Blue border on focus */
-            outline: none;
-            /* Remove default outline */
-        }
-
-        form label {
-            margin-bottom: 5px;
-            font-weight: 600;
-            /* Semi-bold labels for emphasis */
-        }
-
-        /* Checkbox styling */
-        .checkbox-group {
-            display: flex;
-            flex-wrap: wrap;
-            /* Allow wrapping if necessary */
-            gap: 15px;
-            /* Space between checkboxes */
-        }
-
-        form .form-check {
-            display: flex;
-            align-items: center;
-        }
-
-        /* Submit button */
-        form .submit-btn {
-            background-color: #28a745;
-            /* Green button */
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            /* Smooth transition on hover */
-        }
-
-        form .submit-btn:hover {
-            background-color: #218838;
-            /* Darker green on hover */
-        }
-
-        /* Responsive design adjustments */
-        @media (max-width: 768px) {
-            .modal-content {
-                width: 90%;
-                /* Use more width on smaller screens */
-            }
-
-            form {
-                gap: 10px;
-                /* Reduce gap on smaller screens */
-            }
-        }
-    </style>
-
     <!-- The Popup Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <h2>Welcome! Please fill out this form:</h2>
-
-            <form id="weddingPlanningForm" class="mt-4">
-                @csrf <!-- CSRF Token for AJAX -->
-
-                <!-- First Row: Name and Email -->
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name">
+    <div id="myModal" class="modal modal-one">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-row">
+                <div class="bg-light col-3">
+                    <h2 class="text-red-400">One last step!</h2>
+                    <p class="text-dark">Add your wedding details for easy, dare we say, enjoyable planning.</p>
                 </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email">
-                </div>
-
-                <!-- Second Row: Getting Married and Wedding Date -->
-                <div class="form-group">
-                    <label for="getting_married">Getting Married</label>
-                    <input type="text" class="form-control" id="getting_married" name="getting_married">
-                </div>
-
-                <div class="form-group">
-                    <label for="wedding_date">Wedding Date</label>
-                    <input type="date" class="form-control" id="wedding_date" name="wedding_date">
-                </div>
-
-                <!-- Third Row: Number of Guests and Estimated Budget -->
-                <div class="form-group">
-                    <label for="number_of_guests">Number of Guests</label>
-                    <input type="number" class="form-control" id="number_of_guests" name="number_of_guests">
-                </div>
-
-                <div class="form-group">
-                    <label for="estimated_budget">Estimated Budget</label>
-                    <input type="number" class="form-control" id="estimated_budget" name="estimated_budget">
-                </div>
-
-                <!-- Fourth Row: City/Town -->
-                <div class="form-group">
-                    <label for="city_town">City/Town</label>
-                    <input type="text" class="form-control" id="city_town" name="city_town">
-                </div>
-
-                <!-- Wedding Vendors Needed -->
-                <div class="form-group">
-                    <label class="col-form-label">Which wedding vendors do you still need?</label>
-                    <div class="checkbox-group">
-                        @foreach (['Venue', 'Catering', 'Photography', 'Band', 'Invitations', 'Favors & Gifts', 'Flowers', 'Dress & Attire', 'Travel', 'Transportation', 'Lighting & Decor', 'Planning', 'Wedding Cake', 'Videography'] as $vendor)
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="vendors[]" value="{{ $vendor }}" id="vendor_{{ strtolower(str_replace(' ', '_', $vendor)) }}">
-                            <label class="form-check-label" for="vendor_{{ strtolower(str_replace(' ', '_', $vendor)) }}">{{ $vendor }}</label>
+                <div class="p-4 form-content col-9">
+                    <form id="weddingPlanningForm" class="mt-4 row">
+                        @csrf <!-- CSRF Token for AJAX -->
+                        <!-- First Row: Name and Email -->
+                        <div class="form-group mb-0 col-lg-6">
+                            <label for="name" class="text-uppercase form-label">I Am</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ $user->username ?? '' }}">
                         </div>
-                        @endforeach
-                    </div>
+
+                        <div class="form-group mb-0 col-lg-6">
+                            <label for="name" class="text-uppercase form-label">My partner is</label>
+                            <input type="text" class="form-control" id="name" name="partner_name" placeholder="Name">
+                        </div>
+
+                        <!-- Third Row: Number of Guests and Estimated Budget -->
+                        <div class="form-group mb-0 col-lg-6">
+                            <label for="number_of_guests" class="text-uppercase form-label">Number of Guests</label>
+                            <input type="number" class="form-control" id="number_of_guests" name="number_of_guests"  placeholder="Estimated Count">
+                        </div>
+
+                        <div class="form-group mb-0 col-lg-6">
+                            <label for="estimated_budget" class="text-uppercase form-label">Estimated Budget</label>
+                            <input type="number" class="form-control" id="estimated_budget" name="estimated_budget"  placeholder="Budget">
+                        </div>
+
+                        <!-- Fourth Row: Location -->
+                        <div class="form-group mb-0 col-lg-6">
+                            <label for="city_town" class="text-uppercase form-label">Location</label>
+                            <!--<input type="text" class="form-control" id="city_town" name="city_town"  placeholder="E.g. New Derry, Pennsylvania" value="{{ $user->gettingmarried ?? '' }}">-->
+							<select id="location-select" name="location" target="create-gig-action-btn" class="mt-1 block w-full border-gray-300 rounded-md focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                                <option value="">Select Location</option>
+                                @foreach($alllocations as $index => $locations)
+                                    <option value="{{ $locations['id'] }}">{{ $locations['location_name'] }} </option>
+                                @endforeach   
+                            </select> 
+                        </div>
+						
+						<div class="form-group mb-0 col-lg-6">
+						    <!-- <div class="relative w-full shadow-sm rounded-md mt-2"> -->
+                            <label for="Location" class="text-uppercase form-label">Wedding Date</label> 
+							{{-- Input --}}
+							<input id="theDate" type="date" name="weddingdate" class="{{ $errors->first('weddingdate') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full  p-3 placeholder:font-normal  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mt-2" placeholder="Wedding Date">
+
+							<!-- {{-- Icon --}}
+							<div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
+								<svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+							</div> -->
+
+						<!-- </div>
+
+						{{-- Error --}}
+						@error('weddingdate')
+							<p class="mt-1.5 text-[13px] tracking-wide text-red-600 font-medium ltr:pl-1 rtl:pr-1">
+								{{ $errors->first('weddingdate') }}
+							</p>
+						@enderror -->
+
+					</div>
+
+						<!-- Wedding Vendors Needed -->
+                        <div class="form-group col-g-12">
+                            <h4 class="col-form-label h4 text-gray-600">Which default wedding guest groups do you still need?</h4>
+                            <div class="checkbox-group">
+                                 
+								@foreach($defaultGroups as $group)
+									<div class="pure-u mt10 mr15">
+										<div class="input-group-line input-group-line--noMargin">
+											<label>
+												<input 
+													class="form-check-input" 
+													type="checkbox" 
+													name="group[]" 
+													value="{{ $group['name'] }}" 
+													id="group_{{ strtolower(str_replace(' ', '_', $group['name'])) }}" 
+													checked
+												>
+												<input 
+													class="form-check-input" 
+													type="hidden" 
+													name="group_ids[]" 
+													value="{{ $group['id'] }}" 
+													id="group_ids_{{ strtolower(str_replace(' ', '_', $group['id'])) }}" 
+													checked
+												>
+												<label 
+													class="form-check-label" 
+													for="group_{{ strtolower(str_replace(' ', '_', $group['name'])) }}"
+												>
+													{{ $group['name'] }}
+												</label>
+											</label>
+										</div>
+									</div>
+								@endforeach
+
+                                </div>
+                            </div>
+
+                        <!-- Wedding Vendors Needed -->
+                        <div class="form-group col-g-12">
+                            <h4 class="col-form-label h4 text-gray-600">Which wedding Events do you still need?</h4>
+                            <div class="checkbox-group">
+                                 
+    @foreach($defaultEvents as $event)
+        <div class="pure-u mt10 mr15">
+            <div class="input-group-line input-group-line--noMargin">
+                <label>
+                    <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        name="event[]" 
+                        value="{{ $event['name'] }}" 
+                        id="event_{{ strtolower(str_replace(' ', '_', $event['name'])) }}" 
+                        checked
+                    >
+                    <input 
+                        class="form-check-input" 
+                        type="hidden" 
+                        name="event_ids[]" 
+                        value="{{ $event['id'] }}" 
+                        id="event_ids_{{ strtolower(str_replace(' ', '_', $event['id'])) }}" 
+                        checked
+                    >
+                    <label 
+                        class="form-check-label" 
+                        for="event_{{ strtolower(str_replace(' ', '_', $event['name'])) }}"
+                    >
+                        {{ $event['name'] }}
+                    </label>
+                </label>
+            </div>
+        </div>
+    @endforeach
+                             
+                                </div>
+                            </div>
+
+                        <!-- Wedding Vendors Needed -->
+                        <div class="form-group col-g-12">
+                            <h4 class="col-form-label h4 text-gray-600">Which wedding vendors do you still need?</h4>
+                            <div class="checkbox-group">
+                            @foreach($subcategories as $index => $subcategory)
+                            <div class="pure-u mt10 mr15">
+                                                <div class="input-group-line input-group-line--noMargin">
+                                                    <label>
+
+                                                    <input class="form-check-input" type="checkbox" name="subcategory[]" value="{{ $subcategory['name'] }}" id="subcategory_{{ strtolower(str_replace(' ', '_', $subcategory['name'])) }}" checked>
+
+													<input class="form-check-input" type="hidden" name="subcategory_ids[]" value="{{ $subcategory['id'] }}" id="subcategory_ids_{{ strtolower(str_replace(' ', '_', $subcategory['id'])) }}" checked>
+
+                                                    <label class="form-check-label" for="subcategory_{{ strtolower(str_replace(' ', '_',$subcategory['name'])) }}">{{ $subcategory['name'] }}</label>
+                                                    
+                                                        <!-- <input
+                                                            type="checkbox"
+                                                            wire:model.defer="selectedsubcategory.{{ $subcategory['id'] }}"
+                                                            class="app-input-checkbox-subcategory"
+                                                            name="subcategory[{{ $subcategory['id'] }}]"
+                                                            {{ $loop->first ? 'checked' : '' }}>
+                                                        <span></span>
+                                                        {{ $subcategory['name'] }}
+                                                    </label> -->
+                                                </div>
+                                            </div>
+                            @endforeach 
+
+                               <!--  @foreach (["Catering", "Photographers", "Videographers", "Decorators", "DJ's", "Imams","Makeup/Heena Artists", "venues"] as $vendor)
+                                <div class="form-check col-xxl-3 col-lg-6 col-md-6 .col-12"> 
+                                    <input class="form-check-input" type="checkbox" name="vendors[]" value="{{ $vendor }}" id="vendor_{{ strtolower(str_replace(' ', '_', $vendor)) }}">
+                                    <label class="form-check-label" for="vendor_{{ strtolower(str_replace(' ', '_', $vendor)) }}">{{ $vendor }}</label>
+                                </div> 
+                                @endforeach-->
+                            </div>
+                        </div>
+                        <input type="submit" class="submit-btn py-2 px-4 ml-4 text-white transition-colors duration-300 hover:underline hidden md:inline-block dark:text-white dark:hover:text-white" value="Submit">
+                    </form>
                 </div>
-
-                <input type="submit" class="submit-btn" value="Submit">
-            </form>
-
+            </div>
         </div>
     </div>
     <style>
@@ -1039,48 +1020,18 @@
             color: #333;
         }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
 
-        .modal-content {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            width: 60%;
-            max-width: 500px;
-            text-align: center;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-
-        .modal-content h2 {
-            margin-bottom: 20px;
+        .form-group {
+            width: 90%;
         }
 
         .close {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #aaa;
         }
 
-        .close:hover {
+        /* .close:hover {
             color: #333;
-        }
+        } */
 
         /* Form Styling */
         form {
@@ -1089,7 +1040,7 @@
             align-items: center;
         }
 
-        input[type="text"], input[type="email"] {
+        input[type="text"], input[type="email"], input#wedding_date, input#number_of_guests, input#estimated_budget {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
@@ -1098,7 +1049,7 @@
             font-size: 16px;
         }
 
-        input[type="text"]:focus, input[type="email"]:focus {
+        input[type="text"]:focus, input[type="email"]:focus, input#wedding_date:focus, input#number_of_guests:focus, input#estimated_budget:focus {
             border-color: #28a745;
             outline: none;
             box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
@@ -1121,30 +1072,36 @@
         }
 
         /* Vendor Section */
+
+        .vendors-section-wrapper {
+            overflow-y: auto;
+            max-height: 330px;
+            overflow-x: inherit !important;
+            padding: 0 10px;
+            margin: 10px -10px 0 -10px;
+        }
+
         .vendor-section {
             display: flex;
             align-items: center;
-            margin: 20px 0;
+            margin: 10px 0;
             border-bottom: 1px solid #eee;
             padding-bottom: 15px;
         }
 
         .vendor-section img {
-            margin-right: 15px;
-            width: 60px;
-            height: 60px;
+            width: 100%;
+            max-width: 110px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 5px;
         }
 
         .vendor-section a {
             font-size: 18px;
-            color: #007BFF;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
-        }
-
-        .vendor-section a:hover {
-            color: #0056b3;
         }
 
         .vendor-description {
@@ -1152,49 +1109,181 @@
             color: #555;
         }
 
+        [type=checkbox] {
+            border-radius: 0;
+            margin-right: 5px;
+        }
+        .vendors-section-wrapper {
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 8px;
+            background-color: #f9f9f9; 
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ffdbdb;
+        }
     </style>
-    <div id="vendorModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h1>Welcome! Let's start with your vendors.</h1>
-        <p>Choose a category</p>
-        <a href="https://example.com/explore-more-vendors" target="_blank">Explore more vendors</a>
 
-        <div class="vendor-section">
-            <img src="https://via.placeholder.com/56" alt="Banquet Hall">
-            <div>
-                <a href="https://example.com/wedding-venues" target="_blank">Wedding Venues</a>
-                <p class="vendor-description">Explore and tour top-rated reception venues to book a special space to celebrate your love.</p>
-            </div>
-        </div>
 
-        <div class="vendor-section">
-            <img src="https://via.placeholder.com/56" alt="Catering">
-            <div>
-                <a href="https://example.com/catering" target="_blank">Catering</a>
-                <p class="vendor-description">Find experienced chefs, bartenders, and caterers to craft the ultimate menu to remember.</p>
-            </div>
-        </div>
 
-        <div class="vendor-section">
-            <img src="https://via.placeholder.com/56" alt="Photography">
-            <div>
-                <a href="https://example.com/photography" target="_blank">Photography</a>
-                <p class="vendor-description">Browse local photographers and their work to find one who’ll capture the essence of your day.</p>
-            </div>
-        </div>
 
-        <div class="vendor-section">
-            <img src="https://via.placeholder.com/56" alt="Bands">
-            <div>
-                <a href="https://example.com/bands" target="_blank">Bands</a>
-                <p class="vendor-description">From oldies to soul, discover live wedding bands that play all styles of music.</p>
+
+
+
+
+<style>
+  a.button_content {
+ color: #19b5bc;
+}
+
+.conent-a{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 15px 0;
+}
+
+.modal-content h1 {
+    font-size: 14px;
+    line-height: 24px;
+    padding: 0px 0 10px 0;
+}
+.modal-content h4 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 38px;
+}
+
+.vendor-section {
+    display: flex;
+    grid-template-columns: 64px 1fr;
+    column-gap: 24px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .15);
+    padding: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: box-shadow .2s;
+}
+
+@media (max-width: 500px) {
+    .vendor-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+p.content_a {
+    font-size: 16px !important;
+    font-weight: 600;
+}
+
+a.button_content {
+    color: #19b5bc;
+    font-weight: 600;
+}
+
+.vendor-section:hover{
+box-shadow: 0 5px 12px rgba(0, 0, 0, .2);
+}
+
+.boxes{
+display: grid;
+row-gap: 24px;
+}
+
+.modal-content {
+    position: relative;
+}
+a.category{
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    display: inline-block;
+    vertical-align: middle;
+}
+p.vendor-description{
+   font-size: 13px;
+    line-height: 19px;
+    color: #8c8c8c;
+    margin-bottom: 0;
+    margin-top: 7px;
+}
+
+span.arrow {
+    margin-left: 8px;
+    font-size: 18px;
+    color: #ff8080;
+}
+.modal-vendor {
+    height: 100%;
+    overflow: auto;
+    margin-top: 30px;
+    justify-content: center;
+}
+#vendorModal .modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+</style>
+
+
+
+
+<div id="vendorModal" class="modal modal-vendor">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-row">
+            <span class="close">&times;</span>
+            <h1 class="text-gray-600">Welcome! Let's start with your vendors.</h1>
+            <div class="conent-a">
+            <a href="{{url('categories/vendors')}}" target="_blank" class="text-red-400">Explore more vendors</a>
             </div>
+            <h4 class="text-gray-600">Wedding Vendors' Categories</h4>
+            <div id="overwiteVndorsCat" class="vendors-section-wrapper">
+            </div>
+           <!-- @if($weddingPlanning && (is_array($weddingPlanning->subcategories) || is_string($weddingPlanning->subcategories)))
+				<div class="vendors-section-wrapper">
+					@php
+						$subcategories = is_string($weddingPlanning->subcategories) 
+							? json_decode($weddingPlanning->subcategories, true) 
+							: $weddingPlanning->subcategories;
+					@endphp
+
+					@foreach($subcategories as $subcategory)
+						@php
+							$details = $staticSubcategories[$subcategory] ?? null;
+						@endphp
+
+						@if($details)
+							<div class="vendor-section">
+								<img src="/{{ $details['imgsrc'] }}" alt="{{ $subcategory }}">
+								<div>
+									<a href="{{ $details['link'] }}" class="category">Wedding {{ $subcategory }}<span class="arrow"> → </span></a>
+									<p class="vendor-description">{{ $details['description'] }}</p>
+								</div>
+							</div>
+						@else
+							<li>Wedding {{ $subcategory }}</li>
+						@endif
+					@endforeach
+				</div>
+			@else
+				<p>No subcategory data available.</p>
+			@endif-->
+			
+
+        
+    
         </div>
     </div>
 </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         var vendorModal = document.getElementById("vendorModal");
         vendorModal.style.display = "none";
@@ -1222,11 +1311,23 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
+                      
+                       $('#overwiteVndorsCat').html(response.data);                   
                         alert('Wedding planning entry created successfully.'); // Handle success
                         $('#myModal').hide(); // Close modal if needed
                         // Optionally, reset the form
                         $('#weddingPlanningForm')[0].reset();
                         vendorModal.style.display = "flex";
+
+                        var closeButton = document.querySelector(".close");
+                        if (closeButton) {
+                            closeButton.addEventListener("click", function() {
+                                vendorModal.style.display = "none";
+                            });
+                        } else {
+                            console.error("Close button not found");
+                        }
+
 
                     },
                     error: function(xhr) {
@@ -1244,32 +1345,45 @@
         });
     </script>
 
-    <script>
-        // Get the modal element
-        var modal = document.getElementById("myModal");
 
-        // Get the <span> element that closes the modal
-        //var span = document.getElementsByClassName("close")[0];
+<script>
+    // Get the modal element
+    var modal = document.getElementById("myModal");
 
-        // Show the modal when the page loads
-        window.onload = function() {
+    // Show the modal when the page loads if partner_name is empty
+    window.onload = function() {
+        // Get the partner_name safely, ensure it's a valid object before accessing properties
+        var partnerName = @json($weddingPlanning->partner_name ?? null);
+
+        // Check if the partner_name is empty
+        if (!partnerName) { // If partnerName is falsy (null, undefined, or empty)
             modal.style.display = "block";
         }
+    }
 
-        // When the user clicks on <span> (x), close the modal
-        // span.onclick = function() {
-        //     modal.style.display = "none";
-        // }
+    // Get the <span> element that closes the modal (optional)
+    var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks anywhere outside of the modal, close it
-        // window.onclick = function(event) {
-        //     if (event.target == modal) {
-        //         modal.style.display = "none";
-        //     }
-        // }
-    </script>
+    // When the user clicks on <span> (x), close the modal
+    if (span) {
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
 
+
+
+
+</div>
 </div>
 
 @push('scripts')

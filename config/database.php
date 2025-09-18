@@ -48,7 +48,7 @@ return [
             'url'            => env('DATABASE_URL'),
             'host'           => 'localhost',
             'port'           => 3306,
-            'database'       => 'freelancerwork',
+            'database'       => 'wedlively',
             'username'       => 'root',
             'password'       => '',
             'unix_socket'    => '',

@@ -22,7 +22,7 @@
                             {{-- Main home --}}
                             <li>
                                 <div class="flex items-center">
-                                    <a href="{{ url('/') }}" class="text-sm font-medium text-gray-700 hover:text-primary-600 dark:text-zinc-300 dark:hover:text-white">
+                                    <a href="{{ url('/') }}" class="text-sm font-medium text-gray-700 hover:text-gray-500 dark:text-zinc-300 dark:hover:text-white">
                                         @lang('messages.t_home')
                                     </a>
                                 </div>
@@ -32,7 +32,7 @@
                             <li aria-current="page">
                                 <div class="flex items-center">
                                     <svg aria-hidden="true" class="w-4 h-4 text-gray-400 rtl:rotate-180" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                                    <a href="{{ url('seller/home') }}" class="ltr:ml-1 rtl:mr-1 text-sm font-medium text-gray-700 hover:text-primary-600 md:ltr:ml-2 md:rtl:mr-2 dark:text-zinc-300 dark:hover:text-white">
+                                    <a href="{{ url('seller/home') }}" class="ltr:ml-1 rtl:mr-1 text-sm font-medium text-gray-700 hover:text-gray-500 md:ltr:ml-2 md:rtl:mr-2 dark:text-zinc-300 dark:hover:text-white">
                                         @lang('messages.t_my_dashboard')
                                     </a>
                                 </div>
@@ -65,7 +65,7 @@
 
                     {{-- Explore projects --}}
 					<span class="sm:ltr:ml-3 sm:rtl:mr-3">
-						<a href="{{ url('explore/projects') }}" class="inline-flex items-center rounded-sm border border-transparent bg-primary-600 px-4 py-2 text-[13px] font-semibold text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
+						<a href="{{ url('explore/projects') }}" class="inline-flex items-center rounded-sm border border-red-400 bg-red-400 px-4 py-2 text-[13px] font-medium text-white hover:text-red-500 focus:text-red-400 hover:bg-transparent transition-colors duration-300">
 							@lang('messages.t_explore_projects')
 						</a>
 					</span>
@@ -204,7 +204,7 @@
 
                     {{-- Title --}}
                     <div>
-                        <a href="{{ url('project/' . $project->pid . '/' . $project->slug) }}" target="_blank" class="font-semibold md:text-lg text-zinc-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 flex">
+                        <a href="{{ url('project/' . $project->pid . '/' . $project->slug) }}" target="_blank" class="font-semibold md:text-lg text-zinc-900 dark:text-white hover:text-gray-500 dark:hover:text-primary-400 flex">
                             {{ $project->title }}
                         </a>
                     </div>

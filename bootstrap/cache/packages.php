@@ -34,13 +34,13 @@
   ),
   'barryvdh/laravel-debugbar' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Barryvdh\\Debugbar\\ServiceProvider',
-    ),
     'aliases' => 
     array (
       'Debugbar' => 'Barryvdh\\Debugbar\\Facades\\Debugbar',
+    ),
+    'providers' => 
+    array (
+      0 => 'Barryvdh\\Debugbar\\ServiceProvider',
     ),
   ),
   'blade-ui-kit/blade-icons' => 
@@ -128,13 +128,13 @@
   ),
   'laravel/socialite' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Laravel\\Socialite\\SocialiteServiceProvider',
-    ),
     'aliases' => 
     array (
       'Socialite' => 'Laravel\\Socialite\\Facades\\Socialite',
+    ),
+    'providers' => 
+    array (
+      0 => 'Laravel\\Socialite\\SocialiteServiceProvider',
     ),
   ),
   'laravel/tinker' => 
@@ -175,13 +175,13 @@
   ),
   'maatwebsite/excel' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
-    ),
     'aliases' => 
     array (
       'Excel' => 'Maatwebsite\\Excel\\Facades\\Excel',
+    ),
+    'providers' => 
+    array (
+      0 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
     ),
   ),
   'mailjet/laravel-mailjet' => 
@@ -272,13 +272,13 @@
   ),
   'ralphjsmit/livewire-urls' => 
   array (
-    'providers' => 
-    array (
-      0 => 'RalphJSmit\\Livewire\\Urls\\LivewireUrlsServiceProvider',
-    ),
     'aliases' => 
     array (
       'LivewireUrls' => 'RalphJSmit\\Livewire\\Urls\\Facades\\Url',
+    ),
+    'providers' => 
+    array (
+      0 => 'RalphJSmit\\Livewire\\Urls\\LivewireUrlsServiceProvider',
     ),
   ),
   'recca0120/cometchat' => 
@@ -322,13 +322,13 @@
   ),
   'srmklive/paypal' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Srmklive\\PayPal\\Providers\\PayPalServiceProvider',
-    ),
     'aliases' => 
     array (
       'PayPal' => 'Srmklive\\PayPal\\Facades\\PayPal',
+    ),
+    'providers' => 
+    array (
+      0 => 'Srmklive\\PayPal\\Providers\\PayPalServiceProvider',
     ),
   ),
   'stevebauman/purify' => 

@@ -1,6 +1,7 @@
-<div class="relative w-full mx-auto" x-data="window.VyGMKRicvJxArRU" x-init="initialize()">
+<div class="relative w-full mx-auto my-4" x-data="window.VyGMKRicvJxArRU" x-init="initialize()">
+<div class="p-5 bg-white shadow-sm border border-gray-100 dark:border-zinc-700">
     <div class="flex flex-row gap-10 place-content-center justify-center">
-        <div class="w-full lg:basis-2/3">
+        <div class="max-w-3xl mx-auto">
 
             {{-- Cart has items --}}
             @if (is_array($cart) && count($cart))
@@ -10,13 +11,13 @@
                     <div class="bg-gray-50 dark:bg-zinc-700 px-8 py-4 rounded-t-md">
                         <div class="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
                             <div class="ltr:ml-4 rtl:mr-4 mt-4">
-                                <h3 class="text-sm leading-6 font-bold tracking-wide text-gray-800 dark:text-gray-100">{{ __('messages.t_shopping_cart') }}</h3>
-                                <p class="text-xs font-normal text-gray-400 dark:text-gray-300">{{ __('messages.t_review_your_cart_before_proceed_to_checkout') }}</p>
+                                <h3 class="text-xl leading-6 font-bold tracking-wide text-red-400 dark:text-gray-100 mb-2">{{ __('messages.t_shopping_cart') }}</h3>
+                                <p class="text-sm font-normal text-gray-400 dark:text-gray-300">{{ __('messages.t_review_your_cart_before_proceed_to_checkout') }}</p>
                             </div>
                             <div class="ltr:ml-4 rtl:mr-4 mt-4 flex-shrink-0">
-                                <a href="{{ url('/') }}" class="inline-flex items-center py-2 px-3 border border-transparent rounded-full bg-transparent hover:bg-transparent focus:outline-none focus:ring-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary-600 hover:text-primary-600 ltr:mr-2 rtl:ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg>
-                                    <span class="text-xs font-medium text-primary-600 hover:text-primary-600"> 
+                                <a href="{{ url('/') }}" class="group inline-flex items-center py-2 px-3 border border-transparent rounded-full bg-transparent hover:bg-transparent focus:outline-none focus:ring-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-400 group-hover:text-gray-500 ltr:mr-2 rtl:ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg>
+                                    <span class="text-xs font-medium text-red-400 group-hover:text-gray-500"> 
                                         {{ __('messages.t_continue_shopping') }}
                                     </span>
                                 </a>
@@ -33,11 +34,11 @@
                                 <ul role="list" class="border-gray-200 divide-y divide-gray-200 dark:border-zinc-700 dark:divide-zinc-700">
                     
                                     @foreach ($cart as $key => $item)
-                                        <li class="flex py-6 sm:py-10" wire:key="shopping-cart-item-id-{{ $key }}">
+                                        <li class="flex items-center py-6 sm:py-10" wire:key="shopping-cart-item-id-{{ $key }}">
                     
                                             {{-- Thumbnail --}}
                                             <div class="flex-shrink-0 hidden sm:block">
-                                                <img src="{{ placeholder_img() }}" data-src="{{ $item['gig']['thumbnail'] }}" alt="{{ $item['gig']['title'] }}" class="lazy w-24 h-24 rounded-md object-center object-cover sm:w-24 sm:h-24">
+                                                <img src="{{ placeholder_img() }}" data-src="{{ $item['gig']['thumbnail'] }}" alt="{{ $item['gig']['title'] }}" class="lazy w-24 h-24 object-center object-cover sm:w-24 sm:h-24 shadow-md rounded-full">
                                             </div>
                             
                                             <div class="ltr:ml-0 rtl:mr-0 flex-1 flex flex-col justify-between ltr:sm:ml-6 rtl:sm:mr-6">
@@ -49,7 +50,7 @@
                                                         {{-- Title --}}
                                                         <div class="flex justify-between">
                                                             <h3 class="text-sm">
-                                                                <a href="{{ url('service', $item['gig']['slug']) }}" target="_blank" class="font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-600"> {{ $item['gig']['title'] }} </a>
+                                                                <a href="{{ url('service', $item['gig']['slug']) }}" target="_blank" class="font-medium text-gray-700 dark:text-gray-200 hover:text-gray-500 dark:hover:text-primary-600"> {{ $item['gig']['title'] }} </a>
                                                             </h3>
                                                         </div>
 
@@ -145,8 +146,8 @@
                             </section>
                     
                             {{-- Cart summary --}}
-                            <section aria-labelledby="summary-heading" class="my-16 bg-gray-50 dark:bg-zinc-700 rounded-lg px-4 py-6 sm:p-6 lg:p-8 lg:mt-0 lg:col-span-12">
-                            <h2 id="summary-heading" class="text-lg font-medium text-gray-900 dark:text-gray-200">{{ __('messages.t_cart_summary') }}</h2>
+                            <section aria-labelledby="summary-heading" class="mt-16 mb-8 bg-gray-50 dark:bg-zinc-700 rounded-lg px-4 py-6 sm:p-6 lg:p-8 lg:mt-0 lg:col-span-12">
+                            <h2 id="summary-heading" class="text-lg font-medium text-red-400 dark:text-gray-200">{{ __('messages.t_cart_summary') }}</h2>
                     
                             <dl class="mt-6 space-y-4">
 
@@ -211,6 +212,7 @@
             @endif
         </div>
     </div>
+</div>
 </div>
 
 @push('scripts')

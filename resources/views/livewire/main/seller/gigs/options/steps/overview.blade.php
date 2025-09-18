@@ -1,3 +1,27 @@
+<style>
+    body .search-tags button.bg-primary-600 {
+        background: #FF8080 !important;
+    }
+    button.cursor-pointer, a.cursor-pointer {
+            text-decoration: none!important;
+            background-color: #000!important;
+            border: 1px solid #000!important;
+            border-radius: 0!important;
+            transition: 0.3s ease-in-out;
+            color: #fff;
+            padding: 12px 30px
+        }
+
+        button.cursor-pointer:hover, 
+        button.cursor-pointer:focus, 
+        a.cursor-pointer:hover,
+        a.cursor-pointer:focus {
+            background-color: transparent!important;
+            color: #000!important;
+            border-color: #000!important;
+        }
+</style>
+
 <div class="w-full" x-data="window.CQjwMygsGRWknEn" x-init="initialize">
     <div class="grid grid-cols-12 md:gap-x-6 gap-y-6">
 
@@ -105,7 +129,7 @@
                     </div>
         
                     {{-- Search tags --}}
-                    <div class="col-span-12">
+                    <div class="col-span-12 search-tags">
                         <x-forms.tags-input
                             :label="__('messages.t_search_tags')"
                             :placeholder="__('messages.t_press_enter_to_add_tags')"

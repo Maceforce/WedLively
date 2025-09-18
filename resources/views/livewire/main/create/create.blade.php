@@ -1,7 +1,23 @@
-<div class="w-full px-2 md:px-0 md:max-w-3xl mx-auto" x-data="window.KgRWYPfkiUNBpnW" x-cloak>
+<main class="w-full my-4" x-data>
+	<div class="p-5 bg-white shadow-sm border border-gray-100 dark:border-zinc-700">
+        <div class="bg-white dark:bg-zinc-800 rounded-lg shadow overflow-hidden">
+            <div class="divide-y divide-gray-200 dark:divide-zinc-700 lg:grid lg:grid-cols-12 lg:divide-y-0 lg:divide-x rtl:divide-x-reverse">
+
+                {{-- Sidebar --}}
+                <aside class="lg:col-span-3 py-6 hidden lg:block" wire:ignore>
+                    <x-main.account.sidebar />
+                </aside>
+
+                {{-- Section content --}}
+                 <div class="divide-y divide-gray-200 dark:divide-zinc-700 lg:col-span-9"> 
+{{--
+<div class="w-full px-2 md:px-0 md:max-w-3xl mx-auto" x-data="window.KgRWYPfkiUNBpnW" x-cloak style="border:1px solid green;"> 
+ --}}
+
+<div class="w-full mx-auto p-5 relative top-0 bg-white dark:bg-zinc-800 overflow-hidden shadow-sm border border-gray-100 dark:border-zinc-700" x-data="window.KgRWYPfkiUNBpnW" x-cloak> 
 
     {{-- Please wait dialog --}}
-    <div class="fixed top-0 left-0 z-50 bg-black w-full h-full opacity-80" wire:loading>
+    <div class="fixed" wire:loading>
         <div class="w-full h-full flex items-center justify-center">
             <div role="status">
                 <svg aria-hidden="true" class="mx-auto w-12 h-12 text-gray-500 animate-spin dark:text-gray-600 fill-white" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +39,7 @@
                 </div>
 
                 <div class="mt-3 text-center sm:mt-5">
-                    <h3 class="text-md leading-6 font-medium text-gray-900 dark:text-gray-200" id="modal-title">{{ __('messages.t_gig_created') }}</h3>
+                    <h3 class="text-md leading-6 font-medium text-red-400 dark:text-gray-200" id="modal-title">{{ __('messages.t_gig_created') }}</h3>
                     <div class="mt-2">
                         @if ($is_approved)
                             <p class="text-sm text-gray-500 dark:text-gray-400">{{ __('messages.t_gig_created_subtitle') }}</p>
@@ -34,9 +50,15 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-5 sm:mt-6">
-                <a href="{{ $isFinished }}" class="inline-flex justify-center items-center w-full rounded uppercase tracking-widest border border-transparent shadow-sm px-4 py-3 bg-primary-600 font-medium text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600 text-xs">
+            <div class="mt-5 sm:mt-6 text-center">
+                <a href="{{ $isFinished }}" class="inline-flex items-center rounded-sm border border-red-400 bg-red-400 px-10 py-3 text-[13px] font-medium text-white hover:text-red-500 focus:text-red-400 hover:bg-transparent transition-colors duration-300">
                     {{ __('messages.t_view_gig') }}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </a>
+            </div>
+			<div class="mt-5 sm:mt-6">
+                <a href="seller/gigs" class="inline-flex justify-center items-center w-full rounded uppercase tracking-widest border border-transparent shadow-sm px-4 py-3 bg-primary-600 font-medium text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600 text-xs">
+                    View Your All Service
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
                 </a>
             </div>
@@ -70,6 +92,11 @@
     @endif
 
 </div>
+</div>
+            </div>
+        </div>
+    </div>
+</main>
 
 {{-- Include in Footer --}}
 @push('scripts')

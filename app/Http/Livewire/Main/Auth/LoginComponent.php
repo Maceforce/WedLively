@@ -11,7 +11,7 @@ use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 class LoginComponent extends Component
 {
     use SEOToolsTrait, Actions;
-    
+
     public $email;
     public $password;
     public $recaptcha_token;
@@ -61,11 +61,9 @@ class LoginComponent extends Component
         $this->social_grid = $social_grid_counter;
 
         // Redirect to previous url
-        if(!session()->has('url.intended'))
-        {
+        if (!session()->has('url.intended')) {
             session(['url.intended' => url()->previous()]);
         }
-
     }
 
     /**
@@ -79,26 +77,26 @@ class LoginComponent extends Component
         $separator   = settings('general')->separator;
         $title       = __('messages.t_login') . " $separator " . settings('general')->title;
         $description = settings('seo')->description;
-        $ogimage     = src( settings('seo')->ogimage );
+        $ogimage     = src(settings('seo')->ogimage);
 
-        $this->seo()->setTitle( $title );
-        $this->seo()->setDescription( $description );
-        $this->seo()->setCanonical( url()->current() );
-        $this->seo()->opengraph()->setTitle( $title );
-        $this->seo()->opengraph()->setDescription( $description );
-        $this->seo()->opengraph()->setUrl( url()->current() );
+        $this->seo()->setTitle($title);
+        $this->seo()->setDescription($description);
+        $this->seo()->setCanonical(url()->current());
+        $this->seo()->opengraph()->setTitle($title);
+        $this->seo()->opengraph()->setDescription($description);
+        $this->seo()->opengraph()->setUrl(url()->current());
         $this->seo()->opengraph()->setType('website');
-        $this->seo()->opengraph()->addImage( $ogimage );
-        $this->seo()->twitter()->setImage( $ogimage );
-        $this->seo()->twitter()->setUrl( url()->current() );
-        $this->seo()->twitter()->setSite( "@" . settings('seo')->twitter_username );
+        $this->seo()->opengraph()->addImage($ogimage);
+        $this->seo()->twitter()->setImage($ogimage);
+        $this->seo()->twitter()->setUrl(url()->current());
+        $this->seo()->twitter()->setSite("@" . settings('seo')->twitter_username);
         $this->seo()->twitter()->addValue('card', 'summary_large_image');
         $this->seo()->metatags()->addMeta('fb:page_id', settings('seo')->facebook_page_id, 'property');
         $this->seo()->metatags()->addMeta('fb:app_id', settings('seo')->facebook_app_id, 'property');
         $this->seo()->metatags()->addMeta('robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1', 'name');
-        $this->seo()->jsonLd()->setTitle( $title );
-        $this->seo()->jsonLd()->setDescription( $description );
-        $this->seo()->jsonLd()->setUrl( url()->current() );
+        $this->seo()->jsonLd()->setTitle($title);
+        $this->seo()->jsonLd()->setDescription($description);
+        $this->seo()->jsonLd()->setUrl(url()->current());
         $this->seo()->jsonLd()->setType('WebSite');
 
         return view('livewire.main.auth.login')->extends('livewire.main.auth.layout.auth')->section('content');
@@ -113,7 +111,7 @@ class LoginComponent extends Component
     public function login($form)
     {
         try {
-            
+
             // Verify form first
             if (!is_array($form) || !isset($form['email']) || !isset($form['password'])) {
                 return;
@@ -127,71 +125,75 @@ class LoginComponent extends Component
             // Verify recapctah first (If enabled)
             if (settings('security')->is_recaptcha) {
                 try {
-                    
+
                     // Get recaptcha secret key
                     $recaptcha_secret           = config('recaptcha.secret_key');
-    
+
                     // post request to server
                     $verify_recaptcha_url       = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($recaptcha_secret) .  '&response=' . urlencode($this->recaptcha_token);
-    
+
                     // Get recaptcha response
                     $recaptcha_response         = file_get_contents($verify_recaptcha_url);
-    
+
                     // Convert response to json
                     $recaptcha_decoded_response = json_decode($recaptcha_response, true);
-    
+
                     // should return JSON with success as true
-                    if(!isset($recaptcha_decoded_response["success"])) {
-                        
+                    if (!isset($recaptcha_decoded_response["success"])) {
+
                         // Spam detected
                         $this->notification([
                             'title'       => __('messages.t_error'),
                             'description' => __('messages.t_recaptcha_error_message'),
                             'icon'        => 'error'
                         ]);
-    
+
                         return;
-    
                     }
-    
                 } catch (\Throwable $th) {
-    
+
                     // Spam detected
                     $this->notification([
                         'title'       => __('messages.t_error'),
                         'description' => __('messages.t_recaptcha_error_message'),
                         'icon'        => 'error'
                     ]);
-    
+
                     return;
-                    
                 }
             }
-            
+
             // Validate form
             LoginValidator::validate($this);
-        
+
             // Set login credentials
             $credentials = ['email' => $this->email, 'password' => $this->password];
 
+            // Attempt login
             // Attempt login
             if (Auth::attempt($credentials, $this->remember_me)) {
 
                 // Check if user active
                 if (in_array(auth()->user()->status, ['active', 'verified'])) {
-                    
-                    // Go to home
-                    return redirect()->intended('/');
 
+
+                    // Check if the user is a seller
+                    if (auth()->user()->account_type == "seller") {
+                        // Redirect sellers to '/seller/home'
+                        return redirect('/create');
+                    } else {
+                        // Redirect other users to '/'
+                        return redirect('/account/profile');
+                    }
                 } else {
 
                     // Logout
                     Auth::logout();
- 
+
                     request()->session()->invalidate();
-                
+
                     request()->session()->regenerateToken();
-                
+
                     // Error
                     $this->notification([
                         'title'       => __('messages.t_error'),
@@ -200,28 +202,24 @@ class LoginComponent extends Component
                     ]);
 
                     return;
-
                 }
-
             }
-       
+
+
             // Failed
             $this->notification([
                 'title'       => __('messages.t_error'),
                 'description' => __('messages.t_invalid_login_credentials_pls_try_again'),
                 'icon'        => 'error'
             ]);
-
         } catch (\Throwable $th) {
-            
+
             // Error
             $this->notification([
                 'title'       => __('messages.t_error'),
                 'description' => __('messages.t_toast_something_went_wrong'),
                 'icon'        => 'error'
             ]);
-
         }
     }
-
 }

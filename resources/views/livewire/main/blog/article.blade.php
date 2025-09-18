@@ -1,4 +1,4 @@
-<div class="max-w-5xl mx-auto">
+<div class="mx-auto">
 
     {{-- Breadcrumbs --}}
     <nav class="flex mt-6" aria-label="Breadcrumb">
@@ -35,11 +35,11 @@
     </nav>
 
     {{-- Article content --}}
-    <div class="relative py-16 mt-6 bg-white dark:bg-zinc-800 overflow-hidden rounded-lg shadow">
+    <div class="relative py-16 mt-6 bg-white dark:bg-zinc-800 overflow-hidden shadow">
 
         {{-- Pattern --}}
         <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
-            <div class="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
+            <div class="relative h-full text-lg max-w-3xl mx-auto" aria-hidden="true">
                 <svg class="absolute top-12 left-full transform translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">
                     <defs>
                         <pattern id="74b3fd99-0a6f-4271-bef2-e80eeafdf357" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -69,12 +69,12 @@
 
         {{-- Content --}}
         <div class="relative px-4 sm:px-6 lg:px-8 ql-snow">
-            <div class="text-lg max-w-prose mx-auto ql-editor">
+            <div class="text-lg max-w-3xl mx-auto ql-editor">
 
                 {{-- Title --}}
                 <h1 class="mb-6">
-                    <span class="block text-xs text-center text-primary-600 font-semibold tracking-wide uppercase">{{ __('messages.t_x_min_read', ['x' => $article->reading_time]) }}</span>
-                    <span class="mt-2 block text-xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">{{ $article->title }}</span>
+                    <span class="block text-xs text-center text-gray-800 font-semibold tracking-wide uppercase">{{ __('messages.t_x_min_read', ['x' => $article->reading_time]) }}</span>
+                    <span class="mt-2 block text-xl text-center leading-8 font-extrabold tracking-tight text-red-400 dark:text-gray-100 sm:text-2xl">{{ $article->title }}</span>
                 </h1>
 
                 {{-- Thumbnail --}}
@@ -148,12 +148,12 @@
 
     {{-- Comments --}}
     @if (settings('blog')->enable_comments)
-        <div class="bg-white dark:bg-zinc-800 shadow rounded-lg sm:overflow-hidden mt-10">
+        <div class="bg-white dark:bg-zinc-800 shadow sm:overflow-hidden mt-10 mb-4">
             <div class="divide-y divide-gray-200 dark:divide-zinc-700">
-                <div class="px-4 py-5 sm:px-6">
-                    <h2 class="text-base font-bold tracking-wide text-gray-900 dark:text-gray-100">{{ __('messages.t_comments') }}</h2>
+                <div class="p-4">
+                    <h2 class="text-base font-bold tracking-wide text-red-400 dark:text-gray-100">{{ __('messages.t_comments') }}</h2>
                 </div>
-                <div class="px-4 py-6 sm:px-6">
+                <div class="p-4">
                     <ul role="list" class="space-y-8">
 
                         @foreach ($comments as $cm)
@@ -196,7 +196,7 @@
             </div>
 
             {{-- Add comment --}}
-            <div class="border-t-2 border-gray-100 bg-gray-50 dark:bg-zinc-800 dark:border-zinc-700 px-4 py-6 sm:px-6 mt-10">
+            <div class="border-t-2 border-gray-100 bg-gray-50 dark:bg-zinc-800 dark:border-zinc-700 px-4 py-6 sm:px-6 mt-4">
                 <div class="flex">
                     <div class="min-w-0 flex-1">
                         <form wire:submit.prevent="addComment">
@@ -248,7 +248,7 @@
                                     wire:loading.class="bg-gray-200 hover:bg-gray-300 text-gray-500 dark:bg-zinc-600 dark:text-zinc-400 cursor-not-allowed "
                                     wire:loading.class.remove="bg-primary-600 hover:bg-primary-700 text-white cursor-pointer"
                                     wire:loading.attr="disabled"
-                                    class="text-xs font-medium flex justify-center bg-primary-600 hover:bg-primary-600 text-white py-4 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline cursor-pointer"
+                                    class="text-xs font-medium flex justify-center items-center bg-primary-600 hover:bg-primary-600 text-white py-4 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline cursor-pointer"
                                     style="max-height:48px">
 
                                     {{-- Loading indicator --}}

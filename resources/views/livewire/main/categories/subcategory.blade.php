@@ -1,5 +1,5 @@
-<div class="w-full" x-data="window.AxZSIHcEeIYErvQ" x-init="initialize()" @keydown.window.escape="open = false" x-cloak>
-    
+<div class="w-full my-4" x-data="window.AxZSIHcEeIYErvQ" x-init="initialize()" @keydown.window.escape="open = false" x-cloak>
+<div class="p-5 bg-white shadow-md border border-gray-100 dark:border-zinc-700">
     {{-- Mobile filters --}}
     <div x-show="open" class="fixed inset-0 flex z-40 lg:hidden" x-ref="dialog" aria-modal="true">
     
@@ -20,11 +20,11 @@
             </div>
 
             {{-- Filter --}}
-            <div class="mt-4 border-t border-gray-200 dark:border-zinc-700">
+            <div class="border-t border-gray-200 dark:border-zinc-700">
 
                 {{-- Rating --}}
                 <div x-data="{ open: true }" class="py-3">
-                    <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-700 px-4">
+                    <h3 class="-my-4 flow-root bg-gray-50 dark:bg-zinc-700 px-4">
                         <button @click="open = !open" type="button" class="py-3 w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500 outline-none focus:outline-none">
                             <span class="font-medium text-gray-900">{{ __('messages.t_rating') }}</span>
                             <span class="ltr:ml-6 rtl:mr-6 flex items-center">
@@ -112,7 +112,7 @@
 
                 {{-- Price --}}
                 <div x-data="{ open: true }" class="py-3">
-                    <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-700 px-4">
+                    <h3 class="-my-4 flow-root bg-gray-50 dark:bg-zinc-700 px-4">
                         <button @click="open = !open" type="button" class="py-3 w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500 outline-none focus:outline-none">
                             <span class="font-medium text-gray-900">{{ __('messages.t_price') }}</span>
                             <span class="ltr:ml-6 rtl:mr-6 flex items-center">
@@ -187,11 +187,11 @@
     <main class="max-w-7xl mx-auto">
 
         {{-- Section title --}}
-        <div class="flex justify-between items-center mb-2 bg-transparent py-2 ltr:pr-6 rtl:pl-6 ltr:border-l-8 rtl:border-r-8 ltr:pl-4 rtl:pr-4 border-primary-600 rounded">
+        <div class="flex bg-white mt-4 shadow-md justify-between items-center mb-2 bg-transparent py-2 ltr:pr-6 rtl:pl-6 ltr:border-l-8 rtl:border-r-8 ltr:pl-4 rtl:pr-4 border-red-400 ">
 
             {{-- Subcategory name --}}
             <div>
-                <span class="font-extrabold text-base text-gray-800 dark:text-gray-100 pb-1 block tracking-wider">{{ $subcategory->name }}</span>
+                <h2 class="font-semibold text-xl text-red-400 dark:text-red-400 pb-1 block tracking-wider">{{ $subcategory->name }}</h2>
                 <p class="text-sm text-gray-400">{{ $subcategory->description }}</p>
             </div>
 
@@ -260,18 +260,18 @@
         </div>
 
         {{-- Section content --}}
-        <section aria-labelledby="products-heading" class="pt-6 pb-24">
+        <section aria-labelledby="products-heading" class="pt-6">
             <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-10">
 
                 {{-- Filter --}}
                 <div>
 
                     {{-- Filters --}}
-                    <div class="hidden lg:block bg-white dark:bg-zinc-700 shadow-sm border rounded-md border-gray-100 dark:border-zinc-600 h-fit">
+                    <div class="hidden lg:block bg-white dark:bg-zinc-700 shadow-sm border border-gray-100 dark:border-zinc-600 h-fit">
                         
                         {{-- Rating --}}
                         <div x-data="{ open: true }" class="py-3">
-                            <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-600 px-4 rounded-t-md">
+                            <h3 class="-my-4 flow-root bg-gray-50 dark:bg-zinc-600 px-4 rounded-t-md">
                                 <button @click="open = !open" type="button" class="py-3 w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500 outline-none focus:outline-none">
                                     <span class="font-medium text-gray-900 dark:text-gray-300">{{ __('messages.t_rating') }}</span>
                                     <span class="ltr:ml-6 rtl:mr-6 flex items-center">
@@ -359,7 +359,7 @@
     
                         {{-- Price --}}
                         <div x-data="{ open: true }" class="py-3">
-                            <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-600 px-4">
+                            <h3 class="-my-4 flow-root bg-gray-50 dark:bg-zinc-600 px-4">
                                 <button @click="open = !open" type="button" class="py-3 w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500 outline-none focus:outline-none">
                                     <span class="font-medium text-gray-900 dark:text-gray-300">{{ __('messages.t_price') }}</span>
                                     <span class="ltr:ml-6 rtl:mr-6 flex items-center">
@@ -386,7 +386,7 @@
     
                         {{-- Delivery time --}}
                         <div x-data="{ open: true }" class="py-3">
-                            <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-600 px-4">
+                            <h3 class="-my-4 flow-root bg-gray-50 dark:bg-zinc-600 px-4">
                                 <button @click="open = !open" type="button" class="py-3 w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500 outline-none focus:outline-none">
                                     <span class="font-medium text-gray-900 dark:text-gray-300">{{ __('messages.t_delivery_time') }}</span>
                                     <span class="ltr:ml-6 rtl:mr-6 flex items-center">
@@ -467,6 +467,7 @@
         </section>
 
     </main>
+</div>
 </div>
 
 @push('scripts')

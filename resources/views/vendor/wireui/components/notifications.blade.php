@@ -31,28 +31,8 @@
                         'w-full flex': Boolean(notification.rightButtons),
                     }">
                         <!-- notification icon|img -->
-                        <template x-if="notification.icon || notification.img">
-                            <div class="shrink-0" :class="{
-                                    'w-6': Boolean(notification.icon),
-                                    'pt-0.5': Boolean(notification.img),
-                                }">
-                                <template x-if="notification.icon">
-                                    <div class="notification-icon"></div>
-                                </template>
-
-                                <template x-if="notification.img">
-                                    <img class="h-10 w-10 rounded-full" :src="notification.img" />
-                                </template>
-                            </div>
-                        </template>
-
-                        <div class="w-0 flex-1 pt-0.5" :class="{
-                                'ltr:ml-3 rtl:mr-3': Boolean(notification.icon || notification.img)
-                            }">
-                            <p class="text-sm font-medium text-zinc-900 dark:text-zinc-400"
-                               x-show="notification.title"
-                               x-html="notification.title">
-                            </p>
+                        <div class="w-0 flex-1 pt-0.5">
+                  
                             <p class="mt-1 text-sm text-zinc-500"
                                x-show="notification.description"
                                x-html="notification.description">

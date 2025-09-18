@@ -22,7 +22,7 @@ use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 
 use Illuminate\Http\Request;
 
-class CreateComponent extends Component
+class createComponentnotworkin extends Component
 {
     use WithFileUploads, SEOToolsTrait, Actions;
 

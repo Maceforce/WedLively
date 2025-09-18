@@ -12,17 +12,22 @@ class UserWeddingPlanning extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'partner_name',
         'email',
         'getting_married',
         'wedding_date',
         'number_of_guests',
         'estimated_budget',
-        'city_town',
-        'vendors',
+        'location_id',
+        'subcategories',
+        'events',
+        'groups',
     ];
 
     protected $casts = [
-        'vendors' => 'array', // Cast vendors as an array
+        'subcategories' => 'array', 
+        'events' => 'array',
+        'groups' => 'array',
     ];
 
     // Define any relationships, for example, with User model

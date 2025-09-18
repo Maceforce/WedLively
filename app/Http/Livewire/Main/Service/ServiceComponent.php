@@ -3,9 +3,12 @@
 namespace App\Http\Livewire\Main\Service;
 
 use App\Models\Gig;
+use App\Models\Inquiry;
+use App\Mail\InquiryAccepted;
 use Livewire\Component;
 use App\Models\Favorite;
 use App\Models\GigUpgrade;
+use App\Models\User;
 use WireUi\Traits\Actions;
 use App\Models\ReportedGig;
 use App\Jobs\Main\Service\Track;
@@ -13,16 +16,39 @@ use App\Models\UserAvailability;
 use App\Http\Validators\Main\Service\ReportValidator;
 use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\InquirySubmitted;
+
 class ServiceComponent extends Component
 {
     use SEOToolsTrait, Actions;
     
     public $gig;
+	public $inquiries;
     public $reason;
     public $upgrades   = [];
     public $quantity   = 1;
     public $inFavorite = false;
     public $related_gigs;
+
+   	public $date;
+    public $location;
+    public $query;
+
+	public $gigId;
+    public $gigUserId;
+    public $gigtitle;
+    public $gigslug;
+
+    public $gigvendoremail;
+    public $gigvendorname;
+
+    protected $rules = [
+        'date' => 'required|date',
+        'location' => 'required|string|max:255',
+        'query' => 'required|string',
+    ];
+
 
     /**
      * Init component
@@ -33,9 +59,47 @@ class ServiceComponent extends Component
     {
         // Get gig
         $gig              = Gig::where('slug', $slug)->firstOrFail();
+        $inquiries = Inquiry::where('planner_id', auth()->id())->get();
+        $this->inquiry = Inquiry::where('planner_id', auth()->id())
+                            ->where('status', 'accepted')
+                            ->first();
+
+
+		///echo auth()->user()->email;
+        //echo auth()->id();
+        //echo auth()->user()->username;
+
+      	/*echo '<pre>';
+        print_r($inquiries);
+        echo '</pre>';
+		die("test");*/
+
+		$this->gigId = $gig->id;
+        $this->gigUserId = $gig->user_id;
+        $this->gigtitle = $gig->title;
+        $this->gigslug = $gig->slug;
+
+		//[title] => decorate
+        //[slug] => decorate-902B2E2959EFFABBABD0
+
+		$vendoruser = User::find($gig->user_id);		
+		if ($vendoruser) {
+			$this->gigvendoremail = $vendoruser->email;
+            $this->gigvendorname = $vendoruser->username;
+		} else {
+			$this->gigvendoremail = null;
+			$this->gigvendorname =  null;
+		}
+
+         //auth()->id();
+
+         //echo $this->gigvendoremail;
+
+		//die("fdgfgf");
             
         // Set gig
         $this->gig        = $gig;
+        //$this->inquiry        = $inquiries;
 
         // Admin can access
         if (auth('admin')->check()) {
@@ -57,6 +121,43 @@ class ServiceComponent extends Component
 
         }
         
+    }
+	
+	public function submitInquiry()
+    {
+        $this->validate();
+
+        // Save inquiry to database
+        $inquiry = Inquiry::create([
+            'service_id' => $this->gigId,            
+            'vendor_id' => $this->gigUserId,
+            'planner_id' => auth()->id(),
+            'date' => $this->date,
+            'location' => $this->location,
+            'query' => $this->query,
+            'status' => 'pending',
+			'planner_name' => auth()->user()->username,
+			'planner_email' => auth()->user()->email,
+			'vendor_name' => $this->gigvendorname,
+			'vendor_email' => $this->gigvendoremail,
+			'service_name' => $this->gigtitle,
+			'service_url' => $this->gigslug,
+        ]);
+
+        // Send email to the vendor
+        Mail::to($this->gigvendoremail)->send(new InquirySubmitted($inquiry));
+
+        // Reset fields after submission
+        //$this->reset(['date', 'location', 'query']);
+
+        session()->flash('success', 'Your inquiry has been sent to the vendor!');
+		//return redirect()->route('service.index');
+		//$service = Service::find($this->gigId); // Fetch service details if not already available
+        $this->emit('inquirySubmitted');
+
+    	return redirect()->route('service', ['slug' => $this->gigslug]);
+
+          
     }
 
 
@@ -572,5 +673,18 @@ class ServiceComponent extends Component
         // Get related gigs
         $this->related_gigs = $this->relatedGigs();
     }
+
+	/*public function acceptInquiry($id)
+	{
+		$inquiry = Inquiry::findOrFail($id);
+		$inquiry->status = 'accepted';
+		$inquiry->save();
+
+		// Notify planner with a link to proceed
+		//Mail::to(auth()->user()->email)->send(new InquiryAccepted($inquiry));
+
+		session()->flash('success', 'Inquiry accepted!');
+	}*/
+
     
 }

@@ -23,7 +23,8 @@ class RegisterValidator
                 'username' => ['required', 'max:60', 'min:3', 'unique:users', new UsernameRule()],
                 'email'    => 'required|max:60|email|unique:users',
                 'password' => 'required|max:60',
-                'fullname' => 'required|max:60|min:3'
+                'fullname' => 'required|max:60|min:3',
+                //'phone'          => 'required|max:15|min:3|regex:/^\+?[0-9\s\-\(\)]+$/', 
             ];
 
             // Set errors messages
@@ -42,6 +43,10 @@ class RegisterValidator
                 'fullname.max'      => __('messages.t_validator_max', ['max' => 60]),
                 'fullname.min'      => __('messages.t_validator_min', ['min' => 3]),
                 'fullname.regex'    => __('messages.t_validator_regex'),
+				//'phone.required'    => __('messages.t_validator_required'),
+                //'phone.max'         => __('messages.t_validator_max', ['max' => 15]),
+                //'phone.min'         => __('messages.t_validator_min', ['min' => 3]),
+                //'phone.regex'       => __('messages.t_validator_regex_phone'),
             ];
 
             // Set data to validate
@@ -50,6 +55,7 @@ class RegisterValidator
                 'username' => $request->username,
                 'password' => $request->password,
                 'fullname' => $request->fullname,
+                //'phone'          => $request->phone,
             ];
 
             // Validate data

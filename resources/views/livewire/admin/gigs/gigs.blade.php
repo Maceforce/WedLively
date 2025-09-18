@@ -67,14 +67,22 @@
                                 <div class="w-8 h-8">
                                     <img class="w-full h-full rounded object-cover lazy" src="{{ placeholder_img() }}" data-src="{{ src($gig->thumbnail) }}" alt="{{ $gig->title }}" />
                                 </div>
-                                <div class="ltr:pl-4 rtl:pr-4">
+                                
+								<div class="ltr:pl-4 rtl:pr-4">
                                     <a href="{{ url('service', $gig->slug) }}" target="_blank" class="font-medium text-sm hover:text-primary-600 truncate pb-1.5 block max-w-xs">{{ $gig->title }}</a>
                                     <div class="flex items-center text-[11px] font-normal text-gray-400">
                                         <a href="{{ url('categories', $gig->category->slug) }}" class="hover:text-gray-600">{{ $gig->category->name }}</a>
                                         <i class="mdi mdi-chevron-right text-[10px] mx-2"></i>
-                                        <a href="{{ url('categories/' . $gig->category->slug . '/' . $gig->subcategory->name) }}" class="hover:text-gray-600">{{ $gig->subcategory->name }}</a>
+										@if ($gig->subcategory && $gig->subcategory->name)
+    <a href="{{ url('categories/' . $gig->category->slug . '/' . $gig->subcategory->slug) }}" class="hover:text-gray-600">{{ $gig->subcategory->name }}</a>
+@endif
+
+
                                     </div>
                                 </div>
+								
+								
+								
                             </div>
                         </td>
 

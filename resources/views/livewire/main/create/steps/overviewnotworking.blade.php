@@ -77,7 +77,7 @@
         <div class="bg-gray-50 dark:bg-zinc-700 px-8 py-4 rounded-t-md">
             <div class="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
                 <div class="ltr:ml-4 rtl:mr-4 mt-4">
-                    <h3 class="text-sm leading-6 font-semibold tracking-wide text-gray-600 dark:text-gray-200">{{ __('messages.t_overview') }}</h3>
+                    <h3 class="text-sm leading-6 font-semibold tracking-wide text-red-400 dark:text-gray-200">{{ __('messages.t_overview') }}</h3>
                     <p class="text-xs font-normal text-gray-400 dark:text-gray-300">{{ __('messages.t_create_gig_overview_subtitle') }}</p>
                 </div>
                 <div class="ltr:ml-4 rtl:mr-4 flex-shrink-0 mt-4">

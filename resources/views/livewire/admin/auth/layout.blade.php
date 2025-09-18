@@ -66,7 +66,7 @@
 
         {{-- Content --}}
         <main class="flex-grow">
-            <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-36 pt-16 pb-24 space-y-8 min-h-screen">
+            <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-36 pt-16 pb-24 space-y-8 min-h-screen bg-dashbaord">
                 @yield('content')
             </div>
         </main>

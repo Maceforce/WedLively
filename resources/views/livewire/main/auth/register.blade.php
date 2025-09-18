@@ -1,32 +1,13 @@
-<div class="flex w-full max-w-sm grow flex-col justify-center p-5 signup-form" style="max-height:fit-content;">
+<div class="flex w-full max-w-2xl grow flex-col justify-center px-4 py-4 lg:px-12 lg:py-12 shadow-md border border-gray-100 dark:border-zinc-700 signup-form" style="max-height:fit-content;">
 	{{-- Welcome back message --}}
-	<div class="text-left">
-		<div class="mt-4">
-
-			<h2 class="text-xl font-bold text-zinc-700 dark:text-navy-100">
-
-				@lang('messages.t_welcome_to_app_name', ['name' => config('app.name')])
-
-			<img src="{{url('public/img/home/logo.png')}} " width='50px' height="50px" style="width: 15%;float: left;margin-right:10px"> 			
-		</div>
-		<h2 class="text-xl font-bold text-zinc-700 dark:text-navy-100">			 
-			<span style="color: #FF8080;vertical-align: sub;">Sign Up to SUKOONZZ</span>
+	<div class="text-center">
+		<h2 class="text-2xl mb-0 font-bold text-gray-800 dark:text-navy-100">			 
+			<span>Sign up for Sukoonzz!</span>
 				 <!-- @lang('messages.t_welcome_to_app_name', ['name' => config('app.name')])  -->
-
-			SIgn Up for Sukoonzz
-				<!-- @lang('messages.t_welcome_to_app_name', ['name' => config('app.name')]) -->
-
-			</h2>
-			<!-- <p class="text-zinc-400 dark:text-gray-300">
-				@lang('messages.t_pls_signup_to_continue')
-
-			</p>
-
 			</h2>
 			<!-- <p class="text-zinc-400 dark:text-gray-300">
 				@lang('messages.t_pls_signup_to_continue')
 			</p> 
-
 			<a href="{{ url('/') }}" class="block lg:hidden mt-3 text-sm tracking-wider font-semibold text-blue-600 hover:underline">
 				@lang('messages.t_back_to_homepage')
 			</a> -->
@@ -58,11 +39,11 @@
 				<form x-data="window.UcZWcDFfVKBjfgP" x-on:submit.prevent="register" class="grid grid-cols-12 md:gap-x-6 gap-y-6">
 
 					{{-- Fullname --}}
-					<div class="col-span-12">
+					<div class="col-span-12 md:col-span-6">
 						<div class="relative w-full shadow-sm rounded-md">
 
 							{{-- Input --}}
-							<input type="text" x-model="form.fullname" class="{{ $errors->first('fullname') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_your_fullname') }}">
+							<input type="text" x-model="form.fullname" class="{{ $errors->first('fullname') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-3 placeholder:font-normal dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_your_fullname') }}">
 
 							{{-- Icon --}}
 							<div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
@@ -82,15 +63,17 @@
 
 
 					{{-- Phone --}}
-                    <div class="col-span-12">
+                    <div class="col-span-12 md:col-span-6">
 						<div class="relative w-full shadow-sm rounded-md">
 
 							{{-- Input --}}
-							<input type="text" x-model="form.phone" class="{{ $errors->first('phone') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Enter phone number">
+							<input type="text" x-model="form.phone" class="{{ $errors->first('phone') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-3 placeholder:font-normal dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Enter phone number">
 
 							{{-- Icon --}}
 							<div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
-                                <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg>
+								<svg class="w-4 h-4 text-gray-400" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+								<path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+								</svg>
 							</div>
 
 						</div>
@@ -110,7 +93,7 @@
 						<div class="relative w-full shadow-sm rounded-md">
 
 							{{-- Input --}}
-							<input type="email" x-model="form.email" class="{{ $errors->first('email') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_email_address') }}">
+							<input type="email" x-model="form.email" class="{{ $errors->first('email') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-3 placeholder:font-normal dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_email_address') }}">
 
 							{{-- Icon --}}
 							<div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
@@ -129,11 +112,11 @@
 					</div>
 
                     {{-- Username --}}
-                    <div class="col-span-12">
+                    <div class="col-span-12 md:col-span-6">
 						<div class="relative w-full shadow-sm rounded-md">
 
 							{{-- Input --}}
-							<input type="text" x-model="form.username" class="{{ $errors->first('username') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_username') }}">
+							<input type="text" x-model="form.username" class="{{ $errors->first('username') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-3 placeholder:font-normal dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_username') }}">
 
 							{{-- Icon --}}
 							<div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
@@ -152,11 +135,11 @@
 					</div>
 
 					{{-- Password --}}
-					<div class="col-span-12">
+					<div class="col-span-12 md:col-span-6">
 						<div class="relative w-full shadow-sm rounded-md">
 
 							{{-- Input --}}
-							<input type="password" x-model="form.password" class="{{ $errors->first('password') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_password') }}">
+							<input type="password" x-model="form.password" class="{{ $errors->first('password') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-3 placeholder:font-normal  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_password') }}">
 
 							{{-- Icon --}}
 							<div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
@@ -176,39 +159,36 @@
 
 					{{-- Getting Married In --}}
 					<div class="col-span-12">
-						<div class="relative w-full shadow-sm rounded-md">
+						<!--<div class="relative w-full shadow-sm rounded-md">
 
 							{{-- Input --}}
-							<input type="text" id="location-search"  x-model="form.gettingmarried" class="{{ $errors->first('gettingmarried') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Getting Married In">
-							<div id="location-results"></div>
-							<div class="col-span-12">
-							{{-- Icon --}}
+							<input type="text" id="location-search"  x-model="form.gettingmarried" class="{{ $errors->first('gettingmarried') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-3 placeholder:font-normal  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Getting Married In">
 							<div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
 								<svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
 							</div>
-
 						</div>
+							<div id="location-results"></div>
+							<div class="col-span-12">
+							{{-- Icon --}}
+
+							</div>
 
 						{{-- Error --}}
 						@error('gettingmarried')
 							<p class="mt-1.5 text-[13px] tracking-wide text-red-600 font-medium ltr:pl-1 rtl:pr-1">
 								{{ $errors->first('gettingmarried') }}
 							</p>
-						@enderror
+						@enderror-->
 
-					</div>
 					
 					{{-- Wedding Date --}}
-					<div class="col-span-12">
-						<div class="relative w-full shadow-sm rounded-md">
+					<!-- <div class="col-span-12">
+						<div class="relative w-full shadow-sm rounded-md mt-2">
 
 							{{-- Input --}}
-							<input type="date" x-model="form.weddingdate" class="{{ $errors->first('weddingdate') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Wedding Date">
+							<input type="date" x-model="form.weddingdate" class="{{ $errors->first('weddingdate') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full  p-3 placeholder:font-normal  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Wedding Date">
 
-							{{-- Icon --}}
-							<div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
-								<svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
-							</div>
+							
 
 						</div>
 
@@ -219,13 +199,13 @@
 							</p>
 						@enderror
 
-					</div>
+					</div> -->
 
                     {{-- Accept terms --}}
-                    <div class="col-span-12">
-                        <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                            <svg class="w-6 h-6 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span class="text-xs tracking-wider text-gray-500">@lang('messages.t_by_signup_u_agree_to_terms_privacy')</span>
+                    <div class="col-span-12 mt-5">
+                        <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse my-3">
+                            <!-- <svg class="w-6 h-6 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> -->
+                            <span class="text-sm tracking-wider text-gray-800 text-center">By Clicking’Sign Up’, you agree to Sukoonzz <a href="/page/terms-and-condition" class="link-color hover:text-gray-800 hover:underline font-medium transition-colors duration-300">Terms of Use</a>.</span>
                         </div>
                     </div>
 
@@ -237,14 +217,8 @@
 					@endif
 
 					{{-- Register --}}
-					<div class="col-span-12">
-
-						<button type="submit" wire:loading.attr="disabled" wire:target="register" :disabled="!form.email || !form.password || !form.fullname || !form.username" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500">
-
-						<button type="submit" wire:loading.attr="disabled" wire:target="register" :disabled="!form.email || !form.password || !form.fullname || !form.username || !form.phone || !form.gettingmarried  || !form.weddingdate" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500 signup-btn-color">
-
-						<button type="submit" wire:loading.attr="disabled" wire:target="register" :disabled="!form.email || !form.password || !form.fullname || !form.username || !form.phone" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500 signup-btn-color">
-
+					<div class="col-span-12 mt-12">
+						<button type="submit" wire:loading.attr="disabled" wire:target="register" class="w-full inline-flex items-center justify-center rounded-sm border border-black bg-gray-800 p-3 font-medium text-white hover:text-gray-800 focus:text-gray-800 hover:bg-transparent transition-colors duration-300 cursor-pointer">
 							
 							{{-- Loading indicator --}}
 							<div wire:loading wire:target="register">
@@ -265,7 +239,7 @@
 				</form>
 			</div>
 
-			{{-- Divider --}}
+			<!-- {{-- Divider --}}
 			<div class="my-6 relative">
 				<div class="absolute inset-0 flex items-center" aria-hidden="true">
 					<div class="w-full border-t border-gray-300 dark:border-zinc-700"></div>
@@ -275,7 +249,7 @@
 						{{ __('messages.t_or') }}
 					</span>
 				</div>
-			</div>
+			</div> -->
 
 			{{-- Social media login --}}
 			@if ($social_grid)
@@ -331,11 +305,11 @@
 
 			{{-- Action links --}}
 			<div class="mt-6">
-				<div class="list-disc list-inside text-slate-500 text-[13px] space-y-2">
+				<div class="list-disc list-inside text-slate-500 text-[13px]">
 
 					{{-- Login --}}
 					<!-- <li> -->
-					<p class="nmy">Already a member? <a class="hover:text-slate-600 hover:underline link-color" href="{{ url('auth/login') }}">
+					<p class="nmy text-center">Already a member? <a class="link-color hover:text-gray-800 hover:underline font-medium transition-colors duration-300" href="{{ url('auth/login') }}">
 					Log in here
 							<!-- @lang('messages.t_already_have_account') @lang('messages.t_login') -->
 						</a></p>
@@ -393,17 +367,10 @@
 					email   : null,
 					password: null,
 					fullname: null,
-
-					username: null
-
 					username: null,
 					phone:null,
 					gettingmarried:null,
 					weddingdate:null,
-
-					username: null,
-					phone:null
-
 				},
 
 				// Register
@@ -438,13 +405,7 @@
 					}
 
 					// Validate form
-
-					if (!_this.form.email || !_this.form.password || !_this.form.fullname || !_this.form.username) {
-
-					if (!_this.form.email || !_this.form.password || !_this.form.fullname || !_this.form.username || !_this.form.phone || !_this.form.gettingmarried ||  !_this.form.weddingdate) {
-
-					if (!_this.form.email || !_this.form.password || !_this.form.fullname || !_this.form.username || !_this.form.phone) {
-
+					if (!_this.form.email || !_this.form.password || !_this.form.fullname || !_this.form.username || !_this.form.phone ) {
                         
 						// Error
 						window.$wireui.notify({
@@ -462,13 +423,9 @@
 						'email'          : _this.form.email,
 						'password'       : _this.form.password,
 						'username'       : _this.form.username,
-
 						'phone':this.form.phone,
-						'gettingmarried':this.form.gettingmarried,
-						'weddingdate':this.form.weddingdate,
-
-						'phone':this.form.phone,
-
+						//'gettingmarried':this.form.gettingmarried,
+						//'weddingdate':this.form.weddingdate,
 						'fullname'       : _this.form.fullname,
 						'recaptcha_token': recaptcha_token
 					});
@@ -481,23 +438,6 @@
 	</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
-        /* Include the CSS styles here */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
         h1 {
             text-align: center;
             color: #333;
@@ -521,7 +461,7 @@
         #location-results {
             max-height: 300px;
             overflow-y: auto;
-            border: 1px solid #ccc;
+            /* border: 1px solid #ccc; */
             border-radius: 5px;
             background-color: #fff;
         }

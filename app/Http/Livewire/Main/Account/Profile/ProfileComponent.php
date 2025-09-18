@@ -11,6 +11,11 @@ use App\Models\UserLanguage;
 use Livewire\WithFileUploads;
 use App\Models\UserAvailability;
 use App\Models\UserLinkedAccount;
+use App\Models\UserWeddingPlanning;
+use App\Models\Event;
+use App\Models\Category;
+use App\Models\Subcategory;
+use App\Models\Location;
 use App\Utils\Uploader\ImageUploader;
 use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 use App\Http\Validators\Main\Account\Profile\AvatarValidator;
@@ -20,6 +25,8 @@ use App\Http\Validators\Main\Account\Profile\HeadlineValidator;
 use App\Http\Validators\Main\Account\Profile\AddLanguageValidator;
 use App\Http\Validators\Main\Account\Profile\DescriptionValidator;
 use App\Http\Validators\Main\Account\Profile\AvailabilityValidator;
+
+
 
 class ProfileComponent extends Component
 {
@@ -51,6 +58,20 @@ class ProfileComponent extends Component
     public $availability;
     public $availability_date;
     public $availability_message;
+    public $weddingPlanning;
+    public $staticSubcategories;
+
+    public $events = [];
+    public $event_id;
+    public $eventIds;
+    public $category;
+    public $subcategory;
+    public $subcategories =[];
+    public $category_parent_id = 9;
+    public $locations;
+
+    public $defaultEvents;
+    public $defaultGroups;
 
     /**
      * Init component
@@ -59,6 +80,26 @@ class ProfileComponent extends Component
      */
     public function mount()
     {
+
+		$this->defaultEvents = [
+            ['id' => 1, 'name' => 'Istikhara'],
+            ['id' => 2, 'name' => 'Mangni'],
+            ['id' => 3, 'name' => 'Mehndi Night'],
+            ['id' => 4, 'name' => 'Nikah'],
+            ['id' => 5, 'name' => 'Rukhsati'],
+            ['id' => 6, 'name' => 'Walimah']
+        ];
+
+        $this->defaultGroups = [
+            ['id' => 1, 'name' => 'Couple'],
+            ['id' => 2, 'name' => 'Mutual friends'],
+            ['id' => 3, 'name' => 'Family friends of my partner'],
+            ['id' => 4, 'name' => 'Family friends of developer'],
+            ['id' => 5, 'name' => "Developer's friends"],
+            ['id' => 6, 'name' => "Developer's family"],
+            ['id' => 7, 'name' => "Developer's coworkers"]
+        ];        
+
         // Get user data
         $user               = auth()->user();
 
@@ -73,6 +114,75 @@ class ProfileComponent extends Component
 
         // Set user availability
         $this->availability = auth()->user()->availability()->first();
+        $this->weddingPlanning = UserWeddingPlanning::where('user_id', auth()->id())->first();
+
+        $this->staticSubcategories = [
+			'Catering' => [
+				'icon' => 'fa-utensils', // Font Awesome or similar
+				'description' => 'Find experienced chefs, bartenders, and caterers to craft the ultimate menu to remember.',
+				'link' => '/categories/vendors/catering',
+                'imgsrc'=> 'public/img/home/cateringimg.jpg',
+			],
+			'Decorators' => [
+				'icon' => 'fa-paint-brush',
+				'description' => 'Creative decorators to beautify your venue.',
+				'link' => '/categories/vendors/decorators',
+                'imgsrc'=> 'public/img/home/decorations.jpg',
+			],
+			"DJ's" => [
+				'icon' => 'fa-music',
+				'description' => 'From oldies to soul, discover live wedding DJs that play all styles of music.',
+				'link' => "/categories/vendors/dJ's",
+                'imgsrc'=> 'public/img/home/dj.jpg',
+			],
+			'Imams' => [
+				'icon' => 'fa-quran',
+				'description' => 'Qualified Imams for conducting your ceremony.',
+				'link' => '/categories/vendors/imams',
+                'imgsrc'=> 'public/img/home/imam.jpg',
+			],
+			'Makeup/Heena Artists' => [
+				'icon' => 'fa-magic',
+				'description' => 'Talented makeup and Henna artists for the bride.',
+				'link' => '/categories/vendors/makeup-heena-artists',
+                'imgsrc'=> 'public/img/home/makeup.jpg',
+			],
+			'Photographers' => [
+				'icon' => 'fa-camera',
+				'description' => "Browse local photographers and their work to find one who’ll capture the essence of your day.",
+				'link' => '/categories/vendors/photographers',
+                'imgsrc'=> 'public/img/home/photo.jpg',
+			],
+			'venues' => [
+				'icon' => 'fa-building',
+				'description' => 'Explore and tour top-rated reception venues to book a special space to celebrate your love.',
+				'link' => '/categories/vendors/venues',
+                'imgsrc'=> 'public/img/home/venue.jpg',
+			],
+			'Videographers' => [
+				'icon' => 'fa-video',
+				'description' => 'Expert videographers to record your special day.',
+				'link' => '/categories/vendors/videographers',
+                'imgsrc'=> 'public/img/home/video.jpg',
+			]
+		];
+
+       /* echo '<pre>';
+        print_r($this->weddingPlanning);
+        echo '</pre>';
+        die("fgfgd"); */
+
+		//$this->events = Event::all();
+
+        $this->subcategories = Subcategory::where('parent_id', $this->category_parent_id)->orderBy('name')->get();
+
+        $this->locations = Location::all()->map(function($location) {
+            return [
+                'id' => $location->id,
+                'location_name' => $location->location_name
+            ];
+        })->toArray();
+
 
         // Set linked accounts
         $this->fill([
@@ -122,7 +232,15 @@ class ProfileComponent extends Component
         $this->seo()->jsonLd()->setUrl( url()->current() );
         $this->seo()->jsonLd()->setType('WebSite');
 
-        return view('livewire.main.account.profile.profile')->extends('livewire.main.layout.app')->section('content');
+        return view('livewire.main.account.profile.profile', [
+            'user' => auth()->user(),
+            'weddingPlanning' => $this->weddingPlanning, 
+			'allevents' => $this->events,
+            'subcategories' => $this->subcategories,    
+            'alllocations' => $this->locations,  
+            'staticSubcategories' => $this->staticSubcategories,
+        ])->extends('livewire.main.layout.app')->section('content');
+
     }
 
 

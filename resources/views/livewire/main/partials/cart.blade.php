@@ -1,6 +1,10 @@
 <div x-data="window.XnbzELJbXoSEFED" x-init="initialize()">
 
     {{-- Button --}}
+    @auth
+    @if (auth()->user()->account_type === 'seller') 
+
+    @else                   
     <button x-on:click="cart_open = !cart_open" type="button" class="text-gray-500 hover:text-primary-600 dark:text-gray-100 dark:hover:text-white transition-colors duration-300 py-2 relative {{ auth()->check() ? 'md:mx-4' : 'ltr:ml-4 rtl:mr-4' }}">
         <svg class="text-gray-400 hover:text-gray-700 h-6 w-6 dark:text-gray-100 dark:hover:text-white" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M4 16V4H2V2h3a1 1 0 0 1 1 1v12h12.438l2-8H8V5h13.72a1 1 0 0 1 .97 1.243l-2.5 10a1 1 0 0 1-.97.757H5a1 1 0 0 1-1-1zm2 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm12 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"></path></g></svg>
         @if ($cart)
@@ -10,6 +14,8 @@
             </span>
         @endif
     </button>
+    @endif 
+    @endauth  
 
     {{-- Cart --}}
     <div @keydown.window.escape="cart_open = false" x-show="cart_open" style="display: none;" class="fixed inset-0 overflow-hidden z-50" x-ref="dialog" aria-modal="true" x-cloak>
@@ -115,11 +121,11 @@
                                 </div>
                                 <p class="mt-0.5 text-sm text-gray-500 dark:text-gray-300">{{ __('messages.t_tax_fees_calculated_at_checkout') }}</p>
                                 <div class="mt-6">
-                                    <a href="{{ url('cart') }}" class="flex items-center justify-center rounded-md border border-transparent bg-primary-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-primary-700">{{ __('messages.t_view_cart') }}</a>
+                                    <a href="{{ url('cart') }}" class="w-full inline-flex items-center justify-center rounded-sm border border-red-400 bg-red-400 p-3 font-medium text-white hover:text-red-500 focus:text-red-400 hover:bg-transparent transition-colors duration-300 font-reselu">{{ __('messages.t_view_cart') }}</a>
                                 </div>
                                 <div class="mt-6 flex justify-center text-center text-sm text-gray-500 dark:text-gray-300">
                                     <p>
-                                        {{ __('messages.t_or') }} <button type="button" class="font-medium text-primary-600 hover:text-primary-600" @click="cart_open = false">{{ __('messages.t_continue_shopping') }}<span aria-hidden="true"> →</span></button>
+                                        {{ __('messages.t_or') }} <button type="button" class="font-medium text-red-400 hover:text-red-500" @click="cart_open = false">{{ __('messages.t_continue_shopping') }}<span aria-hidden="true"> →</span></button>
                                     </p>
                                 </div>
                             </div>

@@ -51,6 +51,7 @@
 
         {{-- Preload Livewire --}}
         <link rel="preload" href="{{ livewire_asset_path() }}" as="script">
+	
 
 		{{-- Custom css --}}
         <style>
@@ -156,7 +157,9 @@
         @if (settings('appearance')->custom_code_head_main_layout)
             {!! settings('appearance')->custom_code_head_main_layout !!}
         @endif
+	<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>-->
     </head>
 
     <body class="antialiased bg-gray-50 dark:bg-[#161616] text-gray-600 min-h-full flex flex-col application application-ltr overflow-x-hidden overflow-y-scroll {{ app()->getLocale() === 'ar' ? 'application-ar' : '' }}" style="overflow-y: scroll">
@@ -174,14 +177,14 @@
    
 
         {{-- Content --}}
-        <main class="flex-grow">            
-            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 min-h-screen">    
+        <main class="flex-grow"> 
+            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 min-h-screen">
                 @yield('content')
             </div>
         </main>
 
         {{-- Footer --}}
-{{--     @livewire('main.includes.footer') --}}   
+   @livewire('main.includes.footer')
 
         {{-- Livewire scripts --}}
         @livewireScripts

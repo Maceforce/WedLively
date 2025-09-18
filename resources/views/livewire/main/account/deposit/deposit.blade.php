@@ -1,5 +1,5 @@
-<main class="w-full">
-
+<main class="w-full my-4">
+<div class="p-5 bg-white shadow-sm border border-gray-100 dark:border-zinc-700">
     {{-- Loading --}}
     <div class="fixed top-0 left-0 z-50 bg-black w-full h-full opacity-80" wire:loading wire:target="handle">
         <div class="w-full h-full flex items-center justify-center">
@@ -13,8 +13,8 @@
         </div>
     </div>
 
-    <div class="px-4 sm:px-6 lg:px-8" id="scroll-to-deposit-container">
-        <div class="bg-white dark:bg-zinc-800 rounded-lg shadow overflow-hidden">
+    <div class="" id="scroll-to-deposit-container">
+        <div class="bg-white dark:bg-zinc-800  shadow overflow-hidden">
             <div class="divide-y divide-gray-200 dark:divide-zinc-700 lg:grid lg:grid-cols-12 lg:divide-y-0 lg:divide-x rtl:divide-x-reverse">
 
                 {{-- Sidebar --}}
@@ -24,6 +24,9 @@
 
                 {{-- Section content --}}
                 <div class="lg:col-span-9">
+
+					<x-main.account.plannerbar />
+
                     <div class="max-w-lg mx-auto py-12">
 
                         {{-- Success deposit --}}
@@ -44,14 +47,14 @@
 
                                     {{-- Go shopping --}}
                                     <div class="w-full">
-                                        <a href="{{ url('/') }}" class="w-full justify-center text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-bold uppercase tracking-widest rounded-md text-[10px] px-5 py-4 text-center inline-flex items-center dark:focus:ring-gray-500 mr-2 mb-2">
+                                        <a href="{{ url('/') }}" class="w-full justify-center text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-bold uppercase tracking-widest text-[10px] px-5 py-4 text-center inline-flex items-center dark:focus:ring-gray-500 mr-2 mb-2">
                                             @lang('messages.t_go_shopping')
                                         </a>
                                     </div>
 
                                     {{-- View history --}}
                                     <div class="w-full">
-                                        <a href="{{ url('account/deposit/history') }}" class="w-full justify-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-600 font-bold uppercase tracking-widest rounded-md text-[10px] px-5 py-4 text-center inline-flex items-center dark:focus:ring-primary-500 mr-2 mb-2">
+                                        <a href="{{ url('account/deposit/history') }}" class="w-full justify-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-600 font-bold uppercase tracking-widest text-[10px] px-5 py-4 text-center inline-flex items-center dark:focus:ring-primary-500 mr-2 mb-2">
                                             @lang('messages.t_view_history')
                                         </a>
                                     </div>
@@ -77,7 +80,7 @@
                                 <p class="mt-1 text-sm text-gray-400 dark:text-gray-300">{{ __('messages.t_add_funds_subtitle') }}</p>
 
                                 {{-- Transactions history --}}
-                                <a rel="nofollow" class="text-[13px] font-medium mt-4 text-primary-600 hover:underline dark:text-primary-500" href="{{ url('account/deposit/history') }}">
+                                <a rel="nofollow" class="text-[13px] font-medium mt-4 text-red-400 hover:underline dark:text-primary-500" href="{{ url('account/deposit/history') }}">
                                     @lang('messages.t_transactions_history')
                                 </a>
 
@@ -88,7 +91,7 @@
                                 <div class="relative grid grid-cols-3 sm:gap-4 gap-y-4 mt-14" wire:key="deposit-key-select">
 
                                     {{-- Loading --}}
-                                    <div class="bg-black dark:bg-zinc-300 dark:bg-opacity-20 absolute w-full h-full rounded-lg bg-opacity-60" wire:loading>
+                                    <div class="bg-black dark:bg-zinc-300 dark:bg-opacity-20 absolute w-full h-full  bg-opacity-60" wire:loading>
                                         <div role="status" class="flex items-center justify-center w-full h-full">
                                             <svg aria-hidden="true" class="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-100 fill-primary-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
@@ -102,14 +105,14 @@
                                     @if (settings('stripe')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'stripe')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'stripe' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'stripe' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('stripe')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('stripe')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('stripe')->name }}</span>
@@ -124,14 +127,14 @@
                                     @if (settings('paypal')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'paypal')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'paypal' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'paypal' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('paypal')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('paypal')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('paypal')->name }}</span>
@@ -146,14 +149,14 @@
                                     @if (settings('offline_payment')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'offline_payment')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'offline_payment' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'offline_payment' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('offline_payment')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('offline_payment')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('offline_payment')->name }}</span>
@@ -168,14 +171,14 @@
                                     @if (settings('flutterwave')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'flutterwave')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'flutterwave' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'flutterwave' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('flutterwave')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('flutterwave')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('flutterwave')->name }}</span>
@@ -190,14 +193,14 @@
                                     @if (settings('paystack')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'paystack')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'paystack' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'paystack' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('paystack')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('paystack')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('paystack')->name }}</span>
@@ -212,14 +215,14 @@
                                     @if (settings('cashfree')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'cashfree')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'cashfree' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'cashfree' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('cashfree')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('cashfree')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('cashfree')->name }}</span>
@@ -234,14 +237,14 @@
                                     @if (settings('mollie')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'mollie')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'mollie' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'mollie' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('mollie')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('mollie')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('mollie')->name }}</span>
@@ -256,14 +259,14 @@
                                     @if (settings('xendit')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'xendit')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'xendit' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'xendit' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('xendit')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('xendit')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('xendit')->name }}</span>
@@ -278,14 +281,14 @@
                                     @if (settings('mercadopago')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'mercadopago')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'mercadopago' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'mercadopago' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('mercadopago')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('mercadopago')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('mercadopago')->name }}</span>
@@ -300,14 +303,14 @@
                                     @if (settings('vnpay')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'vnpay')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'vnpay' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'vnpay' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('vnpay')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('vnpay')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('vnpay')->name }}</span>
@@ -322,14 +325,14 @@
                                     @if (settings('paymob')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'paymob')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'paymob' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'paymob' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('paymob')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('paymob')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('paymob')->name }}</span>
@@ -344,14 +347,14 @@
                                     @if (settings('paytabs')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'paytabs')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'paytabs' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'paytabs' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('paytabs')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('paytabs')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('paytabs')->name }}</span>
@@ -366,14 +369,14 @@
                                     @if (settings('paytr')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'paytr')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'paytr' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'paytr' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('paytr')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('paytr')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('paytr')->name }}</span>
@@ -388,14 +391,14 @@
                                     @if (settings('razorpay')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'razorpay')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'razorpay' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'razorpay' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('razorpay')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('razorpay')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('razorpay')->name }}</span>
@@ -410,14 +413,14 @@
                                     @if (settings('jazzcash')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'jazzcash')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'jazzcash' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'jazzcash' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('jazzcash')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('jazzcash')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('jazzcash')->name }}</span>
@@ -432,14 +435,14 @@
                                     @if (settings('youcanpay')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'youcanpay')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'youcanpay' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'youcanpay' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('youcanpay')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('youcanpay')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('youcanpay')->name }}</span>
@@ -454,14 +457,14 @@
                                     @if (settings('nowpayments')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'nowpayments')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'nowpayments' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'nowpayments' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('nowpayments')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('nowpayments')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('nowpayments')->name }}</span>
@@ -476,14 +479,14 @@
                                     @if (settings('epoint')->is_enabled)
                                         <div 
                                             wire:click="$set('selected', 'epoint')" 
-                                            class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'epoint' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                            class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $selected === 'epoint' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                             {{-- Logo --}}
                                             @if (settings('epoint')->logo)
                                                 <img src="{{ placeholder_img() }}" data-src="{{ src(settings('epoint')->logo) }}" class="lazy w-8/12 mx-auto p-1 mt-2">
                                             @endif
 
-                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto rounded-sm"></div>
+                                            <div class="w-6/12 h-px bg-gray-100 dark:bg-zinc-600 my-4 mx-auto "></div>
 
                                             {{-- Name --}}
                                             <span class="text-[13px] text-gray-500 dark:text-gray-100 font-bold mb-2">{{ settings('epoint')->name }}</span>
@@ -612,7 +615,7 @@
                                                         @lang('messages.t_amount')
                                                     </label>
                                                     <div class="relative w-full">
-                                                        <input wire:model.debounce.500ms="amount" type="text" id="deposit-amount-input" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required>
+                                                        <input wire:model.debounce.500ms="amount" type="text" id="deposit-amount-input" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0.00" required>
                                                         <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3 font-bold text-xs tracking-widest dark:text-gray-300">
                                                             {{ $currency }}
                                                         </div>
@@ -628,7 +631,7 @@
                                                             @lang('messages.t_phone_number')
                                                         </label>
                                                         <div class="relative w-full">
-                                                            <input wire:model.defer="paymob_phone" type="text" id="paymob-input-phone" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="+20" required>
+                                                            <input wire:model.defer="paymob_phone" type="text" id="paymob-input-phone" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="+20" required>
                                                             <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                                 <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path></svg>
                                                             </div>
@@ -641,7 +644,7 @@
                                                             @lang('messages.t_firstname')
                                                         </label>
                                                         <div class="relative w-full">
-                                                            <input wire:model.defer="paymob_firstname" type="text" id="paymob-input-firstname" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_firstname') }}" required>
+                                                            <input wire:model.defer="paymob_firstname" type="text" id="paymob-input-firstname" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_firstname') }}" required>
                                                             <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                                 <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path></svg>
                                                             </div>
@@ -654,7 +657,7 @@
                                                             @lang('messages.t_lastname')
                                                         </label>
                                                         <div class="relative w-full">
-                                                            <input wire:model.defer="paymob_lastname" type="text" id="paymob-input-lastname" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_lastname') }}" required>
+                                                            <input wire:model.defer="paymob_lastname" type="text" id="paymob-input-lastname" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_lastname') }}" required>
                                                             <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                                 <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path></svg>
                                                             </div>
@@ -670,7 +673,7 @@
 
                                     {{-- Summary --}}
                                     <div class="mt-10 w-full">
-                                        <div class="bg-gray-50 dark:bg-zinc-700 rounded-lg px-4 py-6 sm:p-6 lg:p-8">
+                                        <div class="bg-gray-50 dark:bg-zinc-700  px-4 py-6 sm:p-6 lg:p-8">
                                             <div class="flow-root w-full">
                                                 <dl class="-my-4 text-sm divide-y divide-gray-200 dark:divide-zinc-600">
         
@@ -741,7 +744,7 @@
                                                     wire:click="next"
                                                     wire:loading.attr="disabled"
                                                     type="button"
-                                                    class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 dark:disabled:bg-zinc-700 disabled:text-gray-600 dark:disabled:text-zinc-500 disabled:cursor-not-allowed disabled:hover:bg-gray-200 dark:disabled:hover:bg-zinc-700">
+                                                    class="w-full text-sm font-medium flex justify-center py-5 px-8 tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 dark:disabled:bg-zinc-700 disabled:text-gray-600 dark:disabled:text-zinc-500 disabled:cursor-not-allowed disabled:hover:bg-gray-200 dark:disabled:hover:bg-zinc-700">
                                                         {{-- Loading indicator --}}
                                                         <div wire:loading wire:target="next">
                                                             <svg role="status" class="inline w-4 h-4 text-gray-700 animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -759,7 +762,7 @@
                                 
                                             {{-- Go back --}}
                                             <div class="mt-6 text-sm text-center text-gray-500">
-                                                <button wire:click="back" type="button" class="text-primary-600 font-medium hover:text-primary-500">
+                                                <button wire:click="back" type="button" class="text-red-400 font-medium hover:text-red-600">
                                                     @lang('messages.t_back')
                                                 </button>
                                             </div>
@@ -824,7 +827,7 @@
                                                     <button
                                                         type="submit"
                                                         id="stripe-payment-button"
-                                                        class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed dark:disabled:bg-zinc-700 dark:disabled:text-zinc-500"
+                                                        class="w-full text-sm font-medium flex justify-center py-5 px-8 tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed dark:disabled:bg-zinc-700 dark:disabled:text-zinc-500"
                                                         >
                                                             {{ __('messages.t_pay')    }}
                                                     </button>
@@ -898,14 +901,14 @@
 
                                     {{-- Offline payment --}}
                                     @if ($selected === 'offline_payment' && settings('offline_payment')->is_enabled)
-                                        <div class="w-full bg-gray-50 dark:bg-zinc-700 dark:text-gray-200 rounded-lg px-4 py-6 sm:p-6 lg:p-8">
+                                        <div class="w-full bg-gray-50 dark:bg-zinc-700 dark:text-gray-200  px-4 py-6 sm:p-6 lg:p-8">
                                             {!! settings('offline_payment')->details !!}
                                         </div>
                                         <div class="mt-8">
                                             <button
                                                 wire:click="handle"
                                                 wire:loading.attr="disabled"
-                                                class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
+                                                class="w-full text-sm font-medium flex justify-center py-5 px-8 tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
                                                 >
                                                     {{ __('messages.t_place_order')    }}
                                             </button>
@@ -943,7 +946,7 @@
                                                 <button
                                                     @click="window.makeFlutterwavePayment"
                                                     id="flutterwave-payment-button"
-                                                    class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
+                                                    class="w-full text-sm font-medium flex justify-center py-5 px-8 tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
                                                     >
                                                         {{ __('messages.t_pay')    }}
                                                 </button>
@@ -982,7 +985,7 @@
                                                 <button
                                                     @click="window.makePaystackPayment"
                                                     id="paystack-payment-button"
-                                                    class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
+                                                    class="w-full text-sm font-medium flex justify-center py-5 px-8 tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
                                                     >
                                                         {{ __('messages.t_pay')    }}
                                                 </button>
@@ -1004,7 +1007,7 @@
                                                         @lang('messages.t_phone_number')
                                                     </label>
                                                     <div class="relative w-full">
-                                                        <input type="text" id="cashfree-input-phone" minlength="10" maxlength="10" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="00 00 00 00 00" required>
+                                                        <input type="text" id="cashfree-input-phone" minlength="10" maxlength="10" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="00 00 00 00 00" required>
                                                         <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                             <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path></svg>
                                                         </div>
@@ -1017,7 +1020,7 @@
                                                         @lang('messages.t_holder_name')
                                                     </label>
                                                     <div class="relative w-full">
-                                                        <input data-card-holder type="text" id="cashfree-input-holder" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="John Doe" required>
+                                                        <input data-card-holder type="text" id="cashfree-input-holder" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="John Doe" required>
                                                         <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                             <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="7" r="4"></circle><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path></svg>
                                                         </div>
@@ -1030,7 +1033,7 @@
                                                         @lang('messages.t_card_number')
                                                     </label>
                                                     <div class="relative w-full">
-                                                        <input data-card-number type="text" id="cashfree-input-number" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="4111111111111111" required>
+                                                        <input data-card-number type="text" id="cashfree-input-number" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="4111111111111111" required>
                                                         <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                             <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="3" y="5" width="18" height="14" rx="3"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="7" y1="15" x2="7.01" y2="15"></line><line x1="11" y1="15" x2="13" y2="15"></line></svg>
                                                         </div>
@@ -1043,7 +1046,7 @@
                                                         @lang('messages.t_card_expiry_month')
                                                     </label>
                                                     <div class="relative w-full">
-                                                        <input data-card-expiry-mm type="text" id="cashfree-input-expiry-mm" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="12" required>
+                                                        <input data-card-expiry-mm type="text" id="cashfree-input-expiry-mm" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="12" required>
                                                         <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                             <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="4" y="5" width="16" height="16" rx="2"></rect><line x1="16" y1="3" x2="16" y2="7"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="4" y1="11" x2="20" y2="11"></line><rect x="8" y="15" width="2" height="2"></rect></svg>
                                                         </div>
@@ -1056,7 +1059,7 @@
                                                         @lang('messages.t_card_expiry_year')
                                                     </label>
                                                     <div class="relative w-full">
-                                                        <input data-card-expiry-yy maxlength="2" minlength="2" type="text" id="cashfree-input-expiry-yy" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="27" required>
+                                                        <input data-card-expiry-yy maxlength="2" minlength="2" type="text" id="cashfree-input-expiry-yy" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="27" required>
                                                         <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                             <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="4" y="5" width="16" height="16" rx="2"></rect><line x1="16" y1="3" x2="16" y2="7"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="4" y1="11" x2="20" y2="11"></line><line x1="11" y1="15" x2="12" y2="15"></line><line x1="12" y1="15" x2="12" y2="18"></line></svg>
                                                         </div>
@@ -1069,7 +1072,7 @@
                                                         @lang('messages.t_card_cvv')
                                                     </label>
                                                     <div class="relative w-full">
-                                                        <input data-card-cvv type="text" id="cashfree-input-cvv" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="123" required>
+                                                        <input data-card-cvv type="text" id="cashfree-input-cvv" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="123" required>
                                                         <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                             <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"></path><circle cx="12" cy="11" r="1"></circle><line x1="12" y1="12" x2="12" y2="14.5"></line></svg>
                                                         </div>
@@ -1080,7 +1083,7 @@
                                                 <div class="col-span-12 mt-8">
                                                     <button
                                                         id="cashfree-payment-button"
-                                                        class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed dark:disabled:bg-zinc-700 dark:disabled:text-zinc-500"
+                                                        class="w-full text-sm font-medium flex justify-center py-5 px-8 tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed dark:disabled:bg-zinc-700 dark:disabled:text-zinc-500"
                                                         >
                                                             {{ __('messages.t_pay')    }}
                                                     </button>
@@ -1350,7 +1353,7 @@
                                                 @click="window.makeRazorpayPayment"
                                                 wire:loading.attr="disabled"
                                                 type="button"
-                                                class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
+                                                class="w-full text-sm font-medium flex justify-center py-5 px-8  tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
                                                 >
                                                     {{ __('messages.t_pay')    }}
                                             </button>
@@ -1447,7 +1450,7 @@
                                                 <div class="block mt-8">
                                                     <button
                                                         type="submit"
-                                                        class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed dark:disabled:bg-zinc-700 dark:disabled:text-zinc-500"
+                                                        class="w-full text-sm font-medium flex justify-center py-5 px-8  tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed dark:disabled:bg-zinc-700 dark:disabled:text-zinc-500"
                                                         >
                                                             {{ __('messages.t_pay')    }}
                                                     </button>
@@ -1464,7 +1467,7 @@
                                             <button
                                                 wire:click="handle"
                                                 wire:loading.attr="disabled"
-                                                class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
+                                                class="w-full text-sm font-medium flex justify-center py-5 px-8  tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
                                                 >
                                                     {{ __('messages.t_pay')    }}
                                             </button>
@@ -1563,9 +1566,9 @@
                                         {{-- Pay Address --}}
                                         <div class="w-full mt-4" x-data="window.wsqrXOUsxxoLywE">
                                             <div class="mt-1 relative flex items-center">
-                                            <input type="text" id="input-nowpayments-io-pay-address" value="{{ $nowpayments_pay_address }}" class="shadow-sm focus:ring-primary-600 focus:border-primary-600 block w-full ltr:pr-16 rtl:pl-16 sm:text-[13px] border-gray-200 font-medium rounded-md">
+                                            <input type="text" id="input-nowpayments-io-pay-address" value="{{ $nowpayments_pay_address }}" class="shadow-sm focus:ring-primary-600 focus:border-primary-600 block w-full ltr:pr-16 rtl:pl-16 sm:text-[13px] border-gray-200 font-medium">
                                             <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex py-1.5 ltr:pr-1.5 rtl:pl-1.5">
-                                                <button x-on:click="copyToClipboard()" type="button" class="inline-flex justify-center items-center rounded border font-semibold focus:outline-none px-2 py-1 leading-5 text-xs border-gray-300 bg-gray-50 text-gray-800 shadow-sm hover:text-gray-800 hover:bg-gray-100 hover:border-gray-300 hover:shadow">
+                                                <button x-on:click="copyToClipboard()" type="button" class="inline-flex justify-center items-center  border font-semibold focus:outline-none px-2 py-1 leading-5 text-xs border-gray-300 bg-gray-50 text-gray-800 shadow-sm hover:text-gray-800 hover:bg-gray-100 hover:border-gray-300 hover:shadow">
                                                     <template x-if="is_copied">
                                                         <span>@lang('messages.t_copied')</span>
                                                     </template>
@@ -1592,7 +1595,7 @@
                                             type="button" 
                                             wire:click="handle"
                                             wire:loading.attr="disabled"
-                                            class="inline-flex justify-center items-center rounded border font-semibold focus:outline-none px-12 py-4 leading-5 text-[13px] mt-8 tracking-wide border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:ring focus:ring-primary-500 focus:ring-opacity-25 disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed">
+                                            class="inline-flex justify-center items-center border font-semibold focus:outline-none px-12 py-4 leading-5 text-[13px] mt-8 tracking-wide border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:ring focus:ring-primary-500 focus:ring-opacity-25 disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed">
                                             
                                             {{-- Loading indicator --}}
                                             <div wire:loading wire:target="handle">
@@ -1621,6 +1624,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </main>
 

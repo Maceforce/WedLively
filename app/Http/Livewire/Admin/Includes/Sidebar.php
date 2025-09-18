@@ -150,7 +150,8 @@ class Sidebar extends Component
                     [ 'text' => __('messages.t_users'), 'href' => "$dashboard/reports/users" ],
                     [ 'text' => __('messages.t_gigs'), 'href' => "$dashboard/reports/gigs" ],
                     [ 'text' => __('messages.t_projects'), 'href' => "$dashboard/reports/projects" ],
-                    [ 'text' => __('messages.t_bids'), 'href' => "$dashboard/reports/bids" ],
+                    [ 'text' => __('messages.t_bids'), 'href' => "$dashboard/reports/bids" ],					
+                    [ 'text' => __('Sales Report'), 'href' => "$dashboard/reports/salesreport" ],
                 ],
             ],
 

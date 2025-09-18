@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Admin\Reports\SalesReportComponent;
 
 // Dashboard routes
 Route::middleware(['web', 'auth:admin'])->group(function() {
@@ -332,6 +333,9 @@ Route::middleware(['web', 'auth:admin'])->group(function() {
         
         // Bids
         Route::get('bids', BidsComponent::class);
+
+		//salesreport
+		Route::get('salesreport', SalesReportComponent::class);
 
     });
 

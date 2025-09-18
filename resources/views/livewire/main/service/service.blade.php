@@ -2,7 +2,7 @@
 
     {{-- Check if user unavailable --}}
     @if ($gig->owner->availability)
-        <div class="rounded-md bg-amber-100 p-4 mb-6">
+        <div class=" bg-amber-100 p-4 mb-6">
             <div class="flex">
                 <div class="flex-shrink-0">
                     <svg class="h-5 w-5 text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"> <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/> </svg>
@@ -39,13 +39,13 @@
     @endif
 
     {{-- Gig content --}}
-    <div class="bg-white dark:bg-zinc-800 shadow-sm ring-1 ring-gray-100 dark:ring-zinc-700 border border-gray-50 dark:border-zinc-700 rounded-xl px-4 py-4 lg:px-12 lg:py-12">
+    <div class="bg-white dark:bg-zinc-800 shadow-sm ring-1 ring-gray-100 dark:ring-zinc-700 border border-gray-50 dark:border-zinc-700 my-4 px-4 py-4 lg:px-12 lg:py-12">
 
         {{-- Title / Price / Stats --}}
-        <div class="w-full mb-0 md:mb-12">
+        <div class="w-full mb-0 mb-6">
 
             {{-- Breadcrumbs / Share / Flag / Favorite --}}
-            <div class="md:flex items-center justify-between mb-0 md:mb-6">
+            <div class="md:flex items-center justify-between mb-0">
 
                 {{-- Breadcrumbs --}}
                 <nav class="hidden md:flex" aria-label="Breadcrumb">
@@ -54,7 +54,7 @@
                         {{-- Home --}}
                         <li>
                             <div>
-                                <a href="{{ url('/') }}" class="text-gray-400 hover:text-gray-600">
+                                <a href="{{ url('/') }}" class="text-gray-400 hover:text-gray-500">
                                     <svg class="flex-shrink-0 h-5 w-5 -mt-[3px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"> <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/> </svg>
                                     <span class="sr-only">Home</span>
                                 </a>
@@ -69,7 +69,7 @@
 
                                 <svg xmlns="http://www.w3.org/2000/svg" class="hidden rtl:block flex-shrink-0 h-4 w-4 text-gray-300" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
 
-                                <a href="{{ url('categories', $gig->category->slug) }}" class="ltr:ml-2 rtl:mr-2 text-sm font-medium text-gray-400 hover:text-gray-600">{{ $gig->category->name }}</a>
+                                <a href="{{ url('categories', $gig->category->slug) }}" class="ltr:ml-2 rtl:mr-2 text-sm font-medium text-gray-400 hover:text-gray-500">{{ $gig->category->name }}</a>
                             </div>
                         </li>
                 
@@ -81,7 +81,7 @@
 
                                 <svg xmlns="http://www.w3.org/2000/svg" class="hidden rtl:block flex-shrink-0 h-4 w-4 text-gray-300" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
 
-                                <a href="{{ url('categories/' . utf8_decode(urldecode($gig->category->slug . '/' . $gig->subcategory->slug))) }}" class="ltr:ml-2 rtl:mr-2 text-sm font-medium text-gray-400 hover:text-gray-600" aria-current="page">{{ $gig->subcategory->name }}</a>
+                                <a href="{{ url('categories/' . utf8_decode(urldecode($gig->category->slug . '/' . $gig->subcategory->slug))) }}" class="ltr:ml-2 rtl:mr-2 text-sm font-medium text-gray-400 hover:text-gray-500" aria-current="page">{{ $gig->subcategory->name }}</a>
                             </div>
                         </li>
                         
@@ -91,7 +91,7 @@
                 {{-- Price --}}
                 <div class="hidden items-center md:!grid">
                     <span class="uppercase text-[10px] text-gray-400 dark:text-gray-300 mb-1 tracking-widest">{{ __('messages.t_starting_at') }}</span>
-                    <span class="text-black dark:text-white text-2xl tracking-wide font-black">@money($gig->price, settings('currency')->code, true)</span>
+                    <span class="text-red-400 dark:text-white text-2xl tracking-wide font-black">@money($gig->price, settings('currency')->code, true)</span>
                 </div>
 
             </div>
@@ -103,10 +103,10 @@
 
             {{-- Gig carousel --}}
             <div class="lg:row-end-1 lg:col-span-4">
-                <div class="rounded-xl overflow-hidden">
+                <div class=" overflow-hidden">
                     <div wire:ignore>
                         {{-- Main --}}
-                        <section id="main-carousel" class="splide rounded-xl">
+                        <section id="main-carousel" class="splide ">
                             <div class="splide__track">
                                     <ul class="splide__list">
 
@@ -136,7 +136,7 @@
                                         {{-- Check if gig has video --}}
                                         @if ($gig->video_link)
                                             <li class="splide__slide !sr-only" data-splide-youtube="{{ $gig->video_link }}">
-                                                <img src="{{ src($gig->thumbnail) }}" alt="{{ $gig->title }}" class=" object-cover">
+                                                <img src="{{ src($gig->thumbnail) }}" alt="{{ $gig->title }}" class=" object-cover shadow">
                                             </li>
                                         @endif
 
@@ -159,7 +159,7 @@
                 {{-- Price (Mobile) --}}
                 <div class="grid items-center md:!hidden md:mb-0 mb-4">
                     <span class="uppercase text-[10px] text-gray-400 dark:text-gray-300 mb-1 tracking-widest">{{ __('messages.t_starting_at') }}</span>
-                    <span class="text-black dark:text-white text-2xl tracking-wide font-black">@money($gig->price, settings('currency')->code, true)</span>
+                    <span class="text-red-400 dark:text-white text-2xl tracking-wide font-black">@money($gig->price, settings('currency')->code, true)</span>
                 </div>
 
                 {{-- Title && Rating --}}
@@ -273,7 +273,7 @@
                         @foreach ($gig->upgrades as $key => $upgrade)
                             <label class="relative block py-4 cursor-pointer sm:flex sm:justify-between focus:outline-none bg-transparent" wire:key="add-to-cart-upgrades-{{ $key }}">
                                 <div class="flex items-center">
-                                    <input type="checkbox" value="{{ $upgrade->uid }}" wire:model.defer="upgrades" class="w-4 h-4 text-primary-600 bg-transparent cursor-pointer rounded-sm ltr:mr-4 rtl:ml-4 border-2 border-gray-300 focus:ring-primary-600">
+                                    <input type="checkbox" value="{{ $upgrade->uid }}" wire:model.defer="upgrades" class="w-4 h-4 text-re-600 bg-transparent cursor-pointer rounded-sm ltr:mr-4 rtl:ml-4 border-2 border-gray-300 focus:ring-primary-600">
                                     <div class="text-sm">
                                         <p id="server-size-0-label" class="font-medium text-gray-600 dark:text-gray-300 text-sm">{{ $upgrade->title }}</p>
                                         <div class="text-gray-400">
@@ -295,15 +295,44 @@
                 @endif
 
                 {{-- Actions --}}
-                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-
-                    {{-- Add to cart --}}
+                <div class="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-1">
+                    <style>
+                      .alert.alert-success {
+							color: green;
+							padding: 5px;
+							font-size: 20px;
+							font-weight: bold;
+						}
+					</style>
+                   
+                    @if (session()->has('success'))
+						<div class="alert alert-success">
+							{{ session('success') }}
+						</div>
+					@endif
+					
+					<div>
+						<style>
+							.cartinqueryguest {
+								width: 100%;
+								color: red;
+								padding-top: 35px;
+							}
+						</style>
+                        <!-- Submit Inquiry Button -->
+                        @auth
+						@if (auth()->user()->account_type === 'buyer')
+						
+						@if ($inquiry)
+							
+						{{-- Add to cart --}}
+                    <div class="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
                     <button 
                         wire:click="addToCart"
                         wire:loading.class="bg-gray-200 hover:bg-gray-300 text-gray cursor-not-allowed"
                         wire:loading.class.remove="bg-primary-600 hover:bg-primary-700 text-white cursor-pointer"
                         wire:loading.attr="disabled"
-                        class="w-full text-[13px] font-medium flex justify-center bg-primary-600 hover:bg-primary-700 text-white py-4 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline cursor-pointer"
+                        class="inline-flex w-full items-center justify-center rounded-sm border border-black bg-gray-800 px-8 py-4 text-[13px] font-medium text-white hover:text-gray-800 focus:text-gray-800 hover:bg-transparent transition-colors duration-300"
                         >
 
                         {{-- Loading indicator --}}
@@ -318,11 +347,96 @@
                         <div wire:loading.remove wire:target="addToCart">
                             {{ __('messages.t_add_to_cart') }}
                         </div>
-                    </button>
+                    </button> 
 
                     {{-- Contact seller --}}
-                    <a href="{{ url('messages/new', $gig->owner->username) }}" target="_blank" class="w-full bg-primary-100 border border-transparent rounded-md py-4 px-8 flex items-center justify-center text-[13px] font-medium text-primary-600 hover:bg-primary-200 focus:outline-none">{{ __('messages.t_contact_seller') }}</a>
+                    <a href="{{ url('messages/new', $gig->owner->username) }}" target="_blank" class="font-reselu w-full inline-flex items-center justify-center rounded-sm border border-red-400 bg-red-400 px-8 py-4 text-[13px] font-medium text-white hover:text-red-500 focus:text-red-400 hover:bg-transparent transition-colors duration-300">{{ __('messages.t_contact_seller') }}</a>					
+						</div>
+						
+						@else
+							
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inquiryModal">
+                            Submit Inquiry
+                        </button>
 
+
+						@endif
+
+
+                        
+
+						@else
+						<div class="cartinqueryguest">Please log in as planner to access inquiry form.</div>
+						@endif
+						@endauth
+
+						 @guest
+                                <div class="cartinqueryguest">Please log in as planner to access inquiry form.</div>
+                        @endguest
+												
+						<!-- Inquiry Modal -->
+                        <div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="inquiryModalLabel">Submit Your Inquiry</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form wire:submit.prevent="submitInquiry">
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label for="date" class="form-label">Event Date</label>
+                                                <input type="date" class="form-control" id="date" wire:model.defer="date" required>
+                                                @error('date') <span class="text-danger">{{ $message }}</span> @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="location" class="form-label">Event Location</label>
+                                                <input type="text" class="form-control" id="location" wire:model.defer="location" required>
+                                                @error('location') <span class="text-danger">{{ $message }}</span> @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="query" class="form-label">Additional Questions</label>
+                                                <textarea class="form-control" id="query" wire:model.defer="query" rows="3" required></textarea>
+                                                @error('query') <span class="text-danger">{{ $message }}</span> @enderror
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success">Send Inquiry</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				
+
+
+                    {{-- Add to cart --}}
+                    <!--<button 
+                        wire:click="addToCart"
+                        wire:loading.class="bg-gray-200 hover:bg-gray-300 text-gray cursor-not-allowed"
+                        wire:loading.class.remove="bg-primary-600 hover:bg-primary-700 text-white cursor-pointer"
+                        wire:loading.attr="disabled"
+                        class="inline-flex w-full items-center justify-center rounded-sm border border-black bg-gray-800 px-8 py-4 text-[13px] font-medium text-white hover:text-gray-800 focus:text-gray-800 hover:bg-transparent transition-colors duration-300"
+                        >
+
+                        {{-- Loading indicator --}}
+                        <div wire:loading wire:target="addToCart">
+                            <svg role="status" class="inline w-4 h-4 text-gray-700 animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB"/>
+                                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+
+                        {{-- Button text --}}
+                        <div wire:loading.remove wire:target="addToCart">
+                            {{ __('messages.t_add_to_cart') }}
+                        </div>
+                    </button> 
+
+                    {{-- Contact seller --}}
+                    <a href="{{ url('messages/new', $gig->owner->username) }}" target="_blank" class="font-reselu w-full inline-flex items-center justify-center rounded-sm border border-red-400 bg-red-400 px-8 py-4 text-[13px] font-medium text-white hover:text-red-500 focus:text-red-400 hover:bg-transparent transition-colors duration-300">{{ __('messages.t_contact_seller') }}</a>
+				-->
                 </div>
 
                 {{-- Documents --}}
@@ -400,7 +514,7 @@
                                                 <svg wire:loading.remove wire:target="removeFromFavorite" class="w-3.5 h-3.5 text-white" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
 
                                             </div>
-                                            <span class="text-sm font-medium text-primary-600 hidden md:block">{{ __('messages.t_remove_from_favorite') }}</span>
+                                            <span class="text-sm font-medium text-re-600 hidden md:block">{{ __('messages.t_remove_from_favorite') }}</span>
                                         </div>
                                     @else
                                         <div class="flex items-center group cursor-pointer" wire:click="addToFavorite">
@@ -418,7 +532,7 @@
                                                 <svg wire:loading.remove wire:target="addToFavorite" class="w-3.5 h-3.5 text-gray-600 dark:text-gray-200 dark:group-hover:text-gray-100 group-hover:text-gray-50" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>
 
                                             </div>
-                                            <span class="text-sm font-medium text-gray-600 dark:text-gray-300 dark:group-hover:text-gray-200 group-hover:text-primary-600 hidden md:block">{{ __('messages.t_add_to_favorite') }}</span>
+                                            <span class="text-sm font-medium text-gray-600 dark:text-gray-300 dark:group-hover:text-gray-200 group-hover:text-re-600 hidden md:block">{{ __('messages.t_add_to_favorite') }}</span>
                                         </div>
                                     @endif
                                 @endif
@@ -439,17 +553,17 @@
                         <div class="-mb-px flex space-x-8 rtl:space-x-reverse" aria-orientation="horizontal" role="tablist">
 
                             {{-- Description --}}
-                            <button id="tab-reviews" class="whitespace-nowrap py-6 border-b-2 font-medium text-sm border-primary-600 text-primary-600 focus:outline-none" x-state:on="Selected" x-state:off="Not Selected" :class="{ 'border-primary-600 text-primary-600': selected, 'border-transparent text-gray-700 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-zinc-600': !(selected) }" x-data="Components.tab(0)" aria-controls="tab-panel-reviews" role="tab" x-init="init()" @click="onClick" @keydown="onKeydown" @tab-select.window="onTabSelect" :tabindex="selected ? 0 : -1" :aria-selected="selected ? 'true' : 'false'" type="button" tabindex="0" aria-selected="true">
+                            <button id="tab-reviews" class="whitespace-nowrap py-6 border-b-2 font-medium text-sm border-red-400 text-red-600 focus:outline-none" x-state:on="Selected" x-state:off="Not Selected" :class="{ 'border-red-400 text-red-600': selected, 'border-transparent text-gray-700 dark:text-gray-400 hover:text-red-500 dark:hover:text-gray-200 hover:border-red-400 dark:hover:border-zinc-600': !(selected) }" x-data="Components.tab(0)" aria-controls="tab-panel-reviews" role="tab" x-init="init()" @click="onClick" @keydown="onKeydown" @tab-select.window="onTabSelect" :tabindex="selected ? 0 : -1" :aria-selected="selected ? 'true' : 'false'" type="button" tabindex="0" aria-selected="true">
                                 {{ __('messages.t_description') }}
                             </button>
 
                             {{-- FAQ --}}
-                            <button id="tab-faq" class="focus:outline-none border-transparent text-gray-700 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-zinc-600 whitespace-nowrap py-6 border-b-2 font-medium text-sm" :class="{ 'border-primary-600 text-primary-600': selected, 'border-transparent text-gray-700 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-zinc-600': !(selected) }" x-data="Components.tab(0)" aria-controls="tab-panel-faq" role="tab" x-init="init()" @click="onClick" @keydown="onKeydown" @tab-select.window="onTabSelect" :tabindex="selected ? 0 : -1" :aria-selected="selected ? 'true' : 'false'" type="button" tabindex="-1" aria-selected="false">
+                            <button id="tab-faq" class="focus:outline-none border-transparent text-gray-700 dark:text-gray-400 hover:text-red-500 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-zinc-600 whitespace-nowrap py-6 border-b-2 font-medium text-sm" :class="{ 'border-red-400 text-red-600': selected, 'border-transparent text-gray-700 dark:text-gray-400 hover:text-red-500 dark:hover:text-gray-200 hover:border-red-400 dark:hover:border-zinc-600': !(selected) }" x-data="Components.tab(0)" aria-controls="tab-panel-faq" role="tab" x-init="init()" @click="onClick" @keydown="onKeydown" @tab-select.window="onTabSelect" :tabindex="selected ? 0 : -1" :aria-selected="selected ? 'true' : 'false'" type="button" tabindex="-1" aria-selected="false">
                                 {{ __('messages.t_faq') }}
                             </button>
 
                             {{-- Reviews --}}
-                            <button id="tab-license" class="focus:outline-none border-transparent text-gray-700 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-zinc-600 whitespace-nowrap py-6 border-b-2 font-medium text-sm" :class="{ 'border-primary-600 text-primary-600': selected, 'border-transparent text-gray-700 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-zinc-600': !(selected) }" x-data="Components.tab(0)" aria-controls="tab-panel-license" role="tab" x-init="init()" @click="onClick" @keydown="onKeydown" @tab-select.window="onTabSelect" :tabindex="selected ? 0 : -1" :aria-selected="selected ? 'true' : 'false'" type="button" tabindex="-1" aria-selected="false">
+                            <button id="tab-license" class="focus:outline-none border-transparent text-gray-700 dark:text-gray-400 hover:text-red-500 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-zinc-600 whitespace-nowrap py-6 border-b-2 font-medium text-sm" :class="{ 'border-red-400 text-red-600': selected, 'border-transparent text-gray-700 dark:text-gray-400 hover:text-red-500 dark:hover:text-gray-200 hover:border-red-400 dark:hover:border-zinc-600': !(selected) }" x-data="Components.tab(0)" aria-controls="tab-panel-license" role="tab" x-init="init()" @click="onClick" @keydown="onKeydown" @tab-select.window="onTabSelect" :tabindex="selected ? 0 : -1" :aria-selected="selected ? 'true' : 'false'" type="button" tabindex="-1" aria-selected="false">
                                 {{ __('messages.t_reviews') }}
                             </button>
 
@@ -517,7 +631,7 @@
                                                     <img src="{{ placeholder_img() }}" data-src="{{ src($review->user->avatar) }}" alt="{{ $review->user->username }}" class="lazy h-8 w-8 rounded-full">
                                                 </a>
                                                 <div class="ltr:ml-4 rtl:mr-4 group">
-                                                    <a href="{{ url('profile', $review->user->username) }}" target="_blank" class="text-sm font-bold text-gray-900 dark:text-gray-200 flex items-center group-hover:text-primary-600">
+                                                    <a href="{{ url('profile', $review->user->username) }}" target="_blank" class="text-sm font-bold text-gray-900 dark:text-gray-200 flex items-center group-hover:text-re-600">
                                                         {{ $review->user->username }}
                                                         @if ($review->user->status === 'verified')
                                                             <img data-tooltip-target="account-verified-badge-{{ $review->uid }}" class="ltr:ml-0.5 rtl:mr-0.5 h-4 w-4 -mt-0.5" src="{{ url('public/img/auth/verified-badge.svg') }}" alt="{{ __('messages.t_account_verified') }}">
@@ -570,40 +684,40 @@
 
     {{-- Related gigs --}}
     @if ($related_gigs)
-        <div class="mt-12 sm:mt-24" wire:ignore>
+        <div class="mt-5" wire:ignore>
 
             {{-- Section title --}}
-            <div class="flex justify-between mb-6">
+            <div class="flex justify-between items-center mb-3 bg-white shadow-sm border border-gray-50 dark:border-zinc-700">
 
-                <div class="ltr:border-l-8 rtl:border-r-8 border-primary-600 ltr:pl-4 rtl:pr-4">
-                    <span class="font-extrabold text-base text-gray-900 dark:text-gray-100 pb-1 tracking-wide block">{{ __('messages.t_you_may_also_like') }}</span>
+                <div class="ltr:border-l-8 rtl:border-r-8 border-red-400 ltr:pl-4 rtl:pr-4 py-3">
+                    <h4 class="font-semibold text-base text-gray-900 dark:text-gray-100 pb-1 tracking-wide block">{{ __('messages.t_you_may_also_like') }}</h4>
                     <p class="text-sm text-gray-500 dark:text-gray-300">{{ __('messages.t_u_may_also_like_the_following_gigs') }}</p>
                 </div>
 
-                <div class="hidden md:block">
+                <div class="hidden md:block mx-3">
                     
                     {{-- Direction --}}
                     @if (config()->get('direction') === 'ltr')
                         
                         {{-- Prev Btn --}}
-                        <button id="related-gigs-prev-btn" class="h-8 w-8 rounded-tl-md rounded-bl-md bg-primary-600 hover:bg-primary-600 text-white">
+                        <button id="related-gigs-prev-btn" class="h-8 w-8 bg-red-400 hover:bg-black text-white">
                             <svg class="h-4.5 w-4.5 inline-block" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                         </button>
 
                         {{-- Next Btn --}}
-                        <button id="related-gigs-next-btn" class="h-8 w-8 rounded-tr-md rounded-br-md bg-primary-600 hover:bg-primary-600 text-white">
+                        <button id="related-gigs-next-btn" class="h-8 w-8 bg-red-400 hover:bg-black text-white">
                             <svg class="h-4.5 w-4.5 inline-block" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
                         </button>
 
                     @else
                         
                         {{-- Prev Btn --}}
-                        <button id="related-gigs-prev-btn" class="h-8 w-8 rounded-tr-md rounded-br-md bg-primary-600 hover:bg-primary-600 text-white">
+                        <button id="related-gigs-prev-btn" class="h-8 w-8 bg-red-400 hover:bg-black text-white">
                             <svg class="h-4.5 w-4.5 inline-block" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
                         </button>
 
                         {{-- Next Btn --}}
-                        <button id="related-gigs-next-btn" class="h-8 w-8 rounded-tl-md rounded-bl-md bg-primary-600 hover:bg-primary-600 text-white">
+                        <button id="related-gigs-next-btn" class="h-8 w-8 bg-red-400 hover:bg-black text-white">
                             <svg class="h-4.5 w-4.5 inline-block" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                         </button>
 
@@ -614,7 +728,7 @@
             </div>
 
             {{-- List of gigs --}}
-            <div id="slick-related-gigs" class="-mx-3" wire:ignore>
+            <div id="slick-related-gigs" class="-mx-3 mb-4" wire:ignore>
                 @foreach ($related_gigs as $gig)
 
                     {{-- Gig item --}}
@@ -920,5 +1034,136 @@
 
     {{-- Slick Plugin --}}
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" defer></script>
+	<style>
+	.modal {
+		display: none;
+		position: fixed;
+		z-index: 1050;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+
+	.modal-dialog {
+		position: relative;
+		width: 100%;
+		margin: 1.75rem auto;
+		max-width: 500px;
+	}
+
+	.modal-content {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		pointer-events: auto;
+		background-color: #fff;
+		background-clip: padding-box;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		border-radius: 0.375rem;
+		box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+		outline: 0;
+	}
+
+	.modal-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1rem 1.5rem;
+		border-bottom: 1px solid #e0e0e0;
+		background-color: #f8f9fa;
+		font-family: 'Helvetica Neue', sans-serif;
+	}
+
+	.modal-title {
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: #333;
+		margin-bottom: 0;
+		line-height: 1.5;
+	}
+
+	.btn-close {
+		padding: 0.75rem;
+		background: none;
+		border: none;
+		font-size: 1.5rem;
+		color: #aaa;
+		opacity: 0.6;
+		transition: opacity 0.3s ease;
+	}
+
+	.btn-close:hover {
+		opacity: 1;
+		color: #333;
+	}
+
+	.modal-body {
+		padding: 1rem;
+	}
+
+	.modal-body .form-label {
+		font-size: 1.125rem;
+		font-weight: 500;
+		color: #444;
+		margin-bottom: 0.75rem;
+		display: block;
+	}
+
+	.modal-body .form-control {
+		font-size: 1rem;
+		padding: 0.875rem;
+		border-radius: 0.375rem;
+		border: 1px solid #ced4da;
+		width: 100%;
+		margin-bottom: 1rem;
+		box-sizing: border-box;
+	}
+
+	.modal-body .form-control:focus {
+		border-color: #28a745;
+		box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+	}
+
+	.modal-footer {
+		display: flex;
+		justify-content: flex-end;
+		padding: 1rem 1.5rem;
+		border-top: 1px solid #e0e0e0;
+		background-color: #f8f9fa;
+	}
+
+	.modal-footer .btn-success {
+		background-color: #FF8080;
+		color: #fff;
+		border-radius: 0.375rem;
+		font-size: 1.125rem;
+		padding: 0.75rem 1.5rem;
+		border: none;
+		transition: background-color 0.3s ease;
+	}
+
+	.modal-footer .btn-success:hover {
+		background-color: #FF8080;
+	}
+	</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        window.livewire.on('inquirySubmitted', () => {
+            const alert = document.querySelector('.alert-success');
+            if (alert) {
+                setTimeout(() => {
+                    alert.style.display = 'none';
+                }, 3000); // 3 seconds
+            }
+        });
+    });
+</script>
+
 
 @endpush

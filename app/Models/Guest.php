@@ -9,14 +9,34 @@ class Guest extends Model
 {
     use HasFactory;
 
+    // Allow mass assignment for the specified fields
     protected $fillable = [
-        'first_name', 'last_name', 'phone', 'email', 'group_name', 
-        'needs_hotel', 'invited_to_wedding', 'invited_to_rehearsal', 'invited_to_shower'
+        'user_id',
+        'name',
+        'first_name',
+        'last_name',
+        'age',
+        'email',
+        'phone',
+        'address',
+        'city',
+        'state',
+        'zip_code',
+        'group_id',
+        'needhotel',
+        'events',
+        'rsvp_status',
+        'meal_choice',       
+        'needs_hotel',
+        'invited_to',
+        'invited_to_wedding',
+        'invited_to_rehearsal',
+        'invited_to_shower',
     ];
 
-    public function relatedGuests()
+    // Define any relationships if needed, e.g., Group relation
+    public function group()
     {
-        return $this->hasMany(RelatedGuest::class);
+        return $this->belongsTo(Group::class);
     }
 }
-

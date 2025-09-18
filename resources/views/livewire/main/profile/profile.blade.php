@@ -1,10 +1,11 @@
-<div class="w-full" x-data="window.vjOXhkLsunWIxQy" x-init="initialize()" x-cloak>
+<div class="w-full my-4" x-data="window.vjOXhkLsunWIxQy" x-init="initialize()" x-cloak>
+    <div class="p-5 bg-white shadow-sm border border-gray-100 dark:border-zinc-700">
     <div class="grid grid-cols-12 md:gap-x-6 gap-y-6">
 
         {{-- Check if user available --}}
         @if ($user->availability)
             <div class="col-span-12">
-                <div class="rounded-md bg-amber-100 p-4">
+                <div class=" bg-amber-100 p-4">
                     <div class="flex">
                         <div class="flex-shrink-0">
                             <svg class="h-5 w-5 text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"> <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/> </svg>
@@ -27,7 +28,7 @@
         <div class="col-span-12 lg:col-span-4">
             
             {{-- Profile header --}}
-            <div class="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-xl shadow-sm overflow-hidden mb-6">
+            <div class="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700  shadow-sm overflow-hidden mb-6">
                 <div class="md:flex">
                     <div class="w-full p-2 py-10">
                     
@@ -35,18 +36,18 @@
                             <div class="relative">
                 
                                 {{-- User avatar --}}
-                                <img src="{{ placeholder_img() }}" data-src="{{ src($user->avatar) }}" alt="{{ $user->username }}" class="lazy rounded-full w-20 h-20 object-cover">
+                                <img src="{{ placeholder_img() }}" data-src="{{ src($user->avatar) }}" alt="{{ $user->username }}" class="lazy  w-20 h-20 object-cover rounded-full">
 
                                 {{-- User status --}}
                                 @if ($user->isOnline() && !$user->availability)
                                     {{-- Online --}}
-                                    <span class="absolute border-white border-4 h-5 w-5 top-12 left-16 bg-green-400 rounded-full"></span>
+                                    <span class="absolute border-white border-4 h-5 rounded-full w-5 top-12 left-16 bg-green-400 "></span>
                                 @elseif ($user->availability)
                                     {{-- Unavailable --}}
-                                    <span class="absolute border-white border-4 h-5 w-5 top-12 left-16 bg-gray-600 rounded-full"></span>
+                                    <span class="absolute border-white border-4 h-5 w-5 top-12 left-16 bg-gray-600 "></span>
                                 @else
                                     {{-- Offline --}}
-                                    <span class="absolute border-white border-4 h-5 w-5 top-12 left-16 bg-red-600 rounded-full"></span>
+                                    <span class="absolute border-white border-4 h-5 w-5 top-12 left-16 bg-red-600 "></span>
                                 @endif
                         
                             </div>
@@ -57,7 +58,7 @@
                                 {{ $user->username }}
                                 @if ($user->status === 'verified')
                                     <img data-tooltip-target="tooltip-account-verified-{{ $user->id }}" class="ltr:ml-0.5 rtl:mr-0.5 h-4 w-4 -mt-0.5" src="{{ url('public/img/auth/verified-badge.svg') }}" alt="{{ __('messages.t_account_verified') }}">
-                                    <div id="tooltip-account-verified-{{ $user->id }}" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                    <div id="tooltip-account-verified-{{ $user->id }}" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-xs font-medium text-white bg-gray-900 shadow-sm opacity-0 tooltip dark:bg-gray-700">
                                         {{ __('messages.t_account_verified') }}
                                     </div>
                                 @endif
@@ -75,14 +76,14 @@
                             {{-- Contact user --}}
                             @auth
                                 @if (auth()->id() != $user->id)
-                                    <a href="{{ url('messages/new', $user->username) }}" class="flex items-center justify-center h-12 bg-primary-600 w-full text-white text-sm font-medium rounded hover:shadow hover:bg-primary-700 {{ auth()->check() && auth()->id() !== $user->id ? 'mb-4' : '' }}">{{ __('messages.t_contact_me') }}</a>
+                                    <a href="{{ url('messages/new', $user->username) }}" class="flex items-center justify-center h-12 bg-primary-600 w-full text-white text-sm font-medium hover:shadow hover:bg-primary-700 {{ auth()->check() && auth()->id() !== $user->id ? 'mb-4' : '' }}">{{ __('messages.t_contact_me') }}</a>
                                 @endif
                             @endauth
                     
                             {{-- Report user --}}
                             @auth
                                 @if (auth()->id() !== $user->id)
-                                    <button id="modal-report-button" type="button" class="h-12 bg-gray-200 dark:bg-zinc-700 w-full text-black dark:text-zinc-300 text-sm font-medium rounded dark:hover:bg-zinc-600 hover:shadow hover:bg-gray-300 mb-2">{{ __('messages.t_report') }}</button>
+                                    <button id="modal-report-button" type="button" class="h-12 bg-gray-200 dark:bg-zinc-700 w-full text-black dark:text-zinc-300 text-sm font-medium dark:hover:bg-zinc-600 hover:shadow hover:bg-gray-300 mb-2">{{ __('messages.t_report') }}</button>
                                 @endif
                             @endauth
                             
@@ -94,7 +95,7 @@
             </div>
 
             {{-- Quick stats --}}
-            <div class="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-xl shadow-sm overflow-hidden mb-6">
+            <div class="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700  shadow-sm overflow-hidden mb-6">
                 <div class="px-4 py-5 sm:px-6 bg-gray-50 dark:bg-zinc-700">
                     <h3 class="text-sm leading-6 font-semibold tracking-wide text-gray-900 dark:text-gray-100">
                         {{ __('messages.t_details') }}
@@ -169,7 +170,7 @@
 
             {{-- Portfolio --}}
             @if ($user->account_type === 'seller' && count($user->projects))
-                <div class="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-xl shadow-sm overflow-hidden mb-6">
+                <div class="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700  shadow-sm overflow-hidden mb-6">
                     <div class="px-4 py-5 sm:px-6 bg-gray-50 dark:bg-zinc-700">
                         <h3 class="text-sm leading-6 font-semibold tracking-wide text-gray-900 dark:text-gray-100">
                             {{ __('messages.t_portfolio') }}
@@ -186,7 +187,7 @@
                                     @if ($project->status === 'active')
                                         <figure>
                                             <a href="{{ url('projects', $project->slug) }}" target="_blank">
-                                                <img src="{{ placeholder_img() }}" data-src="{{ src($project->thumbnail) }}" alt="{{ $project->title }}" class="lazy rounded-md hover:opacity-75 object-cover" />
+                                                <img src="{{ placeholder_img() }}" data-src="{{ src($project->thumbnail) }}" alt="{{ $project->title }}" class="lazy  hover:opacity-75 object-cover" />
                                             </a>
                                         </figure>
                                     @endif
@@ -203,7 +204,7 @@
 
             {{-- Skills --}}
             @if (count($user->skills))
-                <div class="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-xl shadow-sm overflow-hidden mb-6">
+                <div class="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700  shadow-sm overflow-hidden mb-6">
                     <div class="px-4 py-5 sm:px-6 bg-gray-50 dark:bg-zinc-700">
                         <h3 class="text-sm leading-6 font-semibold tracking-wide text-gray-900 dark:text-gray-100">
                             {{ __('messages.t_skills') }}
@@ -221,16 +222,16 @@
                                     <span class="text-sm font-medium text-gray-700 dark:text-gray-200">{{ $skill->name }}</span>
                                     <span class="text-xs font-normal text-gray-600 dark:text-gray-400">{{ __('messages.t_' . $skill->experience) }}</span>
                                 </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="w-full bg-gray-200  h-2">
                                     @switch($skill->experience)
                                         @case('beginner')
-                                            <div class="bg-gray-500 h-2 rounded-full" style="width: 33%"></div>
+                                            <div class="bg-gray-500 h-2 " style="width: 33%"></div>
                                             @break
                                         @case('intermediate')
-                                            <div class="bg-primary-600 h-2 rounded-full" style="width: 67%"></div>
+                                            <div class="bg-primary-600 h-2 " style="width: 67%"></div>
                                             @break
                                         @case('pro')
-                                            <div class="bg-green-400 h-2 rounded-full" style="width: 100%"></div>
+                                            <div class="bg-green-400 h-2 " style="width: 100%"></div>
                                             @break
                                     @endswitch
                                 </div>
@@ -243,7 +244,7 @@
 
             {{-- Linked accounts --}}
             @if ($user->accounts)
-                <div class="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-xl shadow-sm overflow-hidden mb-6">
+                <div class="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700  shadow-sm overflow-hidden mb-6">
                     <div class="px-4 py-5 sm:px-6 bg-gray-50 dark:bg-zinc-700">
                         <h3 class="text-sm leading-6 font-semibold tracking-wide text-gray-900 dark:text-gray-100">
                             {{ __('messages.t_linked_accounts') }}
@@ -257,49 +258,49 @@
                             
                             {{-- Facebook --}}
                             @if ($user->accounts->facebook_profile)
-                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->facebook_profile)) }}" target="_blank" class="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:outline-none rounded-full text-center inline-flex items-center h-10 w-10 justify-center">
+                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->facebook_profile)) }}" target="_blank" class="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:outline-none  text-center inline-flex items-center h-10 w-10 justify-center">
                                     <i class="si si-facebook"></i>
                                 </a>
                             @endif
 
                             {{-- Twitter --}}
                             @if ($user->accounts->twitter_profile)
-                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->twitter_profile)) }}" target="_blank" class="text-white bg-[#00acee] hover:bg-[#00acee]/90 focus:outline-none rounded-full text-center inline-flex items-center h-10 w-10 justify-center">
+                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->twitter_profile)) }}" target="_blank" class="text-white bg-[#00acee] hover:bg-[#00acee]/90 focus:outline-none  text-center inline-flex items-center h-10 w-10 justify-center">
                                     <i class="si si-twitter"></i>
                                 </a>
                             @endif
 
                             {{-- Dribbble --}}
                             @if ($user->accounts->dribbble_profile)
-                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->dribbble_profile)) }}" target="_blank" class="text-white bg-[#ea4c89] hover:bg-[#ea4c89]/90 focus:outline-none rounded-full text-center inline-flex items-center h-10 w-10 justify-center">
+                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->dribbble_profile)) }}" target="_blank" class="text-white bg-[#ea4c89] hover:bg-[#ea4c89]/90 focus:outline-none  text-center inline-flex items-center h-10 w-10 justify-center">
                                     <i class="si si-dribbble"></i>
                                 </a>
                             @endif
 
                             {{-- Stackoverflow --}}
                             @if ($user->accounts->stackoverflow_profile)
-                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->stackoverflow_profile)) }}" target="_blank" class="text-white bg-[#ef8236] hover:bg-[#ef8236]/90 focus:outline-none rounded-full text-center inline-flex items-center h-10 w-10 justify-center">
+                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->stackoverflow_profile)) }}" target="_blank" class="text-white bg-[#ef8236] hover:bg-[#ef8236]/90 focus:outline-none  text-center inline-flex items-center h-10 w-10 justify-center">
                                     <i class="si si-stackoverflow"></i>
                                 </a>
                             @endif
 
                             {{-- Github --}}
                             @if ($user->accounts->github_profile)
-                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->github_profile)) }}" target="_blank" class="text-white bg-[#171515] hover:bg-[#171515]/90 focus:outline-none rounded-full text-center inline-flex items-center h-10 w-10 justify-center">
+                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->github_profile)) }}" target="_blank" class="text-white bg-[#171515] hover:bg-[#171515]/90 focus:outline-none  text-center inline-flex items-center h-10 w-10 justify-center">
                                     <i class="si si-github"></i>
                                 </a>
                             @endif
 
                             {{-- Youtube --}}
                             @if ($user->accounts->youtube_profile)
-                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->youtube_profile)) }}" target="_blank" class="text-white bg-[#FF0000] hover:bg-[#FF0000]/90 focus:outline-none rounded-full text-center inline-flex items-center h-10 w-10 justify-center">
+                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->youtube_profile)) }}" target="_blank" class="text-white bg-[#FF0000] hover:bg-[#FF0000]/90 focus:outline-none  text-center inline-flex items-center h-10 w-10 justify-center">
                                     <i class="si si-youtube"></i>
                                 </a>
                             @endif
 
                             {{-- Vimeo --}}
                             @if ($user->accounts->vimeo_profile)
-                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->vimeo_profile)) }}" target="_blank" class="text-white bg-[#86c9ef] hover:bg-[#86c9ef]/90 focus:outline-none rounded-full text-center inline-flex items-center h-10 w-10 justify-center">
+                                <a href="{{ url('redirect?to=' . safeEncrypt($user->accounts->vimeo_profile)) }}" target="_blank" class="text-white bg-[#86c9ef] hover:bg-[#86c9ef]/90 focus:outline-none  text-center inline-flex items-center h-10 w-10 justify-center">
                                     <i class="si si-vimeo"></i>
                                 </a>
                             @endif
@@ -311,7 +312,7 @@
 
             {{-- Languages --}}
             @if (count($user->languages))
-                <div class="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-xl shadow-sm overflow-hidden mb-6">
+                <div class="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700  shadow-sm overflow-hidden mb-6">
                     <div class="px-4 py-5 sm:px-6 bg-gray-50 dark:bg-zinc-700">
                         <h3 class="text-sm leading-6 font-semibold tracking-wide text-gray-900 dark:text-gray-100">
                             {{ __('messages.t_languages') }}
@@ -328,7 +329,7 @@
                                 @foreach ($user->languages as $lang)
                                     <li class="py-4 px-6">
                                         <div class="flex items-center space-x-4 rtl:space-x-reverse">
-                                            <div class="flex-shrink-0 h-8 w-8 rounded-full flex justify-center items-center bg-gray-100">
+                                            <div class="flex-shrink-0 h-8 w-8  flex justify-center items-center bg-gray-100">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
                                             </div>
                                             <div class="flex-1 min-w-0">
@@ -352,6 +353,19 @@
 
         {{-- Gigs --}}
         <div class="col-span-12 lg:col-span-8">
+
+			@if(Auth::check() && Auth::user()->account_type == 'buyer')
+			<div class="navbar mb-6">
+				<nav class="relative container mx-auto px-4 sm:px-6 lg:px-8 justify-center items-center h-20 flex">
+					<ul class="nav-menu gap-2 flex justify-center">
+						<li><a class="whitespace-nowrap border border-white" href="{{url('account/checklist')}}">Checklist</a></li>
+						<li><a class="whitespace-nowrap border border-white" href="{{url('account/guest')}}">Guest List</a></li>
+						<li><a class="whitespace-nowrap border border-white" href="{{url('account/budget')}}">Budget</a></li>
+					</ul>
+				</nav>
+			</div>
+			@endif
+
             <div class="grid grid-cols-12 md:gap-x-6 gap-y-6">
 
                 {{-- List of gigs --}}
@@ -384,6 +398,7 @@
             </div>
         </div>
 
+    </div>
     </div>
 
     {{-- Report user modal --}}
@@ -419,203 +434,6 @@
 
 </div>
 
-
-    <style>
-        /* Basic page styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f0f0;
-        }
-
-        /* Popup modal overlay */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-        }
-
-        /* Modal content box */
-        .modal-content {
-            background-color: white;
-            margin: 10% auto; /* Align it vertically */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 50%; /* Adjust width */
-            box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
-            border-radius: 8px;
-        }
-
-        /* Close button */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            cursor: pointer;
-        }
-
-        /* Style the form fields */
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        form input,
-        form select,
-        form textarea {
-            padding: 8px;
-            margin: 10px 0;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        form input[type="radio"],
-        form input[type="checkbox"] {
-            margin-right: 10px;
-        }
-
-        form label {
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        form .submit-btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        form .submit-btn:hover {
-            background-color: #45a049;
-        }
-    </style>
-
-
-<!-- The Popup Modal -->
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Welcome! Please fill out this form:</h2>
-        
-        <form action="" method="POST" class="mt-4">
-                    @csrf
-
-                    <!-- First Row: Name and Email -->
-                    <div class="form-group row">
-                        <label for="name" class="col-sm-4 col-form-label">Name</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="email" class="col-sm-4 col-form-label">Email</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                    </div>
-
-                    <!-- Second Row: Getting Married and Wedding Date -->
-                    <div class="form-group row">
-                        <label for="getting_married" class="col-sm-4 col-form-label">Getting Married</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="getting_married" name="getting_married" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="wedding_date" class="col-sm-4 col-form-label">Wedding Date</label>
-                        <div class="col-sm-8">
-                            <input type="date" class="form-control" id="wedding_date" name="wedding_date" required>
-                        </div>
-                    </div>
-
-                    <!-- Third Row: Number of Guests and Estimated Budget -->
-                    <div class="form-group row">
-                        <label for="number_of_guests" class="col-sm-4 col-form-label">Number of Guests</label>
-                        <div class="col-sm-8">
-                            <input type="number" class="form-control" id="number_of_guests" name="number_of_guests" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="estimated_budget" class="col-sm-4 col-form-label">Estimated Budget</label>
-                        <div class="col-sm-8">
-                            <input type="number" class="form-control" id="estimated_budget" name="estimated_budget" required>
-                        </div>
-                    </div>
-
-                    <!-- Fourth Row: City/Town -->
-                    <div class="form-group row">
-                        <label for="city_town" class="col-sm-4 col-form-label">City/Town</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="city_town" name="city_town" required>
-                        </div>
-                    </div>
-
-                    <!-- Wedding Vendors Needed -->
-                    <div class="form-group">
-                        <label class="col-form-label">Which wedding vendors do you still need?</label>
-                        <div>
-                            @foreach (['Venue', 'Catering', 'Photography', 'Band', 'Invitations', 'Favors & Gifts', 'Flowers', 'Dress & Attire', 'Travel', 'Transportation', 'Lighting & Decor', 'Planning', 'Wedding Cake', 'Videography'] as $vendor)
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="vendors[]" value="{{ $vendor }}" id="vendor_{{ strtolower(str_replace(' ', '_', $vendor)) }}">
-                                <label class="form-check-label" for="vendor_{{ strtolower(str_replace(' ', '_', $vendor)) }}">{{ $vendor }}</label>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-
-                </form>
-        
-    </div>
-</div>
-
-<script>
-    // Get the modal element
-    var modal = document.getElementById("myModal");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // Show the modal when the page loads
-    window.onload = function() {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
-
-
-
-
-
 @push('styles')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v5/font/simple-icons.min.css" type="text/css">
 @endpush
@@ -638,7 +456,5 @@
         }
         window.vjOXhkLsunWIxQy = vjOXhkLsunWIxQy();
     </script>
-
-
 
 @endpush

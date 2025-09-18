@@ -1,20 +1,23 @@
 <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+	<div class="flex w-full max-w-md grow flex-col justify-center px-12 py-14 login-form shadow-md border border-gray-100 dark:border-zinc-700 mx-auto">
 
 	@if ($attemptsLeft > 0)
 		
 		{{-- Section head --}}
-		<div class="mx-auto max-w-md text-center">
-			<h1 class="text-2xl font-bold sm:text-3xl">
-				@lang('messages.t_welcome_back')
+		<div class="mx-auto text-center">
+			<h1 class="text-2xl text-center mb-0 font-bold dark:text-navy-100 text-gray-800 uppercase">
+				<span>
+					<b>@lang('messages.t_welcome_back')</b>
+				</span> 
 			</h1>
 	
-			<p class="mt-4 text-gray-500">
+			<p class="text-gray-500">
 				@lang('messages.t_enter_credentials_to_access_dashboard')
 			</p>
 
 			{{-- Alert --}}
 			@if ($message)
-				<div class="block my-6">
+				<div class="block my-3">
 					<div class="bg-red-50 border-l-4 border-red-400 p-4">
 						<div class="flex items-center">
 							<div class="flex-shrink-0">
@@ -30,14 +33,14 @@
 
 		</div>
 	
-		<form x-data="window.rePVGWvaHiKXQdL" x-on:submit.prevent="login" class="grid grid-cols-12 md:gap-x-6 gap-y-6 mx-auto mt-8 mb-0 max-w-md">
+		<form x-data="window.rePVGWvaHiKXQdL" x-on:submit.prevent="login" class="grid grid-cols-12 md:gap-x-6 gap-y-4 mt-3 mb-0">
 
 			{{-- Email address --}}
 			<div class="col-span-12">
-				<div class="relative w-full shadow-sm rounded-md">
+				<div class="relative w-full shadow-sm ">
 
 					{{-- Input --}}
-					<input type="email" x-model="form.email" class="{{ $errors->first('email') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_email_address') }}">
+					<input type="email" x-model="form.email" class="{{ $errors->first('email') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm  font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_email_address') }}">
 
 					{{-- Icon --}}
 					<div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
@@ -56,10 +59,10 @@
 
 			{{-- Password --}}
 			<div class="col-span-12">
-				<div class="relative w-full shadow-sm rounded-md">
+				<div class="relative w-full shadow-sm ">
 
 					{{-- Input --}}
-					<input type="password" x-model="form.password" class="{{ $errors->first('password') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-md font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_password') }}">
+					<input type="password" x-model="form.password" class="{{ $errors->first('password') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm  font-medium block w-full ltr:pr-12 rtl:pl-12 p-4 placeholder:font-normal  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_password') }}">
 
 					{{-- Icon --}}
 					<div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
@@ -86,7 +89,7 @@
 
 			{{-- Login --}}
 			<div class="col-span-12">
-				<button type="submit" wire:loading.attr="disabled" wire:target="login" :disabled="!form.email || !form.password" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500">
+				<button type="submit" wire:loading.attr="disabled" wire:target="login" :disabled="!form.email || !form.password" class="w-full inline-flex items-center justify-center  border border-black bg-gray-800 p-3 font-medium text-white hover:text-gray-800 focus:text-gray-800 hover:bg-transparent transition-colors duration-300 cursor-pointer	">
 					
 					{{-- Loading indicator --}}
 					<div wire:loading wire:target="login">
@@ -123,6 +126,7 @@
 		</div>
 
 	@endif
+	</div>
 
 </div>
 

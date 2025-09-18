@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => 'SUKOONZZ',
+    'name' => 'wedlively',
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) false,
+    'debug' => (bool) true,
 
     /*
     |--------------------------------------------------------------------------
@@ -54,9 +54,9 @@ return [
     |
     */
 
-    'url'       => 'http://localhost/freeluncer',
+    'url'       => 'http://localhost/WedLively',
 
-    'asset_url' => 'http://localhost/freeluncer',
+    'asset_url' => 'http://localhost/WedLively',
 
     /*
     |--------------------------------------------------------------------------
@@ -226,6 +226,6 @@ return [
     /**
      * Mix base url
      */
-    'mix_url' => 'http://localhost/sukoonzz/public'
+    'mix_url' => 'http://localhost/WedLively/public'
 
 ];

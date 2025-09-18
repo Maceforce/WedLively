@@ -4,7 +4,6 @@
     <x-forms.loading />
 
     {{-- Alert --}}
-   
     @if ($alert)
         <div class="rounded-md bg-white shadow-sm border p-4 mb-16">
             <div class="flex">

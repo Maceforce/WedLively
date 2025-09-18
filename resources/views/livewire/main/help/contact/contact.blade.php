@@ -1,23 +1,23 @@
-<div class="w-full">
+<div class="w-full mt-4">
 
-    <div class="mb-12 bg-white dark:bg-zinc-800 shadow shadow-gray-100 rounded-md border border-gray-200 dark:border-zinc-700 dark:shadow-none max-w-xl mx-auto">
+    <div class="mb-4 bg-white dark:bg-zinc-800 shadow shadow-gray-100 border border-gray-200 dark:border-zinc-700 dark:shadow-none mx-auto">
         
         {{-- Section title --}}
-        <div class="bg-gray-50 dark:bg-zinc-700 px-8 py-4 rounded-t-md border-b-2 border-gray-100 dark:border-zinc-700">
+        <div class="bg-white px-8 pt-4">
             <div class="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
                 <div class="ltr:ml-4 rtl:mr-4 mt-4">
-                <h3 class="text-sm leading-6 font-semibold text-gray-900 dark:text-gray-100 tracking-wide mb-2">{{ __('messages.t_contact_us') }}</h3>
-                <p class="text-xs font-medium text-gray-500 dark:text-gray-300">{{ __('messages.t_contact_us_subtitle') }}</p>
+                <h3 class="text-lg leading-6 font-semibold text-red-400 tracking-wide mb-2">{{ __('messages.t_contact_us') }}</h3>
+                <p class="text-sm font-medium text-gray-500 dark:text-gray-300">{{ __('messages.t_contact_us_subtitle') }}</p>
                 </div>
             </div>
         </div>
 
         {{-- Section content --}}
         <div class="px-8 py-6">
-            <div class="grid grid-cols-12 gap-5">
+            <div class="grid grid-cols-12 gap-3">
 
                 {{-- Fullname --}}
-                <div class="col-span-12">
+                <div class="col-span-6">
                     <x-forms.text-input 
                         :label="__('messages.t_name')"
                         :placeholder="__('messages.t_enter_your_fullname')"
@@ -26,7 +26,7 @@
                 </div>
 
                 {{-- Email address --}}
-                <div class="col-span-12">
+                <div class="col-span-6">
                     <x-forms.text-input 
                         :label="__('messages.t_email_address')"
                         :placeholder="__('messages.t_enter_email_address')"
@@ -54,8 +54,10 @@
                 </div>
 
                 {{-- Submit --}}
-                <div class="col-span-12 mt-6">
-                    <x-forms.button action="contact" :text="__('messages.t_lets_talk')" :block="true" />
+                <div class="col-span-12 ml-auto mt-2">
+                    <div class="max-w-20">
+                        <x-forms.button action="contact" :text="__('messages.t_lets_talk')" :block="true" />
+                    </div>
                 </div>
 
             </div>

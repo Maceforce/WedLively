@@ -1,5 +1,5 @@
-<main class="w-full" x-data="window.nYpPIEgUauhEVLt">
-
+<main class="w-full my-4" x-data="window.nYpPIEgUauhEVLt">	
+<div class="p-5 bg-white shadow-sm border border-gray-100 dark:border-zinc-700">
     {{-- Please wait dialog --}}
     <div class="fixed top-0 left-0 z-50 bg-black dark:bg-gray-400/50 w-full h-full opacity-80" wire:loading>
         <div class="w-full h-full flex items-center justify-center">
@@ -13,8 +13,8 @@
         </div>
     </div>
 
-    <div class="px-4 sm:px-6 lg:px-8">
-        <div class="bg-white dark:bg-zinc-800 rounded-lg shadow overflow-hidden">
+    <div class="">
+        <div class="bg-white dark:bg-zinc-800 shadow overflow-hidden">
             <div class="divide-y divide-gray-200 dark:divide-zinc-700 lg:grid lg:grid-cols-12 lg:divide-y-0 lg:divide-x rtl:divide-x-reverse">
 
                 {{-- Sidebar --}}
@@ -24,12 +24,13 @@
 
                 {{-- Section content --}}
                 <div class="divide-y divide-gray-200 dark:divide-zinc-700 lg:col-span-9">
+					<x-main.account.plannerbar />
 
                     {{-- Form --}}
                     <div class="py-6 px-4 sm:p-6 lg:pb-8 h-[calc(100%-80px)]">
 
                         {{-- Section header --}}
-                        <div class="mb-14">
+                        <div class="mb-5">
                             <h2 class="text-base leading-6 font-bold text-gray-900 dark:text-gray-100">{{ __('messages.t_verification_center') }}</h2>
                             <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">{{ __('messages.t_verification_center_subtitle') }}</p>
                         </div>
@@ -78,7 +79,7 @@
                             <div class="sm:col-span-2 mt-6">
                                 <dt class="text-xs font-medium text-gray-500">{{ __('messages.t_verification_documents') }}</dt>
                                 <dd class="mt-1 text-sm text-gray-900">
-                                    <ul role="list" class="border border-gray-200 rounded-md divide-y divide-gray-200">
+                                    <ul role="list" class="border border-gray-200  divide-y divide-gray-200">
 
                                         {{-- Selfie photo --}}
                                         <li class="ltr:pl-3 rtl:pr-3 ltr:pr-4 rtl:pl-4 py-3 flex items-center justify-between text-sm">
@@ -147,10 +148,10 @@
                                 <fieldset>
                                     <legend class="text-xs font-medium text-gray-900 dark:text-gray-100 mb-2">{{ __('messages.t_choose_document_type') }}</legend>
                             
-                                    <div class="mt-1 bg-white dark:bg-zinc-700 rounded-md shadow-sm -space-y-px">
+                                    <div class="mt-1 bg-white dark:bg-zinc-700  shadow-sm -space-y-px">
 
                                         {{-- Identify card --}}
-                                        <label class="rounded-tl-md rounded-tr-md relative border-2 dark:border-zinc-600 p-4 flex cursor-pointer focus:outline-none ">
+                                        <label class=" relative border-2 dark:border-zinc-600 p-4 flex cursor-pointer focus:outline-none ">
                                             <input type="radio" name="document_type" value="id" wire:model.defer="document_type" class="h-4 w-4 cursor-pointer text-primary-600 border-gray-300 dark:border-zinc-600 focus:ring-primary-600" aria-labelledby="document_type_id">
                                             <div class="ltr:ml-3 rtl:mr-3 flex flex-col">
                                                 <span id="document_type_id" class="block text-xs font-medium text-gray-900 dark:text-gray-300">
@@ -170,7 +171,7 @@
                                         </label>
 
                                         {{-- Passport --}}
-                                        <label class="rounded-bl-md rounded-br-md relative border-2 dark:border-zinc-600 border-t-0 p-4 flex cursor-pointer focus:outline-none ">
+                                        <label class=" relative border-2 dark:border-zinc-600 border-t-0 p-4 flex cursor-pointer focus:outline-none ">
                                             <input type="radio" name="document_type" value="passport" wire:model.defer="document_type" class="h-4 w-4 cursor-pointer text-primary-600 border-gray-300 dark:border-zinc-600 focus:ring-primary-600" aria-labelledby="document_type_passport">
                                             <div class="ltr:ml-3 rtl:mr-3 flex flex-col">
                                                 <span id="document_type_passport" class="block text-xs font-medium text-gray-900 dark:text-gray-300">
@@ -488,6 +489,7 @@
 
             </div>
         </div>
+    </div>
     </div>
 </main>
 

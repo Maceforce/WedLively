@@ -113,11 +113,13 @@
 					{{-- Logo --}}
 					@if (current_theme() === 'dark' && settings('general')->logo_dark)
 						<a href="{{ url('/') }}" class="flex items-center flex-shrink-0 px-5">
-							<img width="150" height="{{ settings('appearance')->sizes['header_desktop_logo_height'] }}" src="{{ src(settings('general')->logo_dark) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;width:auto">
+							<!-- <img width="150" height="{{ settings('appearance')->sizes['header_desktop_logo_height'] }}" src="{{ src(settings('general')->logo_dark) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;width:auto"> -->
+							<h1 class="text-lg sm:text-3xl" style="font-family:Reselu">SUKOONZZ</h1>
 						</a>
 					@else
 						<a href="{{ url('/') }}" class="flex items-center flex-shrink-0 px-5">
-							<img width="150" height="{{ settings('appearance')->sizes['header_desktop_logo_height'] }}" src="{{ src(settings('general')->logo) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;width:auto">
+							<!-- <img width="150" height="{{ settings('appearance')->sizes['header_desktop_logo_height'] }}" src="{{ src(settings('general')->logo) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;width:auto"> -->
+							<h1 class="text-lg sm:text-3xl" style="font-family:Reselu">SUKOONZZ</h1>
 						</a>
 					@endif
 
@@ -148,6 +150,8 @@
 								
 								<span>@lang('messages.t_gigs')</span>
 							</a>
+
+                            
 
 							{{-- Projects --}}
 							@if (settings('projects')->is_enabled)
@@ -209,11 +213,13 @@
 					{{-- Logo --}}
 					@if (current_theme() === 'dark' && settings('general')->logo_dark)
 						<a href="{{ url('/') }}" class="flex items-center flex-shrink-0 px-5">
-							<img width="150" height="{{ settings('appearance')->sizes['header_desktop_logo_height'] }}" src="{{ src(settings('general')->logo_dark) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;width:auto">
+							<!-- <img width="150" height="{{ settings('appearance')->sizes['header_desktop_logo_height'] }}" src="{{ src(settings('general')->logo_dark) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;width:auto"> -->
+							<h1 class="text-lg sm:text-3xl" style="font-family:Reselu">SUKOONZZ</h1>
 						</a>
 					@else
 						<a href="{{ url('/') }}" class="flex items-center flex-shrink-0 px-5">
-							<img width="150" height="{{ settings('appearance')->sizes['header_desktop_logo_height'] }}" src="{{ src(settings('general')->logo) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;width:auto">
+							<!-- <img width="150" height="{{ settings('appearance')->sizes['header_desktop_logo_height'] }}" src="{{ src(settings('general')->logo) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;width:auto"> -->
+							<h1 class="text-lg sm:text-3xl" style="font-family:Reselu">SUKOONZZ</h1>
 						</a>
 					@endif
 
@@ -244,6 +250,23 @@
 								
 								<span>@lang('messages.t_gigs')</span>
 							</a>
+							
+							{{-- Planner Inquiries --}}
+							<a href="{{ url('seller/inquiries') }}" class="group flex items-center ltr:pl-3 ltr:pr-2 rtl:pr-3 rtl:pl-2 py-2 text-sm font-semibold tracking-wide ltr:rounded-l-full rtl:rounded-r-full {{ \Illuminate\Support\Str::of(request()->path())->startsWith('seller/gigs') ? 'bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-700 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:text-zinc-100' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-zinc-700 dark:text-zinc-200 dark:hover:text-zinc-100' }}">
+
+								<svg class="text-blue-500 dark:text-zinc-300 flex-shrink-0 h-6 w-6 ltr:mr-3.5 rtl:ml-3.5 -mt-[3px] group-hover:text-blue-700 dark:group-hover:text-zinc-200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-opacity="0.25" d="M12 2C9.2 2 7 4.2 7 7C7 9.8 9.2 12 12 12C14.8 12 17 9.8 17 7C17 4.2 14.8 2 12 2ZM12 10C10.3 10 9 8.7 9 7C9 5.3 10.3 4 12 4C13.7 4 15 5.3 15 7C15 8.7 13.7 10 12 10Z" fill="currentColor"></path>
+  <path fill-opacity="0.5" d="M12 14C8.7 14 7 16.3 7 18C7 19.7 8.7 22 12 22C15.3 22 17 19.7 17 18C17 16.3 15.3 14 12 14ZM12 20C10.3 20 9 18.7 9 18C9 17.3 10.3 16 12 16C13.7 16 15 17.3 15 18C15 18.7 13.7 20 12 20Z" fill="currentColor"></path>
+  <path d="M21 7H18.5C18.2 7 18 7.2 18 7.5V8.5C18 8.8 18.2 9 18.5 9H21C21.3 9 21.5 8.8 21.5 8.5V7.5C21.5 7.2 21.3 7 21 7Z" fill="currentColor"></path>
+  <path d="M12 6L14 8L12 10L10 8L12 6Z" fill="currentColor"></path>
+</svg>
+
+
+								
+								<span>Planner Inquiries</span>
+							</a>
+							
+							
 
 							{{-- Projects --}}
 							@if (settings('projects')->is_enabled)
@@ -254,6 +277,17 @@
 									<span>@lang('messages.t_projects')</span>
 								</a>
 							@endif
+
+
+							<a href="{{ url('inbox') }}" class="group flex items-center ltr:pl-3 ltr:pr-2 rtl:pr-3 rtl:pl-2 py-2 text-sm font-semibold tracking-wide ltr:rounded-l-full rtl:rounded-r-full {{ \Illuminate\Support\Str::of(request()->path())->startsWith('seller/reviews') ? 'bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-700 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:text-zinc-100' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-zinc-700 dark:text-zinc-200 dark:hover:text-zinc-100' }}">
+            
+            					<svg xmlns="http://www.w3.org/2000/svg" class="text-slate-500 dark:text-zinc-300 flex-shrink-0 h-6 w-6 ltr:mr-3.5 rtl:ml-3.5 -mt-[3px] group-hover:text-slate-700 dark:group-hover:text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                					<path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+           	 					</svg>
+
+            					<span> My Messages</span>
+        					</a>
+
 
 							{{-- Reviews --}}
 							<a href="{{ url('seller/reviews') }}" class="group flex items-center ltr:pl-3 ltr:pr-2 rtl:pr-3 rtl:pl-2 py-2 text-sm font-semibold tracking-wide ltr:rounded-l-full rtl:rounded-r-full {{ \Illuminate\Support\Str::of(request()->path())->startsWith('seller/reviews') ? 'bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-700 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:text-zinc-100' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-zinc-700 dark:text-zinc-200 dark:hover:text-zinc-100' }}">
@@ -278,6 +312,16 @@
 								
 								<span>@lang('messages.t_portfolio')</span>
 							</a>
+							
+							{{-- Sales Reports --}}
+							<a href="{{ url('seller/salesreport') }}" class="group flex items-center ltr:pl-3 ltr:pr-2 rtl:pr-3 rtl:pl-2 py-2 text-sm font-semibold tracking-wide ltr:rounded-l-full rtl:rounded-r-full {{ \Illuminate\Support\Str::of(request()->path())->startsWith('seller/withdrawals') ? 'bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-700 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:text-zinc-100' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-zinc-700 dark:text-zinc-200 dark:hover:text-zinc-100' }}">
+
+							<svg xmlns="http://www.w3.org/2000/svg" class="text-slate-500 dark:text-zinc-300 flex-shrink-0 h-6.5 w-6 ltr:mr-3.5 rtl:ml-3.5 -mt-[3px] group-hover:text-slate-700 dark:group-hover:text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6m-6 4h6a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm0-4h.01M13 15h.01M5 13h4m-4 4h4m1-12V3a2 2 0 012-2h4a2 2 0 012 2v2m-6 12V9m6 4h4m-4 4h4m1-12V3a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+							</svg>
+
+								<span>Sales Reports</span>
+							</a>
 
 							{{-- Payouts --}}
 							<a href="{{ url('seller/withdrawals') }}" class="group flex items-center ltr:pl-3 ltr:pr-2 rtl:pr-3 rtl:pl-2 py-2 text-sm font-semibold tracking-wide ltr:rounded-l-full rtl:rounded-r-full {{ \Illuminate\Support\Str::of(request()->path())->startsWith('seller/withdrawals') ? 'bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-700 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:text-zinc-100' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-zinc-700 dark:text-zinc-200 dark:hover:text-zinc-100' }}">
@@ -286,6 +330,26 @@
 								
 								<span>@lang('messages.t_payouts')</span>
 							</a>
+
+							{{-- Premium Vendor --}}
+							<a href="{{ url('seller/premium-vendors') }}" class="group flex items-center ltr:pl-3 ltr:pr-2 rtl:pr-3 rtl:pl-2 py-2 text-sm font-semibold tracking-wide ltr:rounded-l-full rtl:rounded-r-full {{ \Illuminate\Support\Str::of(request()->path())->startsWith('seller/premium-vendors') ? 'bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-700 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:text-zinc-100' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-zinc-700 dark:text-zinc-200 dark:hover:text-zinc-100' }}">
+
+								<!-- Crown Icon for Premium Membership -->
+								<svg viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-slate-500 dark:text-zinc-300 flex-shrink-0 h-6 w-6 ltr:mr-3.5 rtl:ml-3.5 -mt-[3px] group-hover:text-slate-700 dark:group-hover:text-zinc-200">
+
+<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+
+<g id="SVGRepo_iconCarrier"> <path d="M21.2501 3C21.4925 3 21.7176 3.11688 21.8574 3.30983L21.9119 3.39706L25.9186 10.9098L25.9615 11.0122L25.9731 11.05L25.9901 11.1273L25.9994 11.2153L25.9973 11.3147L26.0001 11.25C26.0001 11.3551 25.9785 11.4552 25.9394 11.5461L25.9106 11.6057L25.87 11.6723L25.8173 11.7408L14.6 24.7047C14.4999 24.8391 14.3628 24.9277 14.2139 24.9703L14.1559 24.9844L14.0585 24.9979L13.9999 25L13.8993 24.9932L13.8142 24.9771L13.7109 24.9432L13.6852 24.931C13.5949 24.8911 13.5119 24.8316 13.4425 24.7535L2.17081 11.7263L2.1087 11.6387L2.06079 11.5456L2.02611 11.4463L2.00297 11.3152L2.00269 11.1878L2.01755 11.0891L2.02714 11.0499L2.06104 10.9538L2.08838 10.8971L6.08838 3.39706C6.20243 3.18321 6.41149 3.0396 6.64753 3.00704L6.75014 3H21.2501ZM17.9061 12H10.0911L14.0011 22.16L17.9061 12ZM8.48514 12H4.38914L11.7621 20.518L8.48514 12ZM23.6081 12H19.5151L16.2421 20.511L23.6081 12ZM10.0241 4.499H7.19914L3.99814 10.5H8.42314L10.0241 4.499ZM16.4231 4.499H11.5761L9.97514 10.5H18.0231L16.4231 4.499ZM20.8001 4.499H17.9751L19.5761 10.5H23.9991L20.8001 4.499Z" fill="currentColor"></path> </g>
+
+</svg>
+								
+								<span>Premium Membership</span>
+							</a>
+
+
+							
 						
 						</nav>
 					</div>
@@ -317,8 +381,8 @@
 								<svg class="text-gray-400 hover:text-gray-700 h-6 w-6 dark:text-gray-100 dark:hover:text-white" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 13.586V10c0-3.217-2.185-5.927-5.145-6.742C13.562 2.52 12.846 2 12 2s-1.562.52-1.855 1.258C7.185 4.074 5 6.783 5 10v3.586l-1.707 1.707A.996.996 0 0 0 3 16v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2a.996.996 0 0 0-.293-.707L19 13.586zM19 17H5v-.586l1.707-1.707A.996.996 0 0 0 7 14v-4c0-2.757 2.243-5 5-5s5 2.243 5 5v4c0 .266.105.52.293.707L19 16.414V17zm-7 5a2.98 2.98 0 0 0 2.818-2H9.182A2.98 2.98 0 0 0 12 22z"></path></svg>
 								@if ($notifications && count($notifications))
 									<span class="flex absolute h-2 w-2 top-0 ltr:right-0 rtl:left-0 mt-0 ltr:-mr-1 rtl:-ml-1">
-										<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-										<span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+										<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+										<span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
 									</span>
 								@endif
 							</button>
@@ -402,35 +466,35 @@
 
 										{{-- View Profile --}}
 										<a href="{{ url('profile', auth()->user()->username) }}"
-											class="group flex items-center py-1.5 group-hover:text-primary-600">
+											class="group flex items-center py-1.5 group-hover:text-red-600">
 											<svg xmlns="http://www.w3.org/2000/svg"
-												class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5"
+												class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5"
 												fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 												<path stroke-linecap="round" stroke-linejoin="round"
 													d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
 											</svg>
 											<span
-												class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_view_profile') }}</span>
+												class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_view_profile') }}</span>
 										</a>
 
 										{{-- Edit profile --}}
 										<a href="{{ url('account/profile') }}"
-											class="group flex items-center py-1.5 group-hover:text-primary-600">
+											class="group flex items-center py-1.5 group-hover:text-red-600">
 											<svg xmlns="http://www.w3.org/2000/svg"
-												class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5"
+												class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5"
 												fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 												<path stroke-linecap="round" stroke-linejoin="round"
 													d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
 											</svg>
 											<span
-												class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_edit_profile') }}</span>
+												class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_edit_profile') }}</span>
 										</a>
 
 										{{-- Account settings --}}
 										<a href="{{ url('account/settings') }}"
-											class="group flex items-center py-1.5 group-hover:text-primary-600">
+											class="group flex items-center py-1.5 group-hover:text-red-600">
 											<svg xmlns="http://www.w3.org/2000/svg"
-												class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5"
+												class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5"
 												fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 												<path stroke-linecap="round" stroke-linejoin="round"
 													d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -438,14 +502,14 @@
 													d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
 											</svg>
 											<span
-												class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_account_settings') }}</span>
+												class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_account_settings') }}</span>
 										</a>
 
 										{{-- Update password --}}
 										<a href="{{ url('account/password') }}"
-											class="group flex items-center py-1.5 group-hover:text-primary-600">
-											<svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-											<span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_update_password') }}</span>
+											class="group flex items-center py-1.5 group-hover:text-red-600">
+											<svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+											<span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_update_password') }}</span>
 										</a>
 
 									</div>
@@ -454,22 +518,22 @@
 									<div class="py-1.5 px-3.5">
 
 										{{-- Deposit --}}
-										<a href="{{ url('account/deposit') }}" class="group flex items-center py-1.5 group-hover:text-primary-600">
-											<svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-											<span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_deposit') }}</span>
+										<a href="{{ url('account/deposit') }}" class="group flex items-center py-1.5 group-hover:text-red-600">
+											<svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+											<span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_deposit') }}</span>
 										</a>
 
 										{{-- Messages --}}
 										<a href="{{ url('inbox') }}"
-											class="group flex items-center py-1.5 group-hover:text-primary-600">
+											class="group flex items-center py-1.5 group-hover:text-red-600">
 											<svg xmlns="http://www.w3.org/2000/svg"
-												class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5"
+												class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5"
 												fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 												<path stroke-linecap="round" stroke-linejoin="round"
 													d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
 											</svg>
 											<span
-												class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_messages') }}</span>
+												class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_messages') }}</span>
 										</a>
 
 									</div>
@@ -480,30 +544,30 @@
 										{{-- Verification center --}}
 										@if (auth()->user()->status !== 'verified')
 											<a href="{{ url('account/verification') }}"
-												class="group flex items-center py-1.5 group-hover:text-primary-600">
+												class="group flex items-center py-1.5 group-hover:text-red-600">
 												<svg xmlns="http://www.w3.org/2000/svg"
-													class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5"
+													class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5"
 													fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 													<path stroke-linecap="round" stroke-linejoin="round"
 														d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
 												</svg>
 												<span
-													class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_verification_center') }}</span>
+													class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_verification_center') }}</span>
 											</a>
 										@endif
 
 										{{-- Logout --}}
 										<a href="{{ url('auth/logout') }}"
-											class="group flex items-center py-1.5 group-hover:text-primary-600">
+											class="group flex items-center py-1.5 group-hover:text-red-600">
 											<svg aria-hidden="true" width="20" height="20" fill="none"
-												class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5">
+												class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5">
 												<path
 													d="M10.25 3.75H9A6.25 6.25 0 002.75 10v0A6.25 6.25 0 009 16.25h1.25M10.75 10h6.5M14.75 12.25l2.5-2.25-2.5-2.25"
 													stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
 													stroke-linejoin="round" />
 											</svg>
 											<span
-												class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_logout') }}</span>
+												class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_logout') }}</span>
 										</a>
 
 									</div>
@@ -582,7 +646,7 @@
 														<div class="mt-2 flex space-x-7 rtl:space-x-reverse">
 			
 															{{-- View --}}
-															<a href="{{ $n->action }}" class="bg-transparent rounded-md text-primary-600 hover:text-primary-700 focus:outline-none text-xs tracking-wide dark:text-zinc-200 dark:hover:text-white">
+															<a href="{{ $n->action }}" class="bg-transparent rounded-md text-red-400 hover:text-red-600 focus:outline-none text-xs tracking-wide dark:text-zinc-200 dark:hover:text-white">
 																{{ __('messages.t_view') }}
 															</a>
 															

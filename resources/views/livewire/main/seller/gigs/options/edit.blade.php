@@ -62,8 +62,8 @@
 
                 {{-- View gig --}}
                 <span class="block ltr:mr-3 rtl:ml-4">
-                    <a href="{{ url('service', $gig->slug) }}" target="_blank" class="inline-flex items-center px-4 py-2 border border-primary-600 rounded shadow-sm text-[13px] font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-50 focus:ring-primary-600">
-                        <svg class="h-4 w-4 text-gray-50 ltr:mr-2 rtl:ml-2 rtl:rotate-180" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path><path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path></svg>
+                    <a href="{{ url('service', $gig->slug) }}" target="_blank" class="inline-flex items-center rounded-sm border border-red-400 bg-red-400 px-4 py-2 text-[13px] font-medium text-white hover:text-red-500 focus:text-red-400 hover:bg-transparent transition-colors duration-300">
+                        <svg class="h-4 w-4 ltr:mr-2 rtl:ml-2 rtl:rotate-180" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path><path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path></svg>
 
                         {{ __('messages.t_view_gig') }}
                     </a>

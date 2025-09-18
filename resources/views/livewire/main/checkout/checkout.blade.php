@@ -1,4 +1,4 @@
-<div class="relative max-w-3xl mx-auto" x-data="window.LjqGJmYrwJSjIHT">
+<div class="relative mx-auto my-4" x-data="window.LjqGJmYrwJSjIHT">
 
     {{-- Loading --}}
     <div class="fixed top-0 left-0 z-50 bg-black w-full h-full opacity-80" wire:loading>
@@ -16,7 +16,7 @@
     {{-- Error message --}}
     @if (session()->has('error'))
         <div class="w-full mb-10">
-            <div class="rounded-md bg-red-50 p-4">
+            <div class=" bg-red-50 p-4">
                 <div class="flex">
                     <div class="flex-shrink-0">
                         <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/> </svg>
@@ -34,7 +34,7 @@
     {{-- Error --}}
     @if ($has_error)
         <div class="w-full mb-10">
-            <div class="rounded-md bg-red-50 p-4">
+            <div class=" bg-red-50 p-4">
                 <div class="flex">
                     <div class="flex-shrink-0">
                         <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/> </svg>
@@ -49,7 +49,7 @@
         </div>
     @endif
 
-    <div class="bg-white dark:bg-zinc-800 dark:border-zinc-700 rounded-lg shadow-sm border border-gray-200">
+    <div class="bg-white dark:bg-zinc-800 dark:border-zinc-700  shadow-sm border border-gray-200">
 
         {{-- Checkout form --}}
         <section class="flex-auto overflow-y-auto px-4 pt-12 pb-16 sm:px-6 sm:pt-16 lg:px-8 lg:pt-0 lg:pb-24">
@@ -83,7 +83,7 @@
                             @if (settings('stripe')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'stripe')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'stripe' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'stripe' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('stripe')->logo)
@@ -100,7 +100,7 @@
                             @if (settings('paypal')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'paypal')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'paypal' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'paypal' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('paypal')->logo)
@@ -117,7 +117,7 @@
                             @if (auth()->user()->balance_available >= $this->total() + $this->taxes())
                                 <div 
                                     wire:click="$set('payment_method', 'wallet')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'wallet' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'wallet' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     <div class="flex items-center justify-center max-h-[35px] mb-2 mx-auto p-1 mt-2 dark:text-gray-300">
@@ -137,7 +137,7 @@
                             @if (settings('offline_payment')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'offline')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'offline' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'offline' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('offline_payment')->logo)
@@ -154,7 +154,7 @@
                             @if (settings('flutterwave')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'flutterwave')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'flutterwave' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'flutterwave' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('flutterwave')->logo)
@@ -171,7 +171,7 @@
                             @if (settings('paystack')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'paystack')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'paystack' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'paystack' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('paystack')->logo)
@@ -188,7 +188,7 @@
                             @if (settings('cashfree')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'cashfree')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'cashfree' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'cashfree' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('cashfree')->logo)
@@ -205,7 +205,7 @@
                             @if (settings('mollie')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'mollie')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'mollie' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'mollie' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('mollie')->logo)
@@ -222,7 +222,7 @@
                             @if (settings('xendit')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'xendit')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'xendit' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'xendit' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('xendit')->logo)
@@ -239,7 +239,7 @@
                             @if (settings('mercadopago')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'mercadopago')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'mercadopago' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'mercadopago' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('mercadopago')->logo)
@@ -256,7 +256,7 @@
                             @if (settings('vnpay')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'vnpay')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'vnpay' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'vnpay' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('vnpay')->logo)
@@ -273,7 +273,7 @@
                             @if (settings('paymob')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'paymob')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'paymob' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'paymob' ? 'ring-primary-600 border border-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('paymob')->logo)
@@ -290,7 +290,7 @@
                             @if (settings('paytabs')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'paytabs')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'paytabs' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'paytabs' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('paytabs')->logo)
@@ -307,7 +307,7 @@
                             @if (settings('paytr')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'paytr')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'paytr' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'paytr' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('paytr')->logo)
@@ -324,7 +324,7 @@
                             @if (settings('razorpay')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'razorpay')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'razorpay' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'razorpay' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('razorpay')->logo)
@@ -341,7 +341,7 @@
                             @if (settings('jazzcash')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'jazzcash')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'jazzcash' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'jazzcash' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('jazzcash')->logo)
@@ -358,7 +358,7 @@
                             @if (settings('youcanpay')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'youcanpay')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'youcanpay' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'youcanpay' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('youcanpay')->logo)
@@ -375,7 +375,7 @@
                             @if (settings('nowpayments')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'nowpayments')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'nowpayments' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'nowpayments' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('nowpayments')->logo)
@@ -392,7 +392,7 @@
                             @if (settings('epoint')->is_enabled)
                                 <div 
                                     wire:click="$set('payment_method', 'epoint')" 
-                                    class="py-4 px-1 bg-white dark:bg-zinc-700 rounded-lg ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'epoint' ? 'ring-primary-600' : 'ring-transparent hover:ring-primary-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
+                                    class="py-4 px-1 bg-white dark:bg-zinc-700  ring-2 cursor-pointer grid items-center justify-center text-center transition-all duration-200 {{ $payment_method === 'epoint' ? 'ring-primary-600' : 'ring-transparent hover:ring-red-600 border border-gray-200 dark:border-zinc-600 shadow-sm' }}">
 
                                     {{-- Logo --}}
                                     @if (settings('epoint')->logo)
@@ -621,7 +621,7 @@
 
                             {{-- Summary --}}
                             <div class="w-full mb-8">
-                                <div class="bg-gray-50 dark:bg-zinc-700 rounded-lg px-4 py-6 sm:p-6 lg:p-8">
+                                <div class="bg-gray-50 dark:bg-zinc-700  px-4 py-6 sm:p-6 lg:p-8">
                                     <div class="flow-root w-full">
                                         <dl class="-my-4 text-sm divide-y divide-gray-200 dark:divide-zinc-600">
 
@@ -729,7 +729,7 @@
                                             <button
                                                 type="submit"
                                                 id="stripe-payment-button"
-                                                class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed dark:disabled:bg-zinc-700 dark:disabled:text-zinc-500"
+                                                class="w-full text-sm font-medium flex justify-center py-5 px-8  tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed dark:disabled:bg-zinc-700 dark:disabled:text-zinc-500"
                                                 >
                                                     {{ __('messages.t_pay')    }}
                                             </button>
@@ -866,7 +866,7 @@
                                         <button
                                             @click="window.makeFlutterwavePayment"
                                             id="flutterwave-payment-button"
-                                            class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
+                                            class="w-full text-sm font-medium flex justify-center py-5 px-8  tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
                                             >
                                                 {{ __('messages.t_pay')    }}
                                         </button>
@@ -905,7 +905,7 @@
                                         <button
                                             @click="window.makePaystackPayment"
                                             id="paystack-payment-button"
-                                            class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
+                                            class="w-full text-sm font-medium flex justify-center py-5 px-8  tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
                                             >
                                                 {{ __('messages.t_pay')    }}
                                         </button>
@@ -927,7 +927,7 @@
                                                 @lang('messages.t_phone_number')
                                             </label>
                                             <div class="relative w-full">
-                                                <input type="text" id="cashfree-input-phone" minlength="10" maxlength="10" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="00 00 00 00 00" required>
+                                                <input type="text" id="cashfree-input-phone" minlength="10" maxlength="10" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="00 00 00 00 00" required>
                                                 <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                     <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path></svg>
                                                 </div>
@@ -940,7 +940,7 @@
                                                 @lang('messages.t_holder_name')
                                             </label>
                                             <div class="relative w-full">
-                                                <input data-card-holder type="text" id="cashfree-input-holder" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="John Doe" required>
+                                                <input data-card-holder type="text" id="cashfree-input-holder" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="John Doe" required>
                                                 <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                     <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="7" r="4"></circle><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path></svg>
                                                 </div>
@@ -953,7 +953,7 @@
                                                 @lang('messages.t_card_number')
                                             </label>
                                             <div class="relative w-full">
-                                                <input data-card-number type="text" id="cashfree-input-number" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="4111111111111111" required>
+                                                <input data-card-number type="text" id="cashfree-input-number" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="4111111111111111" required>
                                                 <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                     <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="3" y="5" width="18" height="14" rx="3"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="7" y1="15" x2="7.01" y2="15"></line><line x1="11" y1="15" x2="13" y2="15"></line></svg>
                                                 </div>
@@ -966,7 +966,7 @@
                                                 @lang('messages.t_card_expiry_month')
                                             </label>
                                             <div class="relative w-full">
-                                                <input data-card-expiry-mm type="text" id="cashfree-input-expiry-mm" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="12" required>
+                                                <input data-card-expiry-mm type="text" id="cashfree-input-expiry-mm" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="12" required>
                                                 <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                     <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="4" y="5" width="16" height="16" rx="2"></rect><line x1="16" y1="3" x2="16" y2="7"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="4" y1="11" x2="20" y2="11"></line><rect x="8" y="15" width="2" height="2"></rect></svg>
                                                 </div>
@@ -979,7 +979,7 @@
                                                 @lang('messages.t_card_expiry_year')
                                             </label>
                                             <div class="relative w-full">
-                                                <input data-card-expiry-yy maxlength="2" minlength="2" type="text" id="cashfree-input-expiry-yy" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="27" required>
+                                                <input data-card-expiry-yy maxlength="2" minlength="2" type="text" id="cashfree-input-expiry-yy" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="27" required>
                                                 <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                     <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="4" y="5" width="16" height="16" rx="2"></rect><line x1="16" y1="3" x2="16" y2="7"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="4" y1="11" x2="20" y2="11"></line><line x1="11" y1="15" x2="12" y2="15"></line><line x1="12" y1="15" x2="12" y2="18"></line></svg>
                                                 </div>
@@ -992,7 +992,7 @@
                                                 @lang('messages.t_card_cvv')
                                             </label>
                                             <div class="relative w-full">
-                                                <input data-card-cvv type="text" id="cashfree-input-cvv" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="123" required>
+                                                <input data-card-cvv type="text" id="cashfree-input-cvv" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="123" required>
                                                 <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                     <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"></path><circle cx="12" cy="11" r="1"></circle><line x1="12" y1="12" x2="12" y2="14.5"></line></svg>
                                                 </div>
@@ -1003,7 +1003,7 @@
                                         <div class="col-span-12 mt-8">
                                             <button
                                                 id="cashfree-payment-button"
-                                                class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed dark:disabled:bg-zinc-700 dark:disabled:text-zinc-500"
+                                                class="w-full text-sm font-medium flex justify-center py-5 px-8  tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed dark:disabled:bg-zinc-700 dark:disabled:text-zinc-500"
                                                 >
                                                     {{ __('messages.t_pay')    }}
                                             </button>
@@ -1253,7 +1253,7 @@
                                                     @lang('messages.t_phone_number')
                                                 </label>
                                                 <div class="relative w-full">
-                                                    <input wire:model.defer="paymob_phone" type="text" id="paymob-input-phone" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="+20" required>
+                                                    <input wire:model.defer="paymob_phone" type="text" id="paymob-input-phone" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="+20" required>
                                                     <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                         <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path></svg>
                                                     </div>
@@ -1266,7 +1266,7 @@
                                                     @lang('messages.t_firstname')
                                                 </label>
                                                 <div class="relative w-full">
-                                                    <input wire:model.defer="paymob_firstname" type="text" id="paymob-input-firstname" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_firstname') }}" required>
+                                                    <input wire:model.defer="paymob_firstname" type="text" id="paymob-input-firstname" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_firstname') }}" required>
                                                     <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                         <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path></svg>
                                                     </div>
@@ -1279,7 +1279,7 @@
                                                     @lang('messages.t_lastname')
                                                 </label>
                                                 <div class="relative w-full">
-                                                    <input wire:model.defer="paymob_lastname" type="text" id="paymob-input-lastname" class="border border-gray-300 text-gray-900 text-sm rounded-lg font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_lastname') }}" required>
+                                                    <input wire:model.defer="paymob_lastname" type="text" id="paymob-input-lastname" class="border border-gray-300 text-gray-900 text-sm  font-medium focus:ring-primary-500 focus:border-primary-500 block w-full ltr:pr-12 rtl:pl-12 p-4 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="{{ __('messages.t_enter_lastname') }}" required>
                                                     <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3">
                                                         <svg class="w-5 h-5 text-gray-400" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path></svg>
                                                     </div>
@@ -1355,7 +1355,7 @@
                                         @click="window.makeRazorpayPayment"
                                         wire:loading.attr="disabled"
                                         type="button"
-                                        class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
+                                        class="w-full text-sm font-medium flex justify-center py-5 px-8 tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed"
                                         >
                                             {{ __('messages.t_pay')    }}
                                     </button>
@@ -1512,7 +1512,7 @@
                                         <div class="block mt-8">
                                             <button
                                                 type="submit"
-                                                class="w-full text-sm font-medium flex justify-center py-5 px-8 rounded tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed dark:disabled:bg-zinc-700 dark:disabled:text-zinc-500"
+                                                class="w-full text-sm font-medium flex justify-center py-5 px-8 tracking-wide focus:outline-none focus:shadow-outline bg-primary-600 hover:bg-primary-700 text-white cursor-pointer disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-not-allowed dark:disabled:bg-zinc-700 dark:disabled:text-zinc-500"
                                                 >
                                                     {{ __('messages.t_pay')    }}
                                             </button>
@@ -1567,9 +1567,9 @@
                                     {{-- Pay Address --}}
                                     <div class="w-full mt-4" x-data="window.wsqrXOUsxxoLywE">
                                         <div class="mt-1 relative flex items-center">
-                                        <input type="text" id="input-nowpayments-io-pay-address" value="{{ $nowpayments_pay_address }}" class="shadow-sm focus:ring-primary-600 focus:border-primary-600 block w-full ltr:pr-16 rtl:pl-16 sm:text-[13px] border-gray-200 font-medium rounded-md">
+                                        <input type="text" id="input-nowpayments-io-pay-address" value="{{ $nowpayments_pay_address }}" class="shadow-sm focus:ring-primary-600 focus:border-primary-600 block w-full ltr:pr-16 rtl:pl-16 sm:text-[13px] border-gray-200 font-medium ">
                                         <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex py-1.5 ltr:pr-1.5 rtl:pl-1.5">
-                                            <button x-on:click="copyToClipboard()" type="button" class="inline-flex justify-center items-center rounded border font-semibold focus:outline-none px-2 py-1 leading-5 text-xs border-gray-300 bg-gray-50 text-gray-800 shadow-sm hover:text-gray-800 hover:bg-gray-100 hover:border-gray-300 hover:shadow">
+                                            <button x-on:click="copyToClipboard()" type="button" class="inline-flex justify-center items-center border font-semibold focus:outline-none px-2 py-1 leading-5 text-xs border-gray-300 bg-gray-50 text-gray-800 shadow-sm hover:text-gray-800 hover:bg-gray-100 hover:border-gray-300 hover:shadow">
                                                 <template x-if="is_copied">
                                                     <span>@lang('messages.t_copied')</span>
                                                 </template>
@@ -1596,7 +1596,7 @@
                                         type="button" 
                                         wire:click="checkout"
                                         wire:loading.attr="disabled"
-                                        class="inline-flex justify-center items-center rounded border font-semibold focus:outline-none px-12 py-4 leading-5 text-[13px] mt-8 tracking-wide border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:ring focus:ring-primary-500 focus:ring-opacity-25 disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed">
+                                        class="inline-flex justify-center items-center border font-semibold focus:outline-none px-12 py-4 leading-5 text-[13px] mt-8 tracking-wide border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:ring focus:ring-primary-500 focus:ring-opacity-25 disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed">
                                         
                                         {{-- Loading indicator --}}
                                         <div wire:loading wire:target="checkout">

@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Category;
 use WireUi\Traits\Actions;
 use App\Models\Subcategory;
+use App\Models\Location;
 use App\Http\Validators\Main\Create\OverviewValidator;
 
 class Overview extends Component
@@ -16,6 +17,7 @@ class Overview extends Component
     public $category;
     public $subcategory;
     public $description;
+    public $location;
     public $seo_title;
     public $seo_description;
     public $question;
@@ -31,8 +33,15 @@ class Overview extends Component
      */
     public function render()
     {   
+		$locations = Location::all()->map(function($location) {
+            return [
+                'id' => $location->id,
+                'city_name' => $location->city_name
+            ];
+        })->toArray();
+
         return view('livewire.main.create.steps.overview', [
-            'categories' => $this->categories
+            'categories' => $this->categories, 'locations' => $locations
         ]);
     }
 
@@ -226,6 +235,7 @@ class Overview extends Component
             $data['category']        = $this->category;
             $data['subcategory']     = $this->subcategory;
             $data['description']     = $this->description;
+            $data['location']        = $this->location;
             $data['seo_title']       = $this->seo_title ? $this->seo_title : null;
             $data['seo_description'] = $this->seo_description ? $this->seo_description : null;
             $data['tags']            = $this->tags;

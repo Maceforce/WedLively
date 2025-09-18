@@ -29,6 +29,7 @@ class CreateComponent extends Component
     public $category;
     public $subcategory;
     public $description;
+    public $location;
     public $seo_title;
     public $seo_description;
     public $tags       = [];
@@ -130,32 +131,34 @@ class CreateComponent extends Component
      * @param array $data
      * @return void
      */
+
+
     public function overview($data)
     {
-        try {
-            
+     
+        \Log::info('Overview data:', $data); // Log the data for debugging
+
+    
             // Set data
             $this->title           = $data['title'];
             $this->category        = $data['category'];
             $this->subcategory     = $data['subcategory'];
             $this->description     = $data['description'];
+            $this->location        = $data['location'];
             $this->seo_title       = $data['seo_title'];
             $this->seo_description = $data['seo_description'];
             $this->tags            = $data['tags'];
             $this->faqs            = $data['faqs'];
-
+    
             // Form valid, now go to next step
             $this->current_step    = "pricing";
-
+    
             // Scroll up
             $this->dispatchBrowserEvent('scrollUp');
-
-        } catch (\Throwable $th) {
-            throw $th;
-        }
+    
+    
     }
-
-
+    
     /**
      * Save pricing section
      *
@@ -269,6 +272,8 @@ class CreateComponent extends Component
             // Get description
             $description          = clean($this->description);
 
+            $location            = clean($this->location);
+
             // Get price
             $price                = clean($this->price);
 
@@ -315,6 +320,7 @@ class CreateComponent extends Component
             $gig->title           = $title;
             $gig->slug            = $slug;
             $gig->description     = $description;
+            $gig->location        = $location;
             $gig->price           = $price;
             $gig->delivery_time   = $delivery_time;
             $gig->category_id     = $category_id;

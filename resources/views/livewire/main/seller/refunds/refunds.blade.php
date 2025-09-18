@@ -22,7 +22,7 @@
                             {{-- Main home --}}
                             <li>
                                 <div class="flex items-center">
-                                    <a href="{{ url('/') }}" class="text-sm font-medium text-gray-700 hover:text-primary-600 dark:text-zinc-300 dark:hover:text-white">
+                                    <a href="{{ url('/') }}" class="text-sm font-medium text-gray-700 hover:text-gray-500 dark:text-zinc-300 dark:hover:text-white">
                                         @lang('messages.t_home')
                                     </a>
                                 </div>
@@ -32,7 +32,7 @@
                             <li aria-current="page">
                                 <div class="flex items-center">
                                     <svg aria-hidden="true" class="w-4 h-4 text-gray-400 rtl:rotate-180" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                                    <a href="{{ url('seller/home') }}" class="ltr:ml-1 rtl:mr-1 text-sm font-medium text-gray-700 hover:text-primary-600 md:ltr:ml-2 md:rtl:mr-2 dark:text-zinc-300 dark:hover:text-white">
+                                    <a href="{{ url('seller/home') }}" class="ltr:ml-1 rtl:mr-1 text-sm font-medium text-gray-700 hover:text-gray-500 md:ltr:ml-2 md:rtl:mr-2 dark:text-zinc-300 dark:hover:text-white">
                                         @lang('messages.t_my_dashboard')
                                     </a>
                                 </div>
