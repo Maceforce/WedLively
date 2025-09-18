@@ -3,7 +3,18 @@
 
 
 
-    <style>
+      <style>
+
+        h1, h2, h3, h4, h5, h6,
+        .nav-btn-group > a {
+            font-family: "Reselu";
+        }
+
+        body nav ul.nav-linking > li > a,
+        body nav ul.nav-linking > li > button {
+            font-size: 14px;
+        }
+
         ._sda9893 {
             width: 625px;
             height: 350px;
@@ -20,101 +31,61 @@
             }
         }
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-                    @foreach ($categories as $category)
-                    <a href="{{ url('categories', $category->slug) }}" class="relative !h-44 rounded-lg !p-6 !flex !flex-col overflow-hidden group mx-5">
-                        <span aria-hidden="true" class="absolute inset-0">
-                            <img src="{{ placeholder_img() }}" data-src="{{ src($category->image) }}" alt="{{ $category->name }}" class="lazy w-full h-full object-center object-cover opacity-70 group-hover:opacity-100">
-                        </span>
-                        <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-90"></span>
-                        <span class="relative mt-auto text-center text-xl font-bold text-white">{{ $category->name }}</span>
-                    </a>
-                    @endforeach
-                            
-=======
-=======
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
         .vendor-row {
             display: flex;
             justify-content: space-between;
             margin-top:-2rem;
-
-            /* Space between columns */
         }
 
         .vendor-row-col-7 {
-            width: 60%;
-            /* Adjust width as needed */
+         
             background-color: #FF8080;
-            /* Background color for Category 1 */
             border-top: 2px solid black;
-            /* Black border on top */
             border-bottom: 2px solid black;
-            /* Black border on bottom */
         }
 
         .vendor-row-col-5 {
-            width: 40%;
-            /* Adjust width as needed */
+        
             background-color: #FFF6D8;
-            /* Background color for Category 2 */
             border-top: 2px solid black;
-            /* Black border on top */
             border-bottom: 2px solid black;
-            /* Black border on bottom */
         }
 
-        .custom-width {
-            width: 62%;
-            /* Set your desired width */
-            max-width: 800px;
-            /* Optional: Set a maximum width */
-            margin: 0 auto;
-            /* Center the element */
-        }
-
+        
         .plan-wedding {
             background-color: #FF8080;
-        }
-
-        .flex {
-            display: flex;
-            justify-content: space-between;
-            /* Ensures space is distributed evenly */
+            padding: 0px 50px 40px 50px;
         }
 
         .circle-container {
             width: 200px;
-            /* Adjust the width as needed */
             height: 200px;
-            /* Adjust the height as needed */
             background-color: white;
             border-radius: 50%;
-            /* This creates the circle */
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* Center the text inside the circle */
             z-index: 1;
         }
 
         .circle-text {
             color: black;
             font-size: 16px;
-            /* Adjust the font size as needed */
             padding: 10px;
-            /* Optional: Add some padding */
         }
 
         .line {
             height: 2px;
-            /* Adjust the line thickness */
             background-color: black;
-            /* Color of the line */
             flex-grow: 1;
-            /* Allows the line to grow and fill space between circles */
+        }
+
+        .card-heading{
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            line-height: 22px;
         }
 
         p.num {
@@ -125,35 +96,40 @@
 
         .line-vertically {
             height: 2px;
-            /* Adjust the line thickness */
             background-color: black;
-            /* Color of the line */
         }
 
         .vertical-line {
             width: 2px;
             height: 107px;
-            /* Height of the vertical line */
             background-color: black;
-            /* Line color */
             margin: 0 20px;
-            /* Adjust horizontal spacing as needed */
             position: absolute;
-            /* Position the line absolutely */
             right: 7%;
-            /* Center the line */
             top: 50%;
-            /* Adjust this value to position between step 2 and 3 */
             z-index: 0;
-            /* Send it behind other elements */
         }
 
-        .enire-plan h1 {
-            font-size: 68px;
+        .enire-plan h2 {
+            font-size: 70px;
             font-weight: 700;
-            line-height: 1;
-            margin-top: 17%;
-            margin-bottom: 4%;
+            line-height: 75px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .enire-plan h3 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 40px;
+            color: #000000;
+            margin: auto;
+            text-align: center;
+        }
+        h3 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 40px;
         }
 
         .vendor-cate {
@@ -161,15 +137,15 @@
         }
 
         .wed-plan h2.text-white {
-            width: 25%;
+            width: 70%;
             font-size: 31px;
-            margin: 70px 0px 0px 50px;
+            margin: 70px 0px 45px 50px;
             color: white;
         }
 
         .plan-wedding button {
-            margin-right: 106px;
-            margin-top: 90px;
+            margin-right: 5px;
+            margin-top: 30px;
         }
 
         .stress-free p.first {
@@ -200,287 +176,496 @@
             width: 52%;
             margin-left: 30%;
         }
+
+
+
+
+        /* home blade css */
+        
+.container {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.rows {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+.rows > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-top: var(--bs-gutter-y);
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.align-items-start {
+    align-items: flex-start !important;
+}
+.align-items-end {
+    align-items: flex-end !important;
+}
+.align-items-center {
+    align-items: center !important;
+}
+
+.justify-content-start {
+    justify-content: flex-start !important;
+}
+.justify-content-end {
+    justify-content: flex-end !important;
+}
+.justify-content-center {
+    justify-content: center !important;
+}
+.justify-content-between {
+    justify-content: space-between !important;
+}
+.justify-content-around {
+    justify-content: space-around !important;
+}
+.justify-content-evenly {
+    justify-content: space-evenly !important;
+}
+
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+.flex-nowrap {
+    flex-wrap: nowrap !important;
+}
+
+.gap-0 {
+    gap: 0 !important;
+}
+.gap-1 {
+    gap: 0.25rem !important;
+}
+.gap-2 {
+    gap: 0.5rem !important;
+}
+.gap-3 {
+    gap: 1rem !important;
+}
+.gap-4 {
+    gap: 1.5rem !important;
+}
+.gap-5 {
+    gap: 3rem !important;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.rounded-1 {
+    border-radius: 5px!important;
+}
+.rounded-2 {
+    border-radius: 10px!important;
+}
+. {
+    border-radius: 15px!important;
+}
+.bg-light-danger {
+    background-color: #FF808020!important;
+}
+.bg-danger {
+    background-color: #FF8080!important;
+}
+.bg-warning {
+    background-color: #FFF6D8!important;
+}
+.border-danger {
+    border: 1px solid #FF8080!important;
+}
+.h-100 {
+    height: 100%!important;
+}
+.object-fit-cover {
+    object-fit: cover!important;
+}
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+}
+.hover-warning .card {
+    transition: 0.3s ease-in;
+    overflow: hidden;
+}
+.hover-warning .card:hover {
+    background-color: #FFF6D8!important;
+}
+.hover-warning .card h2 {
+    transition: 0.3s ease-in;
+}
+.hover-warning .card:hover h2 {
+    color: #000000;
+}
+.position-relative {
+    position: relative;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #000000;
+}
+h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+}
+h6 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+}
+
+a {
+    color: #FF8080;
+}
+
+
+.btn-danger {
+    background: #FF8080;
+    color: #ffffff;
+    border: 1px solid #FF8080;
+    padding: 15px 30px;
+    transition: 0.3s;
+    font-weight:500;
+}
+.btn-danger:hover {
+    background: transparent;
+    color: #FF8080;
+    border: 1px solid #FF8080;
+}
+.btn-white {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #FFFFFF;
+    padding: 15px 30px;
+    transition: 0.3s;
+    font-weight:500;
+}
+.btn-white:hover {
+    background: #ffffff;
+    color: #FF8080;
+    border: 1px solid #FFFFFF;
+}
+.bg-white {
+    background-color: #ffffff!important;
+}
+.position-absolute {
+    position: absolute;
+} 
+.left-50 {
+    left: 50%;
+} 
+.top-50 {
+    top: 50%;
+} 
+.translate-middle {
+    transform: translate(-50%, -50%);
+}
+.rounded-pill {
+    border-radius: 50rem;
+}
+.div-300 {
+    width: 300px;
+    height: 200px;
+}
+.div-300 img {
+    width: 300px;
+    height: 200px;
+}
+
+.vendore-class{
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    color: #ffffff;
+    background: #00000095;
+    padding: 10px;
+    left: 0;
+    right: 0;
+}
+
+
+.steps-1234{
+    color: #ff8080;
+    background-color: #ffffff;
+    font-size: 36px;
+    font-weight: 700;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.border-class {
+   position: relative;
+}
+
+
+
+.card.vendors {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+.card > .card-content:before {
+    content: '';
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover .card-content:before {
+    background: rgba(0, 0, 0, 0);
+}
+
+.mh-200 {
+    min-height: 210px;
+}
+
+@media (max-width: 1200px) {
+    .enire-plan h2 {
+        font-size: 50px;
+        line-height: 55px;
+    }
+}
+@media (max-width: 992px) {
+    br {
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    .enire-plan h2 {
+        font-size: 40px;
+        line-height: 45px;
+    }
+}
+@media (min-width: 400px) {
+    .mw-400 {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+@media (min-width: 992px) {
+    .border-class:before {
+        content: '';
+        display: block;
+        border-top: dashed 1px #ffffff;
+        height: 2px;
+        width: 80%;
+        position: absolute;
+        top: 40px;
+        left: 120px;
+        z-index: -1;
+    }
+    .custom-width {
+        width: 62%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .pe-lg-5 {
+        padding-right: 3rem !important;
+    }
+    .col-lg-1 {
+        flex: 0 0 auto;
+        width: 8.33333333%;
+    }
+    .col-lg-2 {
+        flex: 0 0 auto;
+        width: 16.66666667%;
+    }
+    .col-lg-3 {
+        flex: 0 0 auto;
+        width: 25%;
+    }
+    .col-lg-4 {
+        flex: 0 0 auto;
+        width: 33.33333333%;
+    }
+    .col-lg-5 {
+        flex: 0 0 auto;
+        width: 41.66666667%;
+    }
+    .col-lg-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+    .col-lg-7 {
+        flex: 0 0 auto;
+        width: 58.33333333%;
+    }
+    .col-lg-8 {
+        flex: 0 0 auto;
+        width: 66.66666667%;
+    }
+    .col-lg-9 {
+        flex: 0 0 auto;
+        width: 75%;
+    }
+    .col-lg-10 {
+        flex: 0 0 auto;
+        width: 83.33333333%;
+    }
+    .col-lg-11 {
+        flex: 0 0 auto;
+        width: 91.66666667%;
+    }
+    .col-lg-12 {
+        flex: 0 0 auto;
+        width: 100%;
+    } 
+}
+
+@media (min-width: 768px) {
+    .enire-plan h3 {
+        width: 50%;
+    }
+}
     </style>
 
-    <div class="col-md-12 mt-6 mb-16">
-        <div class="row vendor-row">
-            <div class="vendor-row-col-7">
-                <div class="flex justify-between rounded-lg !p-6 overflow-hidden group">
-                    <div class="flex-1 mr-2">
-<<<<<<< HEAD
-                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-venues">Venues</a></h2>
-=======
-                        <h2 class="text-xl font-bold text-white">Venues</h2>
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
-                        <p class="text-white mt-2">
-                            Find the perfect venue for all sorts of events- including Mosques, Banquet Halls, and Reception Locations
-                        </p>
-                    </div>
-                    <div class="flex-1 ml-2">
-<<<<<<< HEAD
-                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/caterers"> Catering </a></h2>
-=======
-                        <h2 class="text-xl font-bold text-white">Catering</h2>
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
-                        <p class="text-white mt-2">
-                            Choose from the tastiest cuisines
-                        </p>
-                    </div>
-                </div>
-                <div class="flex justify-between rounded-lg !p-6 overflow-hidden group">
-                    <div class="flex-1 mr-2">
-<<<<<<< HEAD
-                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/wedding-photographers">Photographers</a></h2>
-=======
-                        <h2 class="text-xl font-bold text-white">Photographers</h2>
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
-                        <p class="text-white mt-2">
-                            Remember your special day forever!
-                        </p>
-                    </div>
-                    <div class="flex-1 ml-2">
-<<<<<<< HEAD
-                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/wedding-videography">Videographers</a></h2>
-=======
-                        <h2 class="text-xl font-bold text-white">Videographers</h2>
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
-                        <p class="text-white mt-2">
-                            Get everything recorded. Live out your wedding day as many times as you like!
-                        </p>
-                    </div>
-                </div>
-                <div class="flex justify-between  rounded-lg !p-6 overflow-hidden group">
-                    <div class="flex-1 mr-2">
-<<<<<<< HEAD
-                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/wedding-dj">DJ’s</a></h2>
-=======
-                        <h2 class="text-xl font-bold text-white">DJ’s</h2>
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
-                        <p class="text-white mt-2">
-                            Good music = Good Wedding
-                        </p>
-                    </div>
-                    <div class="flex-1 ml-2">
-<<<<<<< HEAD
-                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/wedding-decorators">Decorators</a></h2>
-=======
-                        <h2 class="text-xl font-bold text-white">Decorators</h2>
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
-                        <p class="text-white mt-2">
-                            Beautify your venue!
-                        </p>
-                    </div>
-                </div>
-                <div class="flex justify-between  rounded-lg !p-6 overflow-hidden group">
-                    <div class="flex-1 mr-2">
-<<<<<<< HEAD
-                        <h2 class="text-xl font-bold text-white"><a href="categories/wedding-vendors/imams">Imams</a>
-=======
-                        <h2 class="text-xl font-bold text-white">Imams
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
-                        </h2>
-                        <p class="text-white mt-2">
-                            Find Imams to perform your nikkah!
-                        </p>
-                    </div>
-                    <div class="flex-1 ml-2">
-<<<<<<< HEAD
-                        <h2 class="text-xl font-bold text-white"><a href="categories/brides/bridal-makeup-artists">Henna Artists</a></h2>
-=======
-                        <h2 class="text-xl font-bold text-white">Makeup/Henna Artists</h2>
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
-                        <p class="text-white mt-2">
-                            You gotta look good for your wedding day!
-                        </p>
-                    </div>
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
-                </div>
-            </div>
-            <div class="vendor-row-col-5">
-                <h2 class="text-2xl font-bold text-black mb-4 ml-4 mt-4">Vendor Spotlight</h2> <!-- Added margin-left -->
-
-                <div class="relative !h-44 rounded-lg !p-6 !flex overflow-hidden group">
-                    <div class="flex-shrink-0 w-1/2">
-                        <img src="https://via.placeholder.com/300x200" alt="Category Image" class="h-full w-full object-cover rounded-lg">
-                    </div>
-                    <div class="flex-1 ml-4 flex flex-col justify-center">
-                        <span class="text-xl font-bold text-black">Article Title</span>
-                        <p class="text-black mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                        </p>
-                        <a href="#" class="mt-4 inline-block text-black py-2">Read More</a>
-                    </div>
-                </div>
-
-                <div class="relative !h-44 rounded-lg !p-6 !flex overflow-hidden group mt-4"> <!-- Added margin-top for spacing -->
-                    <div class="flex-shrink-0 w-1/2">
-                        <img src="https://via.placeholder.com/300x200" alt="Category Image" class="h-full w-full object-cover rounded-lg">
-                    </div>
-                    <div class="flex-1 ml-4 flex flex-col justify-center">
-                        <span class="text-xl font-bold text-black">Article Title</span>
-                        <p class="text-black mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                        </p>
-                        <a href="#" class="mt-4 inline-block text-black py-2">Read More</a>
-                    </div>
-                </div>
-
-                <!-- See all articles link -->
-                <div class="mt-4 ml-5">
-                    <a href="#" class="text-black hover:underline">See all articles ></a> <!-- Changed text color to black -->
-                </div>
-            </div>
-        </div>
-
-
-        {{-- Newsletter --}}
-        @if (settings('newsletter')->is_enabled)
-        <!-- <div class="col-span-12">
-            <div class="bg-gray-100 dark:bg-zinc-800 rounded-md p-6 flex items-center sm:p-10">
-                <div class="max-w-lg mx-auto">
-                    <h3 class="font-semibold text-gray-900 dark:text-gray-100">{{ __('messages.t_sign_up_for_newsletter') }}</h3>
-                    <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">{{__('messages.t_sign_up_for_newsletter_subtitle')}}</p>
-                    <div class="mt-4 sm:mt-6 sm:flex">
-                        <label for="email-address" class="sr-only">Email address</label>
-                        <input wire:model.defer="email" id="email-address" type="text" autocomplete="email" required="" placeholder="{{ __('messages.t_enter_email_address') }}" class="h-14 appearance-none min-w-0 w-full bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-700 rounded-md shadow-sm py-2 px-4 text-sm text-gray-900 dark:text-gray-300 placeholder-gray-500 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600" readonly onfocus="this.removeAttribute('readonly');">
-                        <div class="mt-3 sm:flex-shrink-0 sm:mt-0 ltr:sm:ml-4 rtl:sm:mr-4">
-                            <button wire:click="newsletter" wire:loading.attr="disabled" wire:target="newsletter" type="button" class="dark:disabled:bg-zinc-500 dark:disabled:text-zinc-400 disabled:cursor-not-allowed disabled:!bg-gray-400 disabled:text-gray-500 h-14 w-full bg-primary-600 border border-transparent rounded-md shadow-sm py-2 px-4 flex items-center justify-center text-sm font-bold tracking-wider text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-primary-600">
-                                {{ __('messages.t_signup') }}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        @endif
-
-
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-@push('scripts')
-=======
-=======
-    </div>
+   <div class="container px-0">
+    <div class="mt-10 p-4 lg:p-8 py-10">
     <div class="text-center custom-width enire-plan">
-        <h1 class="text-black italic">
-            Plan your entire wedding in <span style="color: #FF8080;">one week</span>, stress free!
-        </h1>
-
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
-        <p class="text-black mt-4">
-            Everyone always says planning a wedding is stressful.
-            It isn’t with us! Plan your Nikkah, Valima, or any other Muslim wedding event today,
-            completely stress free with our custom wedding plan!
-        </p>
-
-        <button class="mt-5 px-6 py-3 text-white" style="background-color: #FF8080; border: none; border-radius: 5px; font-size: 18px;">
-<<<<<<< HEAD
-            <a href="auth/register">Start Planning</a>
-=======
-            Start Planning
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
-        </button>
-    </div>
+  <h2>
+      Plan your entire wedding in <span style="color: #FF8080;">one week, </span> stress free!
+  </h2>
+  <p class="mt-8 mb-8">
+      Everyone always says planning a wedding is stressful.
+      It isn’t with us! Plan your Nikkah, Valima, or any other Muslim wedding event today,
+      completely stress free with our custom wedding plan!
+  </p>
+  <div class="text-center">
+        <button class="btn-danger mx-auto">Start Planning </button>
+  </div>
+</div>
 
 
-
-    <div class="text-center mt-8 plan-wedding mt-4 relative">
-        <div class="flex justify-between items-center wed-plan">
-            <h2 class="text-white text-2xl ml-4">
-                How do we plan your wedding completely stress-free?
-            </h2>
-            <button class="mt-4 px-6 py-3 text-black bg-white border-none rounded mr-4">
-<<<<<<< HEAD
-            <a href="auth/register">Start Planning<a>
-=======
-                Start Planning
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
-            </button>
-        </div>
-        <div class="vertical-line"></div>
-        <div class="flex justify-between items-center mt-6 ml-5">
-            <div class="circle-container">
-                <p class="circle-text">Hit ‘Start Planning’ and take our <span style="color: #FF8080;">10 minute quiz</span></p>
+    <div class="pt-10 pb-6">
+        <div class="my-10 bg-danger p-8 py-10">
+        <h3 class="text-white text-center mb-6">How do we plan your wedding<br> completely stress-free?</h3> 
+            <div class="rows mt-10 border-class z-10">
+                <div class="col-lg-3 mb-8">
+                    <div class="steps-1234">1</div>
+                    <p class="p-3 text-center text-white mw-400">Hit ‘Start Planning’ and take our <span style="color: #fff;">10 minute quiz</span></p>
+                </div>
+                <div class="col-lg-3 mb-8">
+                    <div class="steps-1234">2</div>
+                        <p class="p-3 text-center text-white mw-400">We’ll give you a list of everything you need, for every event - custom to your answers <span style="color: #fff;">within seconds</span></p>
+                </div>
+                <div class="col-lg-3 mb-8">
+                <div class="steps-1234">3</div>
+                    <p class="p-3 text-center text-white mw-400">Vendors send you pricing back along with their availability <span style="color: #fff;">within 1-2 days.</span></p>
+                </div>
+                <div class="col-lg-3 mb-8">
+                <div class="steps-1234">4</div>
+                        <p class="p-3 text-center text-white mw-400">Send the details of your event to vendors with <span style="color: #fff;">one click</span>
+                </div>
             </div>
-            <p class="num">1</p>
-            <div class="line"></div>
-            <div class="circle-container mr-5">
-                <p class="circle-text">We’ll give you a list of everything you need, for every event - custom to your answers <span style="color: #FF8080;">within seconds</span></p>
-            </div>
-            <p class="num">2</p>
-        </div>
-        <div class="flex justify-between items-center mt-6 ml-5">
-            <div class="circle-container">
-                <p class="circle-text">Vendors send you pricing back along with their availability <span style="color: #FF8080;">within 1-2 days.</span></p>
-            </div>
-            <p class="num">4</p>
-            <div class="line"></div>
-            <div class="line-vertically"></div>
-            <div class="circle-container mr-5">
-                <p class="circle-text">Send the details of your event to vendors with <span style="color: #FF8080;">one click</span></p>
-            </div>
-            <p class="num">3</p>
-        </div>
-        <div class="mt-6 stress-free">
-            <p class="text-white first font-bold">1. Take a few days to think it over.</p>
-            <p class="text-white font-bold second">2. Book everything!</p>
-        </div>
-
-    </div>
-
-
-
-
-    <!-- Random gigs -->
-    <div class="col-span-12 mb-16">
-
-        <!-- Section title -->
-        <div class="block mb-6 mt-5 vendor-business">
-            <div class="flex justify-between items-center bg-transparent py-2">
-                <span class="font-extrabold text-xl text-black-800 dark:text-black-100 pb-1 block ">
-                    our vendors are the best in the business
-                </span>
-            </div>
-            <p class="text-black-600 dark:text-black-300 mt-2">
-                Besides personally screening all our vendors to guarantee quality, check out their ratings!
-            </p>
-        </div>
-    </div>
-
-
-    <div class="grid grid-cols-3 gap-4 vendor-cate">
-        <!-- Image 1 -->
-        <div class="relative">
-            <img src="https://via.placeholder.com/300x200" alt="Image 1" class="w-full h-auto">
-            <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50">
-                <span class="text-white text-xl font-bold">Text on Image 1</span>
-            </div>
-        </div>
-
-        <!-- Image 2 -->
-        <div class="relative">
-            <img src="https://via.placeholder.com/300x200" alt="Image 2" class="w-full h-auto">
-            <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50">
-                <span class="text-white text-xl font-bold">Text on Image 2</span>
-            </div>
-        </div>
-
-        <!-- Image 3 -->
-        <div class="relative">
-            <img src="https://via.placeholder.com/300x200" alt="Image 3" class="w-full h-auto">
-            <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50">
-                <span class="text-white text-xl font-bold">Text on Image 3</span>
+            <div class="text-center">
+                <button class="btn-white mx-auto" onclick="location.href='auth/register';">Start Planning</button>
             </div>
         </div>
     </div>
+    <div class="rows justify-content-center mt-10 mb-10">
+        <div class="col-lg-12 enire-plan">
+            <h3 class="text-center">Our Vendors are the best in the<br> Business</h3> 
+            <p class="my-6 text-center">Besides personally screening all our vendors to guarantee quality,<br> check out their ratings!</p>
+        </div>
+            <a class="card div-300 mb-8" href="categories/vendors/catering">
+                <div class="card-content position-relative overflow-hidden ">
+                    <img src="../public/img/home/cateringimg.jpg" class=" object-fit-cover" alt="">
+                    <h6 class="vendore-class">Catering</h6>
+                </div>
+            </a>
+            <a class="card div-300 mb-8" href="categories/vendors/venues">
+                <div class="card-content position-relative overflow-hidden ">
+                    <img src="../public/img/home/venue.jpg" class=" object-fit-cover" alt="">
+                    <h6 class="vendore-class">Venues/Mosques</h6>
+                </div>
+            </a>
+            <a class="card div-300 mb-8" href="categories/vendors/imams">
+                <div class="card-content position-relative overflow-hidden ">
+                    <img src="../public/img/home/imam.jpg" class=" object-fit-cover" alt="">
+                    <h6 class="vendore-class">Imams</h6>
+                </div>
+            </a>
+            <a class="card div-300 mb-8" href="categories/vendors/dJ's">
+                <div class="card-content position-relative overflow-hidden ">
+                    <img src="../public/img/home/dj.jpg" class=" object-fit-cover" alt="">
+                    <h6 class="vendore-class">DJ's</h6>
+                </div>
+            </a>
+            <a class="card div-300 mb-8" href="categories/vendors/decorators">
+                <div class="card-content position-relative overflow-hidden ">
+                    <img src="../public/img/home/decorations.jpg" class=" object-fit-cover" alt="">
+                    <h6 class="vendore-class">Decorators</h6>
+                </div>
+            </a>
+            <a class="card div-300 mb-8" href="categories/vendors/photographers">
+                <div class="card-content position-relative overflow-hidden ">
+                    <img src="../public/img/home/photo.jpg" class=" object-fit-cover" alt="">
+                    <h6 class="vendore-class">Photographers</h6>
+                </div>
+            </a>
+            <a class="card div-300 mb-8" href="categories/vendors/videographers">
+                <div class="card-content position-relative overflow-hidden ">
+                    <img src="../public/img/home/video.jpg" class=" object-fit-cover" alt="">
+                    <h6 class="vendore-class">Videographers</h6>
+                </div>
+            </a>
+            <a class="card div-300 mb-8" href="categories/vendors/makeup-heena-artists">
+                <div class="card-content position-relative overflow-hidden ">
+                    <img src="../public/img/home/makeup.jpg" class=" object-fit-cover" alt="">
+                    <h6 class="vendore-class">Makeup</h6>
+                </div>
+            </a>
+        </div>
+   </div>
+
+
+
+
+
 
 
     @push('scripts')
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
 
     {{-- Slick Plugin --}}
     @if (settings('appearance')->is_featured_categories && $categories && $categories->count())
@@ -530,6 +715,9 @@
         });
     </script>
     @endif
+
+
+
 
     {{-- Bestsellers --}}
     @if (settings('appearance')->is_best_sellers && $sellers && $sellers->count())
@@ -587,18 +775,5 @@
     @if (settings('appearance')->is_featured_categories)
     <link rel="preload" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" type="text/css" as="style" onload="this.onload=null;this.rel='stylesheet';" />
     @endif
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-        
-@endpush
-=======
 
     @endpush
-apps-fileview.texmex_20241003.01_p4
-home.blade.php
-Displaying home.blade.php.
->>>>>>> Stashed changes
-=======
-
-    @endpush
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3

@@ -1,5 +1,19 @@
 <div class="container" x-data="window.TJPlQeqplTFcTQC" x-init="initialize()">
-
+    <div class="navbar">
+        <nav class="relative container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-between items-center h-20 flex">
+        <!-- <nav class="navbar"> -->
+            <ul class="nav-menu">
+                <li><a href="my-wedding">My Wedding</a></li>
+                <li><a href="checklist">Checklist</a></li>
+                <li><a href="vendor-manager">Vendor Manager</a></li>
+                <li><a href="guest">Guest List</a></li>
+                <li><a href="seating-chart">Seating Chart</a></li>
+                <li><a href="budget">Budget</a></li>
+                <li><a href="registry">Registry</a></li>
+                <li><a href="wedding-website">Wedding Website</a></li>
+            </ul>
+        </nav>
+    </div>
     {{-- Loading indicator --}}
     <div class="fixed top-10 right-10 z-[99]" wire:loading>
         <div role="status"> <svg aria-hidden="true" class="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-primary-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -9,6 +23,7 @@
     </div>
 
     <div class="grid grid-cols-12 md:gap-x-6 gap-y-6">
+        
 
         {{-- Left side --}}
         <div class="col-span-12 lg:col-span-4">

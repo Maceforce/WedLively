@@ -419,6 +419,203 @@
 
 </div>
 
+
+    <style>
+        /* Basic page styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        /* Popup modal overlay */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+        }
+
+        /* Modal content box */
+        .modal-content {
+            background-color: white;
+            margin: 10% auto; /* Align it vertically */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%; /* Adjust width */
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+            border-radius: 8px;
+        }
+
+        /* Close button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            cursor: pointer;
+        }
+
+        /* Style the form fields */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form textarea {
+            padding: 8px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form input[type="radio"],
+        form input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        form .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+
+<!-- The Popup Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Welcome! Please fill out this form:</h2>
+        
+        <form action="" method="POST" class="mt-4">
+                    @csrf
+
+                    <!-- First Row: Name and Email -->
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-4 col-form-label">Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-4 col-form-label">Email</label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <!-- Second Row: Getting Married and Wedding Date -->
+                    <div class="form-group row">
+                        <label for="getting_married" class="col-sm-4 col-form-label">Getting Married</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="getting_married" name="getting_married" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="wedding_date" class="col-sm-4 col-form-label">Wedding Date</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control" id="wedding_date" name="wedding_date" required>
+                        </div>
+                    </div>
+
+                    <!-- Third Row: Number of Guests and Estimated Budget -->
+                    <div class="form-group row">
+                        <label for="number_of_guests" class="col-sm-4 col-form-label">Number of Guests</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" id="number_of_guests" name="number_of_guests" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="estimated_budget" class="col-sm-4 col-form-label">Estimated Budget</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" id="estimated_budget" name="estimated_budget" required>
+                        </div>
+                    </div>
+
+                    <!-- Fourth Row: City/Town -->
+                    <div class="form-group row">
+                        <label for="city_town" class="col-sm-4 col-form-label">City/Town</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="city_town" name="city_town" required>
+                        </div>
+                    </div>
+
+                    <!-- Wedding Vendors Needed -->
+                    <div class="form-group">
+                        <label class="col-form-label">Which wedding vendors do you still need?</label>
+                        <div>
+                            @foreach (['Venue', 'Catering', 'Photography', 'Band', 'Invitations', 'Favors & Gifts', 'Flowers', 'Dress & Attire', 'Travel', 'Transportation', 'Lighting & Decor', 'Planning', 'Wedding Cake', 'Videography'] as $vendor)
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="vendors[]" value="{{ $vendor }}" id="vendor_{{ strtolower(str_replace(' ', '_', $vendor)) }}">
+                                <label class="form-check-label" for="vendor_{{ strtolower(str_replace(' ', '_', $vendor)) }}">{{ $vendor }}</label>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+                </form>
+        
+    </div>
+</div>
+
+<script>
+    // Get the modal element
+    var modal = document.getElementById("myModal");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // Show the modal when the page loads
+    window.onload = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+
+
+
+
 @push('styles')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v5/font/simple-icons.min.css" type="text/css">
 @endpush
@@ -441,5 +638,7 @@
         }
         window.vjOXhkLsunWIxQy = vjOXhkLsunWIxQy();
     </script>
+
+
 
 @endpush

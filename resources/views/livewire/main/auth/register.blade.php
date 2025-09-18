@@ -2,33 +2,31 @@
 	{{-- Welcome back message --}}
 	<div class="text-left">
 		<div class="mt-4">
-<<<<<<< Updated upstream
+
 			<h2 class="text-xl font-bold text-zinc-700 dark:text-navy-100">
-<<<<<<< HEAD
+
 				@lang('messages.t_welcome_to_app_name', ['name' => config('app.name')])
-=======
+
 			<img src="{{url('public/img/home/logo.png')}} " width='50px' height="50px" style="width: 15%;float: left;margin-right:10px"> 			
 		</div>
 		<h2 class="text-xl font-bold text-zinc-700 dark:text-navy-100">			 
 			<span style="color: #FF8080;vertical-align: sub;">Sign Up to SUKOONZZ</span>
 				 <!-- @lang('messages.t_welcome_to_app_name', ['name' => config('app.name')])  -->
->>>>>>> Stashed changes
-=======
+
 			SIgn Up for Sukoonzz
 				<!-- @lang('messages.t_welcome_to_app_name', ['name' => config('app.name')]) -->
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
+
 			</h2>
 			<!-- <p class="text-zinc-400 dark:text-gray-300">
 				@lang('messages.t_pls_signup_to_continue')
-<<<<<<< HEAD
-<<<<<<< Updated upstream
+
 			</p>
-=======
+
+			</h2>
+			<!-- <p class="text-zinc-400 dark:text-gray-300">
+				@lang('messages.t_pls_signup_to_continue')
 			</p> 
->>>>>>> Stashed changes
-=======
-			</p> -->
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
+
 			<a href="{{ url('/') }}" class="block lg:hidden mt-3 text-sm tracking-wider font-semibold text-blue-600 hover:underline">
 				@lang('messages.t_back_to_homepage')
 			</a> -->
@@ -240,15 +238,13 @@
 
 					{{-- Register --}}
 					<div class="col-span-12">
-<<<<<<< HEAD
-<<<<<<< Updated upstream
+
 						<button type="submit" wire:loading.attr="disabled" wire:target="register" :disabled="!form.email || !form.password || !form.fullname || !form.username" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500">
-=======
+
 						<button type="submit" wire:loading.attr="disabled" wire:target="register" :disabled="!form.email || !form.password || !form.fullname || !form.username || !form.phone || !form.gettingmarried  || !form.weddingdate" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500 signup-btn-color">
->>>>>>> Stashed changes
-=======
+
 						<button type="submit" wire:loading.attr="disabled" wire:target="register" :disabled="!form.email || !form.password || !form.fullname || !form.username || !form.phone" class="w-full bg-primary-600 enabled:hover:bg-primary-700 text-white py-4.5 px-4 rounded-md text-[13px] font-semibold tracking-wide disabled:bg-zinc-200 disabled:text-zinc-500 signup-btn-color">
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
+
 							
 							{{-- Loading indicator --}}
 							<div wire:loading wire:target="register">
@@ -397,19 +393,17 @@
 					email   : null,
 					password: null,
 					fullname: null,
-<<<<<<< HEAD
-<<<<<<< Updated upstream
+
 					username: null
-=======
+
 					username: null,
 					phone:null,
 					gettingmarried:null,
 					weddingdate:null,
->>>>>>> Stashed changes
-=======
+
 					username: null,
 					phone:null
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
+
 				},
 
 				// Register
@@ -444,15 +438,13 @@
 					}
 
 					// Validate form
-<<<<<<< HEAD
-<<<<<<< Updated upstream
+
 					if (!_this.form.email || !_this.form.password || !_this.form.fullname || !_this.form.username) {
-=======
+
 					if (!_this.form.email || !_this.form.password || !_this.form.fullname || !_this.form.username || !_this.form.phone || !_this.form.gettingmarried ||  !_this.form.weddingdate) {
->>>>>>> Stashed changes
-=======
+
 					if (!_this.form.email || !_this.form.password || !_this.form.fullname || !_this.form.username || !_this.form.phone) {
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
+
                         
 						// Error
 						window.$wireui.notify({
@@ -470,16 +462,13 @@
 						'email'          : _this.form.email,
 						'password'       : _this.form.password,
 						'username'       : _this.form.username,
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
+
 						'phone':this.form.phone,
 						'gettingmarried':this.form.gettingmarried,
 						'weddingdate':this.form.weddingdate,
->>>>>>> Stashed changes
-=======
+
 						'phone':this.form.phone,
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
+
 						'fullname'       : _this.form.fullname,
 						'recaptcha_token': recaptcha_token
 					});

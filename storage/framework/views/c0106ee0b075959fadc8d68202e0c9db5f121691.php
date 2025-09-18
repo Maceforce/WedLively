@@ -205,24 +205,27 @@
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('main.includes.header')->html();
-<<<<<<< HEAD:storage/framework/views/3d34ce6a0dcbc4c9cafbd570065c647168afae14.php
-<<<<<<< Updated upstream:storage/framework/views/3d34ce6a0dcbc4c9cafbd570065c647168afae14.php
+
 } elseif ($_instance->childHasBeenRendered('TVyTMTe')) {
     $componentId = $_instance->getRenderedChildComponentId('TVyTMTe');
     $componentTag = $_instance->getRenderedChildComponentTagName('TVyTMTe');
-=======
+
 } elseif ($_instance->childHasBeenRendered('ENg5rDw')) {
     $componentId = $_instance->getRenderedChildComponentId('ENg5rDw');
     $componentTag = $_instance->getRenderedChildComponentTagName('ENg5rDw');
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3:storage/framework/views/c0106ee0b075959fadc8d68202e0c9db5f121691.php
+
+} elseif ($_instance->childHasBeenRendered('kp8zhVa')) {
+    $componentId = $_instance->getRenderedChildComponentId('kp8zhVa');
+    $componentTag = $_instance->getRenderedChildComponentTagName('kp8zhVa');
+
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('ENg5rDw');
+    $_instance->preserveRenderedChild('kp8zhVa');
 } else {
     $response = \Livewire\Livewire::mount('main.includes.header');
     $html = $response->html();
-<<<<<<< HEAD:storage/framework/views/3d34ce6a0dcbc4c9cafbd570065c647168afae14.php
+
     $_instance->logRenderedChild('TVyTMTe', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
-=======
+
 } elseif ($_instance->childHasBeenRendered('Z8XBPdN')) {
     $componentId = $_instance->getRenderedChildComponentId('Z8XBPdN');
     $componentTag = $_instance->getRenderedChildComponentTagName('Z8XBPdN');
@@ -232,10 +235,11 @@ if (! isset($_instance)) {
     $response = \Livewire\Livewire::mount('main.includes.header');
     $html = $response->html();
     $_instance->logRenderedChild('Z8XBPdN', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
->>>>>>> Stashed changes:storage/framework/views/c0106ee0b075959fadc8d68202e0c9db5f121691.php
-=======
+
     $_instance->logRenderedChild('ENg5rDw', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3:storage/framework/views/c0106ee0b075959fadc8d68202e0c9db5f121691.php
+
+    $_instance->logRenderedChild('kp8zhVa', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+
 }
 echo $html;
 ?>
@@ -244,8 +248,8 @@ echo $html;
    
 
         
-        <main class="flex-grow"> 
-            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 min-h-screen">
+        <main class="flex-grow">            
+            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 min-h-screen">    
                 <?php echo $__env->yieldContent('content'); ?>
             </div>
         </main>
@@ -259,15 +263,15 @@ echo $html;
 
         
         <script >window.Wireui = {hook(hook, callback) {window.addEventListener(`wireui:${hook}`, () => callback())},dispatchHook(hook) {window.dispatchEvent(new Event(`wireui:${hook}`))}}</script>
-<<<<<<< HEAD:storage/framework/views/3d34ce6a0dcbc4c9cafbd570065c647168afae14.php
-<<<<<<< Updated upstream:storage/framework/views/3d34ce6a0dcbc4c9cafbd570065c647168afae14.php
+
 <script src="http://localhost/freeluncer3/wireui/assets/scripts?id=be97ebae74d62aa4c86689a6528b707f" defer ></script>
-=======
+
 <script src="http://localhost/freeluncer/wireui/assets/scripts?id=be97ebae74d62aa4c86689a6528b707f" defer ></script>
->>>>>>> Stashed changes:storage/framework/views/c0106ee0b075959fadc8d68202e0c9db5f121691.php
-=======
+
 <script src="http://localhost/freeluncer/wireui/assets/scripts?id=3c15fb3b36f54e2baae1e97b6eb0015e" defer ></script>
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3:storage/framework/views/c0106ee0b075959fadc8d68202e0c9db5f121691.php
+
+<script src="http://localhost/freeluncer/wireui/assets/scripts?id=be97ebae74d62aa4c86689a6528b707f" defer ></script>
+
 
         
         <script defer src="<?php echo e(mix('js/app.js')); ?>"></script>

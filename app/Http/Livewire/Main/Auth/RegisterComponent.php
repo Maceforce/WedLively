@@ -260,4 +260,6 @@ class RegisterComponent extends Component
             throw $th;
         }
     }
+
+    
 }

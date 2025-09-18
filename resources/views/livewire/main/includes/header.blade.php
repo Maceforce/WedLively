@@ -1,11 +1,622 @@
 <header class="bg-white dark:bg-[#0f0f0f] shadow-sm w-full z-40 transition-all duration-200 border-b-2 border-black dark:border-white">
+<style>
 
+        @font-face {
+            font-family: "Reselu";
+            src: url(../../public/font/Reselu.ttf);
+        }
+        h1, h2, h3, h4, h5, h6,
+        .nav-btn-group > a {
+            font-family: "Reselu";
+        }
+
+        .hover-focus-bg-black:focus,
+        .hover-focus-bg-black:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        body .min-h-screen {
+            min-height: auto!important;
+        }
+        body nav ul.nav-linking > li > a,
+        body nav ul.nav-linking > li > button {
+            font-size: 14px;
+        }
+
+        ._sda9893 {
+            width: 625px;
+            height: 350px;
+            border-radius: 17px;
+            box-shadow: 0 8px 20px 0 rgb(20 20 43 / 31%) !important;
+        }
+
+        @media only screen and (max-width: 600px) {
+            ._sda9893 {
+                width: 95%;
+                height: 185px;
+                border-radius: 17px;
+                box-shadow: 0 8px 20px 0 rgb(20 20 43 / 31%) !important;
+            }
+        }
+
+        .vendor-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top:-2rem;
+        }
+
+        .vendor-row-col-7 {
+         
+            background-color: #FF8080;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+        }
+
+        .vendor-row-col-5 {
+        
+            background-color: #FFF6D8;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+        }
+
+        
+        .plan-wedding {
+            background-color: #FF8080;
+            padding: 0px 50px 40px 50px;
+        }
+
+        .circle-container {
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .circle-text {
+            color: black;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .line {
+            height: 2px;
+            background-color: black;
+            flex-grow: 1;
+        }
+
+        .card-heading{
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            line-height: 22px;
+        }
+
+        p.num {
+            margin-top: 100px;
+            font-weight: 700;
+            color: black;
+        }
+        body .search-tags button.bg-primary-600 {
+            background: #FF8080 !important;
+        }
+
+        button.cursor-pointer, a.cursor-pointer {
+            text-decoration: none!important;
+            background-color: #000!important;
+            border: 1px solid #000!important;
+            border-radius: 0!important;
+            transition: 0.3s ease-in-out;
+            color: #fff;
+            padding: 12px 30px
+        }
+
+        button.cursor-pointer:hover, 
+        button.cursor-pointer:focus, 
+        a.cursor-pointer:hover,
+        a.cursor-pointer:focus {
+            background-color: transparent!important;
+            color: #000!important;
+            border-color: #000!important;
+        }
+
+        
+
+        .line-vertically {
+            height: 2px;
+            background-color: black;
+        }
+
+        .vertical-line {
+            width: 2px;
+            height: 107px;
+            background-color: black;
+            margin: 0 20px;
+            position: absolute;
+            right: 7%;
+            top: 50%;
+            z-index: 0;
+        }
+
+        .enire-plan h2 {
+            font-size: 70px;
+            font-weight: 700;
+            line-height: 75px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .enire-plan h3 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 40px;
+            color: #000000;
+            margin: auto;
+            text-align: center;
+        }
+        h3 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 40px;
+        }
+
+        .vendor-cate {
+            margin: 20px;
+        }
+
+        .wed-plan h2.text-white {
+            width: 70%;
+            font-size: 31px;
+            margin: 70px 0px 45px 50px;
+            color: white;
+        }
+
+        .plan-wedding button {
+            margin-right: 5px;
+            margin-top: 30px;
+        }
+
+        .stress-free p.first {
+            margin-top: 100px;
+            text-align: left;
+            margin-left: 38px;
+        }
+
+        .stress-free p {
+            text-align: left;
+            margin-left: 38px;
+        }
+
+        .stress-free p.second {
+            padding-bottom: 100px;
+        }
+
+        .vendor-business span {
+            width: 50%;
+            text-transform: uppercase;
+            margin-left: 30%;
+            font-size: 35px;
+            margin-top: 50px;
+            line-height: 1;
+        }
+
+        .vendor-business p {
+            width: 52%;
+            margin-left: 30%;
+        }
+
+        
+        input,select,textarea {
+            border-radius: 0!important;
+        }
+        input:focus,select:focus,textarea:focus {
+            border-color: #FF8080!important;
+            --tw-ring-color: transparent!important;
+        }
+        [type=radio]:checked {
+            background-color: #FF8080!important;;
+        }
+
+
+
+
+        /* home blade css */
+        
+.container {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.rows {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+.rows > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-top: var(--bs-gutter-y);
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.align-items-start {
+    align-items: flex-start !important;
+}
+.align-items-end {
+    align-items: flex-end !important;
+}
+.align-items-center {
+    align-items: center !important;
+}
+
+.justify-content-start {
+    justify-content: flex-start !important;
+}
+.justify-content-end {
+    justify-content: flex-end !important;
+}
+.justify-content-center {
+    justify-content: center !important;
+}
+.justify-content-between {
+    justify-content: space-between !important;
+}
+.justify-content-around {
+    justify-content: space-around !important;
+}
+.justify-content-evenly {
+    justify-content: space-evenly !important;
+}
+
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+.flex-nowrap {
+    flex-wrap: nowrap !important;
+}
+
+.gap-0 {
+    gap: 0 !important;
+}
+.gap-1 {
+    gap: 0.25rem !important;
+}
+.gap-2 {
+    gap: 0.5rem !important;
+}
+.gap-3 {
+    gap: 1rem !important;
+}
+.gap-4 {
+    gap: 1.5rem !important;
+}
+.gap-5 {
+    gap: 3rem !important;
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.rounded-1 {
+    border-radius: 5px!important;
+}
+.rounded-2 {
+    border-radius: 10px!important;
+}
+.rounded-3 {
+    border-radius: 15px!important;
+}
+.bg-light-danger {
+    background-color: #FF808020!important;
+}
+.bg-danger {
+    background-color: #FF8080!important;
+}
+.bg-warning {
+    background-color: #FFF6D8!important;
+}
+.border-danger {
+    border: 1px solid #FF8080!important;
+}
+.h-100 {
+    height: 100%!important;
+}
+.object-fit-cover {
+    object-fit: cover!important;
+}
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+}
+.hover-warning .card {
+    transition: 0.3s ease-in;
+    overflow: hidden;
+}
+.hover-warning .card:hover {
+    background-color: #FFF6D8!important;
+}
+.hover-warning .card h2 {
+    transition: 0.3s ease-in;
+}
+.hover-warning .card:hover h2 {
+    color: #000000;
+}
+.position-relative {
+    position: relative;
+}
+
+
+h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #000000;
+}
+h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+}
+h6 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+}
+
+a {
+    color: #FF8080;
+}
+.logo-text a h1 {
+    font-weight: bold !important;
+    color: #000 !important;
+}
+
+
+
+.bg-white {
+    background-color: #ffffff!important;
+}
+.position-absolute {
+    position: absolute;
+} 
+.left-50 {
+    left: 50%;
+} 
+.top-50 {
+    top: 50%;
+} 
+.translate-middle {
+    transform: translate(-50%, -50%);
+}
+.rounded-pill {
+    border-radius: 50rem;
+}
+.div-300 {
+    width: 300px;
+    height: 200px;
+}
+.div-300 img {
+    width: 300px;
+    height: 200px;
+}
+
+.vendore-class{
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    color: #ffffff;
+    background: #00000095;
+    padding: 10px;
+    left: 0;
+    right: 0;
+}
+
+
+.steps-1234{
+    color: #ff8080;
+    background-color: #ffffff;
+    font-size: 36px;
+    font-weight: 700;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.border-class {
+   position: relative;
+}
+
+
+
+.card.vendors {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+.card > .card-content:before {
+    content: '';
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover .card-content:before {
+    background: rgba(0, 0, 0, 0);
+}
+
+.mh-200 {
+    min-height: 210px;
+}
+.px-0 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+@media (max-width: 1200px) {
+    .enire-plan h2 {
+        font-size: 50px;
+        line-height: 55px;
+    }
+}
+@media (max-width: 992px) {
+    br {
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    .enire-plan h2 {
+        font-size: 40px;
+        line-height: 45px;
+    }
+}
+@media (min-width: 400px) {
+    .mw-400 {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+@media (min-width: 992px) {
+    .border-class:before {
+        content: '';
+        display: block;
+        border-top: dashed 1px #ffffff;
+        height: 2px;
+        width: 80%;
+        position: absolute;
+        top: 40px;
+        left: 120px;
+        z-index: -1;
+    }
+    .custom-width {
+        width: 62%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .pe-lg-5 {
+        padding-right: 3rem !important;
+    }
+    .col-lg-1 {
+        flex: 0 0 auto;
+        width: 8.33333333%;
+    }
+    .col-lg-2 {
+        flex: 0 0 auto;
+        width: 16.66666667%;
+    }
+    .col-lg-3 {
+        flex: 0 0 auto;
+        width: 25%;
+    }
+    .col-lg-4 {
+        flex: 0 0 auto;
+        width: 33.33333333%;
+    }
+    .col-lg-5 {
+        flex: 0 0 auto;
+        width: 41.66666667%;
+    }
+    .col-lg-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+    .col-lg-7 {
+        flex: 0 0 auto;
+        width: 58.33333333%;
+    }
+    .col-lg-8 {
+        flex: 0 0 auto;
+        width: 66.66666667%;
+    }
+    .col-lg-9 {
+        flex: 0 0 auto;
+        width: 75%;
+    }
+    .col-lg-10 {
+        flex: 0 0 auto;
+        width: 83.33333333%;
+    }
+    .col-lg-11 {
+        flex: 0 0 auto;
+        width: 91.66666667%;
+    }
+    .col-lg-12 {
+        flex: 0 0 auto;
+        width: 100%;
+    } 
+}
+
+@media (min-width: 768px) {
+    .enire-plan h3 {
+        width: 50%;
+    }
+}
+    </style>
+
+<style>
+    .translate-unset {
+        transform: unset!important;
+    }
+    .mega-menu {
+        width: calc(100% - 2.9rem);
+        inset: 83px auto auto 24px !important;
+    }
+    .fs-6 {
+        font-size: 15px;
+    }
+    .mega-menu h6 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+    }
+    .mega-menu .mega-menu-links a:hover .menu-titles {
+        text-decoration: underline;
+    }
+    .font-reselu {
+        font-family: "Reselu"!important;
+    }
+</style>
     <div x-data="window.TTRjRvxLbHzaKxW">
 
         {{-- Admin navbar --}}
         @auth('admin')
         <div class="bg-gray-900 dark:bg-primary-600">
-            <div class="max-w-7xl mx-auto h-10 px-4 flex items-center justify-between sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto h-10 px-3 flex items-center justify-between sm:px-6 lg:px-8">
 
                 {{-- Welcome back --}}
                 <span class="italic font-normal text-white text-xs">@lang('messages.t_welcome'), {{ auth('admin')->user()->username }}!</span>
@@ -29,27 +640,28 @@
         @endauth
 
         {{-- Primary navbar --}}
-        <nav class="relative container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-between items-center h-20 flex">
+        <nav class="relative container max-w-7xl mx-auto px-3 pr-0 sm:pr-6 lg:pr-8 sm:px-6 lg:px-8">
 
-            {{-- Logo --}}
-            <div class="inline-flex items-center min-w-fit logo-text">
+        <div class="justify-between items-center h-20 flex">
+        {{-- Logo --}}
+            <div class="flex items-center min-w-fit logo-text">
 
                 {{-- Mobile menu button --}}
-                <!-- <button type="button" class="bg-white dark:bg-transparent rounded-md text-gray-500 dark:text-gray-100 dark:hover:text-white ltr:mr-5 rtl:ml-5 md:hidden" x-on:click="mobile_menu = true">
+                <button type="button" class="dark:bg-transparent rounded-md ltr:mr-5 rtl:ml-5 md:hidden rounded-md p-2 text-gray-800 hover:bg-red-400 focus:bg-red-400 hover:text-white focus:outline-none" x-on:click="mobile_menu = true">
                     <span class="sr-only">Open menu</span>
-                    <svg class="text-gray-400 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white h-6 w-6" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path></g></svg>
-                </button> -->
+                    <svg class="text-gray-800 hover:text-white dark:text-gray-100 dark:hover:text-white h-6 w-6" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path></g></svg>
+                </button>
 
                 {{-- Logo --}}
                 @if (current_theme() === 'dark' && settings('general')->logo_dark)
                 <a href="{{ url('/') }}" class="block ltr:sm:mr-6 rtl:sm:ml-6">
-                    <h1>SUKOONZZ</h1>
+                    <h1 class="text-lg sm:text-3xl">SUKOONZZ</h1>
 
                     <!-- <img width="170"  src="{{ src(settings('general')->logo_dark) }}" alt="{{ settings('general')->title }}" style="position: relative;right: 6px"> -->
                 </a>
                 @else
                 <a href="{{ url('/') }}" class="block ltr:sm:mr-6 rtl:sm:ml-6">
-                    <h1>SUKOONZZ</h1>
+                    <h1 class="text-lg sm:text-3xl">SUKOONZZ</h1>
 
                     <!-- <img width="280"  src="{{ src(settings('general')->logo) }}" alt="{{ settings('general')->title }}" style="position: relative;right: 6px"> -->
                 </a>
@@ -58,29 +670,151 @@
 
 
                 {{-- Parent categories --}}
-                <ul class="relative flex items-center justify-center overflow-y-auto transition-colors duration-300 rtl:space-x-reverse scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-zinc-600 scrollbar-track-gray-50 dark:scrollbar-track-zinc-400" style="gap:30px">
-                    @foreach ($categories as $category)
-                    <li class="inline-block flex-shrink-0 border-b-2 border-transparent hover:border-primary-600 focus:outline-none focus:ring-0 relative">
+                
+                <ul class="nav-linking hidden md:flex sm:ml-6 relative items-center justify-center gap-4 overflow-y-auto transition-colors duration-300 rtl:space-x-reverse scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-zinc-600 scrollbar-track-gray-50 dark:scrollbar-track-zinc-400">
+                                <li class="inline-block flex-shrink-0 border-b-2 border-transparent hover:border-red-400 focus:outline-none focus:ring-0 relative">
+                                    <a href="/" class="block text-[13px] text-black dark:text-white dark:group-hover:text-white group-hover:text-red-600 p-nav focus:outline-none focus:ring-0 hover:text-red-500 font-reselu">
+                                        Home
+                                    </a>
+                                </li>
+                                <li class="inline-block flex-shrink-0 border-b-2 border-transparent hover:border-red-400 focus:outline-none focus:ring-0 relative">
+                                    <a href="/categories/planning" class="block text-[13px] text-black dark:text-white dark:group-hover:text-white group-hover:text-red-600 p-nav focus:outline-none focus:ring-0 hover:text-red-500 font-reselu">
+                                        Planning
+                                    </a>
+                                </li>
+                                    <!-- @foreach ($categories as $category) -->
+                                    <!--<li class="inline-block flex-shrink-0 border-b-2 border-transparent hover:border-red-400 focus:outline-none focus:ring-0 relative">-->
+                                    <!-- @if ($category->is_visible) -->
+									
+                                    <li class="inline-block flex-shrink-0 border-b-2 border-transparent hover:border-red-400 focus:outline-none focus:ring-0 relative">
+                                    <!-- @endif -->
 
-                        {{-- Check if category has subcategories --}}
-                        @if (count($category->subcategories))
-                        <button data-popover-target="popover-subcategories-{{ $category->uid }}" data-popover-trigger="hover" class="block text-[13px] font-medium text-black dark:text-white dark:group-hover:text-white group-hover:text-primary-600 py-2 focus:outline-none focus:ring-0">
-                            {{ $category->name }}
-                        </button>
-                        @else
-                        <a href="{{ url('categories', $category->slug) }}" class="block text-[13px] font-medium text-black dark:text-white dark:group-hover:text-white group-hover:text-primary-600 py-2 focus:outline-none focus:ring-0">
-                            {{ $category->name }}
-                        </a>
-                        @endif
+                                        <!-- {{-- Check if category has subcategories --}} -->
+                                        <!-- @if (count($category->subcategories)) -->
+                                            <!-- @if ($category->is_visible) -->
+                                        <!--<button data-popover-target="popover-subcategories-{{ $category->uid }}" data-popover-trigger="hover" class="block text-[13px] font-medium text-black dark:text-white dark:group-hover:text-white group-hover:text-red-600 py-2 focus:outline-none focus:ring-0">-->
+                                            <a data-popover-target="popover-subcategories-{{ $category->uid }}menu" data-popover-trigger="hover" class="block text-[13px] text-black dark:text-white dark:group-hover:text-white group-hover:text-red-600 p-nav focus:outline-none focus:ring-0 hover:text-red-500 font-reselu">
+                                            {{ $category->name }} 
+                                        </a>
+                                            <!-- @endif -->
+                                        <!-- @else -->
+                                        
+                                            <!-- @if ($category->is_visible)
+                                        <a href="{{ url('categories', $category->slug) }}" class="block text-[13px] font-medium text-black dark:text-white dark:group-hover:text-white group-hover:text-red-600 p-nav focus:outline-none focus:ring-0 hover:text-red-500">
+                                            {{ $category->name }} 
+                                        </a>
+                                            @endif
+                                        @endif
+                                    @if ($category->is_visible)-->
+                                    </li>
+                                    <!-- @endif -->
+                                    <!-- @endforeach  -->
+                                <!-- <li class="inline-block flex-shrink-0 border-b-2 border-transparent hover:border-red-400 focus:outline-none focus:ring-0 relative">
+                                    <button data-popover-target="popover-subcategories-{{ $category->uidmenu }}" data-popover-trigger="hover" class="block text-[13px] font-medium text-black dark:text-white dark:group-hover:text-white group-hover:text-red-600 py-2 focus:outline-none focus:ring-0">menu</button>
+                                    </li>-->
+                                </ul>
 
-                    </li>
-                    @endforeach
-                </ul>
+                                <!-- {{-- Subcategories --}}
+                                @foreach ($categories as $category)
+                                @if (count($category->subcategories))
+                                @if ($category->is_visible) -->
+                                
+                                <div data-popover id="popover-subcategories-{{ $category->uid }}menu" data-popover-placement="bottom" role="tooltip" class="mega-menu absolute z-10 invisible opacity-0 inline-block w-full text-sm font-light text-gray-500 transition-opacity duration-300 bg-white rounded-md shadow-xl dark:text-zinc-400 dark:bg-zinc-800 translate-unset">
+                                <div class="rows">
+                                    <div class="col-lg-8 bg-danger py-4">
+                                        <div class="rows mega-menu-links">
+                                            <!-- @foreach ($category->subcategories as $sub) -->
+                                            <div class="col-lg-6 p-4">
+                                                <a href="{{ url('categories/' . $category->slug . '/' . $sub->slug) }}">
+                                                    <h4 class="text-white mb-2 menu-titles">{{ $sub->name }}</h4>
+                                                    <p class="text-white">{{ $sub->description }}</p>
+                                                </a>
+                                            </div>
+                                            <!-- @endforeach -->
+                                        </div>
+                                    </div>
+                                
+                                <!-- mega menu -->
+                                <!--<div data-popover id="popover-subcategories-{{ $category->uid }}menu" data-popover-placement="bottom" role="tooltip" class="mega-menu absolute z-10 invisible opacity-0 inline-block w-full text-sm font-light text-gray-500 transition-opacity duration-300 bg-white rounded-md shadow-xl dark:text-zinc-400 dark:bg-zinc-800 translate-unset">
+                                <div class="rows">
+                                    <div class="col-lg-8 bg-danger py-4">
+                                        <div class="rows mega-menu-links">
+                                            <div class="col-lg-6 p-4">
+                                                <a href="#">
+                                                    <h4 class="text-white mb-2 menu-titles">venues</h4>
+                                                    <p class="text-white">Find the perfect venue for all sorts of events- including Mosques, Banquet Halls, and Reception Locations</p>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-6 p-4">
+                                                <a href="#">
+                                                    <h4 class="text-white mb-2 menu-titles">Catering</h4>
+                                                    <p class="text-white">Choose from the tastiest cuisines</p>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-6 p-4">
+                                                <a href="#">
+                                                    <h4 class="text-white mb-2 menu-titles">Photographers</h4>
+                                                    <p class="text-white">Remember your special day forever!</p>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-6 p-4">
+                                                <a href="#">
+                                                    <h4 class="text-white mb-2 menu-titles">Videographers</h4>
+                                                    <p class="text-white">Get everything recorded. Live out your wedding day as many times as you like!</p>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-6 p-4">
+                                                <a href="#">
+                                                    <h4 class="text-white mb-2 menu-titles">DJ's</h4>
+                                                    <p class="text-white">Good music = Good Wedding</p>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-6 p-4">
+                                                <a href="#">
+                                                    <h4 class="text-white mb-2 menu-titles">Decorators</h4>
+                                                    <p class="text-white">Beautify your venue!</p>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-6 p-4">
+                                                <a href="#">
+                                                    <h4 class="text-white mb-2 menu-titles">Imams</h4>
+                                                    <p class="text-white">Find Imams to perform your nikkah!</p>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-6 p-4">
+                                                <a href="#">
+                                                    <h4 class="text-white mb-2 menu-titles">Makeup/Heena Artists</h4>
+                                                    <p class="text-white">You gotta look good for your wedding day!</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                    <div class="col-lg-4 bg-warning p-4">
+                                        <h4 class="mb-4 mt-3">Vendor Spotlight</h4>
+                                        <div class="d-flex gap-3 mb-4">
+                                            <img src="../../public/img/home/wedding.jpg" class="object-fit-cover" width="130px" height="auto" alt="">
+                                            <div>
+                                                <h6 class="text-black">Article Title</h6>
+                                                <p class="py-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                                <a href="#" class="text-black d-flex align-items-end gap-1 hover:underline">Read more</a>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex gap-3 mb-5">
+                                            <img src="../../public/img/home/planning.jpg" class="object-fit-cover" width="130px" height="auto" alt="">
+                                            <div>
+                                                <h6 class="text-black">Article Title</h6>
+                                                <p class="py-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                                <a href="#" class="text-black d-flex align-items-end gap-1 hover:underline">Read more</a>
+                                            </div>
+                                        </div>
+                                        <a href="/blog" class="text-black d-flex align-items-center gap-1 fs-6 hover:underline">See All Articles <img src="../../public/img/home/arrow-right.svg" alt=""></a>
+                                    </div>
+                                </div>
+                                </div>
 
-
-                {{-- Subcategories --}}
-                @foreach ($categories as $category)
-                @if (count($category->subcategories))
+                <!-- @endif -->
+                <!-- / mega menu -->
+		
                 <div data-popover id="popover-subcategories-{{ $category->uid }}" data-popover-placement="bottom" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm font-light text-gray-500 transition-opacity duration-300 bg-white rounded-md shadow-xl opacity-0 dark:text-zinc-400 dark:bg-zinc-800">
                     <ul class="max-h-96 !overflow-y-auto scrollbar-thin scrollbar-thumb-primary-600 scrollbar-track-white dark:scrollbar-track-zinc-800">
 
@@ -91,7 +825,7 @@
                                 <img class="w-7 h-7 lazy" src="{{ placeholder_img() }}" data-src="{{ src($sub->icon) }}" alt="{{ $sub->name }}">
                             </div> -->
                                 <div class="flex-1 min-w-0">
-                                    <p class="text-[13px] font-semibold text-gray-700 truncate dark:text-zinc-200 group-hover:text-primary-600">
+                                    <p class="text-[13px] font-semibold text-gray-700 truncate dark:text-zinc-200 group-hover:text-red-600">
                                         {{ $sub->name }}
                                     </p>
                                 </div>
@@ -106,11 +840,12 @@
                         </a>
                     </div>
                 </div>
+				
                 @endif
                 @endforeach
 
             </div>
-            <!-- <div class="w-full hidden lg:block">   
+            <!-- <div class="w-full hidden md:block">   
                 <div class="relative max-w-md" x-data="{ open: false }">
                     
                     {{-- Input --}}
@@ -211,8 +946,17 @@
             </div> -->
 
             {{-- Actions links --}}
-            <div class="min-w-fit ltr:sm:ml-10 rtl:sm:mr-10 flex items-center font-medium text-sm transition-all duration-200">
+            <div class="nav-btn-group min-w-fit ltr:sm:ml-10 rtl:sm:mr-10 flex items-center font-medium text-sm transition-all duration-200">
 
+			
+            	<!--<button type="button" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 mx-4 dark:text-gray-100 dark:hover:text-white md:block relative">
+            		<span class="absolute bg-red-400 text-gray-100 px-1 py-0 text-xs font-normal rounded-full" style="top: 0px; right: -8px;">9</span>
+                	<svg class="text-gray-400 hover:text-gray-700 h-5 w-5 dark:text-gray-100 dark:hover:text-white" fill="currentColor" viewBox="0 0 16 16">
+                    	<path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                	</svg>
+            	</button>-->
+
+            
                 <!-- {{-- Explore --}}
                 <div x-data="{ open: false }" class="relative inline-block">
 
@@ -257,27 +1001,15 @@
 
                 {{-- Change language --}}
                 @if (settings('general')->is_language_switcher)
-                {{-- @livewire('main.partials.languages') --}}
+                 @livewire('main.partials.languages') 
                 @endif
 
 
                 {{-- Become a seller --}}
                 @guest
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-                    <a href="{{ url('start_selling') }}" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 px-4 hidden md:block dark:text-gray-100 dark:hover:text-white">
-                        @lang('messages.t_become_a_seller')
-                    </a>
-=======
-                <a href="{{ url('start_selling') }}" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 px-4 hidden md:block dark:text-gray-100 dark:hover:text-white">
-                    @lang('messages.t_become_a_seller') 
-                </a>
->>>>>>> Stashed changes
-=======
-                <a href="{{ url('start_selling') }}" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 px-4 hidden md:block dark:text-gray-100 dark:hover:text-white">
+                <a href="{{ url('start_selling') }}" class="hidden md:block border border-black font-medium h-9 leading-6 py-2 px-2 sm:px-3 mr-4 transition-colors duration-300 text-black hover-focus-bg-black hover:text-white focus:text-white">
                     @lang('messages.t_become_a_seller')
                 </a>
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
                 @endguest
 
                 {{-- Switch buying/selling --}}
@@ -286,15 +1018,15 @@
                 {{-- Check account type --}}
                 @if (auth()->user()->account_type === 'seller' && !Illuminate\Support\Str::of(request()->path())->startsWith('seller'))
 
-                {{-- Switch selling --}}
-                <a href="{{ url('seller/home') }}" class="text-primary-600 hover:text-primary-700 transition-colors duration-300 py-2 px-4 hidden lg:block dark:text-gray-100 dark:hover:text-white">
+                <!-- {{-- Switch selling --}}
+                <a href="{{ url('seller/home') }}" class="text-primary-600 hover:text-primary-700 hover:underline transition-colors duration-300 py-2 px-4 hidden md:block dark:text-gray-100 dark:hover:text-white">
                     @lang('messages.t_switch_to_selling')
-                </a>
+                </a> -->
 
                 @elseif (auth()->user()->account_type === 'seller' && Illuminate\Support\Str::of(request()->path())->startsWith('seller'))
 
                 {{-- Switch buying --}}
-                <a href="{{ url('/') }}" class="text-primary-600 hover:text-primary-700 transition-colors duration-300 py-2 px-4 hidden lg:block dark:text-gray-100 dark:hover:text-white">
+                <a href="{{ url('/') }}" class="text-primary-600 hover:text-primary-700 hover:underline transition-colors duration-300 py-2 px-2 sm:px-4 hidden md:block dark:text-gray-100 dark:hover:text-white">
                     @lang('messages.t_switch_to_buying')
                 </a>
 
@@ -304,7 +1036,7 @@
 
                 {{-- Sign in --}}
                 @guest
-                <a href="{{ url('auth/login') }}" class="text-white bg-black transition-colors duration-300 py-2 px-4 hidden md:block dark:text-white dark:bg-black hover:bg-gray-800">
+                <a href="{{ url('auth/login') }}" class="mx-2 md:mx-4 inline-flex items-center rounded-sm border border-black bg-gray-800 px-2 sm:px-4 py-2 text-[13px] font-medium text-white hover:text-gray-800 focus:text-gray-800 hover:bg-transparent transition-colors duration-300">
                     LOGIN
                     <!-- @lang('messages.t_sign_in') -->
                 </a>
@@ -316,8 +1048,7 @@
                  
                 @lang('messages.t_join')
                 </a> -->
-                <a href="{{ url('auth/register') }}" class="py-2 px-4 ml-4 text-white transition-colors duration-300 hidden md:inline-block dark:text-white dark:hover:text-white"
-                    style="background-color: #FF8080;">
+                <a href="{{ url('auth/register') }}" class="inline-flex items-center rounded-sm border border-red-400 bg-red-400 px-2 sm:px-4 py-2 text-[13px] font-medium text-white hover:text-red-500 focus:text-red-400 hover:bg-transparent transition-colors duration-300">
                     SIGN UP
                 </a>
 
@@ -326,27 +1057,24 @@
                 @endguest
 
                 {{-- Mobile search --}}
-                
-<<<<<<< HEAD
-                @livewire('main.partials.search')
-=======
                 {{-- @livewire('main.partials.search')  --}}
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
 
                 {{-- Cart --}}
-                {{-- @livewire('main.partials.cart') --}}
+						
+                 	@livewire('main.partials.cart')
+                
 
                 {{-- Received orders --}}
                 @auth
                 @if (auth()->user()->account_type === 'seller')
-                <a href="{{ url('seller/orders') }}" class="text-gray-500 hover:text-primary-600 dark:text-gray-100 dark:hover:text-white transition-colors duration-300 py-2 mx-4 relative hidden md:block">
+                <a href="{{ url('seller/orders') }}" class="text-gray-500 hover:text-primary-600 dark:text-gray-100 dark:hover:text-white transition-colors duration-300 py-2 mx-4 hidden relative md:block">
                     <svg class="text-gray-400 hover:text-gray-700 h-6 w-6 dark:text-gray-100 dark:hover:text-white" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 22h14c1.103 0 2-.897 2-2V9a1 1 0 0 0-1-1h-3V7c0-2.757-2.243-5-5-5S7 4.243 7 7v1H4a1 1 0 0 0-1 1v11c0 1.103.897 2 2 2zM9 7c0-1.654 1.346-3 3-3s3 1.346 3 3v1H9V7zm-4 3h2v2h2v-2h6v2h2v-2h2l.002 10H5V10z"></path>
                     </svg>
                     @if (auth()->user()->sales->where('status', 'pending')->count())
                     <span class="flex absolute h-2 w-2 top-0 ltr:right-0 rtl:left-0 mt-0 ltr:-mr-1 rtl:-ml-1">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                     </span>
                     @endif
                 </a>
@@ -355,37 +1083,54 @@
 
                 {{-- Notifications --}}
                 @auth
-                <button x-on:click="notifications_menu = true" type="button" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 relative mx-4 dark:text-gray-100 dark:hover:text-white hidden md:block">
+                <button x-on:click="notifications_menu = true" type="button" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 relative mx-4 dark:text-gray-100 dark:hover:text-white md:block">
                     <svg class="text-gray-400 hover:text-gray-700 h-6 w-6 dark:text-gray-100 dark:hover:text-white" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19 13.586V10c0-3.217-2.185-5.927-5.145-6.742C13.562 2.52 12.846 2 12 2s-1.562.52-1.855 1.258C7.185 4.074 5 6.783 5 10v3.586l-1.707 1.707A.996.996 0 0 0 3 16v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2a.996.996 0 0 0-.293-.707L19 13.586zM19 17H5v-.586l1.707-1.707A.996.996 0 0 0 7 14v-4c0-2.757 2.243-5 5-5s5 2.243 5 5v4c0 .266.105.52.293.707L19 16.414V17zm-7 5a2.98 2.98 0 0 0 2.818-2H9.182A2.98 2.98 0 0 0 12 22z"></path>
                     </svg>
                     @if ($notifications && count($notifications))
-                    <span class="flex absolute h-2 w-2 top-0 ltr:right-0 rtl:left-0 mt-0 ltr:-mr-1 rtl:-ml-1">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                    <span class="flex absolute h-2 w-2 top-1 ltr:right-0 rtl:left-0 mt-0 ltr:-mr-1 rtl:-ml-1">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                     </span>
                     @endif
                 </button>
                 @endauth
 
-                {{-- Messages --}}
-                @auth
-                <a href="{{ url('inbox') }}" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 relative ltr:ml-4 rtl:mr-4 md:!mx-4 dark:text-gray-100 dark:hover:text-white hidden md:block">
+                {{-- Messages --}}   
+				 @auth
+                	@if (auth()->user()->account_type === 'seller' || auth()->user()->account_type === 'buyer')                 
+                            			
+				<a href="{{ url('inbox') }}" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 relative ltr:ml-4 rtl:mr-4 md:!mx-4 dark:text-gray-100 dark:hover:text-white md:block">						
                     <svg class="text-gray-400 hover:text-gray-700 h-6 w-6 dark:text-gray-100 dark:hover:text-white" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"></path>
                     </svg>
                     @if ($new_messages)
                     <span class="flex absolute h-2 w-2 top-0 ltr:right-0 rtl:left-0 mt-0 ltr:-mr-1 rtl:-ml-1">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                     </span>
                     @endif
                 </a>
+				@endif  
                 @endauth
+               
+
+				@auth('admin')
+                    {{-- Dashboard --}}
+                    <a href="{{ admin_url('/') }}" class="text-sm font-medium text-white hover:text-gray-100">                       
+                		<button type="button" class="text-gray-500 hover:text-primary-600 transition-colors duration-300 py-2 ml-4 dark:text-gray-100 dark:hover:text-white md:block">
+                    		<svg class="text-gray-400 hover:text-gray-700 h-5 w-5 dark:text-gray-100 dark:hover:text-white" fill="currentColor" class="bi bi-window-sidebar" viewBox="0 0 16 16">
+                    			<path d="M2.5 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+                    			<path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v2H1V3a1 1 0 0 1 1-1zM1 13V6h4v8H2a1 1 0 0 1-1-1m5 1V6h9v7a1 1 0 0 1-1 1z"/>
+                   			</svg>
+                		</button>
+					</a>
+                @endauth
+				
 
                 {{-- Authenticated user --}}
                 @auth
-                <div class="hidden md:inline-block relative ltr:ml-4 rtl:mr-4" x-data="{ open: false }">
+                <div class="md:inline-block relative ltr:ml-6 rtl:mr-4" x-data="{ open: false }">
 
                     {{-- Status --}}
                     @if (auth()->user()->isOnline() && !auth()->user()->availability)
@@ -427,37 +1172,37 @@
                         </p>
 
                         {{-- Seller --}}
-                        <div class="py-1.5 px-3.5">
+                        <div class="py-1.5 px-3.5 bg-zinc-900">
 
                             {{-- Buyer --}}
                             @if (auth()->user()->account_type === 'buyer')
                             {{-- Become a seller --}}
-                            <a href="{{ url('start_selling') }}"
-                                class="group flex items-center py-1.5 group-hover:text-primary-600">
+                            <!--<a href="{{ url('start_selling') }}"
+                                class="group flex items-center py-1.5 group-hover:text-red-600">
                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5"
+                                    class="flex-none ltr:mr-3 rtl:ml-3 text-white group-hover:text-red-600 h-5 w-5"
                                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                                 </svg>
                                 <span
-                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_become_a_seller') }}</span>
-                            </a>
+                                    class="font-semibold text-xs text-white dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_become_a_seller') }}</span>
+                            </a>-->
                             @endif
 
                             {{-- Freelancer --}}
                             @if (auth()->user()->account_type === 'seller')
                             {{-- Seller dashboard --}}
                             <a href="{{ url('seller/home') }}"
-                                class="group flex items-center py-1.5 group-hover:text-primary-600">
+                                class="group flex items-center py-1.5 group-hover:text-red-600">
                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5"
+                                    class="flex-none ltr:mr-3 rtl:ml-3 text-white group-hover:text-red-600 h-5 w-5"
                                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                                 </svg>
                                 <span
-                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_seller_dashboard') }}</span>
+                                    class="font-semibold text-sm text-white dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_seller_dashboard') }}</span>
                             </a>
                             @endif
 
@@ -469,21 +1214,21 @@
                         <div class="py-1.5 px-3.5">
 
                             {{-- My projects --}}
-                            <a href="{{ url('account/projects') }}" class="group flex items-center py-1.5 group-hover:text-primary-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <a href="{{ url('account/projects') }}" class="group flex items-center py-1.5 group-hover:text-red-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
-                                <span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">
+                                <span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">
                                     {{ __('messages.t_my_projects') }}
                                 </span>
                             </a>
 
                             {{-- Post a project --}}
-                            <a href="{{ url('post/project') }}" class="group flex items-center py-1.5 group-hover:text-primary-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <a href="{{ url('post/project') }}" class="group flex items-center py-1.5 group-hover:text-red-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
                                 </svg>
-                                <span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">
+                                <span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">
                                     {{ __('messages.t_post_project') }}
                                 </span>
                             </a>
@@ -497,35 +1242,35 @@
 
                             {{-- View Profile --}}
                             <a href="{{ url('profile', auth()->user()->username) }}"
-                                class="group flex items-center py-1.5 group-hover:text-primary-600">
+                                class="group flex items-center py-1.5 group-hover:text-red-600">
                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5"
+                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5"
                                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                                 <span
-                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_view_profile') }}</span>
+                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_view_profile') }}</span>
                             </a>
 
                             {{-- Edit profile --}}
                             <a href="{{ url('account/profile') }}"
-                                class="group flex items-center py-1.5 group-hover:text-primary-600">
+                                class="group flex items-center py-1.5 group-hover:text-red-600">
                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5"
+                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5"
                                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                 </svg>
                                 <span
-                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_edit_profile') }}</span>
+                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_edit_profile') }}</span>
                             </a>
 
                             {{-- Account settings --}}
                             <a href="{{ url('account/settings') }}"
-                                class="group flex items-center py-1.5 group-hover:text-primary-600">
+                                class="group flex items-center py-1.5 group-hover:text-red-600">
                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5"
+                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5"
                                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -533,16 +1278,16 @@
                                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
                                 <span
-                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_account_settings') }}</span>
+                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_account_settings') }}</span>
                             </a>
 
                             {{-- Update password --}}
                             <a href="{{ url('account/password') }}"
-                                class="group flex items-center py-1.5 group-hover:text-primary-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                class="group flex items-center py-1.5 group-hover:text-red-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                 </svg>
-                                <span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_update_password') }}</span>
+                                <span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_update_password') }}</span>
                             </a>
 
                         </div>
@@ -551,53 +1296,52 @@
                         <div class="py-1.5 px-3.5">
 
                             {{-- Deposit --}}
-                            <a href="{{ url('account/deposit') }}" class="group flex items-center py-1.5 group-hover:text-primary-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <a href="{{ url('account/deposit') }}" class="group flex items-center py-1.5 group-hover:text-red-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
-                                <span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_deposit') }}</span>
+                                <span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_deposit') }}</span>
                             </a>
 
                             {{-- My orders --}}
                             <a href="{{ url('account/orders') }}"
-                                class="group flex items-center py-1.5 group-hover:text-primary-600">
+                                class="group flex items-center py-1.5 group-hover:text-red-600">
                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5"
+                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5"
                                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                                 </svg>
                                 <span
-                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_my_orders') }}</span>
+                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_my_orders') }}</span>
                             </a>
 
                             {{-- Messages --}}
-                            <a href="{{ url('inbox') }}"
-                                class="group flex items-center py-1.5 group-hover:text-primary-600">
+                            	<a href="{{ url('inbox') }}" class="group flex items-center py-1.5 group-hover:text-red-600">
                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5"
+                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5"
                                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                                 <span
-                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_messages') }}</span>
+                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_messages') }}</span>
                             </a>
 
                             {{-- Reviews --}}
-                            <a href="{{ url('account/reviews') }}" class="group flex items-center py-1.5 group-hover:text-primary-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <a href="{{ url('account/reviews') }}" class="group flex items-center py-1.5 group-hover:text-red-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                                 </svg>
-                                <span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_reviews') }}</span>
+                                <span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_reviews') }}</span>
                             </a>
 
                             {{-- Refunds --}}
-                            <a href="{{ url('account/refunds') }}" class="group flex items-center py-1.5 group-hover:text-primary-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <a href="{{ url('account/refunds') }}" class="group flex items-center py-1.5 group-hover:text-red-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z" />
                                 </svg>
-                                <span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_refunds') }}</span>
+                                <span class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_refunds') }}</span>
                             </a>
 
                         </div>
@@ -608,30 +1352,30 @@
                             {{-- Verification center --}}
                             @if (auth()->user()->status !== 'verified')
                             <a href="{{ url('account/verification') }}"
-                                class="group flex items-center py-1.5 group-hover:text-primary-600">
+                                class="group flex items-center py-1.5 group-hover:text-red-600">
                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5"
+                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5"
                                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                 </svg>
                                 <span
-                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_verification_center') }}</span>
+                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_verification_center') }}</span>
                             </a>
                             @endif
 
                             {{-- Logout --}}
                             <a href="{{ url('auth/logout') }}"
-                                class="group flex items-center py-1.5 group-hover:text-primary-600">
+                                class="group flex items-center py-1.5 group-hover:text-red-600">
                                 <svg aria-hidden="true" width="20" height="20" fill="none"
-                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-primary-600 h-5 w-5">
+                                    class="flex-none ltr:mr-3 rtl:ml-3 text-gray-400 group-hover:text-red-600 h-5 w-5">
                                     <path
                                         d="M10.25 3.75H9A6.25 6.25 0 002.75 10v0A6.25 6.25 0 009 16.25h1.25M10.75 10h6.5M14.75 12.25l2.5-2.25-2.5-2.25"
                                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round" />
                                 </svg>
                                 <span
-                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-500">{{ __('messages.t_logout') }}</span>
+                                    class="font-semibold text-xs text-gray-700 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-primary-500">{{ __('messages.t_logout') }}</span>
                             </a>
 
                         </div>
@@ -642,11 +1386,14 @@
                 @endauth
 
             </div>
+        </div>
+
 
         </nav>
 
         {{-- Divider --}}
         <div class="w-full h-px bg-gray-100 dark:bg-zinc-900 hidden md:block"></div>
+
 
         {{-- Categories --}}
 
@@ -697,8 +1444,8 @@
                             </svg>
                             @if (auth()->user()->sales->where('status', 'pending')->count())
                             <span class="flex absolute h-2 w-2 top-0 ltr:right-0 rtl:left-0 mt-0 ltr:-mr-1 rtl:-ml-1">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                             </span>
                             @endif
                         </a>
@@ -713,8 +1460,8 @@
                             </svg>
                             @if ($notifications && count($notifications))
                             <span class="flex absolute h-2 w-2 top-0 ltr:right-0 rtl:left-0 mt-0 ltr:-mr-1 rtl:-ml-1">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                             </span>
                             @endif
                         </button>
@@ -728,8 +1475,8 @@
                             </svg>
                             @if ($new_messages)
                             <span class="flex absolute h-2 w-2 top-0 ltr:right-0 rtl:left-0 mt-0 ltr:-mr-1 rtl:-ml-1">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                             </span>
                             @endif
                         </a>
@@ -973,7 +1720,7 @@
                                     <div class="mt-2 flex space-x-7 rtl:space-x-reverse">
 
                                         {{-- View --}}
-                                        <a href="{{ $n->action }}" class="bg-transparent rounded-md text-primary-600 hover:text-primary-700 focus:outline-none text-xs tracking-wide dark:text-zinc-200 dark:hover:text-white">
+                                        <a href="{{ $n->action }}" class="bg-transparent rounded-md text-red-400 hover:text-red-600 focus:outline-none text-xs tracking-wide dark:text-zinc-200 dark:hover:text-white">
                                             {{ __('messages.t_view') }}
                                         </a>
 
@@ -1007,7 +1754,25 @@
         @endauth
 
     </div>
+    <!-- @if(Auth::check() && Auth::user()->account_type == 'buyer') -->
+        <!-- <div class="navbar">
+            <nav class="relative container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-between items-center h-20 flex" style="width: 30%;">
+              
+                <ul class="nav-menu"> -->
+                    <!--<li><a href="#">My Wedding</a></li>-->
+                    <!-- <li><a href="{{url('account/checklist')}}">Checklist</a></li> -->
+                    <!--<li><a href="#">Vendor Manager</a></li>-->
+                    <!-- <li><a href="{{url('account/guest')}}">Guest List</a></li> -->
+                    <!--<li><a href="#">Seating Chart</a></li>-->
+                    <!-- <li><a href="{{url('account/budget')}}">Budget</a></li> -->
+                    <!--<li><a href="#">Registry</a></li>
+                    <li><a href="#">Wedding Website</a></li>-->
+                <!-- </ul>
+            </nav>
+        </div>
+        @endif -->
 </header>
+
 
 @push('scripts')
 {{-- AlpineJs --}}

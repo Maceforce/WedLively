@@ -426,7 +426,8 @@ class EditController extends Controller
 
                     // Check if alert plan select
                     if (array_search('alert', array_column($plans_to_array, 'type')) !== false) {
-                        $alert = $plans_to_array[array_search('alert', array_column($plans_to_array, 'type'))];
+                        //$alert = $plans_to_array[array_search('alert', array_column($plans_to_array, 'type'))];
+                        $alert = false;
                     } else {
                         $alert = false;
                     }

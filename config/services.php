@@ -41,39 +41,33 @@ return [
     'github' => [
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer/auth/github/callback',
+        'redirect'      => 'https://compassionate-williamson.70-35-202-80.plesk.page/auth/github/callback',
     ],
-    'linkedin' => [
+    'linkedin' => [    
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer/auth/linkedin/callback'
+        'redirect'      => 'https://compassionate-williamson.70-35-202-80.plesk.page/auth/linkedin/callback'
     ],
-    'google' => [
+    'google' => [    
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer/auth/google/callback'
+        'redirect'      => 'https://compassionate-williamson.70-35-202-80.plesk.page/auth/google/callback'
     ],
-    'facebook' => [
+    'facebook' => [    
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer/auth/facebook/callback'
+        'redirect'      => 'https://compassionate-williamson.70-35-202-80.plesk.page/auth/facebook/callback'
     ],
-    'twitter' => [
+    'twitter' => [    
         'client_id'     => '',
         'client_secret' => '',
-        'redirect'      => 'http://localhost/freeluncer/auth/twitter/callback'
+        'redirect'      => 'https://compassionate-williamson.70-35-202-80.plesk.page/auth/twitter/callback'
     ],
 
     // Email marketing
     'mailjet' => [
         'key'    => "",
         'secret' => "",
-    ],
-  'stripe' => [
-    'key' => env('STRIPE_KEY'),
-    'secret' => env('STRIPE_SECRET'),
-],
-
-
+    ]
 
 ];

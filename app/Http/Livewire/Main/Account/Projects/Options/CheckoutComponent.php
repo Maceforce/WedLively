@@ -280,7 +280,8 @@ class CheckoutComponent extends Component
         if ($project->is_alert) {
             
             // Get alert plan
-            $alert_plan = ProjectPlan::whereType('alert')->first();
+            //$alert_plan = ProjectPlan::whereType('alert')->first();
+            $alert_plan = null;
 
         } else {
 

@@ -61,56 +61,26 @@
         @endif
 
     </head>
-
+    @livewire('main.includes.header')
     <body class="antialiased bg-gray-50 dark:bg-[#161616] text-gray-600 min-h-full flex flex-col application application-ltr overflow-x-hidden {{ app()->getLocale() === 'ar' ? 'application-ar' : '' }}">
 
         {{-- Notification --}}
         <x-notifications position="top-center" z-index="z-[60]" />
 
         {{-- Container --}}
-        <div class="min-h-screen flex grow bg-slate-50 dark:bg-zinc-700">
-            
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-            <div class="hidden w-full place-items-center lg:grid">
-                <div class="w-full px-2 py-40 sm:py-48 sm:px-12 flex flex-col justify-center relative bg-no-repeat bg-center bg-cover h-full" @if(settings('auth')->wallpaper) style="background-image: url({{ src(settings('auth')->wallpaper) }})" @endif>
-                    <span style="background: url(https://i.imgur.com/MvqeeGS.jpeg);" class="absolute bg-gradient-to-b from-primary-500 to-primary-400 inset-0 z-0"></span>
-
-                    {{-- Logo --}}
-                    <div class="fixed top-0 ltr:left-0 rtl:right-0 hidden p-6 lg:block lg:px-12">
-                        @if (settings('general')->logo_dark)
-                            <a href="{{ url('/') }}" class="flex items-center">
-                                <img style="filter: brightness(0) invert(1); width: 230px;" src="{{ src(settings('general')->logo_dark) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;">
-                            </a>
-                        @else
-                            <a href="{{ url('/') }}" class="flex items-center">
-                                <img style="filter: brightness(0) invert(1); width: 230px;" src="{{ src(settings('general')->logo) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;">
-                            </a>
-                        @endif
+        <div class="flex-grow">
+            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 min-h-screen">
+                <div class="w-full lg:px-0 my-4">
+            <div class="relative px-3 py-3 lg:py-16 lg:px-16 bg-white dark:bg-zinc-800 overflow-hidden shadow-sm border border-gray-100 dark:border-zinc-700">
+                        <!-- <div class="auth-left-imag">
+                            <img src="{{url('public/img/home/authimage.jpg')}}" class="p-4 bg-white">  
+                        </div> -->
+                        <main class="flex flex-col items-center dark:bg-navy-700 lg:max-w-lg">            
+                            @yield('content')
+                        </main>
                     </div>
-
-                    {{-- Copyrights --}}
-                    <div class="fixed bottom-0 ltr:left-0 rtl:right-0 hidden p-6 lg:block lg:px-12 text-white font-normal text-[13px]">
-                        {!! settings('footer')->copyrights !!}
-                    </div>
-
                 </div>
             </div>
-            <main class="flex w-full flex-col items-center bg-white dark:bg-navy-700 lg:max-w-md">
-=======
-            
-            <div class="auth-left-imag">
-                 <img src="{{url('public/img/home/authimage.jpg')}}">  
-            </div>
-            <main class="flex flex-col items-center dark:bg-navy-700 lg:max-w-md">            
->>>>>>> Stashed changes
-=======
-        
-            <main class="flex w-full flex-col items-center bg-white dark:bg-navy-700 lg:max-w-md login-form">
->>>>>>> dbc6c2e5da09640f606f176e24f6aac468749da3
-                @yield('content')
-            </main>
-            
         </div>
 
         {{-- Livewire scripts --}}
@@ -134,5 +104,7 @@
         @endif
 
     </body>
+	    @livewire('main.includes.footer')
+
 <style>.disabled\:text-zinc-500:disabled{color: #FFF !important}</style>
 </html>

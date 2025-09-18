@@ -7,41 +7,41 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\UserWeddingPlanningController;
 
+use App\Http\Livewire\Main\Seller\Inquiries\InquiriesComponent;
+use App\Http\Livewire\Main\Seller\SalesReport\SalesReportComponent;
+
+
 // Tasks
-Route::prefix('tasks')->group(function() {
+Route::prefix('tasks')->group(function () {
 
     // Queue
-    Route::get('queue', function() {
+    Route::get('queue', function () {
 
         Artisan::call('queue:work', ['--stop-when-empty' => true, '--force' => true]);
-
     });
 
     // Schedule
-    Route::get('schedule', function() {
+    Route::get('schedule', function () {
 
         Artisan::call('schedule:run');
-
     });
-
 });
 
 // Main (Livewire)
-Route::namespace('App\Http\Livewire\Main')->group(function() {
+Route::namespace('App\Http\Livewire\Main')->group(function () {
 
     // Home
-    Route::namespace('Home')->group(function() {
-    
+    Route::namespace('Home')->group(function () {
+
         // Home
         Route::get('/', HomeComponent::class);
-    
     });
 
     // Explore
-    Route::namespace('Explore')->prefix('explore')->group(function() {
+    Route::namespace('Explore')->prefix('explore')->group(function () {
 
         // Projects
-        Route::namespace('Projects')->prefix('projects')->group(function() {
+        Route::namespace('Projects')->prefix('projects')->group(function () {
 
             // Browse projects
             Route::get('/', ProjectsComponent::class);
@@ -51,59 +51,56 @@ Route::namespace('App\Http\Livewire\Main')->group(function() {
 
             // Skill
             Route::get('{category_slug}/{skill_slug}', SkillComponent::class);
-
         });
-
     });
 
     // Project
-    Route::namespace('Project')->prefix('project')->group(function() {
+    Route::namespace('Project')->prefix('project')->group(function () {
 
         // Project
         Route::get('{pid}/{slug}', ProjectComponent::class);
-
     });
 
     // Blog
-    Route::namespace('Blog')->prefix('blog')->group(function() {
+    Route::namespace('Blog')->prefix('blog')->group(function () {
 
         // Index
         Route::get('/', BlogComponent::class);
 
         // Article
         Route::get('{slug}', ArticleComponent::class);
-
     });
 
     // Sellers
-    Route::namespace('Sellers')->prefix('sellers')->group(function() {
+    Route::namespace('Sellers')->prefix('sellers')->group(function () {
 
         // Index
         Route::get('/', SellersComponent::class);
-
     });
 
     // Redirect
-    Route::namespace('Redirect')->prefix('redirect')->group(function() {
+    Route::namespace('Redirect')->prefix('redirect')->group(function () {
 
         // To
         Route::get('/', RedirectComponent::class);
-
     });
 
     // Newsletter
-    Route::namespace('Newsletter')->prefix('newsletter')->group(function() {
+    Route::namespace('Newsletter')->prefix('newsletter')->group(function () {
 
         // Verify
         Route::get('verify', VerifyComponent::class);
-
     });
-    
+
     // Authentication 
-    Route::namespace('Auth')->middleware('guest')->prefix('auth')->group(function() {
+    Route::namespace('Auth')->middleware('guest')->prefix('auth')->group(function () {
 
         // Register
         Route::get('register', RegisterComponent::class);
+
+
+        // Vendor Register
+        Route::get('vendor/register', vendorRegisterComponent::class);
 
         // Login
         Route::get('login', LoginComponent::class)->name('login');
@@ -115,110 +112,99 @@ Route::namespace('App\Http\Livewire\Main')->group(function() {
         Route::get('request', RequestComponent::class);
 
         // Password
-        Route::namespace('Password')->prefix('password')->group(function() {
+        Route::namespace('Password')->prefix('password')->group(function () {
 
             // Reset
             Route::get('reset', ResetComponent::class);
 
             // Update
             Route::get('update', UpdateComponent::class);
-
         });
 
         // Social media
-        Route::namespace('Social')->group(function() {
+        Route::namespace('Social')->group(function () {
 
             // Github
-            Route::namespace('Github')->prefix('github')->group(function() {
+            Route::namespace('Github')->prefix('github')->group(function () {
 
                 // Redirect
                 Route::get('/', RedirectComponent::class);
 
                 // Callback
                 Route::get('callback', CallbackComponent::class);
-
             });
 
             // Linkedin
-            Route::namespace('Linkedin')->prefix('linkedin')->group(function() {
+            Route::namespace('Linkedin')->prefix('linkedin')->group(function () {
 
                 // Redirect
                 Route::get('/', RedirectComponent::class);
 
                 // Callback
                 Route::get('callback', CallbackComponent::class);
-
             });
 
             // Google
-            Route::namespace('Google')->prefix('google')->group(function() {
+            Route::namespace('Google')->prefix('google')->group(function () {
 
                 // Redirect
                 Route::get('/', RedirectComponent::class);
 
                 // Callback
                 Route::get('callback', CallbackComponent::class);
-
             });
 
             // Facebook
-            Route::namespace('Facebook')->prefix('facebook')->group(function() {
+            Route::namespace('Facebook')->prefix('facebook')->group(function () {
 
                 // Redirect
                 Route::get('/', RedirectComponent::class);
 
                 // Callback
                 Route::get('callback', CallbackComponent::class);
-
             });
 
             // Twitter
-            Route::namespace('Twitter')->prefix('twitter')->group(function() {
+            Route::namespace('Twitter')->prefix('twitter')->group(function () {
 
                 // Redirect
                 Route::get('/', RedirectComponent::class);
 
                 // Callback
                 Route::get('callback', CallbackComponent::class);
-
             });
-
         });
-
     });
 
     // Logout
-    Route::namespace('Auth')->middleware('auth')->prefix('auth')->group(function() {
+    Route::namespace('Auth')->middleware('auth')->prefix('auth')->group(function () {
 
         // Logout
         Route::get('logout', LogoutComponent::class);
-
     });
 
     // Service
-    Route::namespace('Service')->prefix('service')->group(function() {
+    Route::namespace('Service')->prefix('service')->group(function () {
 
         // Slug
         Route::get('{slug}', ServiceComponent::class)->name('service');
-
     });
 
     // Cart
-    Route::namespace('Cart')->prefix('cart')->group(function() {
+    Route::namespace('Cart')->prefix('cart')->group(function () {
 
         // cart
         Route::get('/', CartComponent::class);
-
     });
 
     // Checkout
-    Route::namespace('Checkout')->prefix('checkout')->middleware('auth')->group(function() {
+    Route::namespace('Checkout')->prefix('checkout')->middleware('auth')->group(function () {
 
         // Checkout
         Route::get('/', CheckoutComponent::class);
 
         // Callback
-        Route::namespace('Callback')->prefix('callback')->group(function() {
+        Route::namespace('Callback')->prefix('callback')->group(function () {
 
             // Stripe
             Route::get('stripe', StripeComponent::class);
@@ -245,82 +231,102 @@ Route::namespace('App\Http\Livewire\Main')->group(function() {
             Route::get('xendit', XenditComponent::class);
 
             // Epoint.az (Failed)
-            Route::get('epoint/failed', function() {
+            Route::get('epoint/failed', function () {
 
                 // We couldn't handle your payment
                 return redirect('checkout')->with('error', __('messages.t_we_could_not_handle_ur_payment'));
-
             });
 
             // Epoint.az (Success)
             Route::get('epoint/success', EpointComponent::class);
-
         });
-
     });
 
     // Account
-    Route::namespace('Account')->prefix('account')->middleware('auth')->group(function() {
+    Route::namespace('Account')->prefix('account')->middleware('auth')->group(function () {
+
+		 // Inbox
+        Route::namespace('Inbox')->group(function () {
+            Route::get('inbox', InboxComponent::class);
+        }); 
+	
+        // Budget
+        Route::namespace('Budget')->group(function () {
+
+            // Index
+            Route::get('budget', BudgetComponent::class);
+        });
+
+
+        Route::namespace('Guest')->group(function () {
+            Route::get('guest', GuestComponent::class);
+        });
+
+           // Budget
+           Route::namespace('Checklist')->group(function () {
+
+
+            // Route for the checklist page
+            Route::get('/checklist', ChecklistComponent::class)->name('checklist');
+
+            // Route for adding a task (optional, since Livewire handles it)
+            Route::post('/checklist/add-task', [ChecklistComponent::class, 'addTask'])->name('checklist.addTask');
+           });
+
 
         // Settings
-        Route::namespace('Settings')->group(function() {
+        Route::namespace('Settings')->group(function () {
 
             // Index
             Route::get('settings', SettingsComponent::class);
-
         });
 
         // Password
-        Route::namespace('Password')->group(function() {
+        Route::namespace('Password')->group(function () {
 
             // Index
             Route::get('password', PasswordComponent::class);
-
         });
 
         // Profile
-        Route::namespace('Profile')->group(function() {
+        Route::namespace('Profile')->group(function () {
 
             // Index
             Route::get('profile', ProfileComponent::class);
-
         });
 
         // Verification center
-        Route::namespace('Verification')->group(function() {
+        Route::namespace('Verification')->group(function () {
 
             // Index
             Route::get('verification', VerificationComponent::class);
-
         });
 
         // Orders
-        Route::namespace('Orders')->prefix('orders')->group(function() {
+        Route::namespace('Orders')->prefix('orders')->group(function () {
 
             // All
             Route::get('/', OrdersComponent::class);
 
             // Options
-            Route::namespace('Options')->group(function() {
+            Route::namespace('Options')->group(function () {
 
                 // Requirements
                 Route::get('requirements', RequirementsComponent::class);
 
                 // Delivered work
                 Route::get('files', FilesComponent::class);
-
             });
-
         });
 
         // Reviews
-        Route::namespace('Reviews')->prefix('reviews')->group(function() {
+        Route::namespace('Reviews')->prefix('reviews')->group(function () {
 
             // Reviews
             Route::get('/', ReviewsComponent::class);
 
             // Options
-            Route::namespace('Options')->group(function() {
+            Route::namespace('Options')->group(function () {
 
                 // Create
                 Route::get('create/{itemId}', CreateComponent::class);
@@ -330,150 +336,144 @@ Route::namespace('App\Http\Livewire\Main')->group(function() {
 
                 // Edit
                 Route::get('edit/{id}', EditComponent::class);
-
             });
-
         });
 
         // Favorite list
-        Route::namespace('Favorite')->prefix('favorite')->group(function() {
+        Route::namespace('Favorite')->prefix('favorite')->group(function () {
 
             // List
             Route::get('/', FavoriteComponent::class);
-
         });
 
         // Billing
-        Route::namespace('Billing')->prefix('billing')->group(function() {
+        Route::namespace('Billing')->prefix('billing')->group(function () {
 
             // Billing
             Route::get('/', BillingComponent::class);
-
         });
 
         // Refunds
-        Route::namespace('Refunds')->prefix('refunds')->group(function() {
+        Route::namespace('Refunds')->prefix('refunds')->group(function () {
 
             // Refund
             Route::get('/', RefundsComponent::class);
 
             // Options
-            Route::namespace('Options')->group(function() {
+            Route::namespace('Options')->group(function () {
 
                 // Request
                 Route::get('request/{id}', RequestComponent::class);
 
                 // Details
                 Route::get('details/{id}', DetailsComponent::class);
-
             });
-
         });
 
         // Deposit
-        Route::namespace('Deposit')->prefix('deposit')->group(function() {
+        Route::namespace('Deposit')->prefix('deposit')->group(function () {
 
             // Deposit
             Route::get('/', DepositComponent::class);
 
             // History
             Route::get('history', HistoryComponent::class);
-
         });
 
         // Projects
-        Route::namespace('Projects')->prefix('projects')->group(function() {
+        Route::namespace('Projects')->prefix('projects')->group(function () {
 
             // Projects
             Route::get('/', ProjectsComponent::class);
 
             // Options
-            Route::namespace('Options')->group(function() {
+            Route::namespace('Options')->group(function () {
 
                 // Checkout
                 Route::get('checkout/{id}', CheckoutComponent::class);
 
                 // Milestones
                 Route::get('milestones/{id}', MilestonesComponent::class);
-                
             });
-
         });
-
     });
 
     // Create
-    Route::namespace('Create')->middleware('auth')->group(function() {
+    Route::namespace('Create')->middleware('auth')->group(function () {
 
         // Service
         Route::get('create', CreateComponent::class);
-
     });
 
     // Start selling
-    Route::namespace('Become')->prefix('start_selling')->group(function() {
+    Route::namespace('Become')->prefix('start_selling')->group(function () {
 
         // Become seller
         Route::get('/', SellerComponent::class);
-
     });
 
     // Seller dashboard
 
-    Route::namespace('Seller')->prefix('seller')->middleware(['seller'])->group(function() {
 
+
+
+/*Route::namespace('Seller')->prefix('seller')->middleware(['seller'])->group(function () {
+    Route::get('/inquiries', InquiriesComponent::class)->name('seller.inquiries');
+});*/
+
+    Route::namespace('Seller')->prefix('seller')->middleware(['seller'])->group(function () {
+
+		// Inquiries
+		Route::namespace('Inquiries')->prefix('inquiries')->group(function () {
+			Route::get('/', InquiriesComponent::class);
+		});
 
         // Home
-        Route::namespace('Home')->prefix('home')->group(function() {
+        Route::namespace('Home')->prefix('home')->group(function () {
 
             // Index
             Route::get('/', HomeComponent::class);
-
         });
 
         // Gigs
-        Route::namespace('Gigs')->prefix('gigs')->group(function() {
+        Route::namespace('Gigs')->prefix('gigs')->group(function () {
 
             // Index
             Route::get('/', GigsComponent::class);
 
             // Options
-            Route::namespace('Options')->group(function() {
+            Route::namespace('Options')->group(function () {
 
                 // Analytics
                 Route::get('analytics/{id}', AnalyticsComponent::class);
 
                 // Edit
                 Route::get('edit/{id}', EditComponent::class);
-
             });
-
         });
 
         // Reviews
-        Route::namespace('Reviews')->prefix('reviews')->group(function() {
+        Route::namespace('Reviews')->prefix('reviews')->group(function () {
 
             // Index
             Route::get('/', ReviewsComponent::class);
 
             // Options
-            Route::namespace('Options')->group(function() {
+            Route::namespace('Options')->group(function () {
 
                 // Details
                 Route::get('details/{id}', DetailsComponent::class);
-
             });
-
         });
 
         // Orders
-        Route::namespace('Orders')->prefix('orders')->group(function() {
+        Route::namespace('Orders')->prefix('orders')->group(function () {
 
             // Index
             Route::get('/', OrdersComponent::class);
 
             // Options
-            Route::namespace('Options')->group(function() {
+            Route::namespace('Options')->group(function () {
 
                 // Details
                 Route::get('details/{id}', DetailsComponent::class);
@@ -483,40 +483,35 @@ Route::namespace('App\Http\Livewire\Main')->group(function() {
 
                 // Requirements
                 Route::get('requirements/{id}', RequirementsComponent::class);
-
             });
-
         });
 
         // Portfolio
-        Route::namespace('Portfolio')->prefix('portfolio')->group(function() {
+        Route::namespace('Portfolio')->prefix('portfolio')->group(function () {
 
             // Index
             Route::get('/', PortfolioComponent::class);
 
             // Options
-            Route::namespace('Options')->group(function() {
+            Route::namespace('Options')->group(function () {
 
                 // Create
                 Route::get('create', CreateComponent::class);
 
                 // Edit
                 Route::get('edit/{id}', EditComponent::class);
-
             });
-
         });
 
         // Earnings
-        Route::namespace('Earnings')->prefix('earnings')->group(function() {
+        Route::namespace('Earnings')->prefix('earnings')->group(function () {
 
             // Index
             Route::get('/', EarningsComponent::class);
-
         });
 
         // Withdrawals
-        Route::namespace('Withdrawals')->prefix('withdrawals')->group(function() {
+        Route::namespace('Withdrawals')->prefix('withdrawals')->group(function () {
 
             // Index
             Route::get('/', WithdrawalsComponent::class);
@@ -526,88 +521,112 @@ Route::namespace('App\Http\Livewire\Main')->group(function() {
 
             // Create
             Route::get('create', CreateComponent::class);
-
         });
 
         // Refunds
-        Route::namespace('Refunds')->prefix('refunds')->group(function() {
+        Route::namespace('Refunds')->prefix('refunds')->group(function () {
 
             // Index
             Route::get('/', RefundsComponent::class);
 
             // Options
-            Route::namespace('Options')->group(function() {
+            Route::namespace('Options')->group(function () {
 
                 // Details
                 Route::get('details/{id}', DetailsComponent::class);
-
             });
-
         });
 
         // Projects
-        Route::namespace('Projects')->prefix('projects')->group(function() {
+        Route::namespace('Projects')->prefix('projects')->group(function () {
 
             // Index
             Route::get('/', ProjectsComponent::class);
 
             // Milestones
-            Route::namespace('Milestones')->prefix('milestones')->group(function() {
+            Route::namespace('Milestones')->prefix('milestones')->group(function () {
 
                 // List
                 Route::get('{id}', MilestonesComponent::class);
-
             });
 
             // Bid
-            Route::namespace('Bids')->prefix('bids')->group(function() {
+            Route::namespace('Bids')->prefix('bids')->group(function () {
 
                 // List
                 Route::get('/', BidsComponent::class);
 
                 // Options
-                Route::namespace('Options')->group(function() {
+                Route::namespace('Options')->group(function () {
 
                     // Checkout
                     Route::get('checkout/{id}', CheckoutComponent::class);
 
                     // Edit
                     Route::get('edit/{id}', EditComponent::class);
-
                 });
-
             });
-
         });
+		
+		//PremiumVendors
+        Route::namespace('PremiumVendors')->prefix('premium-vendors')->group(function () {
+            // Premium Vendor Subscription Page
+            Route::get('/', PremiumVendorComponent::class)->name('seller.premium-vendors');
+
+            Route::post('/stripe/webhook', [PremiumVendorComponent::class, 'handleWebhook']);
+
+            //Route::get('/stripe/webhook', [PremiumVendorComponent::class, 'handleWebhooktest']);
+            
+        }); 
+
+		//SalesReport
+        //Route::namespace('sales-report')->prefix('sales-report')->group(function () {
+            // Premium Vendor Subscription Page
+           // Route::get('/', SalesReport::class)->name('seller.sales-report');
+
+            //Route::post('/stripe/webhook', [PremiumVendorComponent::class, 'handleWebhook']);
+
+            //Route::get('/stripe/webhook', [PremiumVendorComponent::class, 'handleWebhooktest']);
+            
+        //});  
+
+		// Inquiries
+		//Route::prefix('Inquiries')->group(function () {
+		//	Route::get('/', InquiriesComponent::class)->name('seller.inquiries');
+		//});
+
+		// SalesReport
+		Route::namespace('SalesReport')->prefix('salesreport')->group(function () {
+			Route::get('/', SalesReportComponent::class);
+		});
 
     });
 
+
+
     // Help
-    Route::namespace('Help')->prefix('help')->group(function() {
+    Route::namespace('Help')->prefix('help')->group(function () {
 
         // Contact
-        Route::namespace('Contact')->group(function() {
+        Route::namespace('Contact')->group(function () {
 
             // Index
             Route::get('contact', ContactComponent::class);
-
         });
-
     });
 
     // Categories
-    Route::namespace('Categories')->prefix('categories')->group(function() {
+    Route::namespace('Categories')->prefix('categories')->group(function () {
 
         // Parent category
         Route::get('{parent}', CategoryComponent::class);
 
         // Subcategory
         Route::get('{parent}/{subcategory}', SubcategoryComponent::class);
-
     });
 
     // Profile
-    Route::namespace('Profile')->prefix('profile')->group(function() {
+    Route::namespace('Profile')->prefix('profile')->group(function () {
 
         // Username
         Route::get('{username}', ProfileComponent::class)->name('userProfile');
@@ -617,19 +636,17 @@ Route::namespace('App\Http\Livewire\Main')->group(function() {
 
         // Get project
         Route::get('{username}/portfolio/{slug}', ProjectComponent::class);
-
     });
 
     // Hire
-    Route::namespace('Hire')->prefix('hire')->group(function() {
+    Route::namespace('Hire')->prefix('hire')->group(function () {
 
         // skill
         Route::get('{keyword}', HireComponent::class);
-
     });
 
     // Messages
-    Route::namespace('Messages')->prefix('messages')->middleware('auth')->group(function() {
+    Route::namespace('Messages')->prefix('messages')->middleware('auth')->group(function () {
 
         // Index
         Route::get('/', MessagesComponent::class);
@@ -639,43 +656,38 @@ Route::namespace('App\Http\Livewire\Main')->group(function() {
 
         // Conversation
         Route::get('{conversationId}', ConversationComponent::class);
-
     });
 
     // Search
-    Route::namespace('Search')->prefix('search')->group(function() {
+    Route::namespace('Search')->prefix('search')->group(function () {
 
         // Keyword
         Route::get('/', SearchComponent::class);
-
     });
 
     // Page
-    Route::namespace('Page')->prefix('page')->group(function() {
+    Route::namespace('Page')->prefix('page')->group(function () {
 
         // Index
         Route::get('{slug}', PageComponent::class);
-
     });
 
     // Reviews
-    Route::namespace('Reviews')->prefix('reviews')->group(function() {
+    Route::namespace('Reviews')->prefix('reviews')->group(function () {
 
         // Index
         Route::get('{id}', ReviewsComponent::class);
-
     });
-
 });
 
 // Main (Controllers)
-Route::namespace('App\Http\Controllers\Main')->group(function() {
+Route::namespace('App\Http\Controllers\Main')->group(function () {
 
     // Posting
-    Route::namespace('Post')->prefix('post')->middleware('auth')->group(function() {
+    Route::namespace('Post')->prefix('post')->middleware('auth')->group(function () {
 
         // Project
-        Route::namespace('Project')->prefix('project')->group(function() {
+        Route::namespace('Project')->prefix('project')->group(function () {
 
             // Get
             Route::get('/', 'ProjectController@form');
@@ -685,63 +697,54 @@ Route::namespace('App\Http\Controllers\Main')->group(function() {
 
             // Skills
             Route::post('skills', 'ProjectController@skills');
-
         });
-
     });
 
     // Edit project
-    Route::namespace('Account\Projects')->prefix('account/projects')->group(function() {
+    Route::namespace('Account\Projects')->prefix('account/projects')->group(function () {
 
         // Edit
         Route::get('edit/{id}', 'EditController@form');
 
         // Update
         Route::post('edit/{id}', 'EditController@update');
-
     });
-
 });
 
 // Uploads
-Route::namespace('App\Http\Controllers\Uploads')->prefix('uploads')->group(function() {
+Route::namespace('App\Http\Controllers\Uploads')->prefix('uploads')->group(function () {
 
     // Documents
-    Route::namespace('Documents')->prefix('documents')->group(function() {
+    Route::namespace('Documents')->prefix('documents')->group(function () {
 
         // Doc
         Route::get('{uid}', 'DocumentController@download');
-
     });
 
     // Order requirements
-    Route::namespace('Requirements')->prefix('requirements')->middleware('auth')->group(function() {
+    Route::namespace('Requirements')->prefix('requirements')->middleware('auth')->group(function () {
 
         // Order requirements
         Route::get('{orderId}/{itemId}/{reqId}/{fileId}', 'RequirementsController@download');
-
     });
 
     // Order delivered work
-    Route::namespace('Delivered')->prefix('delivered')->middleware('auth')->group(function() {
+    Route::namespace('Delivered')->prefix('delivered')->middleware('auth')->group(function () {
 
         // Order delivered
         Route::get('{orderId}/{itemId}/{workId}/{fileId}', 'DeliveredController@download');
-
     });
 
     // Verifications
-    Route::namespace('Verifications')->prefix('verifications')->group(function() {
+    Route::namespace('Verifications')->prefix('verifications')->group(function () {
 
         // File
         Route::get('{id}/{type}/{fileId}', 'VerificationsController@download');
-
     });
-
 });
 
 // Deposit callback
-Route::namespace('App\Http\Controllers\Main\Account\Deposit')->prefix('account/deposit/callback')->middleware('auth')->group(function() {
+Route::namespace('App\Http\Controllers\Main\Account\Deposit')->prefix('account/deposit/callback')->middleware('auth')->group(function () {
 
     // Stripe
     Route::get('stripe', 'StripeController@callback');
@@ -772,31 +775,28 @@ Route::namespace('App\Http\Controllers\Main\Account\Deposit')->prefix('account/d
     Route::get('xendit', 'XenditController@callback');
 
     // Epoint.az (Failed)
-    Route::get('epoint/failed', function() {
+    Route::get('epoint/failed', function () {
 
         // We couldn't handle your payment
         return redirect('account/deposit/history')->with('error', __('messages.t_we_could_not_handle_ur_deposit_payment'));
-
     });
 
     // Epoint.az (Success)
     Route::get('epoint/success', 'EpointController@callback');
-
 });
 
 // Payment methods callback (Authenticated)
-Route::namespace('App\Http\Controllers\Main\Callback')->prefix('callback')->middleware('auth')->group(function() {
+Route::namespace('App\Http\Controllers\Main\Callback')->prefix('callback')->middleware('auth')->group(function () {
 
     // Paymob
     Route::get('paymob', 'PaymobController@callback');
 
     // Jazzcash
     Route::post('jazzcash', 'JazzcashController@callback');
-
 });
 
 // Payment methods callback (Guest)
-Route::namespace('App\Http\Controllers\Main\Callback')->prefix('callback')->group(function() {
+Route::namespace('App\Http\Controllers\Main\Callback')->prefix('callback')->group(function () {
 
     // PayTR
     Route::get('paytr', 'PaytrController@callback');
@@ -808,7 +808,6 @@ Route::namespace('App\Http\Controllers\Main\Callback')->prefix('callback')->grou
 
     // Xendit
     Route::post('xendit', 'XenditController@webhook');
-
 });
 
 // Cashfree checkout callback
@@ -838,3 +837,4 @@ Route::post('/payment-intent', [PaymentController::class, 'createPaymentIntent']
 Route::get('/search-locations', [LocationController::class, 'search'])->name('search.locations');
 Route::post('/wedding-planning', [UserWeddingPlanningController::class, 'store'])->name('wedding_planning.store');
 
+Route::get('/guest/confirm/{guest}', [GuestController::class, 'confirm'])->name('guest.confirm');

@@ -6,6 +6,7 @@
             <p class="text-sm font-bold leading-wide text-gray-800">
                 {{ __('messages.t_subcategories') }}
             </p>
+   
             <div>
                 <a href="{{ admin_url('subcategories/create') }}" class="focus:ring-2 focus:ring-offset-2 focus:ring-primary-600 inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-primary-600 hover:bg-primary-700 focus:outline-none rounded-sm">
                     <p class="text-xs font-normal tracking-wide leading-none text-white">{{ __('messages.t_create') }}</p>
@@ -13,7 +14,7 @@
             </div>
         </div>
     </div>
-
+  
     {{-- Section content --}}
     <div class="bg-white dark:bg-zinc-800 overflow-y-auto border !border-t-0 !border-b-0 dark:border-zinc-600">
         <table class="w-full whitespace-nowrap old-tables">
@@ -109,7 +110,7 @@
             </tbody>
         </table>
     </div>
-
+   
     {{-- Pagination --}}
     @if ($subcategories->hasPages())
         <div class="bg-gray-100 px-4 py-5 sm:px-6 rounded-bl-lg rounded-br-lg flex justify-center border-t-0 border-r border-l border-b">

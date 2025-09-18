@@ -1,24 +1,24 @@
-<div class="flex w-full max-w-sm grow flex-col justify-center p-5">
-
+<div class="flex w-full max-w-sm grow flex-col justify-center p-5 signup-form" style="max-height:fit-content;">
 	
-	<div class="text-center">
+	<div class="text-left">
 		<div class="mt-4">
-			<h2 class="text-xl font-bold text-zinc-700 dark:text-navy-100">
-			SIgn Up for Sukoonzz
-				<!-- <?php echo app('translator')->get('messages.t_welcome_to_app_name', ['name' => config('app.name')]); ?> -->
+			<img src="<?php echo e(url('public/img/home/logo.png')); ?> " width='50px' height="50px" style="width: 15%;float: left;margin-right:10px"> 			
+		</div>
+		<h2 class="text-xl font-bold text-zinc-700 dark:text-navy-100">			 
+			<span style="color: #FF8080;vertical-align: sub;">Sign Up to SUKOONZZ</span>
+				 <!-- <?php echo app('translator')->get('messages.t_welcome_to_app_name', ['name' => config('app.name')]); ?>  -->
 			</h2>
 			<!-- <p class="text-zinc-400 dark:text-gray-300">
 				<?php echo app('translator')->get('messages.t_pls_signup_to_continue'); ?>
-			</p> -->
+			</p> 
 			<a href="<?php echo e(url('/')); ?>" class="block lg:hidden mt-3 text-sm tracking-wider font-semibold text-blue-600 hover:underline">
 				<?php echo app('translator')->get('messages.t_back_to_homepage'); ?>
-			</a>
-		</div>
+			</a> -->
 	</div>
 
 	
-	<div class="mt-8">
-		
+	<div class="mt-8" style="margin-top: 0rem;">
+
 		
 		<?php if(session()->has('success')): ?>
 			<div class="mb-6 sm:max-w-md sm:w-full sm:mx-auto sm:overflow-hidden">
@@ -36,7 +36,7 @@
 		<?php endif; ?>
 	
 		<div class="w-full relative">
-			
+		
 			
 			<div class="mt-6">
 				<form x-data="window.UcZWcDFfVKBjfgP" x-on:submit.prevent="register" class="grid grid-cols-12 md:gap-x-6 gap-y-6">
