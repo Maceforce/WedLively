@@ -142,7 +142,7 @@
 
                     {{-- Dark/Light mode --}}
                     @if ( settings('appearance')->is_theme_switcher && current_theme() === 'light' )
-                    <!-- <button
+                    <button
                         wire:click="switchTheme"
                         wire:loading.attr="disabled"
                         class="inline-flex items-center px-2.5 py-2 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600  disabled:cursor-not-allowed max-w-fit">
@@ -194,7 +194,7 @@
 
                         <span class="text-xs font-semibold text-gray-300 whitespace-nowrap">@lang('messages.t_light_mode')</span>
 
-                    </button> -->
+                    </button> 
                     @endif
 
                 </div> 

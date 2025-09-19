@@ -54,9 +54,9 @@ return [
     |
     */
 
-    'url'       => 'http://localhost/WedLively',
+    'url'       => env('APP_URL', 'http://localhost/WedLively/'),
 
-    'asset_url' => 'http://localhost/WedLively',
+    'asset_url' => env('APP_URL', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -226,6 +226,7 @@ return [
     /**
      * Mix base url
      */
-    'mix_url' => 'http://localhost/WedLively/public'
+    'mix_url' => env('MIX_URL', null)
+
 
 ];

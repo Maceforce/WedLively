@@ -655,13 +655,13 @@ a {
                 
                 <?php if(current_theme() === 'dark' && settings('general')->logo_dark): ?>
                 <a href="<?php echo e(url('/')); ?>" class="block ltr:sm:mr-6 rtl:sm:ml-6">
-                    <h1 class="text-lg sm:text-3xl">SUKOONZZ</h1>
+                    <h1 class="text-lg sm:text-3xl">Wedlively</h1>
 
                     <!-- <img width="170"  src="<?php echo e(src(settings('general')->logo_dark)); ?>" alt="<?php echo e(settings('general')->title); ?>" style="position: relative;right: 6px"> -->
                 </a>
                 <?php else: ?>
                 <a href="<?php echo e(url('/')); ?>" class="block ltr:sm:mr-6 rtl:sm:ml-6">
-                    <h1 class="text-lg sm:text-3xl">SUKOONZZ</h1>
+                    <h1 class="text-lg sm:text-3xl">Wedlively</h1>
 
                     <!-- <img width="280"  src="<?php echo e(src(settings('general')->logo)); ?>" alt="<?php echo e(settings('general')->title); ?>" style="position: relative;right: 6px"> -->
                 </a>

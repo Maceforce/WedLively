@@ -13,3 +13,33 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/.zip
+.DS_Store
+Thumbs.db
+/storage/debugbar   
+/storage/framework/cache/data
+/storage/framework/sessions
+
+# Laravel specific
+/vendor
+/node_modules
+/public/storage
+/storage/*.key
+
+# Laravel caches
+/bootstrap/cache/*.php
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*
+
+# Environment & config
+.phpunit.result.cache
+
+# OS / Editor junk
+*.log
+
+# Composer / npm
+composer.lock
+package-lock.json
+yarn.lock

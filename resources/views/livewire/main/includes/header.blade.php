@@ -655,13 +655,13 @@ a {
                 {{-- Logo --}}
                 @if (current_theme() === 'dark' && settings('general')->logo_dark)
                 <a href="{{ url('/') }}" class="block ltr:sm:mr-6 rtl:sm:ml-6">
-                    <h1 class="text-lg sm:text-3xl">SUKOONZZ</h1>
+                    <h1 class="text-lg sm:text-3xl">Wedlively</h1>
 
                     <!-- <img width="170"  src="{{ src(settings('general')->logo_dark) }}" alt="{{ settings('general')->title }}" style="position: relative;right: 6px"> -->
                 </a>
                 @else
                 <a href="{{ url('/') }}" class="block ltr:sm:mr-6 rtl:sm:ml-6">
-                    <h1 class="text-lg sm:text-3xl">SUKOONZZ</h1>
+                    <h1 class="text-lg sm:text-3xl">Wedlively</h1>
 
                     <!-- <img width="280"  src="{{ src(settings('general')->logo) }}" alt="{{ settings('general')->title }}" style="position: relative;right: 6px"> -->
                 </a>
