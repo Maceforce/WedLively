@@ -218,7 +218,7 @@
                 <div class="logo-text">
 
                     <a href="{{ url('/') }}" class="h-full">
-                        <h1>SUKOONZZ</h1>
+                        <h1>{{ config('app.name') }}</h1>
                         <!-- <img src="{{ placeholder_img() }}" data-src="{{ src(settings('footer')->logo) }}" alt="{{ settings('general')->title }}" class="lazy py-2.5 max-h-20 w-auto"  style="width: 180px;"> -->
                     </a>
                 </div>             

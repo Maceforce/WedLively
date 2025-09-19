@@ -2,7 +2,7 @@
 	{{-- Welcome back message --}}
 	<div class="text-center">
 		<h2 class="text-2xl mb-0 font-bold text-gray-800 dark:text-navy-100">			 
-			<span>Sign up for Sukoonzz!</span>
+			<span>Sign up for {{ config('app.name') }}!</span>
 				 <!-- @lang('messages.t_welcome_to_app_name', ['name' => config('app.name')])  -->
 			</h2>
 			<!-- <p class="text-zinc-400 dark:text-gray-300">
@@ -205,7 +205,7 @@
                     <div class="col-span-12 mt-5">
                         <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse my-3">
                             <!-- <svg class="w-6 h-6 text-gray-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> -->
-                            <span class="text-sm tracking-wider text-gray-800 text-center">By Clicking’Sign Up’, you agree to Sukoonzz <a href="/page/terms-and-condition" class="link-color hover:text-gray-800 hover:underline font-medium transition-colors duration-300">Terms of Use</a>.</span>
+                            <span class="text-sm tracking-wider text-gray-800 text-center">By Clicking’Sign Up’, you agree to {{ config('app.name') }} <a href="/page/terms-and-condition" class="link-color hover:text-gray-800 hover:underline font-medium transition-colors duration-300">Terms of Use</a>.</span>
                         </div>
                     </div>
 

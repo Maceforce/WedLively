@@ -154,7 +154,7 @@ class GeneralComponent extends Component
 
             // Set app name
             Config::write('app.name', $this->title);
-            Config::write('app.url', url('/'));
+            //Config::write('app.url', url('/'));
             Config::write('app.locale', $this->default_language);
             Config::write('app.fallback_locale', $this->default_language);
 

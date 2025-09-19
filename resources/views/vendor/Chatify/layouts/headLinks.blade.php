@@ -142,12 +142,12 @@
 					@if (current_theme() === 'dark' && settings('general')->logo_dark)
 						<a href="{{ url('/') }}" class="flex items-center flex-shrink-0 px-5 font-reselu">
 							<!-- <img width="150" height="{{ settings('appearance')->sizes['header_desktop_logo_height'] }}" src="{{ src(settings('general')->logo_dark) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;width:auto"> -->
-							<h1 class="text-lg sm:text-3xl" style="font-family:Reselu">SUKOONZZ</h1>
+							<h1 class="text-lg sm:text-3xl" style="font-family:Reselu">{{ config('app.name') }}</h1>
 						</a>
 					@else
 						<a href="{{ url('/') }}" class="flex items-center flex-shrink-0 px-5 font-reselu">
 							<!-- <img width="150" height="{{ settings('appearance')->sizes['header_desktop_logo_height'] }}" src="{{ src(settings('general')->logo) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;width:auto"> -->
-							<h1 class="text-lg sm:text-3xl" style="font-family:Reselu">SUKOONZZ</h1>
+							<h1 class="text-lg sm:text-3xl" style="font-family:Reselu">{{ config('app.name') }}</h1>
 						</a>
 					@endif
 					
@@ -242,12 +242,12 @@
 					@if (current_theme() === 'dark' && settings('general')->logo_dark)
 						<a href="{{ url('/') }}" class="flex items-center flex-shrink-0 px-5">
 							<!-- <img width="150" height="{{ settings('appearance')->sizes['header_desktop_logo_height'] }}" src="{{ src(settings('general')->logo_dark) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;width:auto"> -->
-							<h1 class="text-lg sm:text-3xl" style="font-family:Reselu">SUKOONZZ</h1>
+							<h1 class="text-lg sm:text-3xl" style="font-family:Reselu">{{ config('app.name') }}</h1>
 						</a>
 					@else
 						<a href="{{ url('/') }}" class="flex items-center flex-shrink-0 px-5">
 							<!-- <img width="150" height="{{ settings('appearance')->sizes['header_desktop_logo_height'] }}" src="{{ src(settings('general')->logo) }}" alt="{{ settings('general')->title }}" style="height: {{ settings('appearance')->sizes['header_desktop_logo_height'] }}px;width:auto"> -->
-							<h1 class="text-lg sm:text-3xl" style="font-family:Reselu">SUKOONZZ</h1>
+							<h1 class="text-lg sm:text-3xl" style="font-family:Reselu">{{ config('app.name') }}</h1>
 						</a>
 					@endif
 

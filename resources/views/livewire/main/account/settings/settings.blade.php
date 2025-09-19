@@ -22,7 +22,7 @@
 					<x-main.account.plannerbar />
 
                     {{-- Form --}}
-                    <div class="py-6 px-4 sm:p-6 lg:pb-8 h-[calc(100%-80px)]">
+                    <div class="py-6 px-4 sm:p-6 lg:pb-8 h-[calc(100%-180px)]">
 
                         {{-- Section header --}}
                         <div class="mb-5">

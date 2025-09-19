@@ -7,7 +7,7 @@
 			<!-- <img src="{{url('public/img/home/logo.png')}}" width='50px' height="50px" style="width: 15%;float: left;margin-right:10px"> 			 -->
 			<h1 class="text-2xl text-center mb-0 font-bold dark:text-navy-100 text-gray-800">
 				<!-- @lang('messages.t_welcome_back') -->
-				<span><b>Log in to Sukoonzz</b</span>
+				<span><b>Log in to {{ config('app.name') }}</b</span>
 										
 			</h1>
 			</div>
