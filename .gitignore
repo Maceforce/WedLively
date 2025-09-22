@@ -1,41 +1,45 @@
-# Node & Vendor
 /node_modules
-/vendor
-
-# Laravel specific
 /public/build
 /public/hot
 /public/storage
 /storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode
+/.zip
+.DS_Store
+Thumbs.db
+/storage/debugbar   
+/storage/framework/cache/data
+/storage/framework/sessions
 
-# Laravel caches & logs
+# Laravel specific
+/vendor
+/node_modules
+/public/storage
+/storage/*.key
+
+# Laravel caches
 /bootstrap/cache/*.php
 /storage/framework/cache/*
 /storage/framework/sessions/*
 /storage/framework/views/*
 /storage/logs/*
-/storage/debugbar
 
-# Environment & config (don’t commit sensitive stuff!)
-.env
-.env.backup
-/config/app.php
-/config/database.php
-
-# PHPUnit
+# Environment & config
 .phpunit.result.cache
 
-# IDE / OS / Editor junk
-/.idea
-/.vscode
-.DS_Store
-Thumbs.db
+# OS / Editor junk
 *.log
-npm-debug.log
-yarn-error.log
-*.zip
 
-# Lock files (optional: ignore if team wants reproducible builds)
-/composer.lock
-/package-lock.json
-/yarn.lock
+# Composer / npm
+composer.lock
+package-lock.json
+yarn.lock
