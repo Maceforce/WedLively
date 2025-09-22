@@ -36,11 +36,11 @@ return [
     'mailers' => [
         'smtp' => [
             'transport'    => 'smtp',
-            'host'         => 'freelancerwork.online',
+            'host'         => 'wedlively.com',
             'port'         => '465',
             'encryption'   => 'ssl',
-            'username'     => 'auth@freelancerwork.online',
-            'password'     => '18xYjQ.OOa7%',
+            'username'     => 'noreply@wedlively.com',
+            'password'     => 'a0&198Nju',
             'timeout'      => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
         ],
@@ -92,8 +92,8 @@ return [
     */
 
     'from' => [
-        'address' => 'auth@freelancerwork.online',
-        'name'    => 'Freelancerwork',
+        'address' => 'noreply@wedlively.com',
+        'name'    => 'wedlively.com',
     ],
 
     /*
