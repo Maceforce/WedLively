@@ -49,7 +49,7 @@
 									<div class="col-span-12 md:col-span-6 p-1">
 										<div class="existing-budgets shadow-md bg-gray-100">
 											<h2>Final Cost</h2>
-											<p>${{ $estimatedBudget }}</p>
+											<p>{{ settings('currency')->code }}{{ $estimatedBudget }}</p>
 										</div>
 									</div>
 								</div>
