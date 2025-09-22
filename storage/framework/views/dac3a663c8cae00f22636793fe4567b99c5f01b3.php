@@ -392,13 +392,17 @@ a {
 }
 .logo-text a h1 {
     font-weight: bold !important;
-    color: #000 !important;
+    color: #000;
 }
 
-
+.dark .logo-text a h1
+ {
+    font-weight: bold !important;
+    color: #fff;
+}
 
 .bg-white {
-    background-color: #ffffff!important;
+    background-color: #ffffff;
 }
 .position-absolute {
     position: absolute;

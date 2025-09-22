@@ -374,8 +374,9 @@ a {
     border: 1px solid #FFFFFF;
 }
 .bg-white {
-    background-color: #ffffff!important;
+    background-color: #ffffff;
 }
+
 .position-absolute {
     position: absolute;
 } 

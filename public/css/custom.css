@@ -45,7 +45,13 @@ body [type=checkbox] {
 
 .logo-text a h1 {
     font-weight: bold !important;
-    color: #000 !important;
+    color: #000;
+}
+
+.dark .logo-text a h1
+ {
+    font-weight: bold !important;
+    color: #fff;
 }
 
 .min-h-screen.flex.grow.bg-slate-50.dark\:bg-zinc-700 {

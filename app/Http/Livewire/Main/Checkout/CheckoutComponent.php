@@ -1142,20 +1142,63 @@ class CheckoutComponent extends Component
      *
      * @return void
      */
+    // private function initStripe()
+    // {
+    //     // Set your secret key. Remember to switch to your live secret key in production.
+    //     $stripe = new \Stripe\StripeClient(config('stripe.secret_key'));
+
+    //     $intent = $stripe->paymentIntents->create(
+    //         [
+    //             'amount'                    => $this->calculateExchangeAmount(settings('stripe')->exchange_rate) * 100,
+    //             'currency'                  => settings('stripe')->currency,
+    //             'automatic_payment_methods' => ['enabled' => true],
+    //         ]
+    //     );
+
+    //     $this->stripe_intent_secret = $intent->client_secret;
+    // }
+
     private function initStripe()
     {
-        // Set your secret key. Remember to switch to your live secret key in production.
+        $user = auth()->user();
         $stripe = new \Stripe\StripeClient(config('stripe.secret_key'));
+        $customer = null;
 
-        $intent = $stripe->paymentIntents->create(
-            [
-                'amount'                    => $this->calculateExchangeAmount(settings('stripe')->exchange_rate) * 100,
-                'currency'                  => settings('stripe')->currency,
+        try {
+            if ($user->stripe_customer_id) {
+                // Try retrieving existing customer
+                $customer = $stripe->customers->retrieve($user->stripe_customer_id);
+            }
+
+            if (!$customer || !isset($customer->id)) {
+                // Create a new customer if none exists or retrieval failed
+                $customer = $stripe->customers->create([
+                    'email' => $user->email,
+                    'name' => $user->name,
+                ]);
+
+                // Save to DB
+                $user->stripe_customer_id = $customer->id;
+                $user->save();
+            }
+
+            // Create PaymentIntent
+            $amountInCents = intval($this->calculateExchangeAmount(settings('stripe')->exchange_rate) * 100);
+
+            $intent = $stripe->paymentIntents->create([
+                'amount' => $amountInCents,
+                'currency' => settings('stripe')->currency,
+                'customer' => $customer->id,
                 'automatic_payment_methods' => ['enabled' => true],
-            ]
-        );
+            ]);
 
-        $this->stripe_intent_secret = $intent->client_secret;
+            $this->stripe_intent_secret = $intent->client_secret;
+
+        } catch (\Exception $e) {
+            // Log the error to debug
+            \Log::error('Stripe Error: ' . $e->getMessage());
+            throw $e; // re-throw or handle gracefully
+        }
     }
 
     

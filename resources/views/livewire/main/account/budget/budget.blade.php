@@ -49,7 +49,7 @@
 									<div class="col-span-12 md:col-span-6 p-1">
 										<div class="existing-budgets shadow-md bg-gray-100">
 											<h2>Final Cost</h2>
-											<p>{{ settings('currency')->code }}{{ $estimatedBudget }}</p>
+											<p>{{ settings('currency')->code }} {{ $estimatedBudget }}</p>
 										</div>
 									</div>
 								</div>
@@ -80,7 +80,7 @@
 												@forelse($budgets as $budget)
 												<li class="budget-item bg-gray-100">
 													<strong>{{ $budget->category }}</strong> -
-													<span>${{ number_format($budget->amount, 2) }}</span>
+													<span>{{ settings('currency')->code }} {{ number_format($budget->amount, 2) }}</span>
 													<button wire:click="deleteBudget({{ $budget->id }})" class="btn-delete">Delete</button>
 												</li>
 												@empty
