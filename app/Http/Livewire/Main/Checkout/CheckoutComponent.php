@@ -1161,7 +1161,8 @@ class CheckoutComponent extends Component
     private function initStripe()
     {
         $user = auth()->user();
-        $stripe = new \Stripe\StripeClient(config('stripe.secret_key'));
+        //$stripe = new \Stripe\StripeClient(config('stripe.secret_key'));
+        $stripe = new \Stripe\StripeClient(config('services.stripe.secret'));
         $customer = null;
 
         try {
