@@ -573,7 +573,7 @@ a {
       completely stress free with our custom wedding plan!
   </p>
   <div class="text-center">
-        <button class="btn-danger mx-auto">Start Planning </button>
+        <button class="btn-danger mx-auto" onclick="location.href='auth/register';">Start Planning </button> 
   </div>
 </div>
 
