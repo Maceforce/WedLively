@@ -31,7 +31,7 @@ class InquiriesComponent extends Component
             $inquiry->save();
 
             // Notify the planner via email
-           Mail::to("sukoonzplanner1@sharklasers.com")->send(new InquiryAccepted($inquiry));
+           Mail::to($inquiry->planner_email)->send(new InquiryAccepted($inquiry));
 
             session()->flash('success', 'Inquiry accepted and notification sent.');
         }
