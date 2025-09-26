@@ -281,5 +281,49 @@ class Header extends Component
         // Refresh the page
         $this->dispatchBrowserEvent('refresh');
     }
+
+    /**
+     * Switch theme
+     *
+     * @return void
+     */
+    public function switchTheme()
+    {
+        try {
+            
+            // Get appearance settings
+            $settings = settings('appearance');
+
+            // Check if theme switcher enabled
+            if ($settings->is_theme_switcher) {
+                
+                // Get current theme
+                $current = current_theme();
+
+                // Check current theme
+                if ($current === 'light') {
+                   
+                    // Switch to dark mode
+                    Cookie::queue('default_theme', 'dark', 10080); // 7 days = 10080 min
+
+                } else {
+
+                    // Switch to light mode
+                    Cookie::queue('default_theme', 'light', 10080); // 7 days = 10080 min
+
+                }
+
+                // Refresh the page
+                $this->dispatchBrowserEvent('refresh');
+
+            }
+
+        } catch (\Throwable $th) {
+            
+            // Something went wrong
+            return;
+
+        }
+    }
     
 }

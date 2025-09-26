@@ -614,6 +614,11 @@ a {
     .font-reselu {
         font-family: "Reselu"!important;
     }
+    button.inline-flex.items-center.px-2\.5.py-2.border.border-gray-300.shadow-sm.text-xs.font-medium.rounded.text-gray-700.bg-white.hover\:bg-gray-50.focus\:outline-none.focus\:ring-2.focus\:ring-offset-2.focus\:ring-primary-600.disabled\:cursor-not-allowed.max-w-fit {
+        border: 0px;
+        margin-top: -40px;
+        background-color: transparent;
+    }
 </style>
     <div x-data="window.TTRjRvxLbHzaKxW">
 
@@ -1003,6 +1008,8 @@ a {
 
                 </div> -->
 
+                
+
                 {{-- Change language --}}
                 @if (settings('general')->is_language_switcher)
                  @livewire('main.partials.languages') 
@@ -1388,6 +1395,80 @@ a {
 
                 </div>
                 @endauth
+
+                @if (settings('footer')->is_language_switcher || settings('appearance')->is_dark_mode)
+                <div class="mt-10 grid grid-cols-1 gap-y-4">
+
+                    {{-- Change language --}}
+                    @if (settings('footer')->is_language_switcher)
+                    <button @click="languages = !languages" class="inline-flex items-center px-2.5 py-2 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600 dark:bg-zinc-600 dark:text-gray-300 dark:border-zinc-600 dark:focus:ring-offset-zinc-600 dark:hover:bg-zinc-800 max-w-fit">
+                        <img src="{{ placeholder_img() }}" data-src="{{ url('public/img/flags/rounded/'. strtolower($default_country_code) .'.svg') }}" alt="" class="lazy w-4 h-4 ltr:mr-3 rtl:ml-3">
+                        <span class="text-xs font-semibold text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $default_language_name }}</span>
+                        <svg class="w-4 h-4 ltr:ml-1 rtl:mr-1" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    @endif
+
+                    {{-- Dark/Light mode --}}
+                    @if ( settings('appearance')->is_theme_switcher && current_theme() === 'light' )
+                    <button
+                        wire:click="switchTheme"
+                        wire:loading.attr="disabled"
+                        class="inline-flex items-center px-2.5 py-2 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600  disabled:cursor-not-allowed max-w-fit">
+
+                        {{-- Loading indicator --}}
+                        <div wire:loading wire:target="switchTheme">
+                            <svg role="status" class="w-4 h-4 ltr:mr-3 rtl:ml-3 block text-gray-700 animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB" />
+                                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor" />
+                            </svg>
+                        </div>
+
+                        {{-- Dark mode icon --}}
+                        <div wire:loading.remove wire:target="switchTheme">
+                            <svg class="w-4 h-4 ltr:mr-3 rtl:ml-3" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path d="M9.822 2.238a9 9 0 0 0 11.94 11.94C20.768 18.654 16.775 22 12 22 6.477 22 2 17.523 2 12c0-4.775 3.346-8.768 7.822-9.762zm8.342.053L19 2.5v1l-.836.209a2 2 0 0 0-1.455 1.455L16.5 6h-1l-.209-.836a2 2 0 0 0-1.455-1.455L13 3.5v-1l.836-.209A2 2 0 0 0 15.29.836L15.5 0h1l.209.836a2 2 0 0 0 1.455 1.455zm5 5L24 7.5v1l-.836.209a2 2 0 0 0-1.455 1.455L21.5 11h-1l-.209-.836a2 2 0 0 0-1.455-1.455L18 8.5v-1l.836-.209a2 2 0 0 0 1.455-1.455L20.5 5h1l.209.836a2 2 0 0 0 1.455 1.455z"></path>
+                                </g>
+                            </svg>
+                        </div>
+
+                        {{-- <span class="text-xs font-semibold text-gray-500 whitespace-nowrap">@lang('messages.t_dark_mode')</span> --}}
+
+                    </button>
+                    @elseif ( settings('appearance')->is_theme_switcher && current_theme() === 'dark' )
+                    <button
+                        wire:click="switchTheme"
+                        wire:loading.attr="disabled"
+                        class="inline-flex items-center px-2.5 py-2 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600  disabled:cursor-not-allowed dark:bg-zinc-600 dark:text-gray-300 dark:border-zinc-600 dark:focus:ring-offset-zinc-600 dark:hover:bg-zinc-800 max-w-fit">
+
+                        {{-- Loading indicator --}}
+                        <div wire:loading wire:target="switchTheme">
+                            <svg role="status" class="w-4 h-4 ltr:mr-3 rtl:ml-3 block text-gray-700 animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB" />
+                                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor" />
+                            </svg>
+                        </div>
+
+                        {{-- Dark mode icon --}}
+                        <div wire:loading.remove wire:target="switchTheme">
+                            <svg class="w-4 h-4 ltr:mr-3 rtl:ml-3" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"></path>
+                                </g>
+                            </svg>
+                        </div>
+
+                        {{-- <span class="text-xs font-semibold text-gray-300 whitespace-nowrap">@lang('messages.t_light_mode')</span> --}}
+
+                    </button> 
+                    @endif
+
+                </div> 
+                @endif
 
             </div>
         </div>
